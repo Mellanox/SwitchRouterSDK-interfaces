@@ -672,6 +672,80 @@ sx_status_t sx_api_fdb_mc_mac_addr_group_get(const sx_api_handle_t    handle,
                                              const sx_fdb_mac_key_t * group_key,
                                              sx_fdb_mac_data_t      * data_p);
 
+
+/**
+ *  This function returns a list of one or more FDB MC keys (FID + MC MAC address).
+ *  The following use case scenarios apply with different input parameters
+ *  X = don't-care
+ *   - 1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, key_list = X, Count =0:
+ *        In this case the API will return the total number of MACs in the
+ *        Internal db
+ *
+ *   - 2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, key_list =
+ *        Valid, Count = 1:
+ *        In this case the API will check if the specified key exists. if it does
+ *        the key will be returned in the key_list along with a count of 1.
+ *        If the key does not exist an empty list will be returned with count = 0
+ *
+ *   - 3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = Valid, key_list = Valid, Count = 1:
+ *        In this case the API will check if the specified key exists. if it does
+ *        it will check it against the filter parameter. If the filter matches,
+ *        the key will be returned in the key_list along with a count of 1.
+ *        If the key does not exist or the filter does not match an empty list
+ *        will be returned with count = 0
+ *
+ *   - 4) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = Valid/invalid,
+ *        key_list is Valid, Count > 1:
+ *        A count >1 will be treated as a count of 1 and the behavior will be same
+ *        as earlier GET use cases.
+ *
+ *   - 5) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X,
+ *        key_list = Null, Count =0:
+ *        For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT a zero count
+ *        will return an empty list.
+ *
+ *   - 6) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = valid/invalid, key_list =
+ *        Valid, Count > 0:
+ *        In this case the API will return the first count MACs starting from
+ *        the head of the database. The total elements fetched will be returned
+ *        as the return count.  Note: return count may be less than or equal to
+ *        the requested count. The key is dont-care.
+ *        If a filter is specified only those MACs that match the filter will
+ *        be returned. a non-Null return key_list pointer must be provided
+ *
+ *   - 7) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = valid/invalid,
+ *        key_list = Valid, Count > 0:
+ *        In this case the API will return the next set of MACs starting from
+ *        the next valid MAC after the specified key. The total elements fetched
+ *        will be returned as the return count.  If a filter is specified only
+ *        those MACs that match the filter will be returned.
+ *        Note: return count may be less than or equal to the requested count.
+ *        If no valid next MAC exists in the db (key = end of list, or invalid
+ *        key specified, or key too large), an empty list will be returned.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3
+ *
+ * @param [in] cmd               : GET/GET_FIRST/GET_NEXT
+ * @param [in] key_p             : specify a MAC key
+ * @param [in] filter_p          : specify a filter parameter
+ * @param [out] key_list_p       : return list of MAC keys
+ * @param [in,out] data_cnt_p    : [in] number of MACs to get.
+ *                               : [out] number of MACs returned
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_NULL if an unexpected NULL parameter was passed.
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
+ * @return SX_STATUS_ERROR general error.
+ * @return SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed
+ * @return SX_STATUS_DB_NOT_INITIALIZED - if internal DB is not initialized
+ * @return SX_STATUS_NO_MEMORY if memory allocation fails
+ */
+sx_status_t sx_api_fdb_mc_mac_addr_group_iter_get(const sx_api_handle_t         handle,
+                                                  const sx_access_cmd_t         cmd,
+                                                  const sx_fdb_mac_key_t       *key_p,
+                                                  const sx_fdb_mc_key_filter_t *filter_p,
+                                                  sx_fdb_mac_key_t             *key_list_p,
+                                                  uint32_t                     *key_cnt_p);
 /**
  *  This function deletes all learned (Dynamic) FDB table entries on a switch partition
  *  Supported devices: Spectrum, Spectrum2, Spectrum3.
@@ -1511,6 +1585,77 @@ sx_status_t sx_api_fdb_unreg_mc_flood_ports_get(const sx_api_handle_t handle,
                                                 const sx_vid_t        vid,
                                                 sx_port_log_id_t     *log_port_list_p,
                                                 uint32_t             *port_cnt_p);
+
+/**
+ * This function is used to set the flooding mode and vector for
+ * Unregistered MC traffic IPv4 and IPv6
+ * Specifically :
+ *      - Flooding mode : FLOOD / PRUNE
+ *      - In Prune mode, user should provide MC container with list of ports.
+ *        In Flood mode , the flood_vector is N/A. SDK will set the flooding vector to be all VLAN members.
+ *
+ *  NOTE:
+ * In order to have separate vector for Unregistered MC traffic IPv6 the following flag should be enabled
+ * sdk_init_params.fdb_params.unreg_mc_ipv6_flood_en as part of SDK init.
+ * Else the Broadcast vector will apply for Unregistered MC traffic IPv6.
+ *
+ * This API are mutually exclusive and supersedes the following APIs below which will be deprecated:
+ * sx_api_fdb_unreg_mc_flood_mode_set(..)
+ * sx_api_fdb_unreg_mc_flood_ports_set(..)
+ *
+ * @param[in] handle                - SX-API handle
+ * @param[in] access_cmd            - SET / UNSET
+ *    SET will configure URMC according flood_attr
+ *    UNSET will configure URMC mode to be FLOOD to release MC container
+ * @param[in] flood_key_p           - flood key
+ * @param[in] flood_attr_p          - flood attributes
+ *
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ERROR for a general error
+ *
+ */
+sx_status_t sx_api_fdb_unreg_mc_flood_mode_ext_set(const sx_api_handle_t               handle,
+                                                   const sx_access_cmd_t               access_cmd,
+                                                   const sx_fdb_unreg_mc_flood_key_t * flood_key_p,
+                                                   const sx_fdb_unreg_mc_flood_attr_t* flood_attr_p);
+
+
+/**
+ * This function is used to get the flooding mode and vector for
+ * Unregistered MC traffic IPv4 and IPv6. Only one type can be provided at time.
+ * Specifically :
+ *      - flooding mode FLOOD / PRUNE
+ *      - In PRUNE mode: flood_attr flood_vector will contains MC container with log_ports
+ *        In FLOOD mode: flood_vector will return SX_MC_CONTAINER_ID_INVALID
+ *
+ * NOTE:
+ * In order to have separate vector for Unregistered MC traffic IPv6 the following flag should be enabled
+ * sdk_init_params.fdb_params.unreg_mc_ipv6_flood_en as part of SDK init.
+ * Else the Broadcast vector will apply for Unregistered MC traffic IPv6.
+ *
+ * This API are mutually exclusive and supersedes the following APIs below which will be deprecated:
+ * sx_api_fdb_unreg_mc_flood_mode_get(..)
+ * sx_api_fdb_unreg_mc_flood_ports_get(..)
+ *
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ * @param[in] handle          - SX-API handle
+ * @param[in] flood_key_p      - Flood key
+ * @param[out] flood_attr_p   - Flood attributes
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_UNSUPPORTED if flood control is not supported in the switch.
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if ports_list is null and ports_count is not 0.
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_fdb_unreg_mc_flood_mode_ext_get(const sx_api_handle_t               handle,
+                                                   const sx_fdb_unreg_mc_flood_key_t * flood_key_p,
+                                                   sx_fdb_unreg_mc_flood_attr_t* const flood_attr_p);
+
 
 /**
  * This function reads and/or clears activity on a specified multicast IP Entry.

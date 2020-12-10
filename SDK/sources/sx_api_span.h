@@ -853,4 +853,20 @@ sx_status_t sx_api_span_session_policer_bind_get(const sx_api_handle_t      hand
                                                  const sx_span_session_id_t span_session_id,
                                                  sx_policer_id_t           *policer_id_p);
 
+/**
+ *  This function gets the SPAN attributes.
+ *  Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[out] span_attrs_p - SPAN attributes
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_UNSUPPORTED if the API is not supported for this device
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ */
+sx_status_t sx_api_span_attributes_get(const sx_api_handle_t handle,
+                                       sx_span_attrs_t      *span_attrs_p);
+
 #endif /* __SX_API_SPAN_H__ */

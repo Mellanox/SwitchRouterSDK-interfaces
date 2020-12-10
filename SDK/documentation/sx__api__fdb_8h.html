@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.1912</span>
+   &#160;<span id="projectnumber">4.4.2018</span>
    </div>
   </td>
  </tr>
@@ -119,6 +119,8 @@ Functions</h2></td></tr>
 <tr class="separator:a03d816e7ed1c5915fb626d016831516a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d0c86ed51f1cd28c7ab51a8d49d6723"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a5d0c86ed51f1cd28c7ab51a8d49d6723">sx_api_fdb_mc_mac_addr_group_get</a> (const sx_api_handle_t handle, const sx_fdb_mac_key_t *group_key, sx_fdb_mac_data_t *data_p)</td></tr>
 <tr class="separator:a5d0c86ed51f1cd28c7ab51a8d49d6723"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34497b9f8df08f526c513c62c696c062"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a34497b9f8df08f526c513c62c696c062">sx_api_fdb_mc_mac_addr_group_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_fdb_mac_key_t *key_p, const sx_fdb_mc_key_filter_t *filter_p, sx_fdb_mac_key_t *key_list_p, uint32_t *key_cnt_p)</td></tr>
+<tr class="separator:a34497b9f8df08f526c513c62c696c062"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af975d298e288b3700edb6bfa46ffe9e6"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#af975d298e288b3700edb6bfa46ffe9e6">sx_api_fdb_uc_flush_all_set</a> (const sx_api_handle_t handle, const sx_swid_t swid)</td></tr>
 <tr class="separator:af975d298e288b3700edb6bfa46ffe9e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a607d3e59f86ea3030361a4d3ab11ca77"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a607d3e59f86ea3030361a4d3ab11ca77">sx_api_fdb_uc_flush_port_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port)</td></tr>
@@ -195,6 +197,10 @@ Functions</h2></td></tr>
 <tr class="separator:ac8e3fbbd807c02081b6153fc89f759b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae94842d07542f4a835f7f9d78f1d9043"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#ae94842d07542f4a835f7f9d78f1d9043">sx_api_fdb_unreg_mc_flood_ports_get</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_vid_t vid, sx_port_log_id_t *log_port_list_p, uint32_t *port_cnt_p)</td></tr>
 <tr class="separator:ae94842d07542f4a835f7f9d78f1d9043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b27e71cead1426a4b4156ce55a00019"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a1b27e71cead1426a4b4156ce55a00019">sx_api_fdb_unreg_mc_flood_mode_ext_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t access_cmd, const sx_fdb_unreg_mc_flood_key_t *flood_key_p, const sx_fdb_unreg_mc_flood_attr_t *flood_attr_p)</td></tr>
+<tr class="separator:a1b27e71cead1426a4b4156ce55a00019"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a111b8385e37f2ece7d25aff3eb7a33"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a7a111b8385e37f2ece7d25aff3eb7a33">sx_api_fdb_unreg_mc_flood_mode_ext_get</a> (const sx_api_handle_t handle, const sx_fdb_unreg_mc_flood_key_t *flood_key_p, sx_fdb_unreg_mc_flood_attr_t *const flood_attr_p)</td></tr>
+<tr class="separator:a7a111b8385e37f2ece7d25aff3eb7a33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aceaf604e293b33ce3ad10f9f078999df"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#aceaf604e293b33ce3ad10f9f078999df">sx_api_fdb_mc_ip_addr_group_activity_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_fdb_mc_ip_key_t *key_p, boolean_t *activity_p)</td></tr>
 <tr class="separator:aceaf604e293b33ce3ad10f9f078999df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49f9f71e8e65e1a8687080d39d4119ef"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a49f9f71e8e65e1a8687080d39d4119ef">sx_api_fdb_mc_ip_addr_group_activity_notify</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_fdb_mc_ip_filter_t *filter_p)</td></tr>
@@ -1610,6 +1616,91 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
 SX_STATUS_ENTRY_ALREADY_EXISTS if group_addr is already added </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a id="a34497b9f8df08f526c513c62c696c062"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34497b9f8df08f526c513c62c696c062">&#9670;&nbsp;</a></span>sx_api_fdb_mc_mac_addr_group_iter_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_fdb_mc_mac_addr_group_iter_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_fdb_mac_key_t *&#160;</td>
+          <td class="paramname"><em>key_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_fdb_mc_key_filter_t *&#160;</td>
+          <td class="paramname"><em>filter_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_fdb_mac_key_t *&#160;</td>
+          <td class="paramname"><em>key_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>key_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function returns a list of one or more FDB MC keys (FID + MC MAC address). The following use case scenarios apply with different input parameters X = don't-care</p><ul>
+<li>1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, key_list = X, Count =0: In this case the API will return the total number of MACs in the Internal db</li>
+<li>2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, key_list = Valid, Count = 1: In this case the API will check if the specified key exists. if it does the key will be returned in the key_list along with a count of 1. If the key does not exist an empty list will be returned with count = 0</li>
+<li>3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = Valid, key_list = Valid, Count = 1: In this case the API will check if the specified key exists. if it does it will check it against the filter parameter. If the filter matches, the key will be returned in the key_list along with a count of 1. If the key does not exist or the filter does not match an empty list will be returned with count = 0</li>
+<li>4) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = Valid/invalid, key_list is Valid, Count &gt; 1: A count &gt;1 will be treated as a count of 1 and the behavior will be same as earlier GET use cases.</li>
+<li>5) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X, key_list = Null, Count =0: For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT a zero count will return an empty list.</li>
+<li>6) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = valid/invalid, key_list = Valid, Count &gt; 0: In this case the API will return the first count MACs starting from the head of the database. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. The key is dont-care. If a filter is specified only those MACs that match the filter will be returned. a non-Null return key_list pointer must be provided</li>
+<li>7) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = valid/invalid, key_list = Valid, Count &gt; 0: In this case the API will return the next set of MACs starting from the next valid MAC after the specified key. The total elements fetched will be returned as the return count. If a filter is specified only those MACs that match the filter will be returned. Note: return count may be less than or equal to the requested count. If no valid next MAC exists in the db (key = end of list, or invalid key specified, or key too large), an empty list will be returned.</li>
+</ul>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>: GET/GET_FIRST/GET_NEXT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key_p</td><td>: specify a MAC key </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>: specify a filter parameter </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">key_list_p</td><td>: return list of MAC keys </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">data_cnt_p</td><td>: [in] number of MACs to get. : [out] number of MACs returned</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_NULL if an unexpected NULL parameter was passed. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed </dd>
+<dd>
+SX_STATUS_DB_NOT_INITIALIZED - if internal DB is not initialized </dd>
+<dd>
+SX_STATUS_NO_MEMORY if memory allocation fails </dd></dl>
 
 </div>
 </div>
@@ -3786,6 +3877,125 @@ SX_STATUS_ERROR for a general error </dd></dl>
 
 </div>
 </div>
+<a id="a1b27e71cead1426a4b4156ce55a00019"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b27e71cead1426a4b4156ce55a00019">&#9670;&nbsp;</a></span>sx_api_fdb_unreg_mc_flood_mode_ext_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_fdb_unreg_mc_flood_mode_ext_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>access_cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_fdb_unreg_mc_flood_key_t *&#160;</td>
+          <td class="paramname"><em>flood_key_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_fdb_unreg_mc_flood_attr_t *&#160;</td>
+          <td class="paramname"><em>flood_attr_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function is used to set the flooding mode and vector for Unregistered MC traffic IPv4 and IPv6 Specifically :</p><ul>
+<li>Flooding mode : FLOOD / PRUNE</li>
+<li>In Prune mode, user should provide MC container with list of ports. In Flood mode , the flood_vector is N/A. SDK will set the flooding vector to be all VLAN members.</li>
+</ul>
+<p>NOTE: In order to have separate vector for Unregistered MC traffic IPv6 the following flag should be enabled sdk_init_params.fdb_params.unreg_mc_ipv6_flood_en as part of SDK init. Else the Broadcast vector will apply for Unregistered MC traffic IPv6.</p>
+<p>This API are mutually exclusive and supersedes the following APIs below which will be deprecated: sx_api_fdb_unreg_mc_flood_mode_set(..) sx_api_fdb_unreg_mc_flood_ports_set(..)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">access_cmd</td><td>- SET / UNSET SET will configure URMC according flood_attr UNSET will configure URMC mode to be FLOOD to release MC container </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flood_key_p</td><td>- flood key </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flood_attr_p</td><td>- flood attributes</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a id="a7a111b8385e37f2ece7d25aff3eb7a33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a111b8385e37f2ece7d25aff3eb7a33">&#9670;&nbsp;</a></span>sx_api_fdb_unreg_mc_flood_mode_ext_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_fdb_unreg_mc_flood_mode_ext_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_fdb_unreg_mc_flood_key_t *&#160;</td>
+          <td class="paramname"><em>flood_key_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_fdb_unreg_mc_flood_attr_t *const&#160;</td>
+          <td class="paramname"><em>flood_attr_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function is used to get the flooding mode and vector for Unregistered MC traffic IPv4 and IPv6. Only one type can be provided at time. Specifically :</p><ul>
+<li>flooding mode FLOOD / PRUNE</li>
+<li>In PRUNE mode: flood_attr flood_vector will contains MC container with log_ports In FLOOD mode: flood_vector will return SX_MC_CONTAINER_ID_INVALID</li>
+</ul>
+<p>NOTE: In order to have separate vector for Unregistered MC traffic IPv6 the following flag should be enabled sdk_init_params.fdb_params.unreg_mc_ipv6_flood_en as part of SDK init. Else the Broadcast vector will apply for Unregistered MC traffic IPv6.</p>
+<p>This API are mutually exclusive and supersedes the following APIs below which will be deprecated: sx_api_fdb_unreg_mc_flood_mode_get(..) sx_api_fdb_unreg_mc_flood_ports_get(..)</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flood_key_p</td><td>- Flood key </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">flood_attr_p</td><td>- Flood attributes</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if flood control is not supported in the switch. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if ports_list is null and ports_count is not 0. </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
 <a id="aceaf604e293b33ce3ad10f9f078999df"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aceaf604e293b33ce3ad10f9f078999df">&#9670;&nbsp;</a></span>sx_api_fdb_mc_ip_addr_group_activity_get()</h2>
 
@@ -3905,7 +4115,7 @@ SX_STATUS_ERROR general error. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 5 2020 17:17:29 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 11 2020 12:18:40 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.1912</span>
+   &#160;<span id="projectnumber">4.4.2018</span>
    </div>
   </td>
  </tr>
@@ -83,8 +83,16 @@ Functions</h2></td></tr>
 <tr class="separator:abfc857d32552b5af43e0cbf098cd7165"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade20ce33330a35da4c60a5c097c5812a"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__dbg_8h.html#ade20ce33330a35da4c60a5c097c5812a">sx_api_dbg_generate_dump_extra</a> (const sx_api_handle_t handle, const sx_dbg_extra_info_t *dbg_params)</td></tr>
 <tr class="separator:ade20ce33330a35da4c60a5c097c5812a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a068b8068034fdadd6f01c0713c849607"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__dbg_8h.html#a068b8068034fdadd6f01c0713c849607">sx_api_dbg_control</a> (const sx_api_handle_t handle, const sx_dbg_control_params_t *params)</td></tr>
-<tr class="separator:a068b8068034fdadd6f01c0713c849607"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6201d6354c37725e64a547b8d6ffbbcf"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__dbg_8h.html#a6201d6354c37725e64a547b8d6ffbbcf">sx_api_fw_dbg_control_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_dbg_control_params_t *params)</td></tr>
+<tr class="separator:a6201d6354c37725e64a547b8d6ffbbcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab44e0081d56ace2a3fb4b1905c168adf"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__dbg_8h.html#ab44e0081d56ace2a3fb4b1905c168adf">sx_api_fw_dbg_control_get</a> (const sx_api_handle_t handle, sx_dbg_control_params_t *params)</td></tr>
+<tr class="separator:ab44e0081d56ace2a3fb4b1905c168adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07a4d339ead90f26bb557100ded9c5aa"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__dbg_8h.html#a07a4d339ead90f26bb557100ded9c5aa">sx_api_fw_dbg_test</a> (const sx_api_handle_t handle, const sx_dbg_test_params_t *params)</td></tr>
+<tr class="separator:a07a4d339ead90f26bb557100ded9c5aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a360b89af171824b953ac5be3ecd37a4c"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__dbg_8h.html#a360b89af171824b953ac5be3ecd37a4c">sx_api_dbg_api_logger_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_dbg_api_logger_params_t *params_p)</td></tr>
+<tr class="separator:a360b89af171824b953ac5be3ecd37a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54764dd1ab21695038b934b9c0cdca7e"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__dbg_8h.html#a54764dd1ab21695038b934b9c0cdca7e">sx_api_dbg_api_logger_get</a> (const sx_api_handle_t handle, sx_dbg_api_logger_params_t *params_p)</td></tr>
+<tr class="separator:a54764dd1ab21695038b934b9c0cdca7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a3c4a3667681745a31b3bf1e5fd2e2bd9"></a>
@@ -196,7 +204,8 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API generates debug dump extra info, for modules monitored by the SDK Supported devices: Pelican, Eagle, Spectrum, Spectrum2, Quantum, Spectrum3</p>
+<p>This API generates debug dump extra info, for modules monitored by the SDK The file name is of the following format "sdkdump_ext_cr_&lt;DEVICE_ID&gt; - &lt;timestamp&gt;.udmp" If path is not provided dump will be found in path /var/log. User should clear from path any files with suffix "udmp.*.tmp" before rebooting after information collection</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Quantum, Quantum2</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -218,17 +227,23 @@ SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
-<a id="a068b8068034fdadd6f01c0713c849607"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a068b8068034fdadd6f01c0713c849607">&#9670;&nbsp;</a></span>sx_api_dbg_control()</h2>
+<a id="a6201d6354c37725e64a547b8d6ffbbcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6201d6354c37725e64a547b8d6ffbbcf">&#9670;&nbsp;</a></span>sx_api_fw_dbg_control_set()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">sx_status_t sx_api_dbg_control </td>
+          <td class="memname">sx_status_t sx_api_fw_dbg_control_set </td>
           <td>(</td>
           <td class="paramtype">const sx_api_handle_t&#160;</td>
           <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -243,13 +258,13 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to set the SDK debug control parameters which will be enacted in case a health issue was discovered. in “auto” mode the SDK will automatically collect debug information, and alert the user both that the issue occurred and that collection is done in “non-auto” mode the SDK will only alert the user that a “health event” has occurred in both modes there is no “automatic re-arm” the user must explicitly call the API with the required parameters in order to arm / re-arm the feature</p>
-<p>Supported devices: Pelican, Eagle, Spectrum, Spectrum2, Quantum…</p>
+<p>Sets FW Dump Me control parameters for FW fatal event: enable and policy. Once FW fatal event mode is enabled, a trap will be asserted by FW in case of fatal event. On FW fatal event occurrence a FW dump will be triggered either automatically or by calling the API, as configured in policy. Note: After a successful FW dump, the user must re-enable the FW Fatal event using this API each time.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Quantum, Quantum2</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>policy - the policy we wish to set arm - Should the debug reporting / extraction (according to policy) be armed/re-armed </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sx_dbg_policy_info</td><td>policy_params: for future enhancement</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- currently only SET is supported * </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>- debug control parameters</td></tr>
   </table>
   </dd>
 </dl>
@@ -263,11 +278,197 @@ SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
+<a id="ab44e0081d56ace2a3fb4b1905c168adf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab44e0081d56ace2a3fb4b1905c168adf">&#9670;&nbsp;</a></span>sx_api_fw_dbg_control_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_fw_dbg_control_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_dbg_control_params_t *&#160;</td>
+          <td class="paramname"><em>params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Gets FW Dump Me control parameters for FW fatal event: enable and policy</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Quantum, Quantum2</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>- debug control parameters</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if the path string length is greater than sx_dbg_policy_e </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a id="a07a4d339ead90f26bb557100ded9c5aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07a4d339ead90f26bb557100ded9c5aa">&#9670;&nbsp;</a></span>sx_api_fw_dbg_test()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_fw_dbg_test </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_dbg_test_params_t *&#160;</td>
+          <td class="paramname"><em>params</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Triggers the assertion of FW fatal event for testing purposes After triggering test the fw fatal event mode in FW should be re-enabled</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Quantum, Quantum2</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>- test control parameters</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if the path string length is greater than sx_dbg_policy_e </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a id="a360b89af171824b953ac5be3ecd37a4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a360b89af171824b953ac5be3ecd37a4c">&#9670;&nbsp;</a></span>sx_api_dbg_api_logger_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_dbg_api_logger_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_dbg_api_logger_params_t *&#160;</td>
+          <td class="paramname"><em>params_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API configures API logger parameters. To change parameters of active API logger, the user must first disable it and then enable it again with new parameters.</p>
+<p>Disabled mode is not supported by this API. The API can disable the API logger using the DISABLE command. Disabled mode can be returned by sx_api_dbg_api_logger_get if the API logger is inactive.</p>
+<p>Linear mode writes logs to one file. The writing can be stopped manually or when out of free space.</p>
+<p>Cyclic mode writes logs in cycle. When a log file reaches max file size, SDK generates an SX_TRAP_ID_API_LOGGER_EVENT event with the path to the filled log file and starts to write a next log file. When a number of log files reaches sx_dbg_api_logger_params_t.cyclic_params.log_file_num, SDK overwrites the oldest log file. The name of the file in cyclic mode is built using the following scheme: path/file_name_N.pcap where N = [0, SX_DBG_API_LOG_UNIQUE_SUFFIXES_NUM-1]. When the file with N=(SX_DBG_API_LOG_UNIQUE_SUFFIXES_NUM-1) is finished, the next one will use N=0. While SDK tries to keep unique names for log files using unique suffixes, at the given moment of time, there can be up to sx_dbg_api_logger_params_t.cyclic_params.log_file_num log files on a disk. Example: sx_dbg_api_logger_params_t.cyclic_params.max_log_size = 5242880; / 5 Mb / sx_dbg_api_logger_params_t.cyclic_params.log_file_num = 3; sx_dbg_api_logger_params_t.log_file_path[0] = '\0'; / log_file_path is empty, so the default path is used / SDK starts with the file /tmp/sx_sdk_0.pcap. Once it has the size of 5 Mb, SDK will generate an SX_TRAP_ID_API_LOGGER_EVENT event with the path /tmp/sx_sdk_0.pcap and it will start the second out of 3 files using the name /tmp/sx_sdk_1.pcap. Once the second file has the size of 5 Mb, SDK will generate another event and start the third file using the name /tmp/sx_sdk_2.pcap. And once the third file has the size of 5 Mb, SDK will generate another event again and it will rewrite the content of the first file and change the name from /tmp/sx_sdk_0.pcap to /tmp/sx_sdk_3.pcap, and continue to work in this manner.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ENABLE/DISABLE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- API logger parameters.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed allowed range </dd>
+<dd>
+SX_STATUS_PARAM_NULL if params_p is NULL </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a id="a54764dd1ab21695038b934b9c0cdca7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54764dd1ab21695038b934b9c0cdca7e">&#9670;&nbsp;</a></span>sx_api_dbg_api_logger_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_dbg_api_logger_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_dbg_api_logger_params_t *&#160;</td>
+          <td class="paramname"><em>params_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API returns API logger parameters if enabled. Otherwise returns SX_DBG_API_LOGGER_DISABLED_MODE.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">params_p</td><td>- API logger parameters.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL if params_p is NULL </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 5 2020 17:17:29 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 11 2020 12:18:40 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

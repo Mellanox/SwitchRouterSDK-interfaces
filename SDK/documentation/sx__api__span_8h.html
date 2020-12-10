@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.1912</span>
+   &#160;<span id="projectnumber">4.4.2018</span>
    </div>
   </td>
  </tr>
@@ -141,6 +141,8 @@ Functions</h2></td></tr>
 <tr class="separator:af773d8d323fe4a3e289adeee9c50c6cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af329f85d3601dae8894027b2345bbdd7"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#af329f85d3601dae8894027b2345bbdd7">sx_api_span_session_policer_bind_get</a> (const sx_api_handle_t handle, const sx_span_session_id_t span_session_id, sx_policer_id_t *policer_id_p)</td></tr>
 <tr class="separator:af329f85d3601dae8894027b2345bbdd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc9d5a3df8afcb057148360c5adeb2ce"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#acc9d5a3df8afcb057148360c5adeb2ce">sx_api_span_attributes_get</a> (const sx_api_handle_t handle, sx_span_attrs_t *span_attrs_p)</td></tr>
+<tr class="separator:acc9d5a3df8afcb057148360c5adeb2ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a6e00a2fe2b79ec287d487497fc25e658"></a>
@@ -2028,11 +2030,56 @@ SX_STATUS_INVALID_HANDLE if handle is invalid. </dd></dl>
 
 </div>
 </div>
+<a id="acc9d5a3df8afcb057148360c5adeb2ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc9d5a3df8afcb057148360c5adeb2ce">&#9670;&nbsp;</a></span>sx_api_span_attributes_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_span_attributes_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_span_attrs_t *&#160;</td>
+          <td class="paramname"><em>span_attrs_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function gets the SPAN attributes. Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">span_attrs_p</td><td>- SPAN attributes</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if the API is not supported for this device </dd>
+<dd>
+SX_STATUS_ERROR if unexpected behavior occurs </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 5 2020 17:17:29 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 11 2020 12:18:41 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

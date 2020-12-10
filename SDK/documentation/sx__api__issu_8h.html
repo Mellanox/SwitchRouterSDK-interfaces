@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.1912</span>
+   &#160;<span id="projectnumber">4.4.2018</span>
    </div>
   </td>
  </tr>
@@ -79,6 +79,8 @@ $(function() {
 Functions</h2></td></tr>
 <tr class="memitem:ad09ffbe3dbce00b23a9c8646e43f6525"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__issu_8h.html#ad09ffbe3dbce00b23a9c8646e43f6525">sx_api_issu_log_verbosity_level_set</a> (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)</td></tr>
 <tr class="separator:ad09ffbe3dbce00b23a9c8646e43f6525"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ef105f8534c1ee54130c9a5c35ef448"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__issu_8h.html#a6ef105f8534c1ee54130c9a5c35ef448">sx_api_issu_log_verbosity_level_get</a> (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, sx_verbosity_level_t *module_verbosity_level_p, sx_verbosity_level_t *api_verbosity_level_p)</td></tr>
+<tr class="separator:a6ef105f8534c1ee54130c9a5c35ef448"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72666e92bf9fa8d99a927733e09f9933"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__issu_8h.html#a72666e92bf9fa8d99a927733e09f9933">sx_api_issu_start_set</a> (const sx_api_handle_t handle)</td></tr>
 <tr class="separator:a72666e92bf9fa8d99a927733e09f9933"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af328e7d0f52c2a97a20ff8a69f004cb2"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__issu_8h.html#af328e7d0f52c2a97a20ff8a69f004cb2">sx_api_issu_end_set</a> (const sx_api_handle_t handle)</td></tr>
@@ -126,13 +128,68 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the log verbosity level of ISSU MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This function sets the log verbosity level of ISSU MODULE. Supported devices: Spectrum, Spectrum 2, Spectrum 3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- ISSU module verbosity level </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- ISSU API verbosity level</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a id="a6ef105f8534c1ee54130c9a5c35ef448"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ef105f8534c1ee54130c9a5c35ef448">&#9670;&nbsp;</a></span>sx_api_issu_log_verbosity_level_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_issu_log_verbosity_level_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_log_verbosity_target_t&#160;</td>
+          <td class="paramname"><em>verbosity_target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_verbosity_level_t *&#160;</td>
+          <td class="paramname"><em>module_verbosity_level_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_verbosity_level_t *&#160;</td>
+          <td class="paramname"><em>api_verbosity_level_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function gets the log verbosity level of ISSU MODULE. Supported devices: Spectrum, Spectrum 2, Spectrum 3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- ISSU module verbosity level </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- ISSU API verbosity level</td></tr>
   </table>
   </dd>
 </dl>
@@ -159,7 +216,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to prepare the SDK for restart in "FAST-FAST Boot mode". It triggers ISSU (In Service Software Upgrade) of the SDK &amp; FW by shutting down SDK, resetting the ASIC and switching to a new SDK/FW if available. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API is used to prepare the SDK for restart in "FAST-FAST Boot mode". It triggers ISSU (In Service Software Upgrade) of the SDK &amp; FW by shutting down SDK, resetting the ASIC and switching to a new SDK/FW if available. Supported devices: Spectrum, Spectrum 2, Spectrum 3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle</td></tr>
@@ -187,7 +244,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to notify the newly upgraded SDK in "FAST-FAST Boot Mode" that the configuration stage of the ISSU (In Service Software Upgrade) process has finished and to resume normal operations. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API is used to notify the newly upgraded SDK in "FAST-FAST Boot Mode" that the configuration stage of the ISSU (In Service Software Upgrade) process has finished and to resume normal operations. Supported devices: Spectrum, Spectrum 2, Spectrum 3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle</td></tr>
@@ -225,7 +282,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API prepares the SDK for CRIU (checkpoint/restore in userspace) Hibernation. The SDK configuration is written to persistent storage from where it can be restored. This is also referred to as SDK "Warm Boot" Mode Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API prepares the SDK for CRIU (checkpoint/restore in userspace) Hibernation. The SDK configuration is written to persistent storage from where it can be restored. This is also referred to as SDK "Warm Boot" Mode Supported devices: Spectrum, Spectrum 2, Spectrum 3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -274,7 +331,7 @@ SX_STATUS_NO_MEMORY - Out of Memory </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used for "Warm" boot mode to "resume" the SDK from CRIU hibernation This API restores the SDK from CRIU (checkpoint/restore in userspace) Hibernation. This is also referred to as SDK "Warm Boot" Mode Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Used for "Warm" boot mode to "resume" the SDK from CRIU hibernation This API restores the SDK from CRIU (checkpoint/restore in userspace) Hibernation. This is also referred to as SDK "Warm Boot" Mode Supported devices: Spectrum, Spectrum 2, Spectrum 3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -300,7 +357,7 @@ SX_STATUS_NO_MEMORY - No more memory available </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 5 2020 17:17:29 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 11 2020 12:18:40 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

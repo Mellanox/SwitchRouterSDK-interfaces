@@ -255,6 +255,13 @@ sx_status_t sx_api_cos_port_prio_buff_map_get(const sx_api_handle_t    handle,
 
 /**
  * This API sets the pool parameters.
+ * It is used to set shared buffer pools and shared headroom pools.
+ *
+ * Note:
+ * Shared headroom pools must have ingress direction and valid size.
+ * Infinite size is not allowed and the only supported mode is
+ * SX_COS_BUFFER_MAX_MODE_BUFFER_UNITS_E, Other attributes are ignored.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle              - SX-API handle
@@ -417,6 +424,11 @@ sx_status_t sx_api_cos_pools_list_get(const sx_api_handle_t handle,
 
 /**
  * This API gets the port buffers occupancy parameters.
+ *
+ * Note: This API allows getting multiple statistic elements per port.
+ * When number of statistic elements exceed the API capability it will return
+ * SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                 - SX-API handle
@@ -427,7 +439,9 @@ sx_status_t sx_api_cos_pools_list_get(const sx_api_handle_t handle,
  * @param[in/out] usage_cnt          - Number of output parameters in the list (if zero - number of elements will be returned)
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if any input parameter is NULL
  * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT when too many statistic elements are requested
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_cos_port_buff_type_statistic_get(const sx_api_handle_t                   handle,
@@ -438,7 +452,9 @@ sx_status_t sx_api_cos_port_buff_type_statistic_get(const sx_api_handle_t       
                                                     uint32_t                               *usage_cnt);
 
 /**
- * This API gets the port pools occupancy parameters.
+ * This API gets pool occupancy statistics.
+ * Note: Shared headroom pools do not support watermark statistics.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle             - SX-API handle
@@ -449,6 +465,8 @@ sx_status_t sx_api_cos_port_buff_type_statistic_get(const sx_api_handle_t       
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
+ * @return SX_STATUS_PARAM_NULL if any input parameter is NULL
+ * @return SX_STATUS_NO_RESOURCES if memory allocations have failed
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_cos_pool_statistic_get(const sx_api_handle_t               handle,
@@ -984,6 +1002,8 @@ sx_status_t sx_api_cos_port_tc_mcaware_get(const sx_api_handle_t  handle,
                                            boolean_t             *mc_aware_p);
 
 /**
+ * \deprecated This API is deprecated and will be removed in the future.
+ * Please use sx_api_cos_redecn_log_verbosity_level_set in its place.
  * This API sets the log verbosity level of REDECN MODULE.
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -1000,6 +1020,24 @@ sx_status_t sx_api_cos_redecn_verbosity_level_set(const sx_api_handle_t         
                                                   const sx_log_verbosity_target_t verbosity_target,
                                                   const sx_verbosity_level_t      module_verbosity_level,
                                                   const sx_verbosity_level_t      api_verbosity_level);
+
+/**
+ * This API sets the log verbosity level of REDECN MODULE.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ * @param[in] handle                   - SX-API handle
+ * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
+ * @param[in] module_verbosity_level   - module verbosity level
+ * @param[in] api_verbosity_level      - API verbosity level
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_cos_redecn_log_verbosity_level_set(const sx_api_handle_t           handle,
+                                                      const sx_log_verbosity_target_t verbosity_target,
+                                                      const sx_verbosity_level_t      module_verbosity_level,
+                                                      const sx_verbosity_level_t      api_verbosity_level);
 
 /**
  * This API gets the log verbosity level of REDECN MODULE.

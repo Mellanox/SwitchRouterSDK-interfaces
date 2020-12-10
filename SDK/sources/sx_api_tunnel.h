@@ -322,11 +322,11 @@ sx_status_t sx_api_tunnel_map_get(const sx_api_handle_t   handle,
  * 3. NVE tunnels support TTL_CMD_SET in the encap direction, default TTL value is 255.
  *
  * Note for Spectrum2 and newer ASICs:
- * 1. IPinIP Tunnels support only TTL_CMD_SET & TTL_CMD_COPY commands
- * 2. IPinIP Tunnels only support configuring TTL command in encap direction
- * 3. NVE Tunnels support TTL_CMD_SET, TTL_CMD_COPY in Encap direction.
- * 4. NVE Tunnels support TTL_CMD_PRESERVE_E, TTL_CMD_COPY, TTL_CMD_MINIMUM in decap direction. Default is PRESERVE.
- *
+ * 1. IPinIP tunnels support only TTL_CMD_SET & TTL_CMD_COPY commands
+ * 2. IPinIP tunnels only support configuring TTL command in encap direction
+ * 3. NVE tunnels support TTL_CMD_SET, TTL_CMD_COPY in Encap direction.
+ * 4. NVE tunnels support TTL_CMD_PRESERVE_E, TTL_CMD_COPY, TTL_CMD_MINIMUM in decap direction. Default is PRESERVE.
+ * 5. For Symmetric tunnels, the TTL behavior must be set separately for encap and decap directions.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *

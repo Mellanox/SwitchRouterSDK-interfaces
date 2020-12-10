@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.1912</span>
+   &#160;<span id="projectnumber">4.4.2018</span>
    </div>
   </td>
  </tr>
@@ -810,10 +810,11 @@ SX_STATUS_ERROR general error. </dd></dl>
 <li>NVE tunnels support TTL_CMD_SET in the encap direction, default TTL value is 255.</li>
 </ol>
 <p>Note for Spectrum2 and newer ASICs:</p><ol type="1">
-<li>IPinIP Tunnels support only TTL_CMD_SET &amp; TTL_CMD_COPY commands</li>
-<li>IPinIP Tunnels only support configuring TTL command in encap direction</li>
-<li>NVE Tunnels support TTL_CMD_SET, TTL_CMD_COPY in Encap direction.</li>
-<li>NVE Tunnels support TTL_CMD_PRESERVE_E, TTL_CMD_COPY, TTL_CMD_MINIMUM in decap direction. Default is PRESERVE.</li>
+<li>IPinIP tunnels support only TTL_CMD_SET &amp; TTL_CMD_COPY commands</li>
+<li>IPinIP tunnels only support configuring TTL command in encap direction</li>
+<li>NVE tunnels support TTL_CMD_SET, TTL_CMD_COPY in Encap direction.</li>
+<li>NVE tunnels support TTL_CMD_PRESERVE_E, TTL_CMD_COPY, TTL_CMD_MINIMUM in decap direction. Default is PRESERVE.</li>
+<li>For Symmetric tunnels, the TTL behavior must be set separately for encap and decap directions.</li>
 </ol>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -1300,7 +1301,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 5 2020 17:17:29 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 11 2020 12:18:41 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

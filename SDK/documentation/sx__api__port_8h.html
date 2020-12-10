@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.1912</span>
+   &#160;<span id="projectnumber">4.4.2018</span>
    </div>
   </td>
  </tr>
@@ -271,6 +271,10 @@ Functions</h2></td></tr>
 <tr class="separator:a05778ea8b7fbb076b1a4df37ac78e549"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac447cfed9c216d18f58c9825624b2bdb"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#ac447cfed9c216d18f58c9825624b2bdb">sx_api_port_phy_info_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_phy_stat_t *phy_stat_p)</td></tr>
 <tr class="separator:ac447cfed9c216d18f58c9825624b2bdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98c2ff2d5a7846abaeeccdb29bd27d1c"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a98c2ff2d5a7846abaeeccdb29bd27d1c">sx_api_port_user_memory_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_user_memory_params_t *port_params_list_p, const uint32_t port_cnt)</td></tr>
+<tr class="separator:a98c2ff2d5a7846abaeeccdb29bd27d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a1c5fad2a6356d342e96ee8e80dcf87"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a5a1c5fad2a6356d342e96ee8e80dcf87">sx_api_port_user_memory_get</a> (const sx_api_handle_t handle, sx_port_user_memory_params_t *port_params_list_p, const uint32_t port_cnt)</td></tr>
+<tr class="separator:a5a1c5fad2a6356d342e96ee8e80dcf87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a710cdd8568453ebe96db46e665ce47cb"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a710cdd8568453ebe96db46e665ce47cb">sx_mgmt_phy_mod_pwr_attr_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_mod_id_t module_id, const sx_mgmt_phy_mod_pwr_attr_t *pwr_attr_p)</td></tr>
 <tr class="separator:a710cdd8568453ebe96db46e665ce47cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9448e990378cb5a7abfc2b0b32f8ecb"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#ab9448e990378cb5a7abfc2b0b32f8ecb">sx_mgmt_phy_mod_pwr_attr_get</a> (const sx_api_handle_t handle, const sx_port_mod_id_t module_id, sx_mgmt_phy_mod_pwr_attr_t *pwr_attr_p)</td></tr>
@@ -4085,7 +4089,7 @@ SX_STATUS_ENTRY_NOT_FOUND if vport or flow counter do not exist. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000008">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Supported devices: Spectrum, Spectrum2, Spectrum3. This function sets the mirroring state for a virtual port. Currently only ingress direction is supported.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000009">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Supported devices: Spectrum, Spectrum2, Spectrum3. This function sets the mirroring state for a virtual port. Currently only ingress direction is supported.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4142,7 +4146,7 @@ SX_STATUS_ERROR if unexpected behavior occurs </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000009">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Supported devices: Spectrum, Spectrum2, Spectrum3. This function gets the mirroring mode for a virtual port by direction. Currently only ingress direction is supported.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000010">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Supported devices: Spectrum, Spectrum2, Spectrum3. This function gets the mirroring mode for a virtual port by direction. Currently only ingress direction is supported.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. @ param[in] virtual_port - mirroring vport </td></tr>
@@ -5702,6 +5706,124 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 
 </div>
 </div>
+<a id="a98c2ff2d5a7846abaeeccdb29bd27d1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98c2ff2d5a7846abaeeccdb29bd27d1c">&#9670;&nbsp;</a></span>sx_api_port_user_memory_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_user_memory_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_user_memory_params_t *&#160;</td>
+          <td class="paramname"><em>port_params_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>port_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API sets a port's user memory to any (8-bit) value specified by the user. This API supports Network and CPU ports only.</p>
+<p>Note: The value of the port user memory might be changed via ACLs asynchronously with this API call.</p>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_SET - set the ports in the list provided<ul>
+<li>SX_ACCESS_CMD_SET_ALL - set all ports to the parameters specified in the first list entry. </li>
+</ul>
+</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_params_list_p</td><td>- a list of ports user memory parameters to set </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_cnt</td><td>- the number of ports in the list</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if the port list pointer is NULL </dd>
+<dd>
+SX_STATUS_NO_MEMORY if failed to allocate memory for the port list </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
+
+</div>
+</div>
+<a id="a5a1c5fad2a6356d342e96ee8e80dcf87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a1c5fad2a6356d342e96ee8e80dcf87">&#9670;&nbsp;</a></span>sx_api_port_user_memory_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_user_memory_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_user_memory_params_t *&#160;</td>
+          <td class="paramname"><em>port_params_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>port_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API retrieves port's user memory value from the SDK. This API supports Network and CPU ports only.</p>
+<p>Note: The value of the port user memory might be changed via ACLs asynchronously with this API call.</p>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">port_params_list_p</td><td>- input - a list of ports for which to retrieve user memory parameters output - a list port user memory for the specified ports </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_cnt</td><td>- the number of ports in the list</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL if the port list pointer is NULL </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_NO_MEMORY if failed to allocate memory for the port list </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
+
+</div>
+</div>
 <a id="a710cdd8568453ebe96db46e665ce47cb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a710cdd8568453ebe96db46e665ce47cb">&#9670;&nbsp;</a></span>sx_mgmt_phy_mod_pwr_attr_set()</h2>
 
@@ -5862,7 +5984,7 @@ SX_STATUS_PARAM_ERROR if a module parameter is invalid. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 5 2020 17:17:29 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 11 2020 12:18:40 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

@@ -650,6 +650,8 @@ sx_status_t sx_api_router_neigh_activity_get(const sx_api_handle_t       handle,
  *  LOW or MEDIUM, or (SX_TRAP_ID_L3_UC_IP_BASE+3) for higher trap priorities.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Note: This API supports Async Mode operation if the router is initialized
+ * with Async support
  *
  * @param[in] handle - SX-API handle.
  * @param[in] cmd - ADD/SET/SOFT_ADD/DELETE/DELETE_ALL
@@ -658,6 +660,7 @@ sx_status_t sx_api_router_neigh_activity_get(const sx_api_handle_t       handle,
  * @param[in,out] uc_route_data_p - route data {ecmp id,action}
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_ACCEPTED if operation completes successfully in Async Mode.
  * @return SX_STATUS_CMD_UNSUPPORTED if access command isn't supported.
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range.
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
@@ -1732,5 +1735,23 @@ sx_status_t sx_api_router_ecmp_redirect_get(const sx_api_handle_t handle,
                                             const sx_ecmp_id_t    ecmp,
                                             boolean_t            *is_redirected_p,
                                             sx_ecmp_id_t         *redirected_ecmp_p);
+
+
+/**
+ *
+ *  This API gets the completion info for the last successfully configured route in Hardware.
+ *  The completion Info will contain the user cookie provided when the route was configured.
+ *   Note: This API is relevant if the Router has been initialized in Async mode only.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ * @param[in] handle - SX-API handle.
+ * @param[out] completion_info_p – Completion Info Parameters
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully.
+ * @return SX_STATUS_PARAM_NULL if parameter is NULL.
+ * @return SX_STATUS_ERROR general error.
+ */
+sx_status_t sx_api_router_req_completion_info_get(const sx_api_handle_t                      handle,
+                                                  sx_router_req_completion_info_get_entry_t* completion_info_p);
 
 #endif /* __SX_API_ROUTER_H__ */

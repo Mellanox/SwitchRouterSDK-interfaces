@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.1912</span>
+   &#160;<span id="projectnumber">4.4.2018</span>
    </div>
   </td>
  </tr>
@@ -171,6 +171,8 @@ Functions</h2></td></tr>
 <tr class="separator:a916254ee1a2f7fc94aea9c34440ec3cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfbee50596107f7b6c5d8f25f1432cf7"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#acfbee50596107f7b6c5d8f25f1432cf7">sx_api_cos_redecn_verbosity_level_set</a> (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)</td></tr>
 <tr class="separator:acfbee50596107f7b6c5d8f25f1432cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70b999e0c9e84291884a84c5481c8993"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a70b999e0c9e84291884a84c5481c8993">sx_api_cos_redecn_log_verbosity_level_set</a> (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)</td></tr>
+<tr class="separator:a70b999e0c9e84291884a84c5481c8993"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23a32679ada265f8bb551a5a5a4f9127"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a23a32679ada265f8bb551a5a5a4f9127">sx_api_cos_redecn_log_verbosity_level_get</a> (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, sx_verbosity_level_t *module_verbosity_level_p, sx_verbosity_level_t *api_verbosity_level_p)</td></tr>
 <tr class="separator:a23a32679ada265f8bb551a5a5a4f9127"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc2bbdffd606edfc900626e0c44e1bc2"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#acc2bbdffd606edfc900626e0c44e1bc2">sx_api_cos_redecn_general_param_set</a> (const sx_api_handle_t handle, const sx_cos_redecn_global_t *configuration_p)</td></tr>
@@ -785,7 +787,9 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the pool parameters. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the pool parameters. It is used to set shared buffer pools and shared headroom pools.</p>
+<p>Note: Shared headroom pools must have ingress direction and valid size. Infinite size is not allowed and the only supported mode is SX_COS_BUFFER_MAX_MODE_BUFFER_UNITS_E, Other attributes are ignored.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1223,7 +1227,9 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the port buffers occupancy parameters. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets the port buffers occupancy parameters.</p>
+<p>Note: This API allows getting multiple statistic elements per port. When number of statistic elements exceed the API capability it will return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1237,7 +1243,11 @@ SX_STATUS_ERROR general error </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
+SX_STATUS_PARAM_NULL if any input parameter is NULL </dd>
+<dd>
 SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+<dd>
+SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT when too many statistic elements are requested </dd>
 <dd>
 SX_STATUS_ERROR general error </dd></dl>
 
@@ -1286,7 +1296,8 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the port pools occupancy parameters. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets pool occupancy statistics. Note: Shared headroom pools do not support watermark statistics.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1300,6 +1311,10 @@ SX_STATUS_ERROR general error </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if any input parameter is NULL </dd>
+<dd>
+SX_STATUS_NO_RESOURCES if memory allocations have failed </dd>
 <dd>
 SX_STATUS_ERROR general error </dd></dl>
 
@@ -2836,6 +2851,61 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_api_cos_redecn_log_verbosity_level_set in its place. This API sets the log verbosity level of REDECN MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- module verbosity level </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- API verbosity level</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a id="a70b999e0c9e84291884a84c5481c8993"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70b999e0c9e84291884a84c5481c8993">&#9670;&nbsp;</a></span>sx_api_cos_redecn_log_verbosity_level_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_redecn_log_verbosity_level_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_log_verbosity_target_t&#160;</td>
+          <td class="paramname"><em>verbosity_target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_verbosity_level_t&#160;</td>
+          <td class="paramname"><em>module_verbosity_level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_verbosity_level_t&#160;</td>
+          <td class="paramname"><em>api_verbosity_level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 <p>This API sets the log verbosity level of REDECN MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3390,7 +3460,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This function sets the rate based configuration for RED/ECN Supported devices: Currently this API is not supported.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000006">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This function sets the rate based configuration for RED/ECN Supported devices: Currently this API is not supported.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3445,7 +3515,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000006">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This function gets the rate based configuration for RED/ECN Supported devices: Currently this API is not supported.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000007">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This function gets the rate based configuration for RED/ECN Supported devices: Currently this API is not supported.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3878,7 +3948,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 5 2020 17:17:29 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 11 2020 12:18:40 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

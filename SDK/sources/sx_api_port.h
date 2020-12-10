@@ -2097,6 +2097,55 @@ sx_status_t sx_api_port_phy_info_get(const sx_api_handle_t  handle,
                                      const sx_access_cmd_t  cmd,
                                      const sx_port_log_id_t log_port,
                                      sx_port_phy_stat_t    *phy_stat_p);
+
+/**
+ *  This API sets a port's user memory to any (8-bit) value specified by the user.
+ *  This API supports Network and CPU ports only.
+ *
+ *  Note: The value of the port user memory might be changed via ACLs asynchronously with this API call.
+ *
+ *  Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param[in] handle             - SX-API handle
+ * @param[in] cmd                - SX_ACCESS_CMD_SET     - set the ports in the list provided
+ *                               - SX_ACCESS_CMD_SET_ALL - set all ports to the parameters specified in the first list entry.
+ * @param[in] port_params_list_p - a list of ports user memory parameters to set
+ * @param[in] port_cnt           - the number of ports in the list
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if the port list pointer is NULL
+ * @return SX_STATUS_NO_MEMORY if failed to allocate memory for the port list
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ */
+sx_status_t sx_api_port_user_memory_set(const sx_api_handle_t               handle,
+                                        const sx_access_cmd_t               cmd,
+                                        const sx_port_user_memory_params_t *port_params_list_p,
+                                        const uint32_t                      port_cnt);
+
+/**
+ *  This API retrieves port's user memory value from the SDK.
+ *  This API supports Network and CPU ports only.
+ *
+ *  Note: The value of the port user memory might be changed via ACLs asynchronously with this API call.
+ *
+ *  Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param[in]     handle             - SX-API handle
+ * @param[in,out] port_params_list_p - input - a list of ports for which to retrieve user memory parameters
+ *                                     output - a list port user memory for the specified ports
+ * @param[in]     port_cnt           - the number of ports in the list
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if the port list pointer is NULL
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_NO_MEMORY if failed to allocate memory for the port list
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ */
+sx_status_t sx_api_port_user_memory_get(const sx_api_handle_t         handle,
+                                        sx_port_user_memory_params_t *port_params_list_p,
+                                        const uint32_t                port_cnt);
+
 /**
  *  This API sets the power Mode of a module
  *  Supported devices: Spectrum, Spectrum2, Spectrum3.

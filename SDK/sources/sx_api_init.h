@@ -148,6 +148,22 @@ sx_status_t sx_api_sdk_init_set(const sx_api_handle_t       handle,
                                 const sx_api_sx_sdk_init_t *sdk_init_params_p);
 
 /**
+ * This function is used to get SDK init parameters.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[out] sdk_init_params_p - SDK init parameters.
+ *
+ * @return sx_status_t:
+ * @return SX_STATUS_SUCCESS - Operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE - if handle is invalid
+ * @return SX_STATUS_PARAM_NULL - if parameter is NULL
+ * @return SX_STATUS_ERROR - if unexpected behavior occurs
+ */
+sx_status_t sx_api_sdk_init_params_get(const sx_api_handle_t handle,
+                                       sx_api_sx_sdk_init_t *sdk_init_params_p);
+
+/**
  *  This function returns the versions of the various
  *  components of SwitchX SDK package.
  *  Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.

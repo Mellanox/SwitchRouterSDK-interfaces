@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.1912</span>
+   &#160;<span id="projectnumber">4.4.2018</span>
    </div>
   </td>
  </tr>
@@ -199,6 +199,8 @@ Functions</h2></td></tr>
 <tr class="separator:aed7c89711216cab09b505dc134c03fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac706ced1172271936ca0ec91f1f1fd13"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#ac706ced1172271936ca0ec91f1f1fd13">sx_api_router_ecmp_redirect_get</a> (const sx_api_handle_t handle, const sx_ecmp_id_t ecmp, boolean_t *is_redirected_p, sx_ecmp_id_t *redirected_ecmp_p)</td></tr>
 <tr class="separator:ac706ced1172271936ca0ec91f1f1fd13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b5868a7290cad14c7af06cb86fb48b6"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a5b5868a7290cad14c7af06cb86fb48b6">sx_api_router_req_completion_info_get</a> (const sx_api_handle_t handle, sx_router_req_completion_info_get_entry_t *completion_info_p)</td></tr>
+<tr class="separator:a5b5868a7290cad14c7af06cb86fb48b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a34f17bf4bcc4feeac94a3dad937ac9ef"></a>
@@ -1370,7 +1372,7 @@ SX_STATUS_ERROR general error. </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000014">Deprecated:</a></b></dt><dd>In neigh_data_p, rif is deprecated and will be removed in the future.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000015">Deprecated:</a></b></dt><dd>In neigh_data_p, rif is deprecated and will be removed in the future.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if access command isn't supported. </dd>
@@ -1588,7 +1590,7 @@ SX_STATUS_ERROR general error. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function modifies unicast routes in the routing table. A route may have one of several types: IP2ME, LOCAL, or NEXT_HOP IP2ME routes trap traffic with the specified destination IP of the router host. Such traffic will have trap ID of IP2ME. Local routes allow IP forwarding to neighbors, and also trap traffic to unknown neighbors within the subnet. Such traffic will have trap ID of ARP-cache miss. Next-hop routes allow IP forwarding to next hop router(s) Next-hop routes must be defined with an ECMP container ID. ADD creates a new route and DELETE deletes an existing route. Command SET may be used to replace an existing route. This includes optionally changing its type. If a flow-counter is bound to the route, it stays bound. Command DELETE_ALL deletes all of the unicast routes of the specified virtual router, the specified route type in uc_route_data_p-&gt;type, and the IP protocol(s) in network_addr-&gt;version. If uc_route_data_p is NULL, then routes of type NEXT_HOP are deleted. If network_addr is NULL or network_addr-&gt;version is SX_IP_VERSION_NONE then all IPv4 routes of the specified type are deleted. For routes with action TRAP or TRAP_FORWARD, the trapped traffic will have Trap ID of SX_TRAP_ID_L3_UC_IP_BASE for trap priority BEST_EFFORT, LOW or MEDIUM, or (SX_TRAP_ID_L3_UC_IP_BASE+3) for higher trap priorities.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3. Note: This API supports Async Mode operation if the router is initialized with Async support</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -1600,6 +1602,8 @@ SX_STATUS_ERROR general error. </dd></dl>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_ACCEPTED if operation completes successfully in Async Mode. </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if access command isn't supported. </dd>
 <dd>
@@ -1727,7 +1731,7 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000015">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Use ECMP containers. This function retrieves active unicast ECMP route information from the routing table. When using oper_uc_route_entries_p-&gt;route_data.next_hop_cnt=0 only the number of next hops will be returned. Supported devices: Spectrum, Spectrum2, Spectrum3.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000016">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Use ECMP containers. This function retrieves active unicast ECMP route information from the routing table. When using oper_uc_route_entries_p-&gt;route_data.next_hop_cnt=0 only the number of next hops will be returned. Supported devices: Spectrum, Spectrum2, Spectrum3.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -4002,11 +4006,52 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd></dl>
 
 </div>
 </div>
+<a id="a5b5868a7290cad14c7af06cb86fb48b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b5868a7290cad14c7af06cb86fb48b6">&#9670;&nbsp;</a></span>sx_api_router_req_completion_info_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_router_req_completion_info_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_router_req_completion_info_get_entry_t *&#160;</td>
+          <td class="paramname"><em>completion_info_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API gets the completion info for the last successfully configured route in Hardware. The completion Info will contain the user cookie provided when the route was configured. Note: This API is relevant if the Router has been initialized in Async mode only. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">completion_info_p</td><td>– Completion Info Parameters</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_NULL if parameter is NULL. </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 5 2020 17:17:29 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 11 2020 12:18:41 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.1912</span>
+   &#160;<span id="projectnumber">4.4.2018</span>
    </div>
   </td>
  </tr>
@@ -91,6 +91,8 @@ Functions</h2></td></tr>
 <tr class="separator:ade0336ce78fe95177dd005311e9765a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a520555e24b03155144e7f49a57ee6757"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__init_8h.html#a520555e24b03155144e7f49a57ee6757">sx_api_sdk_init_set</a> (const sx_api_handle_t handle, const sx_api_sx_sdk_init_t *sdk_init_params_p)</td></tr>
 <tr class="separator:a520555e24b03155144e7f49a57ee6757"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a200d512531bca70ed63b883e413d7cc5"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__init_8h.html#a200d512531bca70ed63b883e413d7cc5">sx_api_sdk_init_params_get</a> (const sx_api_handle_t handle, sx_api_sx_sdk_init_t *sdk_init_params_p)</td></tr>
+<tr class="separator:a200d512531bca70ed63b883e413d7cc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24bf5f372afe4708cae42d5df1eca0b1"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__init_8h.html#a24bf5f372afe4708cae42d5df1eca0b1">sx_api_sx_sdk_version_get</a> (const sx_api_handle_t handle, sx_api_sx_sdk_versions_t *versions_p)</td></tr>
 <tr class="separator:a24bf5f372afe4708cae42d5df1eca0b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56fbf53744ec0aa68cffde1672aee079"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__init_8h.html#a56fbf53744ec0aa68cffde1672aee079">sx_api_transaction_mode_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd)</td></tr>
@@ -411,6 +413,51 @@ SX_STATUS_PARAM_ERROR - no SWID was defined </dd></dl>
 
 </div>
 </div>
+<a id="a200d512531bca70ed63b883e413d7cc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a200d512531bca70ed63b883e413d7cc5">&#9670;&nbsp;</a></span>sx_api_sdk_init_params_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_sdk_init_params_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_api_sx_sdk_init_t *&#160;</td>
+          <td class="paramname"><em>sdk_init_params_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function is used to get SDK init parameters. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">sdk_init_params_p</td><td>- SDK init parameters.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>sx_status_t: </dd>
+<dd>
+SX_STATUS_SUCCESS - Operation completes successfully </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE - if handle is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL - if parameter is NULL </dd>
+<dd>
+SX_STATUS_ERROR - if unexpected behavior occurs </dd></dl>
+
+</div>
+</div>
 <a id="a24bf5f372afe4708cae42d5df1eca0b1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a24bf5f372afe4708cae42d5df1eca0b1">&#9670;&nbsp;</a></span>sx_api_sx_sdk_version_get()</h2>
 
@@ -554,7 +601,7 @@ SX_STATUS_ERROR if a general error occurs. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 5 2020 17:17:29 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 11 2020 12:18:40 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
