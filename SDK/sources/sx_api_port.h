@@ -368,6 +368,7 @@ sx_status_t sx_api_port_mtu_get(const sx_api_handle_t  handle,
  *  This API enables the application to set the port enabled mode(s).
  *  When the link is up, the current active protocol is retrieved (after SET).
  *  When the link is down, the supported protocols are retrieved (after SET).
+ *  Disabling Auto-Negotiation also disables Auto Fec
  *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle        - SX-API handle
@@ -1951,8 +1952,9 @@ sx_status_t sx_api_port_ptp_params_get(const sx_api_handle_t  handle,
 /**
  *  This API sets the port rate values bitmask only (speed value and not physical
  *  connector type).
- *  Note that this API is mutually exclusive with sx_api_port_admin_set, so per
+ *  Note: This API is mutually exclusive with sx_api_port_speed_admin_set, so per
  *  single SDK life cycle only one of them can be used.
+ *  Disabling auto negotiation also disables Auto FEC
  *  Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in] handle   - SX-API handle

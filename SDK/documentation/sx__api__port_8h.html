@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.2018</span>
+   &#160;<span id="projectnumber">4.4.2208</span>
    </div>
   </td>
  </tr>
@@ -1238,7 +1238,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the port type &amp; speed. This API enables the application to set the port enabled mode(s). When the link is up, the current active protocol is retrieved (after SET). When the link is down, the supported protocols are retrieved (after SET). Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the port type &amp; speed. This API enables the application to set the port enabled mode(s). When the link is up, the current active protocol is retrieved (after SET). When the link is down, the supported protocols are retrieved (after SET). Disabling Auto-Negotiation also disables Auto Fec Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5341,7 +5341,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the port rate values bitmask only (speed value and not physical connector type). Note that this API is mutually exclusive with sx_api_port_admin_set, so per single SDK life cycle only one of them can be used. Supported devices: Spectrum2, Spectrum3.</p>
+<p>This API sets the port rate values bitmask only (speed value and not physical connector type). Note: This API is mutually exclusive with sx_api_port_speed_admin_set, so per single SDK life cycle only one of them can be used. Disabling auto negotiation also disables Auto FEC Supported devices: Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5984,7 +5984,7 @@ SX_STATUS_PARAM_ERROR if a module parameter is invalid. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 11 2020 12:18:40 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Dec 27 2020 18:25:34 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

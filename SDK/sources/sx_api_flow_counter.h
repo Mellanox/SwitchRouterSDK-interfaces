@@ -88,6 +88,41 @@ sx_status_t sx_api_flow_counter_set(const sx_api_handle_t        handle,
                                     sx_flow_counter_id_t        *counter_id_p);
 
 /**
+ * This API function allows the user to create a group of flow counters with
+ * consecutive counter IDs.
+ * Counters can be of type packet, byte or both.
+ * Use cmd = CREATE with counter type and N=count to create a group of N counters
+ * of the given type.
+ * If the API is unable to create the given count of counters, then API will
+ * return SX_STATUS_NO_RESOURCES error.
+ * Use cmd = DESTROY with a base counter ID to destroy counters group.
+ * When destroying counters, all counters must no longer be bound / in-use,
+ * otherwise the API will return SX_STATUS_RESOURCE_IN_USE error.
+ * Note: using this API may cause fragmentation in flow counter resource.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ * @param[in] handle          - SX-API handle
+ * @param[in] cmd             - CREATE / DESTROY
+ * @param[in] bulk_attr       - Counter type used and number of counters.
+ * @param[in,out] bulk_data_p - Flow counter base ID as described above
+ *
+ *  @return SX_STATUS_SUCCESS if operation completes successfully
+ *  @return SX_STATUS_PARAM_NULL if bulk_data_p is NULL
+ *  @return SX_STATUS_RESOURCE_IN_USE if called with cmd DESTROY and ore or more
+ *  flow counter ID in range is bound / in-use.
+ *  @return SX_STATUS_NO_RESOURCES if no continuous bulk of Flow counter IDs
+ *  is available to create.
+ *  @return SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested
+ *  @return SX_STATUS_INVALID_HANDLE if called Invalid Handle
+ *  @return SX_STATUS_ENTRY_NOT_FOUND if called with DESTROY command and counter
+ *  does not exist
+ */
+sx_status_t sx_api_flow_counter_bulk_set(const sx_api_handle_t             handle,
+                                         const sx_access_cmd_t             cmd,
+                                         const sx_flow_counter_bulk_attr_t bulk_attr,
+                                         sx_flow_counter_bulk_data_t      *bulk_data_p);
+
+/**
  *  This function retrieves the Flow Counter.
  *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *

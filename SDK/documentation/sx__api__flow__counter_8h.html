@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.2018</span>
+   &#160;<span id="projectnumber">4.4.2208</span>
    </div>
   </td>
  </tr>
@@ -89,6 +89,8 @@ Functions</h2></td></tr>
 <tr class="separator:a5f38d6848ee9e11bbf9a562f98d7a0f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d043e95b58d1d326128c643c0952802"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flow__counter_8h.html#a9d043e95b58d1d326128c643c0952802">sx_api_flow_counter_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flow_counter_type_t counter_type, sx_flow_counter_id_t *counter_id_p)</td></tr>
 <tr class="separator:a9d043e95b58d1d326128c643c0952802"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32648022211482d24912df5ea1955c07"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flow__counter_8h.html#a32648022211482d24912df5ea1955c07">sx_api_flow_counter_bulk_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flow_counter_bulk_attr_t bulk_attr, sx_flow_counter_bulk_data_t *bulk_data_p)</td></tr>
+<tr class="separator:a32648022211482d24912df5ea1955c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a3ecf5460ec13fd178da9fb3ebc87af"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flow__counter_8h.html#a1a3ecf5460ec13fd178da9fb3ebc87af">sx_api_flow_counter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flow_counter_id_t counter_id, sx_flow_counter_set_t *counter_set_p)</td></tr>
 <tr class="separator:a1a3ecf5460ec13fd178da9fb3ebc87af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adccff7fe38ae7d70806b95817e14a1c5"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flow__counter_8h.html#adccff7fe38ae7d70806b95817e14a1c5">sx_api_flow_counter_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flow_counter_id_t counter_id_key, sx_flow_counter_filter_t *counter_filter_p, sx_flow_counter_id_t *counter_id_list_p, uint32_t *counter_id_cnt_p)</td></tr>
@@ -266,6 +268,69 @@ Functions</h2></td></tr>
 SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_NO_RESOURCES if no Flow counter is available to create </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if called Invalid Handle </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if called with DESTROY command and counter does not exist </dd></dl>
+
+</div>
+</div>
+<a id="a32648022211482d24912df5ea1955c07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32648022211482d24912df5ea1955c07">&#9670;&nbsp;</a></span>sx_api_flow_counter_bulk_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_flow_counter_bulk_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_flow_counter_bulk_attr_t&#160;</td>
+          <td class="paramname"><em>bulk_attr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_flow_counter_bulk_data_t *&#160;</td>
+          <td class="paramname"><em>bulk_data_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API function allows the user to create a group of flow counters with consecutive counter IDs. Counters can be of type packet, byte or both. Use cmd = CREATE with counter type and N=count to create a group of N counters of the given type. If the API is unable to create the given count of counters, then API will return SX_STATUS_NO_RESOURCES error. Use cmd = DESTROY with a base counter ID to destroy counters group. When destroying counters, all counters must no longer be bound / in-use, otherwise the API will return SX_STATUS_RESOURCE_IN_USE error. Note: using this API may cause fragmentation in flow counter resource. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE / DESTROY </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bulk_attr</td><td>- Counter type used and number of counters. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">bulk_data_p</td><td>- Flow counter base ID as described above</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL if bulk_data_p is NULL </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE if called with cmd DESTROY and ore or more flow counter ID in range is bound / in-use. </dd>
+<dd>
+SX_STATUS_NO_RESOURCES if no continuous bulk of Flow counter IDs is available to create. </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd>
 <dd>
@@ -471,7 +536,7 @@ SX_STATUS_ENTRY_NOT_FOUND: Clear an invalid counter. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 11 2020 12:18:40 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Dec 27 2020 18:25:34 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
