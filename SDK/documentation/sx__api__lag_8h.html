@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.2308</span>
+   &#160;<span id="projectnumber">4.4.2318</span>
    </div>
   </td>
  </tr>
@@ -814,7 +814,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function sets the ingress port configuration parameters of LAG hash. Once this API is called sx_api_lag_hash_flow_params_set is disabled.</p>
-<p>Command SET replaces existing hash parameters, field enables and fields with new values. Command ADD adds new fields and fields enables to existing ones. Hash parameters are ignored Command DELETE deletes specific fields and fields enables from the existing ones. Hash parameters are ignored Each element in hash_field_enable_list_p enables a specific layer field to be included in the hash calculation according to the de-facto fields of the parsed packet. Each element in hash_field_list_p represents a different field to be included in the hash calculation, subject to the enables which are given in hash_field_enable_list_p. NOTE:LAG hash parameters are configured per ingress port and impact egress LAG.</p>
+<p>Command SET replaces existing hash parameters, field enables and fields with new values. Command ADD adds new fields and fields enables to existing ones. Hash parameters are ignored Command DELETE deletes specific fields and fields enables from the existing ones. Hash parameters are ignored Each element in hash_field_enable_list_p enables a specific layer field to be included in the hash calculation according to the de-facto fields of the parsed packet. Each element in hash_field_list_p represents a different field to be included in the hash calculation, subject to the enables which are given in hash_field_enable_list_p. NOTE:LAG hash parameters are configured per ingress port and impact egress LAG. NOTE:In hash parameters, seed is global. It means that the last configured seed will be used.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1290,7 +1290,7 @@ SX_STATUS_PARAM_ERROR - Parameter is invalid. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 19 2021 10:20:44 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Feb 9 2021 18:13:17 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

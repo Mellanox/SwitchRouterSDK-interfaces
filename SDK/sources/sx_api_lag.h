@@ -317,6 +317,7 @@ sx_status_t sx_api_lag_hash_flow_params_set(const sx_api_handle_t      handle,
  * Each element in hash_field_list_p represents a different field to
  * be included in the hash calculation, subject to the enables which are given in hash_field_enable_list_p.
  * NOTE:LAG hash parameters are configured per ingress port and impact egress LAG.
+ * NOTE:In hash parameters, seed is global. It means that the last configured seed will be used.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
