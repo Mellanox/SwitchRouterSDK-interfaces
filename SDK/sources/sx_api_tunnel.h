@@ -67,10 +67,13 @@ sx_status_t sx_api_tunnel_log_verbosity_level_get(const sx_api_handle_t         
  *
  * When destroying a tunnel, tunnel_attr_p is ignored.
  * By default tunnel is created with TTL 255.
- * On Spectrum2, Spectrum3,the SDK user can select the port(ingress or egress) that is used to determine
- * packet ethertype.
- * By default the packet ethertype is taken from ingress port. To change the default behavior, SDK
- * user should create VxLAN tunnel with ethertype SX_ETHERTYPE_FROM_EGRESS_PORT.
+ *
+ * QinVxLAN:
+ *  - After decapsulation, the configured ethertype is pushed,
+ *    the desired ethertype can be set with tunnel's attributes:
+ *    - for example, attributes.vxlan.decap.ethertype = 0x8100.
+ *    - attributes.vxlan.decap.ethertype = 0 means the default ethertype.
+ *    - non default ethertype should be previously configured with sx_api_port_vlan_ethertype_set.
  *
  * Lazy delete feature is supported for VxLAN tunnels.
  * If the Lazy delete feature is disabled and the reference counter of tunnel is 0,
@@ -91,6 +94,8 @@ sx_status_t sx_api_tunnel_log_verbosity_level_get(const sx_api_handle_t         
  * 4. each MC next hop of the type SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP;
  * 5. each ACL rule with an action of the type SX_FLEX_ACL_ACTION_TUNNEL_DECAP;
  * 6. each ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_TUNNEL_ENCAP;
+ *
+ * When a tunnel is deleted, SDK also flushes (deletes) all non-static tunnel FDB entries.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -250,6 +255,8 @@ sx_status_t sx_api_tunnel_deinit_set(const sx_api_handle_t handle);
  * 2. a MC FDB entry (if MC container has a tunnel next hop);
  * 3. each tunnel flood vector that was bound to a FID with sx_api_fdb_flood_set;
  * 4. each ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_MC_TUNNEL_ENCAP (if MC container has a tunnel next hop);
+ *
+ * When a tunnel mapping is deleted, SDK also flushes (deletes) all relevant non-static tunnel FDB entries.
  *
  * The map_entries_cnt parameter is limited by TUNNEL_MAP_ENTRIES_SET_MAX_NUM.
  *
