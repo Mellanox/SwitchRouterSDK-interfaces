@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_tunnel.h File Reference</title>
+<title>NVIDIA Ethernet Switch SDK API Guide: sdk/sx_api_tunnel.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.2522</span>
+   <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
+   &#160;<span id="projectnumber">4.4.3102</span>
    </div>
   </td>
  </tr>
@@ -154,11 +154,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the log verbosity level of TUNNEL MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the log verbosity level of TUNNEL module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Set verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- TUNNEL module verbosity level </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- TUNNEL API verbosity level</td></tr>
   </table>
@@ -170,7 +171,7 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd>
 <dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range. </dd></dl>
+SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range </dd></dl>
 
 </div>
 </div>
@@ -211,11 +212,12 @@ SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the log verbosity level of TUNNEL MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets the log verbosity level of TUNNEL module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- get verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Get verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- TUNNEL module verbosity level </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- TUNNEL API verbosity level</td></tr>
   </table>
@@ -227,7 +229,7 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd>
 <dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range. </dd></dl>
+SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range </dd></dl>
 
 </div>
 </div>
@@ -269,32 +271,24 @@ SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to create/edit/destroy tunnels.</p>
-<p>When destroying a tunnel, tunnel_attr_p is ignored. By default tunnel is created with TTL 255.</p>
-<p>QinVxLAN:</p><ul>
-<li>After decapsulation, the configured ethertype is pushed, the desired ethertype can be set with tunnel's attributes:<ul>
-<li>for example, attributes.vxlan.decap.ethertype = 0x8100.</li>
-<li>attributes.vxlan.decap.ethertype = 0 means the default ethertype.</li>
-<li>non default ethertype should be previously configured with sx_api_port_vlan_ethertype_set.</li>
-</ul>
-</li>
-</ul>
-<p>Lazy delete feature is supported for VxLAN tunnels. If the Lazy delete feature is disabled and the reference counter of tunnel is 0, then the API call with DELETE command deletes the tunnel, otherwise the SDK returns SX_STATUS_RESOURCE_IN_USE.</p>
-<p>If the Lazy delete feature is enabled and the reference counter of a tunnel is not 0, the API call with command DELETE marks a tunnel as deleted, and the SDK returns SX_STATUS_SUCCESS. Once the reference counter of a tunnel becomes 0, SDK will delete the tunnel and will generate a notification with the trap id(SX_TRAP_ID_OBJECT_DELETED_EVENT) and the id of tunnel that was deleted.</p>
-<p>Given below is the list of objects that increases the reference counter of a NVE tunnel:</p><ol type="1">
-<li>each tunnel map entry;</li>
-<li>each MC RPF VIF of type SX_ROUTER_VINTERFACE_TYPE_VXLAN;</li>
-<li>each ECMP next hop of the type SX_NEXT_HOP_TYPE_TUNNEL_ENCAP;</li>
-<li>each MC next hop of the type SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP;</li>
-<li>each ACL rule with an action of the type SX_FLEX_ACL_ACTION_TUNNEL_DECAP;</li>
-<li>each ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_TUNNEL_ENCAP;</li>
+<p>When destroying a tunnel, tunnel_attr_p is ignored. By default, tunnel is created with TTL 255.</p>
+<p>QinVxLAN: After decapsulation, the configured ethertype is pushed, the desired ethertype can be set with the tunnel's attributes. For example, attributes.vxlan.decap.ethertype = 0x8100. attributes.vxlan.decap.ethertype = 0 means the default ethertype. Non-default ethertype should be previously configured with sx_api_port_vlan_ethertype_set.</p>
+<p>Lazy Delete feature is supported for VxLAN tunnels. If the Lazy Delete feature is disabled and the reference counter of tunnel is 0, then the API call with DELETE command deletes the tunnel, otherwise the SDK returns SX_STATUS_RESOURCE_IN_USE. If the Lazy Delete feature is enabled and the reference counter of a tunnel is not 0, the API call with command DELETE marks a tunnel as deleted, and the SDK returns SX_STATUS_SUCCESS. Once the reference counter of a tunnel becomes 0, SDK will delete the tunnel and will generate a notification with the trap ID SX_TRAP_ID_OBJECT_DELETED_EVENT and the ID of the tunnel that was deleted.</p>
+<p>Below is the list of objects that increase the reference counter of a NVE tunnel:</p><ol type="1">
+<li>Each tunnel map entry.</li>
+<li>Each MC RPF VIF of type SX_ROUTER_VINTERFACE_TYPE_VXLAN.</li>
+<li>Each ECMP next hop of the type SX_NEXT_HOP_TYPE_TUNNEL_ENCAP.</li>
+<li>Each MC next hop of the type SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP.</li>
+<li>Each ACL rule with an action of the type SX_FLEX_ACL_ACTION_TUNNEL_DECAP.</li>
+<li>Each ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_TUNNEL_ENCAP.</li>
 </ol>
 <p>When a tunnel is deleted, SDK also flushes (deletes) all non-static tunnel FDB entries.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE / DESTROY / EDIT </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_attr_p</td><td>- pointer to tunnel attributes structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/DESTROY/EDIT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_attr_p</td><td>- Pointer to tunnel attributes structure. </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">tunnel_id_p</td><td>- Tunnel ID</td></tr>
   </table>
   </dd>
@@ -346,12 +340,13 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the tunnel configuration. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets the tunnel configuration.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">tunnel_attr_p</td><td>- pointer to tunnel attributes structure.</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">tunnel_attr_p</td><td>- Pointer to tunnel attributes structure.</td></tr>
   </table>
   </dd>
 </dl>
@@ -359,7 +354,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
-SX_STATUS_UNSUPPORTED if api is not supported for this device </dd>
+SX_STATUS_UNSUPPORTED if API is not supported for this device </dd>
 <dd>
 SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized </dd>
 <dd>
@@ -404,13 +399,14 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API get/clear tunnel counters. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets/clears tunnel counters.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ / READ_CLEAR </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ/READ_CLEAR </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">counter</td><td>- pointer to tunnel counters structure.</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">counter</td><td>- Pointer to tunnel counters structure</td></tr>
   </table>
   </dd>
 </dl>
@@ -418,7 +414,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
-SX_STATUS_UNSUPPORTED if api is not supported for this device </dd>
+SX_STATUS_UNSUPPORTED if API is not supported for this device </dd>
 <dd>
 SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized </dd>
 <dd>
@@ -463,31 +459,30 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to manage rules in the tunnel decap table. The decap table is used to terminate encapsulated packets.</p>
-<p>The decap key provides packet matching mechanism and each key is mapped to one tunnel.</p>
+<p>This API is used to manage rules in the tunnel decap table. The decap table is used to terminate encapsulated packets. The decap key provides packet matching mechanism and each key is mapped to one tunnel.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE / DESTROY / EDIT </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">decap_key_p</td><td>- decap key </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">decap_data_p</td><td>- decap data</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/DESTROY/EDIT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">decap_key_p</td><td>- Decap key </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">decap_data_p</td><td>- Decap data</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_UNSUPPORTED if api is not supported for this device. </dd>
+SX_STATUS_UNSUPPORTED if API is not supported for this device </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if any input parameter doesn't exist </dd>
+SX_STATUS_ENTRY_NOT_FOUND if any input parameter does not exist </dd>
 <dd>
-SX_STATUS_ENTRY_ALREADY_EXISTS if key already used for another tunnel. </dd>
+SX_STATUS_ENTRY_ALREADY_EXISTS if key is already used for another tunnel </dd>
 <dd>
 SX_STATUS_MODULE_UNINITIALIZED when tunnel module is not initialized </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter exceeds valid range </dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter exceeds the valid range </dd>
 <dd>
 SX_STATUS_ERROR general error </dd></dl>
 
@@ -524,21 +519,21 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to get decap rules from decap table.</p>
+<p>This API is used to get decap rules from the decap table.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">decap_key_p</td><td>- Key to query. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">decap_data_p</td><td>- Data associated with key.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">decap_key_p</td><td>- Key to query </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">decap_data_p</td><td>- Data associated with key</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_UNSUPPORTED if api is not supported for this device </dd>
+SX_STATUS_UNSUPPORTED if API is not supported for this device </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if key doesn't exists. </dd>
+SX_STATUS_ENTRY_NOT_FOUND if key does not exist </dd>
 <dd>
 SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized </dd>
 <dd>
@@ -571,18 +566,19 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to initialize tunneling module. Please note that the correct parsing depth should be set using sx_api_port_parsing_depth_set API for tunneling usage scenarios.</p>
+<p>This API is used to initialize tunneling module.</p>
+<p>Note: Correct parsing depth should be set using sx_api_port_parsing_depth_set API for tunneling usage scenarios.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- pointer to general params structure.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- Pointer to general params structure</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if sufficient resources are not available for tunneling. </dd>
+SX_STATUS_NO_RESOURCES if sufficient resources are not available for tunneling </dd>
 <dd>
 SX_STATUS_ERROR general error </dd></dl>
 
@@ -603,7 +599,8 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to de-initialize the tunneling module. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API is used to de-initialize the tunneling module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle</td></tr>
@@ -660,13 +657,13 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to manage the mapping between tunnel and bridge/VLAN. With the DELETE_ALL command, the map_entries_p parameter is ignored.</p>
-<p>Lazy delete feature is supported for VxLAN tunnel mappings. If Lazy delete feature is disabled and the reference counter of the tunnel mapping is 0, then the API call with command DELETE deletes a tunnel mapping, otherwise the SDK returns SX_STATUS_RESOURCE_IN_USE.</p>
-<p>If the Lazy delete feature is enabled and the reference counter of the tunnel mapping is not 0, then the API call with command DELETE marks a tunnel mapping as deleted, and SDK returns SX_STATUS_SUCCESS. Once the reference counter of the tunnel mapping becomes 0, SDK will delete the tunnel mapping, unbind DECAP, ENCAP UC and ENCAP MC flow counters if they are bound and will generate a notification with the trap id(SX_TRAP_ID_OBJECT_DELETED_EVENT) and the copy of tunnel mapping that was deleted. NOS should monitor delete notification events in order to delete the counter resource. If the user tries to re-create a tunnel map entry before a notification is received, then the SDK returns error SX_STATUS_RESOURCE_IN_USE.</p>
+<p>The Lazy delete feature is supported for VxLAN tunnel mappings. If Lazy Delete feature is disabled and the reference counter of the tunnel mapping is 0, then the API call with command DELETE deletes a tunnel mapping, otherwise the SDK returns SX_STATUS_RESOURCE_IN_USE.</p>
+<p>If the Lazy Delete feature is enabled and the reference counter of the tunnel mapping is not 0, then the API call with command DELETE marks a tunnel mapping as deleted, and SDK returns SX_STATUS_SUCCESS. Once the reference counter of the tunnel mapping becomes 0, SDK will delete the tunnel mapping, unbind DECAP, ENCAP UC and ENCAP MC flow counters if they are bound and will generate a notification with the trap ID (SX_TRAP_ID_OBJECT_DELETED_EVENT) and the copy of tunnel mapping that was deleted. The NOS should monitor delete notification events in order to delete the counter resource. when trying to re-create a tunnel map entry before a notification is received, the SDK returns error SX_STATUS_RESOURCE_IN_USE.</p>
 <p>Given below is the list of objects that increases the reference counter of a tunnel map entry:</p><ol type="1">
-<li>a static tunnel UC FDB entry;</li>
-<li>a MC FDB entry (if MC container has a tunnel next hop);</li>
-<li>each tunnel flood vector that was bound to a FID with sx_api_fdb_flood_set;</li>
-<li>each ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_MC_TUNNEL_ENCAP (if MC container has a tunnel next hop);</li>
+<li>A static tunnel UC FDB entry.</li>
+<li>A MC FDB entry (if MC container has a tunnel next hop).</li>
+<li>Each tunnel flood vector that was bound to a FID with sx_api_fdb_flood_set.</li>
+<li>Each ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_MC_TUNNEL_ENCAP (if MC container has a tunnel next hop).</li>
 </ol>
 <p>When a tunnel mapping is deleted, SDK also flushes (deletes) all relevant non-static tunnel FDB entries.</p>
 <p>The map_entries_cnt parameter is limited by TUNNEL_MAP_ENTRIES_SET_MAX_NUM.</p>
@@ -674,32 +671,32 @@ SX_STATUS_ERROR general error </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD / DELETE / DELETE_ALL </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE/DELETE_ALL </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">map_entries_p</td><td>- Array of map entries </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">map_entries_cnt</td><td>- amount of entries in map_entries_p</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">map_entries_cnt</td><td>- Amount of entries in map_entries_p</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if tunnel doesn't exist. </dd>
+SX_STATUS_ENTRY_NOT_FOUND if tunnel does not exist </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
-SX_STATUS_ENTRY_ALREADY_EXISTS if tunnel and bridge/VLAN already bound. </dd>
+SX_STATUS_ENTRY_ALREADY_EXISTS if tunnel and bridge/VLAN are already bound </dd>
 <dd>
-SX_STATUS_UNSUPPORTED if api is not supported for this device. </dd>
+SX_STATUS_UNSUPPORTED if API is not supported for this device </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED if cmd is unsupported in this API. </dd>
+SX_STATUS_CMD_UNSUPPORTED if the command is unsupported in this API </dd>
 <dd>
-SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized. </dd>
+SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized </dd>
 <dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if try to delete more maps than configured for the tunnel. </dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE when trying to delete more maps than configured for the tunnel </dd>
 <dd>
-SX_STATUS_RESOURCE_IN_USE if the user tries to re-create a tunnel map entry that is marked as deleted. </dd>
+SX_STATUS_RESOURCE_IN_USE when trying to re-create a tunnel map entry that is marked as deleted </dd>
 <dd>
-SX_STATUS_ERROR general error. </dd></dl>
+SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
@@ -752,33 +749,33 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the mapping information between tunnel and bridge/VLAN. This function supports the below commands in the order mentioned below. 1) cmd SX_ACCESS_CMD_GET_FIRST, get a list of first n&lt;=1000 map entries of specified tunnel id.</p>
-<p>2) cmd SX_ACCESS_CMD_GETNEXT, get a list of n&lt;=1000 next map entries whose value larger than the given map_entry_key of specified tunnel id.</p>
+<p>This API gets the mapping information between tunnel and bridge/VLAN. This function supports the below commands in the order mentioned below.</p>
+<p>GET_FIRST gets a list of first n&lt;=1000 map entries of specified tunnel ID. GETNEXT gets a list of n&lt;=1000 next map entries whose value larger than the given map_entry_key of specified tunnel ID.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET_FIRST/ GET_NEXT. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET_FIRST/GET_NEXT </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">map_entry_key</td><td>- map entry, as a key to get next entries </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">map_entry_key</td><td>- Map entry (as a key to get next entries) </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">map_entries_p</td><td>- Array of map entries </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">map_entries_cnt_p</td><td>- amount of entries in map_entries_p</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">map_entries_cnt_p</td><td>- Amount of entries in map_entries_p</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED if access command isn't supported. </dd>
+SX_STATUS_CMD_UNSUPPORTED if access command is not supported </dd>
 <dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range. </dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if neighbor was not added. </dd>
+SX_STATUS_ENTRY_NOT_FOUND if neighbor was not added </dd>
 <dd>
 SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized </dd>
 <dd>
-SX_STATUS_ERROR general error. </dd></dl>
+SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
@@ -814,16 +811,16 @@ SX_STATUS_ERROR general error. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to set the tunnel TTL parameters.</p>
-<p>Note for Spectrum:</p><ol type="1">
+<p>Note for Spectrum devices:</p><ol type="1">
 <li>TTL behavior and values are shared between all tunnels of same type.</li>
-<li>IPinIP tunnels support TTL_CMD_SET and TTL_CMD_COPY in the encap direction, default value is TTL_CMD_COPY.</li>
-<li>NVE tunnels support TTL_CMD_SET in the encap direction, default TTL value is 255.</li>
+<li>IPinIP tunnels support TTL_CMD_SET and TTL_CMD_COPY in the encap direction (default value is TTL_CMD_COPY).</li>
+<li>NVE tunnels support TTL_CMD_SET in the encap direction (default TTL value is 255).</li>
 </ol>
-<p>Note for Spectrum2 and newer ASICs:</p><ol type="1">
-<li>IPinIP tunnels support only TTL_CMD_SET &amp; TTL_CMD_COPY commands</li>
-<li>IPinIP tunnels only support configuring TTL command in encap direction</li>
+<p>Note for Spectrum-2 and above:</p><ol type="1">
+<li>IPinIP tunnels support only TTL_CMD_SET &amp; TTL_CMD_COPY commands.</li>
+<li>IPinIP tunnels only support configuring TTL command in encap direction.</li>
 <li>NVE tunnels support TTL_CMD_SET, TTL_CMD_COPY in Encap direction.</li>
-<li>NVE tunnels support TTL_CMD_PRESERVE_E, TTL_CMD_COPY, TTL_CMD_MINIMUM in decap direction. Default is PRESERVE.</li>
+<li>NVE tunnels support TTL_CMD_PRESERVE_E, TTL_CMD_COPY, TTL_CMD_MINIMUM in decap direction (default is PRESERVE).</li>
 <li>For Symmetric tunnels, the TTL behavior must be set separately for encap and decap directions.</li>
 </ol>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
@@ -831,7 +828,7 @@ SX_STATUS_ERROR general error. </dd></dl>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">ttl_data_p</td><td>- pointer to tunnel ttl data structure.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ttl_data_p</td><td>- Pointer to tunnel ttl data structure</td></tr>
   </table>
   </dd>
 </dl>
@@ -839,7 +836,7 @@ SX_STATUS_ERROR general error. </dd></dl>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
-SX_STATUS_UNSUPPORTED if api is not supported for this device </dd>
+SX_STATUS_UNSUPPORTED if API is not supported for this device </dd>
 <dd>
 SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized </dd>
 <dd>
@@ -884,7 +881,7 @@ SX_STATUS_ERROR general error </dd></dl>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">ttl_data_p</td><td>- pointer to tunnel ttl data structure, set direction field for which you want get config.</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ttl_data_p</td><td>- Pointer to tunnel TTL data (set direction field to get configuration)</td></tr>
   </table>
   </dd>
 </dl>
@@ -892,7 +889,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
-SX_STATUS_UNSUPPORTED if api is not supported for this device </dd>
+SX_STATUS_UNSUPPORTED if API is not supported for this device </dd>
 <dd>
 SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized </dd>
 <dd>
@@ -934,15 +931,15 @@ SX_STATUS_ERROR general error </dd></dl>
 <p>This API is used to set the tunnel hash parameters.</p>
 <p>Note for Spectrum:</p><ol type="1">
 <li>Hash parameters are shared between all tunnels of the same type.</li>
-<li>IPinIP tunnels support setting an IPV6_FLOW_LABEL. Default value is 0.</li>
-<li>NVE tunnels support setting a UDP_SPORT. Default value is 0.</li>
+<li>IPinIP tunnels support setting an IPV6_FLOW_LABEL (default value is 0).</li>
+<li>NVE tunnels support setting a UDP_SPORT (default value is 0).</li>
 </ol>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">hash_data_p</td><td>- pointer to tunnel hash data structure.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hash_data_p</td><td>- Pointer to tunnel hash data</td></tr>
   </table>
   </dd>
 </dl>
@@ -950,7 +947,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
-SX_STATUS_UNSUPPORTED if api is not supported for this device </dd>
+SX_STATUS_UNSUPPORTED if API is not supported for this device </dd>
 <dd>
 SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized </dd>
 <dd>
@@ -995,7 +992,7 @@ SX_STATUS_ERROR general error </dd></dl>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">hash_data_p</td><td>- pointer to tunnel hash data structure, hash_field_type should be set for retrieving the correct config.</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">hash_data_p</td><td>- Pointer to tunnel hash data (hash_field_type should be set for retrieving the correct configuration)</td></tr>
   </table>
   </dd>
 </dl>
@@ -1003,7 +1000,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
-SX_STATUS_UNSUPPORTED if api is not supported for this device </dd>
+SX_STATUS_UNSUPPORTED if API is not supported for this device </dd>
 <dd>
 SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized </dd>
 <dd>
@@ -1042,38 +1039,34 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to set the CoS attributes of tunnel. CoS behaviour applies to all tunnels of a given type. Changes applied to one tunnel will change the CoS behaviour of all tunnels of same type.</p>
-<p>The API configures QoS parameters for encapsulation and decapsulation flow separately based on value in cos_data_p-&gt;param_type.</p>
-<p>Given below are the parameters that can be configured with this API:</p>
+<p>This API is used to set the CoS attributes of tunnels. CoS behaviour applies to all tunnels of a given type. Changes applied to one tunnel will change the CoS behaviour of all tunnels of same type. The API configures QoS parameters for encapsulation and decapsulation flow separately based on value in cos_data_p-&gt;param_type.</p>
+<p>Below are the parameters that can be configured:</p>
 <ol type="1">
-<li>cos_data_p-&gt;update_priority_color - Packet switch priority and color when it is not preserved.</li>
-<li>cos_data_p-&gt;prio_color - New switch priority and color for the packet when cos_data_p-&gt;update_priority_color is set to TRUE.</li>
-<li>cos_data_p-&gt;dsc_rewrite - Action for DSCP rewrite i.e disabled, enabled or preserved to a dscp value that was set on packet ingress port. cos_data_p-&gt;dscp_action - If DSCP rewrite is disabled then DSCP value is dependent on dscp_action.<ul>
-<li>the DSCP value on encap can be copied from inner header or set from cos_data_p-&gt;dscp_value</li>
-<li>the DSCP value on decap can be copied from outer or preserved When dscp_action is copy and if there is no IP header, then the value from cos_data_p-&gt;dscp_value is used.</li>
-</ul>
-</li>
-<li>ECN mapping on encapsulation or decapsulation</li>
+<li>cos_data_p-&gt;update_priority_color: Packet switch priority and color when it is not preserved.</li>
+<li>cos_data_p-&gt;prio_color: New switch priority and color for the packet when cos_data_p-&gt;update_priority_color is set to TRUE.</li>
+<li>cos_data_p-&gt;dsc_rewrite: Action for DSCP rewrite (i.e., disabled, enabled or preserved to a DSCP value that was set on packet ingress port). cos_data_p-&gt;dscp_action: If DSCP rewrite is disabled, then DSCP value is dependent on dscp_action The DSCP value on encap can be copied from inner header or set from cos_data_p-&gt;dscp_value The DSCP value on decap can be copied from outer or preserved When dscp_action is COPY and if there is no IP header, then the value from cos_data_p-&gt;dscp_value is used.</li>
+<li>ECN mapping on encapsulation or decapsulation.</li>
 </ol>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">tunnel</td><td>id - Tunnel ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cos_data_p</td><td>- Pointer to CoS data structure.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cos_data_p</td><td>- Pointer to CoS data</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_UNSUPPORTED if api is not supported for this device or tunnel type/direction. </dd>
+SX_STATUS_UNSUPPORTED if API is not supported for this device or tunnel type/direction </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if tunnel doesn't exists. </dd>
+SX_STATUS_ENTRY_NOT_FOUND if tunnel does not exist </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized </dd>
 <dd>
-SX_STATUS_ERROR general error. </dd></dl>
+SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
@@ -1108,22 +1101,23 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to retrieve CoS data. CoS data retrieval for ENCAP or DECAP direction can be controlled by cos_data_p-&gt;param_type. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API is used to retrieve CoS data. CoS data retrieval for ENCAP or DECAP direction can be controlled by cos_data_p-&gt;param_type.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">tunnel</td><td>id - Tunnel ID. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>cos_data_p - Pointer to CoS data structure - by CoS param type (ENCAP/DECAP).</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tunnel</td><td>id - Tunnel ID </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>cos_data_p - Pointer to CoS data (by CoS param type ENCAP or DECAP)</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_UNSUPPORTED if api is not supported for this device or tunnel type/direction </dd>
+SX_STATUS_UNSUPPORTED if API is not supported for this device or tunnel type/direction </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if tunnel doesn't exists. </dd>
+SX_STATUS_ENTRY_NOT_FOUND if tunnel does not exist </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized </dd>
 <dd>
@@ -1180,27 +1174,22 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves a list of one or more Tunnel IDs. The following use case scenarios apply with different input parameters X = don't-care</p><ul>
-<li>1) cmd = SX_ACCESS_CMD_GET, tunnel_id = X, filter = valid/invalid, tunnel_id_list = X, tunnel_id_cnt = 0: In this case the API will return the total number of tunnel IDs filtered by the filter parameter if present.</li>
-<li>2) cmd = SX_ACCESS_CMD_GET, tunnel_id = valid/invalid, filter = valid/invalid, tunnel_id_list = valid, tunnel_id_cnt = 1: In this case the API will check if the specified tunnel_id exists AND it matches the filter if present. If it does, the tunnel ID will be returned in the tunnel_id_list along with a tunnel_id_cnt of 1. If the tunnel ID does not exist, an empty list will be returned with tunnel_id_cnt = 0. A non-NULL tunnel_id_list pointer must be provided in this case.</li>
-<li>3) cmd = SX_ACCESS_CMD_GET, tunnel_id = valid/invalid, filter = valid/invalid, tunnel_id_list = valid, tunnel_id_cnt &gt; 1: A tunnel_id_cnt &gt; 1 will be treated as a tunnel_id_cnt of 1 and the behavior will be same as the previous GET use cases.</li>
-<li>4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, tunnel_id = X, filter = X, tunnel_id_list = NULL, tunnel_id_cnt = 0: A zero tunnel_id_cnt and an empty tunnel_id_list will be returned.</li>
-<li>5) cmd = SX_ACCESS_CMD_GET_FIRST, tunnel_id = X, tunnel_id_list = valid, filter = valid/invalid, tunnel_id_cnt &gt; 0: In this case the API will return the first tunnel_id_cnt tunnel IDs starting from the head of the database AND match the filter if present. The total number of elements fetched will be returned as tunnel_id_cnt. The input tunnel ID is ignored in this case. A non-NULL tunnel_id_list pointer must be provided in this case.</li>
-<li>6) cmd = SX_ACCESS_CMD_GETNEXT, tunnel_id = valid/invalid, filter = valid/invalid, tunnel_id_list = valid, tunnel_id_cnt &gt; 0: In this case the API will return the next set of tunnel IDs which matches the filter if present starting from the next tunnel ID after the specified tunnel ID. The total number of elements fetched will be returned as the tunnel_id_cnt. If no valid next tunnel ID exists in the db, an empty list will be returned. A non-NULL tunnel_id_list pointer must be provided in this case.</li>
-</ul>
-<p>Two type of filter can be used, 1) sx_tunnel_type_e: it exactly match the type defined for the tunnels 2) sx_tunnel_direction_e: if tunnel direction is SX_TUNNEL_DIRECTION_SYMMETRIC, it will match any direction(ENCAP/DECAP/SYMMETRIC) of filter, otherwise, it will only match the same direction of filter.</p>
+<p>This API retrieves a list of one or more Tunnel IDs. The following use case scenarios apply with different input parameters. X = don't-care. 1) cmd = SX_ACCESS_CMD_GET, tunnel_id = X, filter = valid/invalid, tunnel_id_list = X, tunnel_id_cnt = 0: In this case, the API will return the total number of tunnel IDs filtered by the filter parameter, if present.</p>
+<p>2) cmd = SX_ACCESS_CMD_GET, tunnel_id = valid/invalid, filter = valid/invalid, tunnel_id_list = valid, tunnel_id_cnt = 1: In this case, the API will check if the specified tunnel_id exists AND it matches the filter, if present. If it does, the tunnel ID will be returned in the tunnel_id_list along with a tunnel_id_cnt of 1. If the tunnel ID does not exist, an empty list will be returned with tunnel_id_cnt = 0. A non-NULL tunnel_id_list pointer must be provided in this case.</p>
+<p>3) cmd = SX_ACCESS_CMD_GET, tunnel_id = valid/invalid, filter = valid/invalid, tunnel_id_list = valid, tunnel_id_cnt &gt; 1: A tunnel_id_cnt &gt; 1 will be treated as a tunnel_id_cnt of 1 and the behavior will be same as the previous GET use cases.</p>
+<p>4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, tunnel_id = X, filter = X, tunnel_id_list = NULL, tunnel_id_cnt = 0: A zero tunnel_id_cnt and an empty tunnel_id_list will be returned.</p>
+<p>5) cmd = SX_ACCESS_CMD_GET_FIRST, tunnel_id = X, tunnel_id_list = valid, filter = valid/invalid, tunnel_id_cnt &gt; 0: In this case, the API will return the first tunnel_id_cnt tunnel IDs starting from the head of the database AND match the filter, if present. The total number of elements fetched will be returned as tunnel_id_cnt. The input tunnel ID is ignored, in this case. A non-NULL tunnel_id_list pointer must be provided, in this case.</p>
+<p>6) cmd = SX_ACCESS_CMD_GETNEXT, tunnel_id = valid/invalid, filter = valid/invalid, tunnel_id_list = valid, tunnel_id_cnt &gt; 0: In this case, the API will return the next set of tunnel IDs which matches the filter if present starting from the next tunnel ID after the specified tunnel ID. The total number of elements fetched will be returned as the tunnel_id_cnt. If no valid next tunnel ID exists in the database, an empty list will be returned. A non-NULL tunnel_id_list pointer must be provided, in this case.</p>
+<p>Two type of filter can be used: 1) sx_tunnel_type_e: It must exactly match the type defined for the tunnels. 2) sx_tunnel_direction_e: If tunnel direction is SX_TUNNEL_DIRECTION_SYMMETRIC, it will match any direction (ENCAP/DECAP/SYMMETRIC) of the filter, otherwise, it will only match the same direction of the filter.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_FIRST/GET_NEXT </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- tunnel ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- specify a filter parameter </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">tunnel_id_list_p</td><td>- return list of tunnel IDs </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">tunnel_id_cnt_p</td><td>- [in] number of tunnel IDs to get<ul>
-<li>[out] number of tunnel IDs returned</li>
-</ul>
-</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tunnel_id</td><td>- Tunnel ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- Specify a filter parameter </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">tunnel_id_list_p</td><td>- Return list of tunnel IDs </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">tunnel_id_cnt_p</td><td>- [in] number of tunnel IDs to get/[out] number of tunnel IDs returned</td></tr>
   </table>
   </dd>
 </dl>
@@ -1267,25 +1256,29 @@ SX_STATUS_MODULE_UNINITIALIZED for tunnel module uninitialized </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to retrieve the count or a list of one or more Tunnel Decap Rules The rules are essentially the Keys that the rules match on. The rule's attributes(actions) can then be read using the sx_api_tunnel_decap_rules_get API for each key. Using the filter param, the return list can be refined. The following filters are supported 1) sx_tunnel_type_e: only return the keys that match the tunnel type 2) sx_tunnel_id: only return the keys that match the tunnel id</p>
-<p>The following use case scenarios apply with different input parameters X = don't-care</p><ul>
-<li>1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, decap_key_list = X, Count=0: In this case the API will return the total number of Decap rules in the Internal db</li>
-<li>2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, decap_key_list = Valid, Count = 1: In this case the API will check if the specified key exists. if it does the key will be returned in the decap_key_list along with a count of 1. If the key does not exist an empty list will be returned with count = 0</li>
-<li>3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = Valid, decap_key_list is Valid, Count=1: In this case the API will check if the specified key exists. if it does exist then, it will check it against the filter parameter. If the filter matches, then the key will be returned in the decap_key_list along with a count of 1. If the key does not exist or the filter does not match an empty list will be returned with count = 0</li>
-<li>4) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = Valid/invalid, decap_key_list is Valid, Count &gt; 1: A count &gt;1 will be treated as a count of 1 and the behavior will be same as earlier GET use cases.</li>
-<li>5) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X, decap_key_list = Null, Count =0: For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT a zero count will return an empty list.</li>
-<li>6) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = valid/invalid, decap_key_list = Valid, Count &gt; 0: In this case the API will return the first count decap key entries starting from the head of the database. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. The key is dont-care. If a filter is specified only those decap key entries that match the filter will be returned. A non-Null return decap_key_list pointer must be provided.</li>
-<li>7) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = valid/invalid, decap_key_list = Valid, Count &gt; 0: In this case the API will return the next set of decap key entries starting from the next valid decap key entry after the specified key. The total elements fetched will be returned as the return count. If a filter is specified, then only those decap key entries that match the filter will be returned. Note: return count may be less than or equal to the requested count. If no valid next decap key entry exists in the db (key = end of list, or invalid key specified, or key too large), an empty list will be returned.</li>
+<p>This API is used to retrieve the count or a list of one or more Tunnel Decap Rules. The rules are essentially the Keys that the rules match on. The rule's attributes (actions) can then be read using the sx_api_tunnel_decap_rules_get API for each key. Using the filter param, the return list can be refined. The following filters are supported: 1) sx_tunnel_type_e: Only returns the keys that match the tunnel type. 2) sx_tunnel_id: Only returns the keys that match the tunnel ID.</p>
+<p>The following use case scenarios apply with different input parameters. X = don't-care.</p><ul>
+<li>1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, decap_key_list = X, Count=0: In this case, the API will return the total number of decap rules in the internal database.</li>
+<li>2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, decap_key_list = Valid, Count = 1: In this case, the API will check if the specified key exists. If it does the key will be returned in the decap_key_list along with a count of 1. If the key does not exist an empty list will be returned with count = 0.</li>
+<li>3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = Valid, decap_key_list is Valid, Count=1: In this case, the API will check if the specified key exists. If it does exist, it will check it against the filter parameter. If the filter matches, then the key will be returned in the decap_key_list along with a count of 1. If the key does not exist or the filter does not match, an empty list will be returned with count = 0.</li>
+<li>4) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = Valid/invalid,decap_key_list is Valid, Count &gt; 1: A count &gt;1 will be treated as a count of 1 and the behavior will be same as earlier GET use cases.</li>
+<li>5) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X, decap_key_list = Null, Count =0: For either SX_ACCESS_CMD_GET_FIRST or SX_ACCESS_CMD_GETNEXT, a zero count will return an empty list.</li>
+<li><p class="startli">6) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = valid/invalid, decap_key_list = Valid, Count &gt; 0: In this case, the API will return the first count decap key entries starting from the head of the database. The total elements fetched will be returned as the return count.</p>
+<p class="startli">Note: Return count may be less than or equal to the requested count. The key is dont-care. If a filter is specified, only those decap key entries that match the filter will be returned. A non-Null return decap_key_list pointer must be provided.</p>
+</li>
+<li><p class="startli">7) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = valid/invalid, decap_key_list = Valid, Count &gt; 0: In this case, the API will return the next set of decap key entries starting from the next valid decap key entry after the specified key. The total elements fetched will be returned as the return count. If a filter is specified, then only those decap key entries that match the filter will be returned.</p>
+<p class="startli">Note: Return count may be less than or equal to the requested count. If no valid next decap key entry exists in the database (key = end of list, or invalid key specified, or key too large), an empty list will be returned.</p>
+</li>
 </ul>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>: SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>: GET/GET_FIRST/GET_NEXT. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">decap_key_p</td><td>: specify a Tunnel decap entry key </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">decap_filter_p</td><td>: specify a filter parameter </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">decap_key_list_p</td><td>: return list of decap key entries </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">decap_key_cnt_p</td><td>: [in] number of decap keys to read : [out] number of decap keys returned</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_FIRST/GET_NEXT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">decap_key_p</td><td>- Specify a Tunnel decap entry key </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">decap_filter_p</td><td>- Specify a filter parameter </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">decap_key_list_p</td><td>- Return list of decap key entries </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">decap_key_cnt_p</td><td>- [in] number of decap keys to read/[out] number of decap keys returned</td></tr>
   </table>
   </dd>
 </dl>
@@ -1293,7 +1286,7 @@ SX_STATUS_MODULE_UNINITIALIZED for tunnel module uninitialized </dd></dl>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if an unsupported command is passed </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if key doesn't exists. </dd>
+SX_STATUS_ENTRY_NOT_FOUND if key does not exist </dd>
 <dd>
 SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized </dd>
 <dd>
@@ -1311,7 +1304,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 14 2021 09:59:53 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 30 2021 08:43:42 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

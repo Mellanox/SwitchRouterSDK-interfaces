@@ -29,15 +29,14 @@
 /**
  * \deprecated This API is deprecated and will be removed in the future.
  *  This API is not supported in the current release.
+ *  This API set the lower and upper thresholds of an sdk resource.
  *
- *  Supported devices: Not supported
+ * Supported devices: Not supported
  *
- *  This function set the lower and upper thresholds of an sdk resource.
- *
- * @param[in] cmd              -ADD/DELETE.
- * @param[in] resource        - resource type.
- * @param[in] threshold_full    - Upper threshold value given in percentage.
- * @param[in] threshold_empty       - Lower threshold value given in percentage.
+ * @param[in] cmd              -ADD/DELETE
+ * @param[in] resource         - Resource type
+ * @param[in] threshold_full   - Upper threshold value given in percentage
+ * @param[in] threshold_empty  - Lower threshold value given in percentage
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if the command is not supported/thresholds are invalid
@@ -53,13 +52,13 @@ sx_status_t sx_api_rm_sdk_table_thresholds_set(const sx_api_handle_t            
  * \deprecated This API is deprecated and will be removed in the future.
  * This API is not supported in the current release.
  *
+ * This function gets the lower and upper thresholds of an SDK resource.
+ *
  * Supported devices: Not supported.
  *
- *  This function gets the lower and upper thresholds of an sdk resource.
- *
- * @param[in] resource        - resource type.
- * @param[out] threshold_full    - Upper threshold value given in percentage.
- * @param[out] threshold_empty       - Lower threshold value given in percentage.
+ * @param[in] resource         - Resource type
+ * @param[out] threshold_full  - Upper threshold value given in percentage
+ * @param[out] threshold_empty - Lower threshold value given in percentage
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if the command is not supported/thresholds are invalid
@@ -74,14 +73,14 @@ sx_status_t sx_api_rm_sdk_table_thresholds_get(const sx_api_handle_t        hand
  * \deprecated This API is deprecated and will be removed in the future.
  * This API is not supported in the current release.
  *
+ * This function sets the lower and upper thresholds of a hardware resource.
+ *
  * Supported devices: Not supported
  *
- *  This function sets the lower and upper thresholds of a HW resource.
- *
- * @param[in] cmd              -ADD/DELETE.
- * @param[in] resource        - resource type.
- * @param[in] threshold_full    - Upper threshold value given in percentage.
- * @param[in] threshold_empty       - Lower threshold value given in percentage.
+ * @param[in] cmd             - ADD/DELETE
+ * @param[in] resource        - Resource type
+ * @param[in] threshold_full  - Upper threshold value given in percentage
+ * @param[in] threshold_empty - Lower threshold value given in percentage
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if the command is not supported/thresholds are invalid
@@ -96,15 +95,15 @@ sx_status_t sx_api_rm_hw_table_thresholds_set(const sx_api_handle_t             
 
 /**
  * \deprecated This API is deprecated and will be removed in the future.
- *  This API is not supported in the current release.
+ * This API is not supported in the current release.
  *
- *  Supported devices: Not supported
+ * This function get the lower and upper thresholds of a hardware resource.
  *
- *  This function get the lower and upper thresholds of an hw resource.
+ * Supported devices: Not supported.
  *
- * @param[in] resource        - resource type.
- * @param[out] threshold_full    - Upper threshold value given in percentage.
- * @param[out] threshold_empty       - Lower threshold value given in percentage.
+ * @param[in] resource         - Resource type
+ * @param[out] threshold_full  - Upper threshold value given in percentage
+ * @param[out] threshold_empty - Lower threshold value given in percentage
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if the command is not supported/thresholds are invalid
@@ -116,11 +115,9 @@ sx_status_t sx_api_rm_hw_table_thresholds_get(const sx_api_handle_t        handl
                                               sx_notification_threshold_t *threshold_empty);
 
 /**
- * This API allows the user to configure the number of times an entry should be
- * replicated in the KVD Central/KVD Linear Database. This replication provides an increase
- * of the data access bandwidth and general performance of the database,
+ * This API allows to configure the number of times an entry should be replicated in the KVD Central/KVD Linear Database.
+ * This replication provides an increase of the data access bandwidth and general performance of the database,
  * especially in cases when multiple requests want to get access to the same data entry.
- *
  *
  * Note: Configuration is allowed at system init before any entries are added to the KVD.
  * Note: Not all entry types support duplication.
@@ -128,14 +125,14 @@ sx_status_t sx_api_rm_hw_table_thresholds_get(const sx_api_handle_t        handl
  * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in] handle   - SX-API handle
- * @param[in] resource - resource type
+ * @param[in] resource - Resource type
  * @param[in] param_p  - Structure to specify duplication parameter for the resource
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if any input parameters are invalid
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameters exceed valid range
  * @return SX_STATUS_UNSUPPORTED if API is not supported for this device
- * @return SX_STATUS_PARAM_NULL if param_p is NULL.
+ * @return SX_STATUS_PARAM_NULL if param_p is NULL
  * @return SX_STATUS_ERROR general error
  *
  */
@@ -148,8 +145,8 @@ sx_status_t sx_api_rm_entries_duplication_set(const sx_api_handle_t             
  *
  * Supported devices: Spectrum2, Spectrum3.
  *
- * @param[in] handle   - SX-API handle
- * @param[in] resource - resource type
+ * @param[in] handle      - SX-API handle
+ * @param[in] resource    - Resource type
  * @param[in/out] param_p - Structure with retrieved duplication parameters
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
@@ -166,15 +163,15 @@ sx_status_t sx_api_rm_entries_duplication_get(const sx_api_handle_t             
 
 
 /**
- * This API gets the utilization of a logical resource in the SDK. User is
- * responsible for memory management of the retrieved utilization list.
+ * This API gets the utilization of a logical resource in the SDK. User is responsible for memory management of the retrieved
+ * utilization list.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
- * @param[in] handle   - SX-API handle
- * @param[in] resource_list - List of resources
- * @param[in/out] list_count - Size of resource list / Size of returned list
- * @param[out] Utilization list
+ * @param[in] handle         - SX-API handle
+ * @param[in] resource_list  - List of resources
+ * @param[in/out] list_count - [in] size of resource list/[out] size of returned list
+ * @param[out] Utilization   - Utilization list
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if any input parameters are invalid
@@ -185,18 +182,18 @@ sx_status_t sx_api_rm_entries_duplication_get(const sx_api_handle_t             
  *
  */
 sx_status_t sx_api_rm_sdk_table_utilization_get(const sx_api_handle_t          handle,
-                                                sx_api_table_type_t          * resource_list_p,
+                                                sx_api_table_type_t           *resource_list_p,
                                                 uint32_t                      *list_count_p,
                                                 sx_api_rm_table_utilization_t *utilization_list_p);
 
 
 /**
- * This API retrieves the utilization of a HW Table in the SDK.
+ * This API retrieves the utilization of a hardware table in the SDK.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
- * @param[in] handle   - SX-API handle
- * @param[in] hw_type - HW Table type
+ * @param[in] handle       - SX-API handle
+ * @param[in] hw_type      - Hardware table type
  * @param[out] utilization - Utilization in 10th of percentage
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
@@ -213,14 +210,15 @@ sx_status_t sx_api_rm_hw_utilization_get(const sx_api_handle_t  handle,
 
 
 /**
- * This API retrieves the predicted number of resources that can be added
- * assuming that no other objects are  added  which may compete for the same
- * Hardware resource. Note that this number provides the maximum possible and
- * there is no guarantee that this number will be achievable in practice.
+ * This API retrieves the predicted number of resources that can be added assuming that no other objects are added which
+ * may compete for the same hardware resource.
+ *
+ * Note: this number provides the maximum possible and there is no guarantee that this number will be achievable in practice.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
- * @param[in] handle   - SX-API handle
- * @param[in] resource - Logical resource
+ *
+ * @param[in] handle        - SX-API handle
+ * @param[in] resource      - Logical resource
  * @param[out] free_count_p - Number of free entries of resource provided
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['foreach_5fbulk_5fcntr_5fkey_5ftype',['FOREACH_BULK_CNTR_KEY_TYPE',['../sx__bulk__counter__auto_8h.html#adc33a01aad81e0118d21b8a23ae30a06',1,'sx_bulk_counter_auto.h']]],
-  ['foreach_5fbulk_5fcntr_5fport_5fgrp',['FOREACH_BULK_CNTR_PORT_GRP',['../sx__bulk__counter__auto_8h.html#a54397ae8eac7a63bcea17ac1bf44e207',1,'sx_bulk_counter_auto.h']]]
+  ['posix_5feintr_5fretry',['POSIX_EINTR_RETRY',['../sx__api__host__ifc_8h.html#ae1bbebd5bde7a2e3ecccf74841fff356',1,'sx_api_host_ifc.h']]]
 ];

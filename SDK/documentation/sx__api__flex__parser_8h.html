@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_flex_parser.h File Reference</title>
+<title>NVIDIA Ethernet Switch SDK API Guide: sdk/sx_api_flex_parser.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.2522</span>
+   <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
+   &#160;<span id="projectnumber">4.4.3102</span>
    </div>
   </td>
  </tr>
@@ -89,6 +89,26 @@ Functions</h2></td></tr>
 <tr class="separator:a0606e9d45b8e331dabd2882cdd34f594"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a740aef7ab5e54dddcae3af7897c1a728"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__parser_8h.html#a740aef7ab5e54dddcae3af7897c1a728">sx_api_flex_parser_transition_get</a> (const sx_api_handle_t handle, const sx_flex_parser_header_t curr_ph, sx_flex_parser_transition_t *next_trans_p, uint32_t *next_trans_cnt)</td></tr>
 <tr class="separator:a740aef7ab5e54dddcae3af7897c1a728"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0986d55a99389bddd5052f06cf0d9893"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__parser_8h.html#a0986d55a99389bddd5052f06cf0d9893">sx_api_flex_parser_flex_graph_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flex_parser_graph_action_t *actions_list_p, const uint32_t actions_list_cnt)</td></tr>
+<tr class="separator:a0986d55a99389bddd5052f06cf0d9893"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9f0012f3c7e0dc352a257abbb52f180"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__parser_8h.html#ad9f0012f3c7e0dc352a257abbb52f180">sx_api_flex_parser_hard_graph_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flex_parser_graph_action_t *actions_list_p, const uint32_t actions_list_cnt)</td></tr>
+<tr class="separator:ad9f0012f3c7e0dc352a257abbb52f180"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae15a39287f2e9779d8b682bedd4bd847"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__parser_8h.html#ae15a39287f2e9779d8b682bedd4bd847">sx_api_flex_parser_fpp_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_flex_parser_fpp_id_t *fpp_id_p, const sx_flex_parser_fpp_t *fpp_cfg_p)</td></tr>
+<tr class="separator:ae15a39287f2e9779d8b682bedd4bd847"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9fed6c9aa86a6a8b5f403366c0c1315"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__parser_8h.html#ad9fed6c9aa86a6a8b5f403366c0c1315">sx_api_flex_parser_fpp_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flex_parser_fpp_id_t fpp_id, sx_flex_parser_fpp_t *fpp_cfg_p)</td></tr>
+<tr class="separator:ad9fed6c9aa86a6a8b5f403366c0c1315"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac38efd8243c1a1a9322cf62a597a2d00"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__parser_8h.html#ac38efd8243c1a1a9322cf62a597a2d00">sx_api_flex_parser_root_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flex_parser_root_sop_cfg_t *root_cfg_list_p, const uint32_t root_cfg_cnt)</td></tr>
+<tr class="separator:ac38efd8243c1a1a9322cf62a597a2d00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43bbff757c953b761fe0fef2758f7fcc"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__parser_8h.html#a43bbff757c953b761fe0fef2758f7fcc">sx_api_flex_parser_root_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_flex_parser_root_sop_cfg_t *root_sop_cfg_list_p, uint32_t *root_sop_cfg_cnt_p)</td></tr>
+<tr class="separator:a43bbff757c953b761fe0fef2758f7fcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a098973bbccf8fabc2e85efc29aa2b6f3"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__parser_8h.html#a098973bbccf8fabc2e85efc29aa2b6f3">sx_api_flex_parser_hph_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flex_parser_hph_id_t hph_id, const sx_flex_parser_hph_t *hph_cfg_p)</td></tr>
+<tr class="separator:a098973bbccf8fabc2e85efc29aa2b6f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ecbffe9cba61eccabbc733e68602125"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__parser_8h.html#a1ecbffe9cba61eccabbc733e68602125">sx_api_flex_parser_hph_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flex_parser_hph_id_t hph_id, sx_flex_parser_hph_t *hph_cfg_p)</td></tr>
+<tr class="separator:a1ecbffe9cba61eccabbc733e68602125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ef4c38d5f3f2f05309c23ff61065888"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__parser_8h.html#a8ef4c38d5f3f2f05309c23ff61065888">sx_api_flex_parser_fexp_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_flex_parser_fexp_id_t *fexp_id_p)</td></tr>
+<tr class="separator:a8ef4c38d5f3f2f05309c23ff61065888"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe3c62bd83cec6ba410d77557d2c3f04"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__parser_8h.html#abe3c62bd83cec6ba410d77557d2c3f04">sx_api_flex_parser_resources_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_flex_parser_resources_t *flex_parser_resources_p)</td></tr>
+<tr class="separator:abe3c62bd83cec6ba410d77557d2c3f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39669c673f5675b62b1c830a7fb794c4"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__parser_8h.html#a39669c673f5675b62b1c830a7fb794c4">sx_api_flex_parser_reg_ext_point_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_register_key_t reg_key, const sx_extraction_point_t *ext_point_list_p, const uint32_t *ext_point_cnt_p)</td></tr>
 <tr class="separator:a39669c673f5675b62b1c830a7fb794c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64d85d5701520195795d178c433b0e17"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__parser_8h.html#a64d85d5701520195795d178c433b0e17">sx_api_flex_parser_reg_ext_point_get</a> (const sx_api_handle_t handle, const sx_register_key_t reg_key, sx_extraction_point_t *ext_point_list_p, uint32_t *ext_point_cnt_p)</td></tr>
@@ -132,11 +152,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the log verbosity level of FLEX_PARSER MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the log verbosity level of FLEX_PARSER module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Set verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- FLEX_PARSER module verbosity level </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- FLEX_PARSER API verbosity level</td></tr>
   </table>
@@ -187,11 +208,12 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the log verbosity level of FLEX_PARSER MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets the log verbosity level of FLEX_PARSER module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- get verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Get verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- FLEX_PARSER module verbosity level </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- FLEX_PARSER API verbosity level</td></tr>
   </table>
@@ -230,23 +252,22 @@ SX_STATUS_PARAM_NULL if an input parameter is invalid </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API initializes the flex parser module. Supported devices: Spectrum, Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API initializes the flex parser module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>- Configuration parameters for the initial state of the flex parser<ul>
-<li>params is don't-care for Spectrum.</li>
-</ul>
-</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params</td><td>- Configuration parameters for the initial state of the flex parser (parameters for Spectrum is don't-care)</td></tr>
   </table>
   </dd>
 </dl>
-<p>Returns: </p><dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
 SX_STATUS_ERROR general error </dd>
 <dd>
-SX_STATUS_UNSUPPORTED if the module is not supported by platform </dd>
+SX_STATUS_UNSUPPORTED if the module is not supported by the platform </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if configuration fails due to a lack of HW resources </dd>
+SX_STATUS_NO_RESOURCES if configuration fails due to a lack of hardware resources </dd>
 <dd>
 SX_STATUS_ALREADY_INITIALIZED if module is already initialized. </dd></dl>
 
@@ -267,19 +288,21 @@ SX_STATUS_ALREADY_INITIALIZED if module is already initialized. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API de-initializes the flex parser module. Supported devices: Spectrum, Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API de-initializes the flex parser module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle</td></tr>
   </table>
   </dd>
 </dl>
-<p>Returns: </p><dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
 SX_STATUS_ERROR general error </dd>
 <dd>
 SX_STATUS_MODULE_UNINITIALIZED if de-initialization is invoked without initialization </dd>
 <dd>
-SX_STATUS_UNSUPPORTED if module is not supported by platform. </dd></dl>
+SX_STATUS_UNSUPPORTED if module is not supported by the platform </dd></dl>
 
 </div>
 </div>
@@ -320,14 +343,17 @@ SX_STATUS_UNSUPPORTED if module is not supported by platform. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API configures (enables/disables)transition between two existing flex parser headers in the parse graph. Caller must specify the header to enable the transition between "From" and "To" nodes. Depending on the "To" (next protocol field) definition, the actual size of the value used may be less than 32 bits. Note that some combination of flex parser headers may be unsupported and will return SX_STATUS_UNSUPPORTED Supported devices: Spectrum, Spectrum2, Spectrum3. Spectrum supports only</p><ul>
-<li>Fixed header types.</li>
-<li>Transition from UDP to VxLAN with outer encapsulation level. Parameters: <dl class="params"><dt>Parameters</dt><dd>
+<p>This API enables/disables transition between two existing flex parser headers in the parse graph. Caller must specify the header to enable the transition between "From" and "To" nodes. Depending on the "To" (next protocol field) definition, the actual size of the value used may be less than 32 bits.</p>
+<p>Note: Some combination of flex parser headers may be unsupported and will return SX_STATUS_UNSUPPORTED. Note: Spectrum systems only support the following:</p><ul>
+<li>Fixed header types</li>
+<li>Transition from UDP to VxLAN with outer encapsulation level Supported devices: Spectrum, Spectrum2, Spectrum3.</li>
+</ul>
+<p>Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_SET / SX_ACCESS_CMD_UNSET </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">from</td><td>- the flex parser header to transition from(src) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">to</td><td>- the flex parser next transition header information(dest) Returns: </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_SET/SX_ACCESS_CMD_UNSET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">from</td><td>- Flex parser header to transition from (src) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">to</td><td>- Flex parser next transition header information (dest)</td></tr>
   </table>
   </dd>
 </dl>
@@ -337,15 +363,13 @@ SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ERROR general error </dd>
 <dd>
-SX_STATUS_UNSUPPORTED if configuration is not supported by the platform. </dd>
+SX_STATUS_UNSUPPORTED if configuration is not supported by the platform </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if configuration fails due to a lack of HW resources </dd>
+SX_STATUS_NO_RESOURCES if configuration fails due to a lack of hardware resources </dd>
 <dd>
-SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd>
+SX_STATUS_MODULE_UNINITIALIZED if an API is called without initialization </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed </dd></dl>
-</li>
-</ul>
+SX_STATUS_CMD_UNSUPPORTED if invalid command is passed </dd></dl>
 
 </div>
 </div>
@@ -386,26 +410,616 @@ SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves the configured transition information between given nodes in the parse graph. Caller can start at the root and iterate over the results to traverse the entire parse graph. Supported devices: Spectrum, Spectrum2, Spectrum3. Spectrum supports only UDP as current header. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API retrieves the configured transition information between given nodes in the parse graph. Caller can start at the root and iterate over the results to traverse the entire parse graph.</p>
+<p>Note: Spectrum systems only support UDP as current header.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">curr_ph</td><td>- the current flex parser header to transition from </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">next_trans_p</td><td>- a pointer to array of node transition structure. If it is NULL, the next_trans_cnt variable is filled out with numbers of transitions that could be retrieved. If the pointer is valid, node transition info is placed and next_trans_cnt takes actual number ports in array. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">next_trans_cnt</td><td>- Specifies the number of items in the next_trans_p array</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">curr_ph</td><td>- The current flex parser header to transition from. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">next_trans_p</td><td>- A pointer to array of node transition structure. If it is NULL, the next_trans_cnt variable is filled out with numbers of transitions that could be retrieved. If the pointer is valid, node transition info is placed and next_trans_cnt takes actual number ports in array. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">next_trans_cnt</td><td>- Specifies the number of items in the next_trans_p array.</td></tr>
   </table>
   </dd>
 </dl>
-<p>Returns: </p><dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
 SX_STATUS_ERROR general error </dd>
 <dd>
 SX_STATUS_UNSUPPORTED if configuration is not supported by the platform </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if configuration fails due to a lack of HW resources </dd>
+SX_STATUS_NO_RESOURCES if configuration fails due to a lack of hardware resources </dd>
 <dd>
-SX_STATUS_MODULE_UNINITIALIZED if API called without init </dd>
+SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization </dd>
 <dd>
 SX_STATUS_PARAM_NULL if next_trans_cnt parameter is NULL </dd></dl>
+
+</div>
+</div>
+<a id="a0986d55a99389bddd5052f06cf0d9893"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0986d55a99389bddd5052f06cf0d9893">&#9670;&nbsp;</a></span>sx_api_flex_parser_flex_graph_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_flex_parser_flex_graph_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_flex_parser_graph_action_t *&#160;</td>
+          <td class="paramname"><em>actions_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>actions_list_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API configures (ADD/DELETE/DELETE_ALL) multiple transitions between existing parser headers in the parse graph. For each transition the caller must specify the headers to enable the transition between "From" and "To" nodes. Note that this API only supports transitions that involve at least one flex header (FPP). For setting a transition involving only hard headers please refer to sx_api_flex_parser_hard_graph_set. Note that some combinations of parser headers may be unsupported and will return SX_STATUS_UNSUPPORTED. Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_ADD / SX_ACCESS_CMD_DELETE / SX_ACCESS_CMD_DELETE_ALL </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">actions_list_p</td><td>- Pointer to a list of transition actions to perform (ignored by DELETE_ALL command). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">actions_list_cnt</td><td>- The number of actions in the list pointed by actions_list_p (ignored by DELETE_ALL command).</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR general error </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if configuration is not supported by the platform. </dd>
+<dd>
+SX_STATUS_NO_RESOURCES if configuration fails due to a lack of HW resources </dd>
+<dd>
+SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed </dd></dl>
+
+</div>
+</div>
+<a id="ad9f0012f3c7e0dc352a257abbb52f180"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9f0012f3c7e0dc352a257abbb52f180">&#9670;&nbsp;</a></span>sx_api_flex_parser_hard_graph_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_flex_parser_hard_graph_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_flex_parser_graph_action_t *&#160;</td>
+          <td class="paramname"><em>actions_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>actions_list_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API configures (SET/UNSET/DELETE_ALL) multiple transitions between existing hard headers (HPH) in the parse graph. For each transition the caller must specify the headers to enable the transition between "From" and "To" nodes. Note that this API supports transitions that involve hard headers only (such as MAC, IP, TCP etc). Note that some combinations of parser headers may be unsupported and will return SX_STATUS_UNSUPPORTED. Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_SET / SX_ACCESS_CMD_UNSET / SX_ACCESS_CMD_DELETE_ALL </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">actions_list_p</td><td>- Pointer to a list of transition actions to perform (ignored by DELETE_ALL command). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">actions_list_cnt</td><td>- The number of actions in the list pointed by actions_list_p (ignored by DELETE_ALL command).</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR general error </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if configuration is not supported by the platform. </dd>
+<dd>
+SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed </dd></dl>
+
+</div>
+</div>
+<a id="ae15a39287f2e9779d8b682bedd4bd847"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae15a39287f2e9779d8b682bedd4bd847">&#9670;&nbsp;</a></span>sx_api_flex_parser_fpp_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_flex_parser_fpp_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_flex_parser_fpp_id_t *&#160;</td>
+          <td class="paramname"><em>fpp_id_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_flex_parser_fpp_t *&#160;</td>
+          <td class="paramname"><em>fpp_cfg_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API configures (CREATE/SET/DESTROY) a flexible parsing program (FPP). This API can configure a flex parsing header (FPH), an empty FPH or a TLV options parsing (FTLV). An FPP needs to be allocated first (CREATE cmd) before its parameters are set (SET cmd). Note: an FPP used in a transition cannot be modified or destroyed. Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_CREATE / SX_ACCESS_CMD_SET / SX_ACCESS_CMD_DESTROY </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fpp_id</td><td>- The flex parsing program to configure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fpp_cfg_p</td><td>- Pointer to the configuration to apply to the FPP (ignored by CREATE &amp; DESTROY commands).</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ENTRY_ALREADY_EXISTS if trying to create an FPP that already exists. </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE when trying to set / destroy an FPP used by a transition / other FPP. </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if configuration is not supported by the platform. </dd>
+<dd>
+SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd></dl>
+
+</div>
+</div>
+<a id="ad9fed6c9aa86a6a8b5f403366c0c1315"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9fed6c9aa86a6a8b5f403366c0c1315">&#9670;&nbsp;</a></span>sx_api_flex_parser_fpp_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_flex_parser_fpp_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_flex_parser_fpp_id_t&#160;</td>
+          <td class="paramname"><em>fpp_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_flex_parser_fpp_t *&#160;</td>
+          <td class="paramname"><em>fpp_cfg_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API retrieves the configuration of a flexible parsing program (FPP). Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_GET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fpp_id</td><td>- The flex parsing program to retrieve. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">fpp_cfg_p</td><td>- Pointer to the configuration to filled by the API.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR general error </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if configuration is not supported by the platform </dd>
+<dd>
+SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd></dl>
+
+</div>
+</div>
+<a id="ac38efd8243c1a1a9322cf62a597a2d00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac38efd8243c1a1a9322cf62a597a2d00">&#9670;&nbsp;</a></span>sx_api_flex_parser_root_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_flex_parser_root_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_flex_parser_root_sop_cfg_t *&#160;</td>
+          <td class="paramname"><em>root_cfg_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>root_cfg_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API configures (SET/UNSET) the root of a parsing graph for the specified logical ports. By default, each port is configured with start of parsing (SOP) from the MAC header. This API can change the root parsing header to be a specified FPP. Note: FTLV cannot be set as a root parsing header. Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_SET / SX_ACCESS_CMD_UNSET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">root_cfg_list_p</td><td>- Pointer to a list of ports &amp; FPP for which to set/unset the parsing root. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">root_cfg_cnt</td><td>- Number of elements in the list.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR general error </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if configuration is not supported by the platform </dd>
+<dd>
+SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd></dl>
+
+</div>
+</div>
+<a id="a43bbff757c953b761fe0fef2758f7fcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43bbff757c953b761fe0fef2758f7fcc">&#9670;&nbsp;</a></span>sx_api_flex_parser_root_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_flex_parser_root_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_flex_parser_root_sop_cfg_t *&#160;</td>
+          <td class="paramname"><em>root_sop_cfg_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>root_sop_cfg_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API retrieves the configured root parsing header for the specified logical port. If this API is called with root_sop_cfg_list_p parameter set to NULL or *root_sop_cfg_cnt_p set to 0, it will return the actual number of root parsing configurations that exist. For GET command, the parsing header associated with the logical port will be returned. For GET_FIRST command, the first logical port in the DB with an associated parsing header will be retrieved. For GETNEXT command, the next port after logical port in the DB with an associated parsing header will be retrieved. Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_GET / SX_ACCESS_CMD_GET_FIRST / SX_ACCESS_CMD_GETNEXT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">logical_port</td><td>- The logical port for which to retrieve the root SOP (relevant only for GET cmd). </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>root_sop_cfg_list_p - Pointer to a list SOP entries to be retrieved. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>root_sop_cfg_cnt_p - IN - Specifies the size of the list to be retrieved. OUT - The number of entries that were actually retrieved.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR general error </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if configuration is not supported by the platform </dd>
+<dd>
+SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd></dl>
+
+</div>
+</div>
+<a id="a098973bbccf8fabc2e85efc29aa2b6f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a098973bbccf8fabc2e85efc29aa2b6f3">&#9670;&nbsp;</a></span>sx_api_flex_parser_hph_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_flex_parser_hph_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_flex_parser_hph_id_t&#160;</td>
+          <td class="paramname"><em>hph_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_flex_parser_hph_t *&#160;</td>
+          <td class="paramname"><em>hph_cfg_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API sets the configuration for the specified hard parser header (HPH). Currently this supports setting a FTLV options parsing only. Note: not all HPH supports FTLV configuration, SX_STATUS_UNSUPPORTED will be returned in such a case. Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_SET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hph_id</td><td>- The hard parsing header to configure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hph_cfg_p</td><td>- Pointer to the configuration to apply to this header.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR general error </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if configuration is not supported by the platform </dd>
+<dd>
+SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd></dl>
+
+</div>
+</div>
+<a id="a1ecbffe9cba61eccabbc733e68602125"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ecbffe9cba61eccabbc733e68602125">&#9670;&nbsp;</a></span>sx_api_flex_parser_hph_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_flex_parser_hph_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_flex_parser_hph_id_t&#160;</td>
+          <td class="paramname"><em>hph_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_flex_parser_hph_t *&#160;</td>
+          <td class="paramname"><em>hph_cfg_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API retrieves the configuration of a hard parsing header (HPH). Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_GET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hph_id</td><td>- The hard header to retrieve. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">hph_cfg_p</td><td>- Pointer to the configuration to filled by the API.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR general error </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if configuration is not supported by the platform </dd>
+<dd>
+SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd></dl>
+
+</div>
+</div>
+<a id="a8ef4c38d5f3f2f05309c23ff61065888"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ef4c38d5f3f2f05309c23ff61065888">&#9670;&nbsp;</a></span>sx_api_flex_parser_fexp_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_flex_parser_fexp_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_flex_parser_fexp_id_t *&#160;</td>
+          <td class="paramname"><em>fexp_id_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API is used to create / destroy flexible extraction points (FEXP) to be used as part of FPPs. Supported devices: Spectrum2, Spectrum3.* Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_CREATE / SX_ACCESS_CMD_DESTROY </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fexp_id_p</td><td>- The flexible extraction point to allocate.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+<dd>
+SX_STATUS_ENTRY_ALREADY_EXISTS if trying to create an FEXP that already exists. </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE when trying to destroy an FEXP used by an FPP. </dd>
+<dd>
+SX_STATUS_ERROR general error. </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if configuration is not supported by the platform. </dd>
+<dd>
+SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd></dl>
+
+</div>
+</div>
+<a id="abe3c62bd83cec6ba410d77557d2c3f04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe3c62bd83cec6ba410d77557d2c3f04">&#9670;&nbsp;</a></span>sx_api_flex_parser_resources_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_flex_parser_resources_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_flex_parser_resources_t *&#160;</td>
+          <td class="paramname"><em>flex_parser_resources_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API retrieves the current resources use of the flex parser. Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_GET </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">flex_parser_resources_p</td><td>- Pointer to the resource information to be retrieved.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR general error </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if configuration is not supported by the platform </dd>
+<dd>
+SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd></dl>
 
 </div>
 </div>
@@ -452,13 +1066,13 @@ SX_STATUS_PARAM_NULL if next_trans_cnt parameter is NULL </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets / un-sets list of an extraction points for a given register key. Use cmd = UNSET to un-set extraction points list. Register can have up to 4 extraction points. When extracting, the last extraction point will be taken. This API together with sx_api_register_set replace sx_api_acl_custom_bytes_set, where general purpose register N represents a set of custom byte 2N and custom byte 2N+1.</p>
-<p>Note that this API together with sx_api_register_set are mutually exclusive with sx_api_acl_custom_bytes_set, so per single SDK life cycle only one of them can be used.</p>
+<p>This API sets/un-sets list of extraction points for a given register key. The register can have up to 4 extraction points. When extracting, the last extraction point will be taken. This API, together with sx_api_register_set, replaces sx_api_acl_custom_bytes_set, where general purpose register N represents a set of custom byte 2N and custom byte 2N+1.</p>
+<p>Note: This API, together with sx_api_register_set, is mutually exclusive with sx_api_acl_custom_bytes_set. As such, in a single SDK life cycle, only one of them can be used.</p>
 <p>Supported devices: Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET / UNSET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET/UNSET </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">reg_key</td><td>- Register key </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ext_point_list_p</td><td>- List of extraction points </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ext_point_cnt_p</td><td>- Number of items in ext_point_list_p (max 4)</td></tr>
@@ -514,17 +1128,14 @@ SX_STATUS_PARAM_NULL if ext_point_cnt_p or ext_point_list_p is NULL </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API returns the first ext_point_cnt_p extraction points of the given register key. Returned ext_point_cnt_p may be less than or equal to the requested ext_point_cnt_p. When ext_point_list_p is NULL, ext_point_cnt_p will be set with number of extraction points.</p>
+<p>This API returns the first ext_point_cnt_p extraction points of a given register key. Returned ext_point_cnt_p may be less than or equal to the requested ext_point_cnt_p. When ext_point_list_p is NULL, ext_point_cnt_p will be set with a number of extraction points.</p>
 <p>Supported devices: Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">reg_key</td><td>- Register key </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">ext_point_list_p</td><td>- [in] If NULL: set ext_point_cnt_p with number of extraction points [out] List of extraction points </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">ext_point_cnt_p</td><td>- [in] Number of extraction points to get<ul>
-<li>[out] Number of extraction points returned</li>
-</ul>
-</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ext_point_list_p</td><td>- [in] If NULL, set ext_point_cnt_p with number of extraction points [out] list of extraction points </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">ext_point_cnt_p</td><td>- [in] Number of extraction points to get [out] number of extraction points returned</td></tr>
   </table>
   </dd>
 </dl>
@@ -534,7 +1145,7 @@ SX_STATUS_ERROR general error </dd>
 <dd>
 SX_STATUS_UNSUPPORTED if configuration is not supported by the platform </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if reg_key is not allocated or not exist </dd>
+SX_STATUS_PARAM_ERROR if reg_key is not allocated or does not exist </dd>
 <dd>
 SX_STATUS_PARAM_NULL if extraction_point_cnt_p parameter is NULL </dd></dl>
 
@@ -544,7 +1155,7 @@ SX_STATUS_PARAM_NULL if extraction_point_cnt_p parameter is NULL </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 14 2021 09:59:53 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 30 2021 08:43:42 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

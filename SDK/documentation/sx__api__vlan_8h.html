@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_vlan.h File Reference</title>
+<title>NVIDIA Ethernet Switch SDK API Guide: sdk/sx_api_vlan.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.2522</span>
+   <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
+   &#160;<span id="projectnumber">4.4.3102</span>
    </div>
   </td>
  </tr>
@@ -162,11 +162,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the log verbosity level of VLAN MODULE Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>This function sets the log verbosity level of VLAN module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Sets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- VLAN module verbosity level </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- VLAN API verbosity level</td></tr>
   </table>
@@ -213,11 +214,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets the log verbosity level of VLAN MODULE Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>This function gets the log verbosity level of VLAN module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- get verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Gets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- VLAN module verbosity level </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- VLAN API verbosity level</td></tr>
   </table>
@@ -276,16 +278,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the VLAN member ports. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
-<p>This function is only valid when in 802.1Q bridge mode.</p>
+<p>This API sets VLAN member ports.</p>
+<p>When using ADD or DELETE command, vlan_port_list_p should be set with entries of logical port number and the egress filter mode (tagged/untagged/priority tagged). When using DELETE_ALL command, port_cnt = 0 and vlan_port_list_p = NULL are applicable.</p>
+<p>Note: This function is only valid when in 802.1Q bridge mode.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE/DELETE_ALL </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- virtual switch partition ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Virtual switch partition ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">vid</td><td>- VLAN ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">vlan_port_list_p</td><td>- a pointer to array of port list structure. Each port in the list has its logical port number and the egress filter mode (tagged/ untagged and priority tagged member). If DELETE_ALL command is used port_cnt = 0, vlan_port_list_p = NULL are applicable </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">port_cnt</td><td>- number of ports in a port list</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vlan_port_list_p</td><td>- An array of port list structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_cnt</td><td>- Number of ports in a port list</td></tr>
   </table>
   </dd>
 </dl>
@@ -295,7 +299,7 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database </dd>
 <dd>
 SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
@@ -350,15 +354,16 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves the VLAN member ports. NOTE: If port_cnt_p is set as less than actual number of ports, the first port_cnt_p elements in array, and successful result are returned as output.</p>
-<p>This function is only valid when in 802.1Q bridge mode. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves the VLAN member ports.</p>
+<p>Note: If port_cnt_p is set as less than the actual number of ports, the first port_cnt_p elements in the array and a successful result are returned as the output. Note: This function is only valid when in 802.1Q bridge mode.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- virtual switch partition ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Virtual switch partition ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">vid</td><td>- VLAN ID </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">vlan_port_list_p</td><td>- a pointer to array of VLAN port list structure. If it is NULL, the port_cnt_p variable is filled out with numbers of ports that could be retrieved. If the pointer is valid, VLAN ports are placed there and port_cnt_p takes actual number ports in array. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">port_cnt_p</td><td>- number of ports in a list that you want to retrieve</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">vlan_port_list_p</td><td>- A pointer to array of VLAN port list structure. If it is NULL, the port_cnt_p variable is filled out with numbers of ports that could be retrieved. If the pointer is valid, VLAN ports are placed there and port_cnt_p takes actual number ports in array. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">port_cnt_p</td><td>- Number of ports in a list that you want to retrieve</td></tr>
   </table>
   </dd>
 </dl>
@@ -419,15 +424,17 @@ SX_STATUS_CMD_UNSUPPORTED if 802.1D mode is enabled </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the VLANs list to a port in a single command. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
-<p>This function is only valid when in 802.1Q bridge mode.</p>
+<p>This API sets the VLANs list to a port in a single command.</p>
+<p>ADD adds list of VLANs to port. DELETE removes a list VLANs from port.</p>
+<p>Note: This function is only valid when in 802.1Q bridge mode.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_ADD - add list of VLANs to port SX_ACCESS_CMD_DELETE - remove a list VLANs from port </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">vlan_list_p</td><td>- pointer to a VLANs list </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">vlan_cnt</td><td>- size of VLANs list</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vlan_list_p</td><td>- Pointer to a VLANs list </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vlan_cnt</td><td>- Size of VLANs list</td></tr>
   </table>
   </dd>
 </dl>
@@ -437,7 +444,7 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database </dd>
 <dd>
 SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
@@ -480,12 +487,13 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the priority tagged attribute per port. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the priority tagged attribute per port.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">untagged_prio_state</td><td>- untagged packets are sent priority-tagged or not</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">untagged_prio_state</td><td>- Untagged packets are sent priority-tagged or not</td></tr>
   </table>
   </dd>
 </dl>
@@ -495,7 +503,7 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database </dd>
 <dd>
 SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
@@ -538,12 +546,13 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves the priority tagged attribute per port. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves the priority tagged attribute per port.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">untagged_prio_state_p</td><td>- untagged packets are sent priority-tagged or not</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">untagged_prio_state_p</td><td>- Untagged packets are sent priority-tagged or not</td></tr>
   </table>
   </dd>
 </dl>
@@ -551,7 +560,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database </dd>
 <dd>
 SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
@@ -590,13 +599,14 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API enables/disables ingress VLAN filtering on a port The VLAN membership is defined in sx_vlan_ports_set API. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API enables/disables ingress VLAN filtering on a port. The VLAN membership is defined in sx_vlan_ports_set API.</p>
 <p>This function is only valid when in 802.1Q bridge mode.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port number </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">ingress_filter_mode</td><td>- port ingress VLAN filter mode (enable/disable)</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port number </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ingress_filter_mode</td><td>- Port ingress VLAN filter mode (enable/disable)</td></tr>
   </table>
   </dd>
 </dl>
@@ -606,7 +616,7 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if unsupported access command is requested </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database </dd>
 <dd>
 SX_STATUS_NO_MEMORY if problems with memory allocation occur </dd>
 <dd>
@@ -647,13 +657,14 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves ingress VLAN filtering on a port. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
-<p>This function is only valid when in 802.1Q bridge mode.</p>
+<p>This API retrieves ingress VLAN filtering on a port.</p>
+<p>Note: This function is only valid when in 802.1Q bridge mode.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port number </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">ingress_filter_state_p</td><td>- a pointer to port ingress VLAN filter state (enable/disable)</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port number </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ingress_filter_state_p</td><td>- Pointer to port ingress VLAN filter state (enable/disable)</td></tr>
   </table>
   </dd>
 </dl>
@@ -663,7 +674,7 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd>
 <dd>
@@ -708,14 +719,15 @@ SX_STATUS_CMD_UNSUPPORTED if 802.1D mode is enabled </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets port's default VLAN ID. The PVID is set to untagged packets that ingress on the port. Note: When the PVID is deleted from the port, it is assigned with the default VLAN ID.</p>
-<p>Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets a port's default VLAN ID. The PVID is set to untagged packets that ingress on the port.</p>
+<p>Note: When the PVID is deleted from the port, it is assigned with the default VLAN ID.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port number </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">pvid</td><td>- port VLAN ID</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port number </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pvid</td><td>- Port VLAN ID</td></tr>
   </table>
   </dd>
 </dl>
@@ -758,11 +770,12 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves port's default VLAN ID. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves a port's default VLAN ID.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port number </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port number </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">pvid_p</td><td>- Port VLAN ID</td></tr>
   </table>
   </dd>
@@ -771,7 +784,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database </dd>
 <dd>
 SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
@@ -810,19 +823,20 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets a port's accepted frame types. Note: By default, all ports are configured to accept all frame types Note: Priority tagged packets are considered as untagged packets</p>
-<p>Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets a port's accepted frame types.</p>
+<p>Note: By default, all ports are configured to accept all frame types. Note: Priority tagged packets are considered as untagged packets.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port number </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">accptd_frm_types_p</td><td>- struct holding the following values: allow_tagged, allow_untagged, allow_prio_tagged</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port number </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">accptd_frm_types_p</td><td>- A pointer to the following values: allow_tagged, allow_untagged, allow_prio_tagged</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database </dd>
 <dd>
 SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
@@ -861,12 +875,13 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves a port's accepted frame types. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves a port's accepted frame types.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port number </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">accptd_frm_types_p</td><td>- a pointer to struct holding the following values: allow_tagged, allow_untagged, allow_prio_tagged</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port number </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">accptd_frm_types_p</td><td>- A pointer the following values: allow_tagged, allow_untagged, allow_prio_tagged</td></tr>
   </table>
   </dd>
 </dl>
@@ -878,7 +893,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database </dd>
 <dd>
 SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
@@ -918,12 +933,12 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the virtual switch's default VLAN ID. This VID is set by default as the PVID of all switch ports. If not called, the default VID for all virtual switches is 1.</p>
-<p>Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- virtual switch partition ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">vid</td><td>- switch default VLAN ID</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Virtual switch partition ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vid</td><td>- Switch default VLAN ID</td></tr>
   </table>
   </dd>
 </dl>
@@ -933,7 +948,7 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_ACCESS_CMD_UNSUPPORTED if unsupported access command is requested </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database </dd>
 <dd>
 SX_STATUS_NO_MEMORY if problems with memory allocation occur </dd>
 <dd>
@@ -975,12 +990,12 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the virtual switch's default VLAN ID. This VID is set by default as the PVID of all switch ports. If not called, the default VID for all virtual switches is 1.</p>
-<p>Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- virtual switch partition ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">vid</td><td>- switch default VLAN ID</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Virtual switch partition ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">vid</td><td>- Switch default VLAN ID</td></tr>
   </table>
   </dd>
 </dl>
@@ -988,9 +1003,9 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if parameter exceeds range. </dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if parameter exceeds range </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database </dd>
 <dd>
 SX_STATUS_NO_MEMORY if problems with memory allocation occur </dd>
 <dd>
@@ -998,7 +1013,7 @@ SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd>
 <dd>
-SX_STATUS_PARAM_NULL if parameter is NULL. </dd></dl>
+SX_STATUS_PARAM_NULL if parameter is NULL </dd></dl>
 
 </div>
 </div>
@@ -1033,13 +1048,14 @@ SX_STATUS_PARAM_NULL if parameter is NULL. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets Q-in-Q mode of port. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
-<p>This function is only valid when in 802.1Q bridge mode.</p>
+<p>This API sets Q-in-Q mode of port.</p>
+<p>Note: This function is only valid when in 802.1Q bridge mode.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">qinq_mode</td><td>- Q-in-Q/ 802.1Q/ 802.1AD</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">qinq_mode</td><td>- Q-in-Q/802.1Q/802.1AD</td></tr>
   </table>
   </dd>
 </dl>
@@ -1051,7 +1067,7 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database </dd>
 <dd>
 SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
@@ -1092,13 +1108,14 @@ SX_STATUS_CMD_UNSUPPORTED if 802.1D mode is enabled </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves Q-in-Q mode of port. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
-<p>This function is only valid when in 802.1Q bridge mode.</p>
+<p>This API retrieves Q-in-Q mode of a port.</p>
+<p>Note: This function is only valid when in 802.1Q bridge mode.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">qinq_mode_p</td><td>- the retrieved mode</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">qinq_mode_p</td><td>- Retrieved mode</td></tr>
   </table>
   </dd>
 </dl>
@@ -1108,7 +1125,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if 802.1D mode is enabled </dd>
 <dd>
@@ -1147,13 +1164,14 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The API sets which priority should be taken for the outer tag (when Q-in-Q is enabled): The port's default priority, or the inner tag's priority.</p>
-<p>This function is only valid when in 802.1Q bridge mode. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>The API sets which priority should be taken for the outer tag when Q-in-Q is enabled (the port's default priority or the inner tag's priority).</p>
+<p>Note: This function is only valid when in 802.1Q bridge mode.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">prio_mode</td><td>- mode: default/inner priority</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">prio_mode</td><td>- Default/inner priority</td></tr>
   </table>
   </dd>
 </dl>
@@ -1165,7 +1183,7 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database </dd>
 <dd>
 SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
@@ -1206,13 +1224,14 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves port's Q-in-Q outer tag priority mode. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
-<p>This function is only valid when in 802.1Q bridge mode.</p>
+<p>This API retrieves port's Q-in-Q outer tag priority mode.</p>
+<p>Note: This function is only valid when in 802.1Q bridge mode.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">prio_mode_p</td><td>- the retrieved mode</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">prio_mode_p</td><td>- Retrieved mode</td></tr>
   </table>
   </dd>
 </dl>
@@ -1222,7 +1241,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in database </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if 802.1D mode is enabled </dd>
 <dd>
@@ -1273,24 +1292,25 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API creates .1Q vlans. If NO_RESOURCES status is returned then the vlan_list_p will contain the vlans which were not added (number of which is donated by vlan_cnt_p). Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API creates .1Q VLANs. If NO_RESOURCES status is returned then the vlan_list_p will contain the VLANs which were not added (number of which is donated by vlan_cnt_p).</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- switch partition ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">vlan_list_p</td><td>- A list of .1Q vlans to add. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">vlan_cnt_p</td><td>- The size of vlan_list_p array.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch partition ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vlan_list_p</td><td>- A list of .1Q VLANs to add </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vlan_cnt_p</td><td>- The size of vlan_list_p array</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED if cmd is unsupported in this API. </dd>
+SX_STATUS_CMD_UNSUPPORTED if cmd is unsupported in this API </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if all the .1Q vlans have been set. </dd>
+SX_STATUS_NO_RESOURCES if all the .1Q VLANs have been set </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if vlan_list_p is NULL. </dd></dl>
+SX_STATUS_PARAM_ERROR if vlan_list_p is NULL </dd></dl>
 
 </div>
 </div>
@@ -1331,19 +1351,20 @@ SX_STATUS_PARAM_ERROR if vlan_list_p is NULL. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API returns the list of .1Q vlans added to the swid. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API returns the list of .1Q VLANs added to the SWID.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- switch partition ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">vlan_list_p</td><td>- A list of .1Q vlans to add. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">vlan_cnt_p</td><td>- The number of vlans to return. If vlan_cnt_p==0, Only the number of vlans will be returned and the list will remain empty.</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">vlan_list_p</td><td>- A list of .1Q VLANs to add </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">vlan_cnt_p</td><td>- The number of VLANs to return (if vlan_cnt_p==0, only the number of VLANs will be returned and the list will remain empty)</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if vlan_list_p is NULL. </dd></dl>
+SX_STATUS_PARAM_ERROR if vlan_list_p is NULL </dd></dl>
 
 </div>
 </div>
@@ -1378,18 +1399,19 @@ SX_STATUS_PARAM_ERROR if vlan_list_p is NULL. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets FID attributes. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets FID attributes.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">vid</td><td>- VLAN/FID to set. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vid</td><td>- VLAN/FID to set </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">vlan_attrib_p</td><td>- Structure containing the attributes</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if vlan_attrib_p is NULL. </dd>
+SX_STATUS_PARAM_ERROR if vlan_attrib_p is NULL </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if VLAN does not exist </dd></dl>
 
@@ -1426,21 +1448,19 @@ SX_STATUS_ENTRY_NOT_FOUND if VLAN does not exist </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API returns FID attributes. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API returns FID attributes.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">vid</td><td>- VLAN/FID to get. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vid</td><td>- VLAN/FID to get </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">vlan_attrib_p</td><td>- Structure containing the returned attributes</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if vlan_attrib_p is NULL.<ul>
-<li></li>
-</ul>
-</dd>
+SX_STATUS_PARAM_ERROR if vlan_attrib_p is NULL </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if VLAN does not exist </dd></dl>
 
@@ -1450,7 +1470,7 @@ SX_STATUS_ENTRY_NOT_FOUND if VLAN does not exist </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 14 2021 09:59:53 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 30 2021 08:43:42 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

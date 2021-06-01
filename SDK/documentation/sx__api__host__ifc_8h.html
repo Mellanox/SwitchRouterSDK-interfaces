@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_host_ifc.h File Reference</title>
+<title>NVIDIA Ethernet Switch SDK API Guide: sdk/sx_api_host_ifc.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.2522</span>
+   <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
+   &#160;<span id="projectnumber">4.4.3102</span>
    </div>
   </td>
  </tr>
@@ -93,8 +93,8 @@ Functions</h2></td></tr>
 <tr class="separator:ac026593fdc09d0ba312cfed674f532f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa47a742e8238beb3d92fa584bbc5d90d"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#aa47a742e8238beb3d92fa584bbc5d90d">sx_api_host_ifc_trap_group_set</a> (const sx_api_handle_t handle, const sx_swid_id_t swid, const sx_trap_group_t trap_group, const sx_trap_group_attributes_t *trap_group_attributes_p)</td></tr>
 <tr class="separator:aa47a742e8238beb3d92fa584bbc5d90d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3259818fed2857b676608770d577226"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#ac3259818fed2857b676608770d577226">sx_api_host_ifc_trap_group_ext_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_id_t swid, const sx_trap_group_t trap_group, const sx_trap_group_attributes_t *trap_group_attributes_p)</td></tr>
-<tr class="separator:ac3259818fed2857b676608770d577226"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a208c0429503206a593415179899c756d"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#a208c0429503206a593415179899c756d">sx_api_host_ifc_trap_group_ext_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_id_t swid, const sx_trap_group_t trap_group, sx_trap_group_attributes_t *trap_group_attributes_p)</td></tr>
+<tr class="separator:a208c0429503206a593415179899c756d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9f1f7b2a2e99c7a8042321f3914fa25"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#aa9f1f7b2a2e99c7a8042321f3914fa25">sx_api_host_ifc_trap_group_get</a> (const sx_api_handle_t handle, const sx_swid_id_t swid, const sx_trap_group_t trap_group, sx_trap_group_attributes_t *trap_group_attributes_p)</td></tr>
 <tr class="separator:aa9f1f7b2a2e99c7a8042321f3914fa25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b311526a58fe66b893bf2d1e8b0a9d4"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#a1b311526a58fe66b893bf2d1e8b0a9d4">sx_api_host_ifc_trap_group_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_id_t swid, const sx_trap_group_t trap_group_id, const sx_trap_group_filter_t *filter_p, sx_trap_group_t *trap_group_id_list_p, uint32_t *trap_group_id_cnt_p)</td></tr>
@@ -199,13 +199,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the log verbosity level of HOST INTERFACE MODULE Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the log verbosity level of the HOST INTERFACE module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Set verbosity of : API / MODULE / BOTH. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- HOST INTERFACE module verbosity level. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- HOST INTERFACE API verbosity level.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Set verbosity of API/MODULE/BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- HOST INTERFACE module verbosity level </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- HOST INTERFACE API verbosity level</td></tr>
   </table>
   </dd>
 </dl>
@@ -250,13 +251,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets the log verbosity level of HOST INTERFACE MODULE Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets the log verbosity level of HOST INTERFACE module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Get verbosity of : API / MODULE / BOTH. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- HOST INTERFACE module verbosity level. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- HOST INTERFACE API verbosity level.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Get verbosity of API/MODULE/BOTH </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- HOST INTERFACE module verbosity level </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- HOST INTERFACE API verbosity level</td></tr>
   </table>
   </dd>
 </dl>
@@ -289,11 +291,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the file descriptor of the current open channel used for receiving a packet Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves the file descriptor of the current open channel used for receiving a packet.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">fd_p</td><td>- File descriptor.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">fd_p</td><td>- File descriptor</td></tr>
   </table>
   </dd>
 </dl>
@@ -307,7 +310,7 @@ SX_STATUS_ERROR general error </dd>
 <dd>
 SX_STATUS_MEMORY_ERROR error handling memory </dd>
 <dd>
-SX_STATUS_SXD_RETURNED_NON_ZERO error closing channel to the sx driver </dd></dl>
+SX_STATUS_SXD_RETURNED_NON_ZERO if there is an error closing channel to the SX driver </dd></dl>
 
 </div>
 </div>
@@ -336,11 +339,12 @@ SX_STATUS_SXD_RETURNED_NON_ZERO error closing channel to the sx driver </dd></dl
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function closes the file descriptor of the current open channel used for receiving a packet Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API closes the file descriptor of the current open channel used for receiving a packet.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">fd_p</td><td>- File descriptor.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">fd_p</td><td>- File descriptor</td></tr>
   </table>
   </dd>
 </dl>
@@ -391,15 +395,15 @@ SX_STATUS_SXD_RETURNED_NON_ZERO error closing channel to the sx driver </dd></dl
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Create / Edit a trap group Allows creating a new trap group with certain attributes, and editing an existing trap group with new attributes.</p>
-<p>On Edit : Changing Monitor trap group (attribute is_monitor 1) to regular trap group and vice versa are not allowed.</p>
+<p>This API creates/edits a trap group. It allows creating a new trap group with certain attributes, and editing an existing trap group with new attributes.</p>
+<p>Note: When using edit, changing a monitor trap group (attribute is_monitor equals 1) to a regular trap group and vice versa is not allowed.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_group</td><td>- The trap group, must be between 0-63. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_group_attributes_p</td><td>- Trap group attributes.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_group</td><td>- Trap group (must be between 0-63) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_group_attributes_p</td><td>- Trap group attributes</td></tr>
   </table>
   </dd>
 </dl>
@@ -413,12 +417,12 @@ SX_STATUS_ERROR general error </dd>
 <dd>
 SX_STATUS_MEMORY_ERROR error handling memory </dd>
 <dd>
-SX_STATUS_NO_RESOURCES device was not opened </dd></dl>
+SX_STATUS_NO_RESOURCES if the device was not opened </dd></dl>
 
 </div>
 </div>
-<a id="ac3259818fed2857b676608770d577226"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3259818fed2857b676608770d577226">&#9670;&nbsp;</a></span>sx_api_host_ifc_trap_group_ext_set()</h2>
+<a id="a208c0429503206a593415179899c756d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a208c0429503206a593415179899c756d">&#9670;&nbsp;</a></span>sx_api_host_ifc_trap_group_ext_set()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -450,7 +454,7 @@ SX_STATUS_NO_RESOURCES device was not opened </dd></dl>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const sx_trap_group_attributes_t *&#160;</td>
+          <td class="paramtype">sx_trap_group_attributes_t *&#160;</td>
           <td class="paramname"><em>trap_group_attributes_p</em>&#160;</td>
         </tr>
         <tr>
@@ -460,18 +464,23 @@ SX_STATUS_NO_RESOURCES device was not opened </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>When cmd = SX_ACCESS_CMD_SET, create / edit a trap group, it works exactly the same with API sx_api_host_ifc_trap_group_set. Allows creating a new trap group with certain attributes, and editing an existing trap group with new attributes.</p>
-<p>On Edit : Changing Monitor trap group (attribute is_monitor 1) to regular trap group and vice versa are not allowed.</p>
-<p>When cmd = SX_ACCESS_CMD_UNSET, unset a trap group and the trap_group_attributes_p parameter is ignored (can be NULL). 1) If there are policers bound to the trap group, please unbind them first. 2) If there are trap IDs configured to the trap group via API sx_api_host_ifc_trap_id_ext_set, please unset them first. 3) If the trap group is monitor trap group, then the file descriptor associated with this trap group will be reverted back to non-monitor file descriptor.</p>
+<p>This API provides two mutually exclusive modes of operation for Trap Group Allocation: STATIC and DYNAMIC. STATIC is the legacy mode. SX_ACCESS_CMD_SET/SX_ACCESS_CMD_UNSET are supported in this mode. DYNAMIC is the new mode. SX_ACCESS_CMD_CREATE/SX_ACCESS_CMD_DESTROY/SX_ACCESS_CMD_EDIT are supported in this mode. Legacy API sx_api_host_ifc_trap_group_set is considered as STATIC mode.</p>
+<p>When calling the API with SX_ACCESS_CMD_SET, STATIC mode is chosen and commands of DYNAMIC mode cannot be used. When calling sx_api_host_ifc_trap_group_set, STATIC mode is chosen and commands of DYNAMIC mode cannot be used. When calling the API with SX_ACCESS_CMD_CREATE, DYNAMIC mode is chosen and commands of STATIC mode and sx_api_host_ifc_trap_group_set cannot be used.</p>
+<p>When cmd = SX_ACCESS_CMD_SET, the application can allocate or edit a trap group. If the provided trap group is not allocated, SDK will allocate it with the given trap group ID with the attributes. Allows editing an existing trap group with new attributes.</p>
+<p>Note: When using edit, changing monitor trap group (attribute is_monitor equals 1) to a regular trap group and vice versa are not allowed.</p>
+<p>When cmd = SX_ACCESS_CMD_UNSET, unset a trap group and the trap_group_attributes_p parameter is ignored (can be NULL). 1) If there are policers bound to the trap group, unbind them first. 2) If there are trap IDs configured to the trap group via API sx_api_host_ifc_trap_id_ext_set, unset them first. 3) If the trap group is monitor trap group, then the file descriptor associated with this trap group will be reverted back to non-monitor file descriptor.</p>
+<p>When cmd = SX_ACCESS_CMD_CREATE, SDK will allocate the next available trap group. Allows creating a new trap group with certain attributes.</p>
+<p>When cmd = SX_ACCESS_CMD_EDIT, edit a trap group. Allows editing an existing trap group with new attributes.</p>
+<p>When cmd = SX_ACCESS_CMD_DESTROY, deallocate a trap group. Has similar behavior as SX_ACCESS_CMD_UNSET.</p>
 <p>Note: The trap groups set by API sx_api_host_ifc_trap_group_set can be unset by sx_api_host_ifc_trap_group_ext_set. It is recommended to use sx_api_host_ifc_trap_group_ext_set to set/unset trap groups.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_SET / SX_ACCESS_CMD_UNSET </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_group</td><td>- The trap group, must be between 0-63. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_group_attributes_p</td><td>- Trap group attributes.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET/UNSET, CREATE/EDIT/DESTROY </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_group</td><td>- The trap group (must be between 0-63; it will be ignored for SX_ACCESS_CMD_CREATE) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_group_attributes_p</td><td>- Trap group attributes</td></tr>
   </table>
   </dd>
 </dl>
@@ -481,11 +490,13 @@ SX_STATUS_PARAM_NULL if any input parameters is null </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
-SX_STATUS_ERROR general error </dd>
+SX_STATUS_ERROR if general error </dd>
 <dd>
-SX_STATUS_MEMORY_ERROR error handling memory </dd>
+SX_STATUS_MEMORY_ERROR if error handling memory </dd>
 <dd>
-SX_STATUS_NO_RESOURCES device was not opened </dd></dl>
+SX_STATUS_NO_RESOURCES if no resource </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if trap group is not found </dd></dl>
 
 </div>
 </div>
@@ -526,13 +537,14 @@ SX_STATUS_NO_RESOURCES device was not opened </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get Trap group attributes: Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets the trap group attributes.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_group</td><td>- The trap group, must be between 0-63. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">trap_group_attributes_p</td><td>- Trap group attributes.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_group</td><td>- The trap group (must be between 0-63) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">trap_group_attributes_p</td><td>- Trap group attributes</td></tr>
   </table>
   </dd>
 </dl>
@@ -546,7 +558,7 @@ SX_STATUS_ERROR general error </dd>
 <dd>
 SX_STATUS_MEMORY_ERROR error handling memory </dd>
 <dd>
-SX_STATUS_NO_RESOURCES device was not opened </dd></dl>
+SX_STATUS_NO_RESOURCES if device was not opened </dd></dl>
 
 </div>
 </div>
@@ -605,27 +617,24 @@ SX_STATUS_NO_RESOURCES device was not opened </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves a list of one or more trap group IDs. The following use case scenarios apply with different input parameters X = don't-care</p><ul>
-<li>1) cmd = SX_ACCESS_CMD_GET, swid = valid, trap_group_id = X, trap_group_id_list = X, trap_group_id_cnt = 0: In this case the API will return the total number of trap group IDs in the internal DB.</li>
-<li>2) cmd = SX_ACCESS_CMD_GET, swid = valid, trap_group_id = valid/invalid, trap_group_id_list = valid, trap_group_id_cnt = 1: In this case the API will check if the specified trap_group_id exists. If it does, the trap group ID will be returned in the trap_group_id_list along with a trap_group_id_cnt of 1. If the trap group ID does not exist, an empty list will be returned with trap_group_id_cnt = 0. A non-NULL trap_group_id_list pointer must be provided in this case.</li>
-<li>3) cmd = SX_ACCESS_CMD_GET, swid = valid, trap_group_id = valid/invalid, trap_group_id_list = valid, trap_group_id_cnt &gt; 1: A trap_group_id_cnt &gt; 1 will be treated as a trap_group_id_cnt of 1 and the behavior will be same as the earlier GET use cases.</li>
-<li>4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, swid = X, trap_group_id = X, trap_group_id_list = NULL, trap_group_id_cnt = 0: A zero trap_group_id_cnt and an empty trap_group_id_list will be returned.</li>
-<li>5) cmd = SX_ACCESS_CMD_GET_FIRST, swid = valid, trap_group_id = X, trap_group_id_list = valid, trap_group_id_cnt &gt; 0: In this case the API will return the first trap_group_id_cnt trap group IDs starting from the head of the database. The total number of elements fetched will be returned as trap_group_id_cnt. Note: returned trap_group_id_cnt may be less than or equal to the requested trap_group_id_cnt. The input trap group ID is ignored in this case. A non-NULL trap_group_id_list pointer must be provided in this case.</li>
-<li>6) cmd = SX_ACCESS_CMD_GETNEXT, swid = valid, trap_group_id = valid/invalid, trap_group_id_list = valid, trap_group_id_cnt &gt; 0: In this case the API will return the next set of trap group IDs starting from the next trap group ID after the specified trap group ID. The total number of elements fetched will be returned as the trap_group_id_cnt. Note: returned trap_group_id_cnt may be less than or equal to the requested trap_group_id_cnt. If no valid next trap group ID exists in the db, an empty list will be returned. A non-NULL trap_group_id_list pointer must be provided in this case.</li>
-</ul>
+<p>This API retrieves a list of one or more trap group IDs. The following use case scenarios apply with different input parameters X = don't-care 1) cmd = SX_ACCESS_CMD_GET, swid = valid, trap_group_id = X,trap_group_id_list = X, trap_group_id_cnt = 0: In this case, the API will return the total number of trap group IDs in the internal database.</p>
+<p>2) cmd = SX_ACCESS_CMD_GET, swid = valid, trap_group_id = valid/invalid, trap_group_id_list = valid, trap_group_id_cnt = 1: In this case, the API will check if the specified trap_group_id exists. If it does, the trap group ID will be returned in the trap_group_id_list along with a trap_group_id_cnt of 1. If the trap group ID does not exist, an empty list will be returned with trap_group_id_cnt = 0. A non-NULL trap_group_id_list pointer must be provided in this case.</p>
+<p>3) cmd = SX_ACCESS_CMD_GET, swid = valid, trap_group_id = valid/invalid, trap_group_id_list = valid, trap_group_id_cnt &gt; 1: A trap_group_id_cnt &gt; 1 will be treated as a trap_group_id_cnt of 1 and the behavior will be like earlier GET use cases.</p>
+<p>4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, swid = X, trap_group_id = X, trap_group_id_list = NULL, trap_group_id_cnt = 0: A zero trap_group_id_cnt and an empty trap_group_id_list will be returned.</p>
+<p>5) cmd = SX_ACCESS_CMD_GET_FIRST, swid = valid, trap_group_id = X, trap_group_id_list = valid, trap_group_id_cnt &gt; 0: In this case, the API will return the first trap_group_id_cnt trap group IDs starting from the head of the database. The total number of elements fetched will be returned as trap_group_id_cnt.</p>
+<p>Note: Returned trap_group_id_cnt may be less than or equal to the requested trap_group_id_cnt. The input trap group ID is ignored in this case. A non-NULL trap_group_id_list pointer must be provided in this case.</p>
+<p>6) cmd = SX_ACCESS_CMD_GETNEXT, swid = valid, trap_group_id = valid/invalid, trap_group_id_list = valid, trap_group_id_cnt &gt; 0: In this case, the API will return the next set of trap group IDs starting from the next trap group ID after the specified trap group ID. The total number of elements fetched will be returned as the trap_group_id_cnt.</p>
+<p>Note: Returned trap_group_id_cnt may be less than or equal to the requested trap_group_id_cnt. If no valid next trap group ID exists in the database, an empty list will be returned. A non-NULL trap_group_id_list pointer must be provided in this case.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_FIRST/GET_NEXT. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_group_id</td><td>- Trap group ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- Specify a filter parameter (not supported yet). </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">trap_group_id_list_p</td><td>- Return list of trap group IDs: </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">trap_group_id_cnt_p</td><td>- [in] number of trap group IDs to get.<ul>
-<li>[out] number of trap group IDs returned.</li>
-</ul>
-</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_FIRST/GET_NEXT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_group_id</td><td>- Trap group ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- Specify a filter parameter (not supported yet) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">trap_group_id_list_p</td><td>- Return list of trap group IDs </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">trap_group_id_cnt_p</td><td>- [in] number of trap group IDs to get/[out] number of trap group IDs returned</td></tr>
   </table>
   </dd>
 </dl>
@@ -637,7 +646,7 @@ SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
 <dd>
 SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
@@ -685,11 +694,12 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000008">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_api_host_ifc_trap_id_ext_set in its place.</dd></dl>
-<p>Configure traps / event properties for each device in the system: Map Trap ID / Event ID to Priority group. Configure trap action (for traps only). Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API configures traps/event properties for each device in the system: Map Trap ID/Event ID to Priority group. Configure trap action (for traps only).</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">trap_group</td><td>- Trap group handle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">trap_action</td><td>- Trap action.</td></tr>
@@ -746,13 +756,15 @@ SX_STATUS_NO_RESOURCES device was not opened</dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Configure traps / event properties for each device in the system: Map Trap ID / Event ID to 1 of the 3 Priority groups: HIGH, MEDIUM, LOW. Configure trap action (for traps only). Please note that this API allows to bind the same trap id to regular and monitor trap groups at the same time. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API configures traps/event properties for each device in the system: Map Trap ID/Event ID to 1 of the 3 Priority groups, HIGH, MEDIUM, LOW. It configures trap action (for traps only).</p>
+<p>Note: this API allows to bind the same trap ID to regular and monitor trap groups at the same time. Note: When configuring trap_id of SX_TRAP_ID_ETH_L2_PACKET_SAMPLING/SX_TRAP_ID_GENERAL_FDB/SX_TRAP_ID_ACL/SX_TRAP_ID_IPTRAP, trap_action field is ignored. Instead, the action should be configured in each module. Note: Use SX_ACCESS_CMD_UNSET to set the trap ID to its default action according to the documentation. In this case, trap_attr_p-&gt;attr.trap_id_attr.trap_action is reserved. The trap ID will not attached to trap group.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_SET / SX_ACCESS_CMD_UNSET </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_key_p</td><td>- Trap key value (e.g. Trap ID) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_attr_p</td><td>- Trap attributes (e.g. trap group and trap action)</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_SET/SX_ACCESS_CMD_UNSET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_key_p</td><td>- Trap key value (e.g., Trap ID) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_attr_p</td><td>- Trap attributes (e.g., trap group and trap action)</td></tr>
   </table>
   </dd>
 </dl>
@@ -760,10 +772,7 @@ SX_STATUS_NO_RESOURCES device was not opened</dd></dl>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
-SX_STATUS_ERROR general error</dd></dl>
-<p>Note: 1. When configuring trap_id of SX_TRAP_ID_ETH_L2_PACKET_SAMPLING/SX_TRAP_ID_GENERAL_FDB/SX_TRAP_ID_ACL/SX_TRAP_ID_IPTRAP, trap_action field is ignored. Instead, the action should be configured in each module.</p><ol type="1">
-<li>Use cmd SX_ACCESS_CMD_UNSET to set the trap ID to its default action according to the documentation In this case trap_attr_p-&gt;attr.trap_id_attr.trap_action is reserved. The trap ID will not attached to trap group. </li>
-</ol>
+SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
@@ -810,14 +819,16 @@ SX_STATUS_ERROR general error</dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get configured traps / event properties for each device in the system: Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets configured traps/event properties for each device in the system.</p>
+<p>Note: when trap_attr_p is NULL, only the number of bound trap groups will be returned in trap_cnt_p.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_GET</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_key_p</td><td>- Trap key value (e.g. Trap ID). </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">trap_attr_p</td><td>- Trap attributes (e.g. trap group and trap action) </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">trap_cnt_p</td><td>- Number of the trap groups and relevant parameters which bound to trap_id.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_key_p</td><td>- Trap key value (e.g., Trap ID) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">trap_attr_p</td><td>- Trap attributes (e.g., trap group and trap action) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">trap_cnt_p</td><td>- Number of the trap groups and relevant parameters bound to the trap_id</td></tr>
   </table>
   </dd>
 </dl>
@@ -825,8 +836,7 @@ SX_STATUS_ERROR general error</dd></dl>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
-SX_STATUS_ERROR general error</dd></dl>
-<p>Note: when trap_attr_p is NULL only the number of bound trap groups will be returned in trap_cnt_p. </p>
+SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
@@ -867,14 +877,15 @@ SX_STATUS_ERROR general error</dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get monitor trap group information such as total number of discarded packets. Note that this API is capable to get correct data in case when the trap for discarded packets is bound to the regular trap group and to the monitor trap group simultaneously.</p>
+<p>This API gets monitor trap group information such as total number of discarded packets.</p>
+<p>Note: This API is capable of getting correct data in cases where the trap for the discarded packets is bound to the regular trap group and to the monitor trap group simultaneously.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_READ, SX_ACCESS_CMD_READ_CLEAR</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">group_key_p</td><td>- Trap group key value (e.g. Trap group ID). </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">group_stat_p</td><td>- Trap group statistic data (e.g. total number of discarded packets)</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_READ/SX_ACCESS_CMD_READ_CLEAR</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">group_key_p</td><td>- Trap group key value (e.g., Trap group ID) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">group_stat_p</td><td>- Trap group statistic data (e.g., total number of discarded packets)</td></tr>
   </table>
   </dd>
 </dl>
@@ -929,26 +940,27 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API adds/deletes user defined trap ID's. The trap ID created should be in the [SX_TRAP_ID_USER_BASE,SX_TRAP_ID_USER_MAX] range. For cmd == SX_ACCESS_CMD_DELETE, trap_attributes_p can be NULL. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API adds/deletes user defined trap IDs. The trap ID created should be in the [SX_TRAP_ID_USER_BASE,SX_TRAP_ID_USER_MAX] range. When using DELETE, trap_attributes_p can be NULL.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_attributes_p</td><td>- Traps attributes.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_attributes_p</td><td>- Traps attributes</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameters is invalid. </dd>
+SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
-SX_STATUS_ERROR general error. </dd>
+SX_STATUS_ERROR general error </dd>
 <dd>
-SX_STATUS_MEMORY_ERROR error handling memory. </dd>
+SX_STATUS_MEMORY_ERROR error handling memory </dd>
 <dd>
-SX_STATUS_ENTRY_ALREADY_EXISTS If trap ID is already configured. </dd></dl>
+SX_STATUS_ENTRY_ALREADY_EXISTS If trap ID is already configured </dd></dl>
 
 </div>
 </div>
@@ -995,13 +1007,14 @@ SX_STATUS_ENTRY_ALREADY_EXISTS If trap ID is already configured. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Register / DeRegister Traps (STP , LACP) or Events (Port up / down , Temperature event) in the driver. Configure the driver to pass packets matching this trap ID / Event ID, criteria &amp; SWID to the client (according to user_channel). The source_log_port parameter of the received L2 trap always relates to the relevant physical port. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API registers/de-registers traps (such as STP and LACP) or events (such as port up/down or temperature event) in the driver. Configure the driver to pass packets matching this trap ID/Event ID, criteria &amp; SWID to the client (according to user_channel). The source_log_port parameter of the received L2 trap always relates to the relevant physical port.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- REGISTER/DEREGISTER. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">user_channel_p</td><td>- The channel for the packets to be trapped.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- REGISTER/DEREGISTER </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">user_channel_p</td><td>- The channel for the packets to be trapped</td></tr>
   </table>
   </dd>
 </dl>
@@ -1074,18 +1087,19 @@ SX_STATUS_NO_RESOURCES device was not opened </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function get the trap's user channel list according to the swid and trap_id. The following use case scenarios apply with different input parameters. 1) SX_ACCESS_CMD_GET When *user_channel_cnt_p is not 0, this function returns a list of user channels. The returned user_channel_cnt may be less or equal to the requested user_channel_cnt. When *user_channel_cnt_p is 0, this function returns the total number of user channels configured for the specified trap ID. The input user_channel is ignored in this case.</p>
-<p>2) SX_ACCESS_CMD_GET_FIRST In this case the API will return the first set of user channels. The returned user_channel_cnt may be less or equal to the requested user_channel_cnt. The input user_channel is ignored int this case.</p>
-<p>3) SX_ACCESS_CMD_GETNEXT In this case the API will return the next set of user channels starting from the next user channel after the specified user channel. The returned user_channel_cnt may be less or equal to the requested user_channel_cnt. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets the trap's user channel list according to the SWID and trap_id. The following use case scenarios apply with different input parameters. 1) SX_ACCESS_CMD_GET When *user_channel_cnt_p is not 0, this API returns a list of user channels. The returned user_channel_cnt may be less than or equal to the requested user_channel_cnt. When *user_channel_cnt_p is 0, this API returns the total number of user channels configured for the specified trap ID. The input user_channel is ignored in this case.</p>
+<p>2) SX_ACCESS_CMD_GET_FIRST The API will return the first set of user channels. The returned user_channel_cnt may be less than or equal to the requested user_channel_cnt. The input user_channel is ignored int this case.</p>
+<p>3) SX_ACCESS_CMD_GETNEXT The API will return the next set of user channels starting from the next user channel after the specified user channel. The returned user_channel_cnt may be less than or equal to the requested user_channel_cnt.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_FIRST/GET_NEXT. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">user_channel</td><td>- User channel, as a key to get next entries. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">user_channel_list_p</td><td>- List of user channels. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">user_channel_cnt_p</td><td>- as input: number of user channels requested. as output: number of user channels returned.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_FIRST/GET_NEXT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">user_channel</td><td>- User channel (as a key to get next entries) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">user_channel_list_p</td><td>- List of user channels </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">user_channel_cnt_p</td><td>- [in] number of user channels requested/[out] number of user channels returned</td></tr>
   </table>
   </dd>
 </dl>
@@ -1148,14 +1162,15 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Register / DeRegister Traps (STP , LACP) or Events (Port up / down , Temperature event) in the driver. Configure the driver to pass packets matching this trap ID / Event ID, port OR vlan &amp; SWID to the client (according to user_channel). The source_log_port parameter of the received L2 trap always relates to the relevant physical port. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API registers/de-registers traps (such as STP or LACP) or Events (such as port up/down or temperature event) in the driver. Configure the driver to pass packets matching this trap ID/Event ID, port, or VLAN &amp; SWID to the client (according to user_channel). The source_log_port parameter of the received L2 trap always relates to the relevant physical port.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- REGISTER/DEREGISTER. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- REGISTER/DEREGISTER </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">register_key_p</td><td>- Port/FID/Global </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">user_channel_p</td><td>- The channel for the packets to be trapped.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">user_channel_p</td><td>- The channel for the packets to be trapped</td></tr>
   </table>
   </dd>
 </dl>
@@ -1224,18 +1239,19 @@ SX_STATUS_NO_RESOURCES device was not opened </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function get the trap's register entry (register key and user channel) list according to the swid and trap_id. The following use case scenarios apply with different input parameters. 1) SX_ACCESS_CMD_GET When *register_entry_cnt_p is not 0, this function returns a list of register entries. The returned register_entry_cnt_p may be less or equal to the requested register_entry_cnt_p. When *register_entry_cnt_p is 0, this function returns the total number of register entries configured for the specified trap ID. The input register entry is ignored in this case.</p>
-<p>2) SX_ACCESS_CMD_GET_FIRST In this case the API will return the first set of register entries. The returned register_entry_cnt may be less or equal to the requested register_entry_cnt. The input register entry is ignored int this case.</p>
-<p>3) SX_ACCESS_CMD_GETNEXT In this case the API will return the next set of register entries starting from the next register entry after the specified register entry. The returned register_entry_cnt may be less or equal to the requested register_entry_cnt. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets the trap's register entry (register key and user channel) list according to the SWID and trap_id. The following use case scenarios apply with different input parameters. 1) SX_ACCESS_CMD_GET When *register_entry_cnt_p is not 0, this function returns a list of register entries. The returned register_entry_cnt_p may be less than or equal to the requested register_entry_cnt_p. When *register_entry_cnt_p is 0, this function returns the total number of register entries configured for the specified trap ID. The input register entry is ignored in this case.</p>
+<p>2) SX_ACCESS_CMD_GET_FIRST The API will return the first set of register entries. The returned register_entry_cnt may be less than or equal to the requested register_entry_cnt. The input register entry is ignored in this case.</p>
+<p>3) SX_ACCESS_CMD_GETNEXT The API will return the next set of register entries starting from the next register entry after the specified register entry. The returned register_entry_cnt may be less than or equal to the requested register_entry_cnt.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_FIRST/GET_NEXT </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">register_entry</td><td>- Register entry, as a key to get next entries. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">register_entry_list_p</td><td>- List of register entries. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">register_entry_cnt_p</td><td>- [in]: number of register entries requested. [out]: number of register entries returned.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">register_entry</td><td>- Register entry, as a key to get next entries </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">register_entry_list_p</td><td>- List of register entries </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">register_entry_cnt_p</td><td>- [in] number of register entries requested/[out] number of register entries returned</td></tr>
   </table>
   </dd>
 </dl>
@@ -1298,15 +1314,17 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function configures the switch to filter packets received from certain ports/LAGs. If cmd is ADD, the given ports are added to the filter list. If the cmd is DELETE the given ports are removed from the trap filter list. If the cmd is DELETE_ALL all ports and LAGs which were previously added to the filter are removed. In this case log_port_num and log_port_list parameters are ignored. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API configures the switch to filter packets received from certain ports/LAGs.</p>
+<p>ADD adds the given ports to the filter list. DELETE removes the given ports from the trap filter list. DELETE_ALL removes all ports and LAGs which were previously added to the filter. In this case log_port_num and log_port_list parameters are ignored.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD / DELETE /DELETE_ALL </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID to filter on. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">log_port_list</td><td>- List of Logical Ports to ADD/DELETE to/from the trap's filter list. If the API returns an error the list will contain the ports/LAGs which were not added successfully to the filter list. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">log_port_num</td><td>- Number of Logical Ports to ADD/DELETE to/from the trap's filter list. If the API returns and error it will hold the number of ports/LAGs which were not added successfully to the filter list.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE/DELETE_ALL </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID to filter on </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">log_port_list</td><td>- List of logical ports to ADD/DELETE to/from the trap's filter list (in case of an error is returned, the list will contain the ports/LAGs which were not added successfully to the filter list) </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">log_port_num</td><td>- Number of logical ports to ADD/DELETE to/from the trap's filter list. (in case of an error is returned, the number of ports/LAGs which were not added successfully to the filter list will be held)</td></tr>
   </table>
   </dd>
 </dl>
@@ -1377,19 +1395,19 @@ SX_STATUS_ERROR if a general error has occurred </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function get the trap's filter list according to the swid and trap_id. The following use case scenarios apply with different input parameters. 1) SX_ACCESS_CMD_GET When *log_port_cnt_p is not 0, this function returns a list of logical port IDs. The returned log_port_cnt may be less or equal to the requested log_port_cnt. When *log_port_cnt_p is 0, this function returns the the total number of ports/LAGs configured for the specified trap ID. The input log_port_id is ignored in this case.</p>
-<p>2) SX_ACCESS_CMD_GET_FIRST In this case the API will return the first set of logical port IDs. The returned log_port_cnt may be less or equal to the requested log_port_cnt. The input log_port_id is ignored int this case.</p>
-<p>3) SX_ACCESS_CMD_GETNEXT In this case the API will return the next set of logical port IDs starting from the next logical port ID after the specified logical port ID. The returned log_port_cnt may be less or equal to the requested log_port_cnt.</p>
+<p>This API get the trap's filter list according to the SWID and trap_id. The following use case scenarios apply with different input parameters. 1) SX_ACCESS_CMD_GET When *log_port_cnt_p is not 0, this function returns a list of logical port IDs. The returned log_port_cnt may be less than or equal to the requested log_port_cnt. When *log_port_cnt_p is 0, this function returns the the total number of ports/LAGs configured for the specified trap ID. The input log_port_id is ignored in this case.</p>
+<p>2) SX_ACCESS_CMD_GET_FIRST The API will return the first set of logical port IDs. The returned log_port_cnt may be less than or equal to the requested log_port_cnt. The input log_port_id is ignored in this case.</p>
+<p>3) SX_ACCESS_CMD_GETNEXT The API will return the next set of logical port IDs starting from the next logical port ID after the specified logical port ID. The returned log_port_cnt may be less than or equal to the requested log_port_cnt.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_FIRST/GET_NEXT. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port_id</td><td>- Logical port ID, as a key to get next entries. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">log_port_list</td><td>- List of logical ports. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">log_port_num</td><td>- as input: number of logical ports requested. as output: number of logical ports returned.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_FIRST/GET_NEXT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port_id</td><td>- Logical port ID, as a key to get next entries </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">log_port_list</td><td>- List of logical ports </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">log_port_num</td><td>- [in] number of logical ports requested/[out] number of logical ports returned</td></tr>
   </table>
   </dd>
 </dl>
@@ -1399,7 +1417,7 @@ SX_STATUS_PARAM_NULL if any input parameters is null </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
-SX_STATUS_ERROR if a general error has occurred </dd></dl>
+SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
@@ -1446,14 +1464,15 @@ SX_STATUS_ERROR if a general error has occurred </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function binds/unbinds a policer to a trap priority. The policer type must be a global slow policer. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API binds/unbinds a policer to a trap priority. The policer type must be a global slow policer.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- BIND/UNBIND. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_group</td><td>- Trap group. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">policer_id</td><td>- Policer ID.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- BIND/UNBIND </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_group</td><td>- Trap group </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">policer_id</td><td>- Policer ID</td></tr>
   </table>
   </dd>
 </dl>
@@ -1465,9 +1484,9 @@ SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
 SX_STATUS_ERROR general error </dd>
 <dd>
-SX_STATUS_MEMORY_ERROR error handling memory </dd>
+SX_STATUS_MEMORY_ERROR if there was an error handling memory </dd>
 <dd>
-SX_STATUS_NO_RESOURCES device was not opened </dd></dl>
+SX_STATUS_NO_RESOURCES if the device was not opened </dd></dl>
 
 </div>
 </div>
@@ -1508,13 +1527,14 @@ SX_STATUS_NO_RESOURCES device was not opened </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get policer ID per trap group. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets policer ID per trap group.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_group</td><td>- The trap group, must be between 0-63. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">policer_id</td><td>- Policer ID.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_group</td><td>- The trap group (must be between 0-63) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">policer_id</td><td>- Policer ID</td></tr>
   </table>
   </dd>
 </dl>
@@ -1567,14 +1587,15 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get host interface counters. Note : Due to HW limitations, this API may have some counters inconsistency for trap IDs that belong to both the regular and the monitor trap group simultaneously. Please use sx_api_host_ifc_trap_group_stat_get in this case in order to get accurate values.</p>
+<p>This API gets host interface counters.</p>
+<p>Note: Due to hardware limitations, this API may have some counter inconsistency for trap IDs that belong to both the regular and the monitor trap group simultaneously. Use sx_api_host_ifc_trap_group_stat_get to get accurate values.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ/READ_CLEAR. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- Filter to determine which counters to get. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">host_ifc_cnt_p</td><td>- Host interface counters.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ/READ_CLEAR </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- Filter to determine which counters to get </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">host_ifc_cnt_p</td><td>- Host interface counters</td></tr>
   </table>
   </dd>
 </dl>
@@ -1637,15 +1658,16 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set filter for registered traps (STP, LACP etc.) or events (Port up /down, temperature event etc.) in the driver on the provided user channel. Filters can be set before or after registration of the user channel to receive traps. Traps that match filter key shall not be forwarded to the user channel. The filter takes priority on traps registration, regardless of the order of API calls. In order to add a filter use SX_ACCESS_CMD_ADD, In order to delete a specific filter use command SX_ACCESS_CMD_DELETE and specify filter attributes. using SX_ACCESS_CMD_DELETE_ALL will clear all filters applied per the given trap ID over the provided user channel.</p>
+<p>This API sets filter for registered traps (such as STP and LACP) or events (such as port up/down or temperature events) in the driver on the provided user channel. Filters can be set before or after registration of the user channel to receive traps. Traps that match filter key shall not be forwarded to the user channel. The filter takes priority on traps registration, regardless of the order of API calls.</p>
+<p>ADD adds a filter. DELETE deletes a specific filter by specifying filter attributes. DELETE_ALL clears all filters applied per the given trap ID over the provided user channel.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE/DELETE_ALL. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">filter_key_p</td><td>- Port/VLAN/Global. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">user_channel_p</td><td>- The channel for the packets to be trapped.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE/DELETE_ALL </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filter_key_p</td><td>- Port/VLAN/Global </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">user_channel_p</td><td>- The channel for the packets to be trapped</td></tr>
   </table>
   </dd>
 </dl>
@@ -1655,7 +1677,7 @@ SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_MEMORY_ERROR error handling memory </dd>
 <dd>
-SX_STATUS_NOT_FOUND object to delete was not found </dd></dl>
+SX_STATUS_NOT_FOUND if an object to be deleted was not found </dd></dl>
 
 </div>
 </div>
@@ -1714,22 +1736,19 @@ SX_STATUS_NOT_FOUND object to delete was not found </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets a list of filter entries (filter key and user channel) according to the swid and trap ID. The following use case scenarios apply with different input parameters. 1) SX_ACCESS_CMD_GET When *filter_entry_cnt_p is not set to 0, this function returns a list of filter entries. The returned filter_entry_cnt_p may be less or equal to the requested filter_entry_cnt_p. When *filter_entry_cnt_p is set to 0, this function returns the total number of filter entries configured for the specified trap ID. The input filter entry is ignored in this case.</p>
-<p>2) SX_ACCESS_CMD_GET_FIRST In this case the API will return the first set of filter entries. The returned filter_entry_cnt may be less or equal to the requested filter_entry_cnt. The input filter entry is ignored in this case.</p>
-<p>3) SX_ACCESS_CMD_GETNEXT In this case the API will return the next set of filter entries starting from the next filter entry after the specified filter entry. The returned filter_entry_cnt may be less or equal to the requested filter_entry_cnt.</p>
+<p>This API gets a list of filter entries (filter key and user channel) according to the SWID and trap ID. The following use case scenarios apply with different input parameters. 1) SX_ACCESS_CMD_GET When *filter_entry_cnt_p is not set to 0, this function returns a list of filter entries. The returned filter_entry_cnt_p may be less than or equal to the requested filter_entry_cnt_p. When *filter_entry_cnt_p is set to 0, this function returns the total number of filter entries configured for the specified trap ID. The input filter entry is ignored in this case.</p>
+<p>2) SX_ACCESS_CMD_GET_FIRST The API will return the first set of filter entries. The returned filter_entry_cnt may be less than or equal to the requested filter_entry_cnt. The input filter entry is ignored in this case.</p>
+<p>3) SX_ACCESS_CMD_GETNEXT The API will return the next set of filter entries starting from the next filter entry after the specified filter entry. The returned filter_entry_cnt may be less than or equal to the requested filter_entry_cnt.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_FIRST/GETNEXT </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">filter_entry</td><td>- Filter entry, as a key to get next entries. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">filter_entry_list_p</td><td>- List of filter entries. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">filter_entry_cnt_p</td><td>- [in]: number of filter entries requested.<ul>
-<li>[out]: number of filter entries returned.</li>
-</ul>
-</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filter_entry</td><td>- Filter entry, as a key to get next entries </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">filter_entry_list_p</td><td>- List of filter entries </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">filter_entry_cnt_p</td><td>- [in] number of filter entries requested/[out] number of filter entries returned</td></tr>
   </table>
   </dd>
 </dl>
@@ -1747,7 +1766,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 14 2021 09:59:53 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 30 2021 08:43:42 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

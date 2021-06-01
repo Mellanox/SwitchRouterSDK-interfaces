@@ -14,6 +14,7 @@ var searchData=
   ['sx_5fapi_5fissu_2eh',['sx_api_issu.h',['../sx__api__issu_8h.html',1,'']]],
   ['sx_5fapi_5flag_2eh',['sx_api_lag.h',['../sx__api__lag_8h.html',1,'']]],
   ['sx_5fapi_5fmc_5fcontainer_2eh',['sx_api_mc_container.h',['../sx__api__mc__container_8h.html',1,'']]],
+  ['sx_5fapi_5fmgmt_2eh',['sx_api_mgmt.h',['../sx__api__mgmt_8h.html',1,'']]],
   ['sx_5fapi_5fmpls_2eh',['sx_api_mpls.h',['../sx__api__mpls_8h.html',1,'']]],
   ['sx_5fapi_5fmstp_2eh',['sx_api_mstp.h',['../sx__api__mstp_8h.html',1,'']]],
   ['sx_5fapi_5fpolicer_2eh',['sx_api_policer.h',['../sx__api__policer_8h.html',1,'']]],
@@ -25,7 +26,5 @@ var searchData=
   ['sx_5fapi_5ftele_2eh',['sx_api_tele.h',['../sx__api__tele_8h.html',1,'']]],
   ['sx_5fapi_5ftopo_2eh',['sx_api_topo.h',['../sx__api__topo_8h.html',1,'']]],
   ['sx_5fapi_5ftunnel_2eh',['sx_api_tunnel.h',['../sx__api__tunnel_8h.html',1,'']]],
-  ['sx_5fapi_5fvlan_2eh',['sx_api_vlan.h',['../sx__api__vlan_8h.html',1,'']]],
-  ['sx_5fbulk_5fcounter_2eh',['sx_bulk_counter.h',['../sx__bulk__counter_8h.html',1,'']]],
-  ['sx_5fbulk_5fcounter_5fauto_2eh',['sx_bulk_counter_auto.h',['../sx__bulk__counter__auto_8h.html',1,'']]]
+  ['sx_5fapi_5fvlan_2eh',['sx_api_vlan.h',['../sx__api__vlan_8h.html',1,'']]]
 ];

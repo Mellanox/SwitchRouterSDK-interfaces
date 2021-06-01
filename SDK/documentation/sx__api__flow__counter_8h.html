@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_flow_counter.h File Reference</title>
+<title>NVIDIA Ethernet Switch SDK API Guide: sdk/sx_api_flow_counter.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.2522</span>
+   <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
+   &#160;<span id="projectnumber">4.4.3102</span>
    </div>
   </td>
  </tr>
@@ -151,17 +151,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the log verbosity level of FLOW COUNTER MODULE Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the log verbosity level of FLOW COUNTER module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Set verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- FLOW COUNTER module verbosity level </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- FLOW COUNTER API verbosity level</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully SX_STATUS_PARAM_ERROR if any input parameters is invalid SX_STATUS_ERROR general error </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully SX_STATUS_PARAM_ERROR if any input parameter is invalid SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
@@ -202,17 +203,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets the log verbosity level of FLOW COUNTER MODULE Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets the log verbosity level of FLOW COUNTER module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- get verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Get verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- FLOW COUNTER module verbosity level </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- FLOW COUNTER API verbosity level</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully SX_STATUS_PARAM_ERROR if any input parameters is invalid SX_STATUS_ERROR general error </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully SX_STATUS_PARAM_ERROR if any input parameter is invalid SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
@@ -253,13 +255,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function is used to create packets/bytes counter. for creation use command CREATE and supply counter_type. flow_counter_id is returned on successful creation. for destroying an flow counter it is required that the flow counter is not bound to an ACL and the flow_counter_id should be provided. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API is used to create packets/bytes counter. For creation, use CREATE and supply counter_type. flow_counter_id is returned upon successful creation. To destroy a flow counter, the flow counter must not be bound to an ACL and the flow_counter_id should be provided.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE / DESTROY </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">counter_type</td><td>- counter type used </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">counter_id_p</td><td>- Flow counter ID as described above</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/DESTROY </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">counter_type</td><td>- Counter type used </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">counter_id_p</td><td>- Flow counter ID, as described above</td></tr>
   </table>
   </dd>
 </dl>
@@ -267,13 +270,13 @@ Functions</h2></td></tr>
 <dd>
 SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameter is invalid </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if no Flow counter is available to create </dd>
+SX_STATUS_NO_RESOURCES if no flow counter is available to create </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if called Invalid Handle </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if called with DESTROY command and counter does not exist </dd></dl>
+SX_STATUS_ENTRY_NOT_FOUND if called with DESTROY command and the counter does not exist </dd></dl>
 
 </div>
 </div>
@@ -314,13 +317,15 @@ SX_STATUS_ENTRY_NOT_FOUND if called with DESTROY command and counter does not ex
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API function allows the user to create a group of flow counters with consecutive counter IDs. Counters can be of type packet, byte or both. Use cmd = CREATE with counter type and N=count to create a group of N counters of the given type. If the API is unable to create the given count of counters, then API will return SX_STATUS_NO_RESOURCES error. Use cmd = DESTROY with a base counter ID to destroy counters group. When destroying counters, all counters must no longer be bound / in-use, otherwise the API will return SX_STATUS_RESOURCE_IN_USE error. Note: using this API may cause fragmentation in flow counter resource. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API is used to create a group of flow counters with consecutive counter IDs. Counters can be of type packet, byte, or both. CREATE creates a group of N counters of the given type using counter type and N=count. If the API is unable to create the given count of counters, then the API will return SX_STATUS_NO_RESOURCES error. DESTROY destroys a counter's group using a base counter ID. When destroying counters, all counters must no longer be bound/in-use, otherwise the API will return SX_STATUS_RESOURCE_IN_USE error.</p>
+<p>Note: Using this API may cause fragmentation in flow counter resource.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE / DESTROY </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">bulk_attr</td><td>- Counter type used and number of counters. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">bulk_data_p</td><td>- Flow counter base ID as described above</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/DESTROY </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bulk_attr</td><td>- Counter type used and number of counters </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">bulk_data_p</td><td>- Flow counter base ID, as described above</td></tr>
   </table>
   </dd>
 </dl>
@@ -328,9 +333,9 @@ SX_STATUS_ENTRY_NOT_FOUND if called with DESTROY command and counter does not ex
 <dd>
 SX_STATUS_PARAM_NULL if bulk_data_p is NULL </dd>
 <dd>
-SX_STATUS_RESOURCE_IN_USE if called with cmd DESTROY and ore or more flow counter ID in range is bound / in-use. </dd>
+SX_STATUS_RESOURCE_IN_USE if called with the cmd DESTROY and one or more flow counter ID in range is bound/in-use </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if no continuous bulk of Flow counter IDs is available to create. </dd>
+SX_STATUS_NO_RESOURCES if no continuous bulk of flow counter IDs is available to create </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if unsupported command is requested </dd>
 <dd>
@@ -377,26 +382,27 @@ SX_STATUS_ENTRY_NOT_FOUND if called with DESTROY command and counter does not ex
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the Flow Counter. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves the Flow Counter.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">counter_id</td><td>- Flow counter ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">counter_val_p</td><td>- counter value.</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">counter_val_p</td><td>- Counter value</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE: event mode out of range. </dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if event mode is out of range </dd>
 <dd>
-SX_STATUS_MESSAGE_SIZE_ZERO: Message size error. </dd>
+SX_STATUS_MESSAGE_SIZE_ZERO if there is a message size error </dd>
 <dd>
-SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT: Message size error. </dd>
+SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds the limit </dd>
 <dd>
-SX_STATUS_COMM_ERROR: Communication error - send fail. </dd>
+SX_STATUS_COMM_ERROR Communication error (failure to send) </dd>
 <dd>
-SX_STATUS_INVALID_HANDLE: Invalid Handle. </dd></dl>
+SX_STATUS_INVALID_HANDLE if called Invalid Handle </dd></dl>
 
 </div>
 </div>
@@ -449,37 +455,36 @@ SX_STATUS_INVALID_HANDLE: Invalid Handle. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets a list of Flow counters Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets a list of flow counters.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>GET/GET_NEXT/GET_FIRST </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">counter_id_key</td><td>- Flow counter ID to use and key. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_NEXT/GET_FIRST </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">counter_id_key</td><td>- Flow counter ID to use and key </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">counter_filter_p</td><td>- Filter to use (not supported yet) </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">counter_id_list_p</td><td>- pointer to the list of Flow counter IDs returned. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">counter_id_cnt_p</td><td>[in] number of entries to retrieve; [out] retrieved number of entries.</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">counter_id_list_p</td><td>- Pointer to the list of flow counter IDs returned </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">counter_id_cnt_p</td><td>- [in] number of entries to retrieve/[out] retrieved number of entries.</td></tr>
   </table>
   </dd>
 </dl>
-<p>The following use case scenarios apply with different input parameters X = don't-care</p><ul>
-<li>1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, list = X, Count =0: In this case the API will return the total number of flow counters in the Internal db</li>
-<li>2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, list = Valid, Count = 1: In this case the API will check if the specified key exists. if it does the key will be returned in the list along with a count of 1. If the key does not exist an empty list will be returned with count = 0</li>
-<li>3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = X, list is Valid, Count &gt; 1: A count &gt;1 will be treated as a count of 1 and the behaviour will be same as earlier GET use cases.</li>
-<li>5) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X, hist_list = Null, Count =0: For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT a zero count will return an empty list.</li>
-<li>6) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = X, list = Valid, Count &gt; 0: In this case the API will return the first flow counters starting from the head of the database. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. The key is dont-care but a non-Null return list pointer must be provided</li>
-<li>7) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = X , list = Valid, Count &gt; 0: In this case the API will return the next set of counters starting from the next valid counter after the specified key. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. If no valid next counter exists in the db (key = end of list, or invalid key specified, or key too large), an empty list will be returned.</li>
-</ul>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<p>The following use case scenarios apply with different input parameters. X = don't-care. 1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, list = X, Count =0: In this case, the API will return the total number of flow counters in the internal database.</p>
+<p>2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, list = Valid, Count = 1: In this case, the API will check if the specified key exists. If it does, the key will be returned in the list along with a count of 1. If the key does not exist, an empty list will be returned with count = 0.</p>
+<p>3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = X, list is Valid, Count &gt; 1: A count &gt;1 will be treated as a count of 1 and the behaviour will be same as earlier GET use cases.</p>
+<p>4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X, hist_list = Null, Count =0: For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT a zero count will return an empty list.</p>
+<p>5) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = X, list = Valid, Count &gt; 0: In this case, the API will return the first flow counters starting from the head of the database. The total elements fetched will be returned as the return count. Note: The return count may be less than or equal to the requested count. The key is dont-care, but a non-Null return list pointer must be provided.</p>
+<p>6) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = X, list = Valid, Count &gt; 0: In this case, the API will return the next set of counters starting from the next valid counter after the specified key. The total elements fetched will be returned as the return count. Note: The return count may be less than or equal to the requested count. If no valid next counter exists in the database (key = end of list, invalid key specified, or key too large), an empty list will be returned.</p>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range. </dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if parameter is invalid. </dd>
+SX_STATUS_PARAM_ERROR if parameter is invalid </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if handle in invalid </dd>
 <dd>
-SX_STATUS_ERROR general error. </dd></dl>
+SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
@@ -508,7 +513,8 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function clear a specific Flow Counter. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API clears a specific flow counter.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -518,17 +524,17 @@ SX_STATUS_ERROR general error. </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE: event mode out of range. </dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if event mode is out of range </dd>
 <dd>
-SX_STATUS_MESSAGE_SIZE_ZERO: Message size error. </dd>
+SX_STATUS_MESSAGE_SIZE_ZERO if there is a message size error </dd>
 <dd>
-SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT: Message size error. </dd>
+SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds the limit </dd>
 <dd>
-SX_STATUS_COMM_ERROR: Communication error - send fail. </dd>
+SX_STATUS_COMM_ERROR if there is a communication error (failure to send) </dd>
 <dd>
-SX_STATUS_INVALID_HANDLE: Invalid Handle. </dd>
+SX_STATUS_INVALID_HANDLE if called Invalid Handle </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND: Clear an invalid counter. </dd></dl>
+SX_STATUS_ENTRY_NOT_FOUND if an invalid counter was cleared </dd></dl>
 
 </div>
 </div>
@@ -536,7 +542,7 @@ SX_STATUS_ENTRY_NOT_FOUND: Clear an invalid counter. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 14 2021 09:59:53 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 30 2021 08:43:42 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

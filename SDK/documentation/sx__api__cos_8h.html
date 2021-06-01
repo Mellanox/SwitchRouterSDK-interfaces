@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_cos.h File Reference</title>
+<title>NVIDIA Ethernet Switch SDK API Guide: sdk/sx_api_cos.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.2522</span>
+   <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
+   &#160;<span id="projectnumber">4.4.3102</span>
    </div>
   </td>
  </tr>
@@ -211,6 +211,18 @@ Functions</h2></td></tr>
 <tr class="separator:a9a42dda380830a99c701ebc2dd83827d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83d7aa9d892ccfaec23b8d175604628a"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a83d7aa9d892ccfaec23b8d175604628a">sx_api_cos_buff_consumption_get</a> (const sx_api_handle_t handle, sx_cos_buff_consumption_t *buff_consumption_p)</td></tr>
 <tr class="separator:a83d7aa9d892ccfaec23b8d175604628a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a636045547ceb62c5e2f00844d6227d5c"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a636045547ceb62c5e2f00844d6227d5c">sx_api_cos_elephant_detection_config_set</a> (const sx_api_handle_t handle, const sx_cos_elephant_config_attribs_t *config_attribs_p)</td></tr>
+<tr class="separator:a636045547ceb62c5e2f00844d6227d5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64277f19ebe3b62ff202b1130facfdb3"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a64277f19ebe3b62ff202b1130facfdb3">sx_api_cos_elephant_detection_config_get</a> (const sx_api_handle_t handle, sx_cos_elephant_config_attribs_t *config_attribs_p)</td></tr>
+<tr class="separator:a64277f19ebe3b62ff202b1130facfdb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad30577a40a70b99777d8695287100471"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#ad30577a40a70b99777d8695287100471">sx_api_cos_elephant_detection_port_state_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t *log_ports_list_p, const uint32_t log_ports_cnt)</td></tr>
+<tr class="separator:ad30577a40a70b99777d8695287100471"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadcb9ef8d82d0d059a88493bbfc9f032"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#aadcb9ef8d82d0d059a88493bbfc9f032">sx_api_cos_elephant_detection_port_state_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_cos_elephant_detection_state_e *state_p)</td></tr>
+<tr class="separator:aadcb9ef8d82d0d059a88493bbfc9f032"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9087240827c71784767eff7e591b6d45"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a9087240827c71784767eff7e591b6d45">sx_api_cos_elephant_detection_port_flows_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_cos_elephant_flow_id_t *flow_ids_list_p, uint32_t *flow_ids_cnt_p)</td></tr>
+<tr class="separator:a9087240827c71784767eff7e591b6d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a838a4c56c946d32190c47848be10cca8"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a838a4c56c946d32190c47848be10cca8">sx_api_cos_elephant_detection_port_flows_data_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_cos_elephant_flow_id_t *flow_ids_list_p, sx_cos_elephant_flow_data_t *flow_data_list_p, uint32_t *list_cnt_p)</td></tr>
+<tr class="separator:a838a4c56c946d32190c47848be10cca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a75fb421fa03095f214dbe8f465d9f9d2"></a>
@@ -250,21 +262,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the log verbosity level of COS MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the log verbosity level of COS module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Sets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- COS module verbosity level </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- COS API verbosity level</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -305,21 +318,22 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the log verbosity level of COS MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets the log verbosity level of COS module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- get verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Gets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- COS module verbosity level </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- COS API verbosity level</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -354,22 +368,24 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the port default switch priority value. This default priority value is used in "trust port" configurations. This default priority value is also used in cases when trust level is configured as L2 or L3 and the relevant packet fields that determine the priority value are unavailable in the packet. Supported devices: Spectrum, Spectrum2, Spectrum3. In Spectrum the function sets the default switch-priority.</p>
+<p>This API sets the port default switch priority value. This default priority value is used in "trust port" configurations. This default priority value is also used in cases when trust level is configured as L2 or L3 and the relevant packet fields that determine the priority value are unavailable in the packet.</p>
+<p>Note: In Spectrum, the function sets the default switch priority.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">priority</td><td>- switch priority [0..cos_port_prio_max (see resource manager) , default is 0]</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">priority</td><td>- Switch priority (0..cos_port_prio_max (see resource manager), default is 0)</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd>
+SX_STATUS_ERROR General error </dd>
 <dd>
-SX_STATUS_MEMORY_ERROR error handling memory </dd></dl>
+SX_STATUS_MEMORY_ERROR Error handling memory </dd></dl>
 
 </div>
 </div>
@@ -404,20 +420,21 @@ SX_STATUS_MEMORY_ERROR error handling memory </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the default port switch priority value. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves the default port switch priority value.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">priority_p</td><td>- switch priority [0..cos_port_prio_max (see resource manager) , default is 0]</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">priority_p</td><td>- Switch priority (0..cos_port_prio_max (see resource manager), default is 0)</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -464,30 +481,32 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function adds or deletes a priority to/from a traffic class (TC). When a switch priority is added to a TC, it is automatically re-mapped from its previous allocation. When a priority is deleted from a TC, it is reallocated according to default settings.</p>
-<p>Each packet has an assigned priority. The priority of the packet is mapped to one of eight traffic classes (egress queue) according to prio -&gt; traffic class map. Each packet is dequeued on the egress port based on its traffic class.</p>
+<p>This API adds or deletes a priority to/from a traffic class (TC). When a switch priority is added to a TC, it is automatically re-mapped from its previous allocation. When a priority is deleted from a TC, it is reallocated according to default settings.</p>
+<p>Each packet has an assigned priority. The priority of the packet is mapped to one of eight traffic classes (egress queues) according to prio -&gt; traffic class map. Each packet is dequeued on the egress port based on its traffic class.</p>
+<p>Note: Multiple priorities can be mapped to a single TC. Note: Spectrum default settings:</p><ul>
+<li>i = [0,7]: switch priority i -&gt; traffic class i</li>
+<li>i = [8,14]: switch priority i -&gt; traffic class 7 Spectrum higher TC behavior: If a switch priority is mapped to a higher TC X [where 8 &lt;= X &lt;= 15], packets sent on TC X will still be counted against TC X-8.</li>
+</ul>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
-<p>Note: Multiple priorities can be mapped to a single TC.</p>
-<p>Spectrum: default settings: for i = [0,7]: switch priority i -&gt; traffic class i. for i = [8,14]: switch priority i -&gt; traffic class 7. Higher TC behavior: If a switch priority is mapped to a higher TC X [where 8 &lt;= X &lt;= 15], packets sent on TC X will still be counted against TC X-8</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- Add/Delete </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID (egress port) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">priority</td><td>- priority </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_class</td><td>- traffic class</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID (egress port) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">priority</td><td>- Priority </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_class</td><td>- Traffic class</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd>
+SX_STATUS_ERROR General error </dd>
 <dd>
-SX_STATUS_MEMORY_ERROR error handling memory </dd>
+SX_STATUS_MEMORY_ERROR Error handling memory </dd>
 <dd>
-SX_STATUS_CMD_ERROR if an unsupported command is requested </dd></dl>
+SX_STATUS_CMD_ERROR Unsupported command </dd></dl>
 
 </div>
 </div>
@@ -528,21 +547,22 @@ SX_STATUS_CMD_ERROR if an unsupported command is requested </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the traffic class of a specific switch priority. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves the traffic class of a specific switch priority.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">priority</td><td>- priority </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">traffic_class_p</td><td>- traffic class</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">priority</td><td>- Priority </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">traffic_class_p</td><td>- Traffic class</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -577,22 +597,24 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the port trust level value. Assigns the user priority based on the following modes: Trust port user priority - ignore packets priority and assign priority based on the port configuration. Trust packet user priority/Trust L2 - tagged L2 packets are assigned with packets priority, untagged packets are assigned with port's priority. Trust DSCP/Trust L3 - IP packets are assigned with a priority based on the DSCP to UP mapping. Non-IP packets are assigned with port's priority. Trust both - IP packets are assigned with a priority based on the DSCP to UP mapping. Else, tagged L2 packets are assigned with packets priority, untagged packets are assigned with port's priority. In Spectrum for MPLS packets EXP field is used instead of DSCP. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the port trust level value. User priority is assigned based on the following modes: -Trust port user priority - ignore packets priority and assign priority based on the port configuration. -Trust packet user priority/Trust L2 - tagged L2 packets are assigned with packets priority, untagged packets are assigned with port's priority. -Trust DSCP/Trust L3 - IP packets are assigned with a priority based on the DSCP to UP mapping. Non-IP packets are assigned with port's priority. -Trust both - IP packets are assigned with a priority based on the DSCP to UP mapping. Otherwise, tagged L2 packets are assigned with packets priority, untagged packets are assigned with port's priority.</p>
+<p>Note: In Spectrum, for MPLS packets EXP field is used instead of DSCP.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port id </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">trust_level</td><td>- trust level [trust port user priority, trust L2, trust L3, trust both]</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trust_level</td><td>- Trust level [trust port user priority,trust L2, trust L3, trust both]</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd>
+SX_STATUS_ERROR General error </dd>
 <dd>
-SX_STATUS_MEMORY_ERROR error handling memory </dd></dl>
+SX_STATUS_MEMORY_ERROR Error handling memory </dd></dl>
 
 </div>
 </div>
@@ -627,20 +649,21 @@ SX_STATUS_MEMORY_ERROR error handling memory </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the port trust level value. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves the port trust level value.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port id </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">trust_level_p</td><td>- trust level [trust port, trust L2, trust L3, trust both]</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">trust_level_p</td><td>- Trust level [trust port user priority,trust L2, trust L3, trust both]</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -681,24 +704,25 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the port's priority to buffer map in the SDK. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the port's priority to buffer map in the SDK.</p>
 <p>Note: Untagged frames must use a buffer used by one of the priorities.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- access command SX_ACCESS_CMD_SET </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">prio_to_buff_p</td><td>- mapping of switch priorities to PG buffers</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">prio_to_buff_p</td><td>- Mapping of switch priorities to PG buffers</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd>
+SX_STATUS_ERROR General error </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED command is not supported </dd></dl>
+SX_STATUS_CMD_UNSUPPORTED Unsupported command </dd></dl>
 
 </div>
 </div>
@@ -733,20 +757,21 @@ SX_STATUS_CMD_UNSUPPORTED command is not supported </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves the port's priority to buffer mapping from the SDK. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves the port's priority to buffer mapping from the SDK.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">prio_to_buff_p</td><td>- mapping of switch priorities to PG buffers</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">prio_to_buff_p</td><td>- Mapping of switch priorities to PG buffers</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -788,22 +813,22 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the pool parameters. It is used to set shared buffer pools and shared headroom pools.</p>
-<p>Note: Shared headroom pools must have ingress direction and valid size. Infinite size is not allowed and the only supported mode is SX_COS_BUFFER_MAX_MODE_BUFFER_UNITS_E, Other attributes are ignored.</p>
+<p>Note: Shared headroom pools must have ingress direction and valid size. Infinite size is not allowed and the only supported mode is SX_COS_BUFFER_MAX_MODE_BUFFER_UNITS_E. Other attributes are ignored.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CMD SX_ACCESS_CMD_CREATE /SX_ACCESS_CMD_DESTROY/ SX_ACCESS_CMD_EDIT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/DESTROY/EDIT </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">sx_cos_pool_attr</td><td>- Pool attributes pointer (Direction, Size (in Cells), Mode (dynamic/static)) </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>pool_id - Pool ID pointer - use CMD SX_ACCESS_CMD_CREATE command will return the user pool_id</td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>pool_id - Pool ID pointer (use CMD SX_ACCESS_CMD_CREATE command will return the user pool_id)</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+SX_STATUS_PARAM_ERROR Any input parameters is invalid </dd>
 <dd>
-SX_STATUS_ERROR general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -838,7 +863,8 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the shared buffer pool attributes. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets the shared buffer pool attributes.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -847,11 +873,11 @@ SX_STATUS_ERROR general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+SX_STATUS_PARAM_ERROR Any input parameters is invalid </dd>
 <dd>
-SX_STATUS_ERROR general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -898,22 +924,23 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the port buffers size and threshold (Xon/Xoff) according to port buffer attribute type With command SX_ACCESS_CMD_SET and attribute size non-zero, the API allocates the specific port buffer with attribute size (configures specific buffer entry) With command SX_ACCESS_CMD_SET and attribute size zero, the API releases the size of specific port buffer (delete specific buffer entry) With command SX_ACCESS_CMD_DELETE, the API releases specific port buffers that were received on port_buffer_attr_list_p (set size zero for those ports) With command SX_ACCESS_CMD_DELETE_ALL, the API releases all the port buffers configured on specific logical port (deletes all buffer entries on logical port) With logical port param, a validation is done to allocate mc buffer only if the user sets log_port param with single reserved value MC_LOG_ID as defined in sx_port. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the port buffers size and threshold (Xon/Xoff) according to port buffer attribute type. SET (and attribute size non-zero) allocates the specific port buffer with the attribute size (configures specific buffer entry). SET (and attribute size zero), the API releases the size of specific port buffer (deletes specific buffer entry). DELETE releases specific port buffers that were received on port_buffer_attr_list_p (sets size zero for those ports). DELETE_ALL releases all the port buffers configured on specific logical port (deletes all buffer entries on logical port). With logical port param, a validation is done to allocate MC buffer only if the user sets log_port param with a single reserved value of MC_LOG_ID as defined in sx_port.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CMD SX_ACCESS_CMD_SET/SX_ACCESS_CMD_DELETE/SX_ACCESS_CMD_DELETE_ALL </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">port_buffer_attr_list_p</td><td>- pointer to list of port buffers attributes </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET/DELETE/DELETE_ALL </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_buffer_attr_list_p</td><td>- Pointer to list of port buffers attributes </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">port_buffer_attr_cnt</td><td>- Number of port buffer attributes in the list</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+SX_STATUS_PARAM_ERROR Any input parameters is invalid </dd>
 <dd>
-SX_STATUS_ERROR general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -954,21 +981,22 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the port buffers size and thresholds (Xon/Xoff) according to port buffer attribute type Port buffer thresholds can only be retrieved for a single buffer type. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets the port buffers size and thresholds (Xon/Xoff) according to port buffer attribute type. Port buffer thresholds can only be retrieved for a single buffer type.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>port_buffer_attr_list_p - pointer to list of port buffers attributes </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>port_buffer_attr_list_p - Pointer to list of port buffers attributes </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>port_buffer_attr_cnt - Number of port buffer attributes in the list</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+SX_STATUS_PARAM_ERROR Any input parameters is invalid </dd>
 <dd>
-SX_STATUS_ERROR general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1015,22 +1043,24 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the port shared buffers attributes according to port shared buffer attribute type With command SX_ACCESS_CMD_SET and attribute max size/alpha non-zero, the API allocates the specific port shared buffer with attribute depending on the mode (configures specific buffer entry) With command SX_ACCESS_CMD_SET and attribute max size/alpha zero, the API releases the size of specific port shared buffer (delete specific buffer entry) With command SX_ACCESS_CMD_DELETE, the API releases specific port buffers that received on port_shared_buffer_attr_list_p (set max alpha/size zero for those ports) With command SX_ACCESS_CMD_DELETE_ALL, the API releases all the port shared buffers configured on specific logical port (set max alpha/size zero on all buffer entries on logical port) With logical port param, a validation is done to allocate mc buffer only if the user sets log_port param with single reserved value MC_LOG_ID as defined in sx_port. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the port shared buffers attributes according to port shared buffer attribute type.</p>
+<p>SET (and attribute max size/alpha non-zero) allocates the specific port shared buffer with attribute depending on the mode (configures specific buffer entry). SET (and attribute max size/alpha zero) releases the size of specific port shared buffer (deletes specific buffer entry). DELETE releases specific port buffers that received on port_shared_buffer_attr_list_p (sets max alpha/size zero for those ports). DELETE_ALL releases all the port shared buffers configured on specific logical port (sets max alpha/size zero on all buffer entries on logical port). With logical port param, a validation is done to allocate MC buffer only if the user sets log_port param with single reserved value MC_LOG_ID as defined in sx_port.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CMD SX_ACCESS_CMD_SET/SX_ACCESS_CMD_DELETE/SX_ACCESS_CMD_DELETE_ALL </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">port_shared_buffer_attr_list_p</td><td>- pointer to list of port shared buffer attributes </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET/DELETE/DELETE_ALL </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_shared_buffer_attr_list_p</td><td>- Pointer to list of port shared buffer attributes </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">port_shared_buffer_attr_cnt</td><td>- Number of port shared buffer attributes in the list</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+SX_STATUS_PARAM_ERROR Any input parameters is invalid </dd>
 <dd>
-SX_STATUS_ERROR general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1071,21 +1101,22 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the port shared buffers attributes according to port shared buffer attribute type Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets the port shared buffers attributes according to port shared buffer attribute type.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>port_shared_buffer_attr_list_p - pointer to list of port shared buffer attributes </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>port_shared_buffer_attr_list_p - Pointer to list of port shared buffer attributes </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>port_shared_buffer_attr_cnt - Number of port shared buffer attributes in the list</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+SX_STATUS_PARAM_ERROR Any input parameters is invalid </dd>
 <dd>
-SX_STATUS_ERROR general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1114,19 +1145,20 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the buffer status. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets the buffer status.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">status</td><td>- the buffer global status</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">status</td><td>- Buffer global status</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+SX_STATUS_PARAM_ERROR Any input parameters is invalid </dd>
 <dd>
-SX_STATUS_ERROR general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1161,20 +1193,21 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API returns the list of initialized pools Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API returns the list of initialized pools.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>pool_cnt - the number of pools in the list </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">pool_list_p</td><td>- list of pool ids</td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>pool_cnt - Number of pools in the list </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">pool_list_p</td><td>- List of pool IDs</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+SX_STATUS_PARAM_ERROR Any input parameters is invalid </dd>
 <dd>
-SX_STATUS_ERROR general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1227,29 +1260,29 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the port buffers occupancy parameters.</p>
-<p>Note: This API allows getting multiple statistic elements per port. When number of statistic elements exceed the API capability it will return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT</p>
+<p>This API gets the port buffers occupancy parameters. This API input is a list of ports and requested port buffers attributes and it returns usage items, which carry also identifying attributes, for all the requested attributes.</p>
+<p>Note: the order of returned items in usage_list_p may not be identical to input in statistic_param_list_p. Note: This API allows getting multiple statistical elements per port. When the number of statistical elements exceed the API capability, the API will return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CMD SX_ACCESS_CMD_READ /SX_ACCESS_CMD_READ_CLEAR </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ/READ_CLEAR </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">statistic_param_list_p</td><td>- Pointer to a list of statistics input structure (Port, PG, Direction) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">statistic_cnt</td><td>- Number of input parameters in the list </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">usage_list_p</td><td>- Pointer to a list of usage params </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>usage_cnt - Number of output parameters in the list (if zero - number of elements will be returned)</td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>usage_cnt - Number of output parameters in the list (if zero, number of elements will be returned)</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_NULL if any input parameter is NULL </dd>
+SX_STATUS_PARAM_NULL Any input parameter is NULL </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+SX_STATUS_PARAM_ERROR Any input parameters is invalid </dd>
 <dd>
-SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT when too many statistic elements are requested </dd>
+SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT Too many statistical elements requested </dd>
 <dd>
-SX_STATUS_ERROR general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1296,27 +1329,28 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets pool occupancy statistics. Note: Shared headroom pools do not support watermark statistics.</p>
+<p>This API gets pool occupancy statistics.</p>
+<p>Note: Shared headroom pools do not support watermark statistics.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_READ /SX_ACCESS_CMD_READ_CLEAR </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ/READ_CLEAR </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">pool_id_list_p</td><td>- Pointer to a list of Pool IDs (size - in units of cells) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">pool_id_cnt</td><td>- Number of parameters in the list </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">usage_list_p</td><td>- Pointer to a list of usage params</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+SX_STATUS_PARAM_ERROR Any input parameters is invalid </dd>
 <dd>
-SX_STATUS_PARAM_NULL if any input parameter is NULL </dd>
+SX_STATUS_PARAM_NULL Any input parameter is NULL </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if memory allocations have failed </dd>
+SX_STATUS_NO_RESOURCES Memory allocations have failed </dd>
 <dd>
-SX_STATUS_ERROR general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1351,20 +1385,22 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the default color value of a given port. Used for trust level "port" or for packets without the relevant priority field for the configured trust level(L2/L3) This API is not supported for VPORT. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the default color value of a given port. Used for trust level "port" or for packets without the relevant priority field for the configured trust level(L2/L3).</p>
+<p>Note: This API is not supported for VPORT.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>- color</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">color</td><td>- Color</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1399,20 +1435,22 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the default port color value. Supported devices: Spectrum, Spectrum2, Spectrum3. This API is not supported for VPORT.</p>
+<p>This API retrieves the default port color value.</p>
+<p>Note: This API is not supported for VPORT.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">color_p</td><td>- color</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">color_p</td><td>- Color</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1447,20 +1485,22 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the default PCP,DEI field value for arriving untagged packets. This API is not supported for VPORT. See sx_api_cos_port_default_prio_set. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the default PCP,DEI field value for arriving untagged packets.</p>
+<p>Note: This API is not supported for VPORT. See sx_api_cos_port_default_prio_set.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">pcp_dei</td><td>- PCP,DEI</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1495,20 +1535,22 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the default PCP,DEI field value for arriving untagged packets. Supported devices: Spectrum, Spectrum2, Spectrum3. Not supported per VPORT.</p>
+<p>This API retrieves the default PCP,DEI field value for arriving untagged packets.</p>
+<p>Note: This API is not supported for VPORT.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">pcp_dei_p</td><td>- PCP,DEI</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1555,22 +1597,23 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the mapping between PCP, DEI and switch-priority, color. This table is used when the port trust mode is set to 'trust L2'. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the mapping between PCP, DEI and switch priority, color. This table is used when the port trust mode is set to 'trust L2'.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">pcp_dei_p</td><td>- a list of PCP's and DEI's </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">switch_priority</td><td>- a list of switch priorities </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">element_cnt</td><td>- num of elements in PCP, DEI and Switch Prio lists</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pcp_dei_p</td><td>- List of PCPs and DEIs </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">switch_priority</td><td>- List of switch priorities </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">element_cnt</td><td>- Number of elements in PCP, DEI and Switch Prio lists</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1617,22 +1660,23 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the mapping from PCP,DEI to switch-priority and color. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves the mapping from PCP,DEI to switch priority and color.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">pcp_dei_p</td><td>- a list of PCP's and DEI's </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">switch_priority_color_p</td><td>- a list of switch priorities and colors </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>element_cnt_p - num of elements in PCP, DEI and Switch Prio lists</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">pcp_dei_p</td><td>- List of PCPs and DEIs </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">switch_priority_color_p</td><td>- List of switch priorities and colors </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>element_cnt_p - Number of elements in PCP, DEI and Switch Prio lists</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1673,22 +1717,22 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the mapping from switch-priority to IEEE priority. This IEEE priority value is used in the switch for pause flow control The device maps the switch-priority into IEEE priority value using device global Switch Priority to IEEE Priority Table (not per port).</p>
+<p>This API sets the mapping from switch priority to IEEE priority. This IEEE priority value is used in the switch for pause flow control. The device maps the switch priority into IEEE priority value using device global switch priority to IEEE priority table (not done per port).</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">switch_priority_p</td><td>- a list of switch priorities </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">switch_priority_p</td><td>- List of switch priorities </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ieee_priority_p</td><td>- a list of IEEE priorities </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">element_cnt</td><td>- num of elements in switch priorities and ieee priorities lists</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">element_cnt</td><td>- Number of elements in switch priorities and IEEE priorities lists</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1729,21 +1773,22 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the mapping from switch-priority to IEEE priority. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves the mapping from switch priority to IEEE priority.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">switch_priority_p</td><td>- switch priorities list </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">ieee_priority_p</td><td>- IEEE priorities list </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>element_cnt_p - num of elements in switch priorities and ieee priorities lists</td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>element_cnt_p - Number of elements in switch priorities and IEEE priorities lists</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1796,23 +1841,24 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the mapping from EXP to switch-priority, color and ECN value. This table is used for MPLS packets when the port trust mode is set to 'L3' Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the mapping from EXP to switch priority, color, and ECN value. This table is used for MPLS packets when the port trust mode is set to L3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">exp_p</td><td>- a list of EXP's </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">switch_priority_color_p</td><td>- a list of switch priorities and colors </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">ecn_p</td><td>- a list of ECN's </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">element_cnt</td><td>- num of elements in EXP's, ECN's and switch priorities lists</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">exp_p</td><td>- List of EXPs </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">switch_priority_color_p</td><td>- List of switch priorities and colors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ecn_p</td><td>- List of ECNs </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">element_cnt</td><td>- Number of elements in EXPs, ECNs, and switch priorities lists</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1865,23 +1911,24 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the mapping from EXP to switch-priority, color and ECN value. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves the mapping from EXP to switch priority, color, and ECN value.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">exp_p</td><td>- a list of EXP's </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">switch_priority_color_p</td><td>- an array of switch priorities and colors </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">ecn_p</td><td>- a list of ECN's </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>element_cnt_p - num of elements in EXP's and switch priorities lists</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">exp_p</td><td>- List of EXPs </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">switch_priority_color_p</td><td>- Switch priorities and colors </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ecn_p</td><td>- List of ECNs </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>element_cnt_p - Number of elements in EXP and switch priority lists</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1928,22 +1975,24 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the mapping from DSCP to switch-priority and color. This table is used when the port trust mode is set to 'L3'. The mapping from DSCP to switch prio is on a per port basis and is applicable only in Spectrum. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the mapping from DSCP to switch priority and color. This table is used when the port trust mode is set to L3.</p>
+<p>Note: The mapping from DSCP to switch priority is done per port and is applicable only in Spectrum.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">dscp_p</td><td>- a list of DSCP's </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">switch_priority_color</td><td>- a list of switch priorities and colors </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">element_cnt</td><td>- num of elements in DSCP's and switch priorities lists</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dscp_p</td><td>- List of DSCPs </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">switch_priority_color</td><td>- List of switch priorities and colors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">element_cnt</td><td>- Number of elements in EXP and switch priority lists</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1990,22 +2039,23 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the mapping from DSCP to switch-priority and color. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves the mapping from DSCP to switch priority and color.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">dscp_p</td><td>- a list of DSCP's </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">switch_priority_color_p</td><td>- a list of switch priorities and colors </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>element_cnt_p - num of elements in DSCP's and switch priorities lists</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dscp_p</td><td>- List of DSCPs </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">switch_priority_color_p</td><td>- List of switch priorities and colors </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>element_cnt_p - Number of elements in DSCPs and switch priorities lists</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -2040,20 +2090,21 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function defines rewrite enable option setting of PCP, DEI, DSCP and EXP bits in packet header. The values of rewriting are defined by mapping in the following functions. The rewrite is defined on an ingress port. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API defines rewrite-enable option setting of PCP, DEI, DSCP, and EXP bits in packet header. The values of rewriting are defined by mapping in the following functions. The rewrite is defined on an ingress port.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- ingress logical port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">rewrite</td><td>- should rewrite PCP/DEI, DSCP, EXP</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Ingress logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rewrite</td><td>- Rewrite PCP/DEI, DSCP, EXP</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -2088,20 +2139,21 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves rewrite enable option setting of PCP, DEI, DSCP and EXP bits in packet header. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves rewrite-enable option setting of PCP, DEI, DSCP, and EXP bits in packet header.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- ingress logical port ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">rewrite_p</td><td>- should rewrite PCP/DEI, DSCP, EXP</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Ingress logical port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">rewrite_p</td><td>- Rewrite PCP/DEI, DSCP, EXP</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -2148,22 +2200,23 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function defines the mapping from switch-priority, color to PCP, DEI for PCP and DEI rewrite, in packet header. The mapping will change the PCP, DEI values only if PCP, DEI rewrite was enabled in sx_api_cos_port_rewrite_enable_set. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API defines the mapping from switch priority, color to PCP, DEI for PCP, and DEI rewrite in packet headers. The mapping will change the PCP, DEI values only if PCP, DEI rewrite was enabled in sx_api_cos_port_rewrite_enable_set.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress logical port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">switch_priority_color_p</td><td>- a list of switch priorities, and colors </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">pcp_dei_p</td><td>- a list of PCP's and DEI's </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">element_cnt</td><td>- switch priorities and PCP's, DEI's lists elements count</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Egress logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">switch_priority_color_p</td><td>- List of switch priorities and colors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pcp_dei_p</td><td>- List of PCPs and DEIs </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">element_cnt</td><td>- Switch priorities and PCP, DEI list's element count</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -2210,22 +2263,23 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the mapping from switch-priority, color to PCP, DEI for PCP and DEI rewrite, in packet header. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves the mapping from switch priority, color to PCP, DEI for PCP, and DEI rewrite in packet header.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress logical port ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">switch_priority_color_p</td><td>- a list of switch priorities and colors </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">pcp_dei_p</td><td>- a list of PCP's and DEI's </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>element_cnt_p - switch priorities and DSCP lists elements count</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Egress logical port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">switch_priority_color_p</td><td>- List of switch priorities and colors </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">pcp_dei_p</td><td>- List of PCPs and DEIs </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>element_cnt_p - Switch priorities and DSCP list's element count</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -2272,22 +2326,23 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function defines the mapping from switch-priority, color to DSCP, for DSCP rewrite, in packet header. The mapping will change the DSCP values only if DSCP rewrite was enabled in sx_api_cos_port_rewrite_enable_set Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API defines the mapping from switch priority, color to DSCP, for DSCP rewrite, in packet header. The mapping will change the DSCP values only if DSCP rewrite was enabled in sx_api_cos_port_rewrite_enable_set.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress logical port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">switch_priority_color_p</td><td>- list of switch priorities, and colors </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">dscp_p</td><td>- a list of DSCP's </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">element_cnt</td><td>- switch priorities and DSCP's lists elements count</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Egress Logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">switch_priority_color_p</td><td>- List of switch priorities and colors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dscp_p</td><td>- List of DSCPs </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">element_cnt</td><td>- Switch priorities and DSCP list's element count</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -2334,22 +2389,23 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the mapping from switch-priority, color to DSCP, for DSCP rewrite, in packet header. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves the mapping from switch priority, color to DSCP, for DSCP rewrite, in packet header.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress logical port ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">switch_priority_color_p</td><td>- a list of switch priorities and colors </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">dscp_p</td><td>- a list of DSCP's </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>element_cnt_p - switch priorities and DSCP lists elements count</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Egress Logical port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">switch_priority_color_p</td><td>- List of switch priorities and colors </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dscp_p</td><td>- List of DSCPs </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>element_cnt_p - Switch priorities and DSCP list's element count</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -2402,23 +2458,24 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function defines the mapping from switch-priority, color and ECN to EXP, for EXP rewrite, in packet header. The mapping will change the EXP values only if EXP rewrite was enabled in sx_api_cos_port_rewrite_enable_set Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API defines the mapping from switch priority, color and ECN to EXP for EXP rewrite in packet header. The mapping will change the EXP values only if EXP rewrite was enabled in sx_api_cos_port_rewrite_enable_set.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress logical port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">switch_priority_color_p</td><td>- list of switch priorities, colors </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">ecn_p</td><td>- list of ECN's </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">exp_p</td><td>- list of EXP's </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">element_cnt</td><td>- switch priorities, EXP's and ECN's lists elements count</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Egress Logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">switch_priority_color_p</td><td>- List of switch priorities, colors </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ecn_p</td><td>- List of ECNs </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">exp_p</td><td>- List of EXPs </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">element_cnt</td><td>- Switch priorities, EXPs, and ECNs list's element count</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -2471,23 +2528,24 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves rewriting of EXP bits setting. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves rewriting of EXP bit's setting.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress logical port ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">switch_priority_color_ecn_p</td><td>- a list of switch priorities, colors </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">ecn_p</td><td>- a list of ECN's </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">exp_p</td><td>- a list of EXP's </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>element_cnt_p - switch priorities, ECN's and EXP's lists elements count</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Egress logical port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">switch_priority_color_ecn_p</td><td>- List of switch priorities and colors </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ecn_p</td><td>- List of ECNs </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">exp_p</td><td>- List of EXPs </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>element_cnt_p - Switch priorities (ECNs and EXPs list's element count)</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -2528,21 +2586,23 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets PTP shaper parameters Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets PTP shaper parameters.</p>
+<p>SET sets new shaper parameters DELETE resets shaper parameters to default</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_SET : set new shaper parameters SX_ACCESS_CMD_DELETE : reset shaper parameters to default </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">port_speed</td><td>- The link speed of the port </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">shaper_params</td><td>- The ptp shaper parameters</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET/DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_speed</td><td>- Link speed of the port </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">shaper_params</td><td>- PTP shaper parameters</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -2583,21 +2643,23 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves PTP shaper parameters Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves PTP shaper parameters.</p>
+<p>GET retrieves current shaper parameters.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_GET : retrieve current shaper parameters </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">port_speed</td><td>- The link speed of the port </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">shaper_params</td><td>- The ptp shaper parameters</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_speed</td><td>- Link speed of the port </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">shaper_params</td><td>- PTP shaper parameters</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -2644,22 +2706,24 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function binds a traffic class (TC) to a TC queue and group, and sets shapers and rate-based ECN threshold. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API binds a traffic class (TC) to a TC queue and group and sets shapers and rate-based ECN threshold.</p>
+<p>CREATE creates a queuing structure. ADD adds an element to an existing queuing structure. EDIT edits an element in an existing queuing structure. DESTROY destroys the queuing structure (return to default).</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_CREATE: create a queuing structure SX_ACCESS_CMD_ADD: add an element to an existing queuing structure SX_ACCESS_CMD_EDIT: edit an element in an existing queuing structure SX_ACCESS_CMD_DESTROY: destory the queuing structure (return to default) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/ADD/EDIT/DESTROY </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Egress port ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ets_element</td><td>- ETS element array </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">ets_element_cnt</td><td>- num of ETS elements</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ets_element_cnt</td><td>- Number of ETS elements</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -2700,21 +2764,22 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves all elements of the queuing system. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves all elements of the queuing system.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Egress port ID </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">ets_element</td><td>- ETS element array </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>ets_element_cnt - num of ETS elements</td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>ets_element_cnt - Number of ETS elements</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -2749,20 +2814,21 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the port MC awareness mode. If mc_aware==TRUE then the MC traffic will be mapped to the higher TC's (8-15) and the UC traffic will be mapped to the lower TC's (0-7). If there is a mapping configured to TC 8-15 the function will return SX_STATUS_ERROR Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the port MC awareness mode. If mc_aware==TRUE then the MC traffic will be mapped to the higher TCs (8-15) and the UC traffic will be mapped to the lower TCs (0-7). If there is a mapping configured to TC 8-15, the function will return SX_STATUS_ERROR.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mc_aware</td><td>- MC aware TC mode</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Egress port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mc_aware</td><td>- MC awareness TC mode</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -2797,20 +2863,21 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the port MC awareness mode. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves the port MC awareness mode.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress port ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">mc_aware</td><td>- MC aware TC mode</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Egress port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">mc_aware</td><td>- MC awareness TC mode</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -2851,21 +2918,22 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_api_cos_redecn_log_verbosity_level_set in its place. This API sets the log verbosity level of REDECN MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Use sx_api_cos_redecn_log_verbosity_level_set in its place. This API sets the log verbosity level of REDECN module.</dd></dl>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- module verbosity level </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Sets verbosity of API/MODULE/BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- Module verbosity level </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- API verbosity level</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -2906,21 +2974,22 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the log verbosity level of REDECN MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the log verbosity level of REDECN module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- module verbosity level </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Sets verbosity of API/MODULE/BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- Module verbosity level </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- API verbosity level</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -2961,21 +3030,22 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the log verbosity level of REDECN MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets the log verbosity level of REDECN module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- get verbosity of : API / MODULE / BOTH </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- module verbosity level </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Gets verbosity of API/MODULE/BOTH </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- Module verbosity level </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- API verbosity level</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -3004,20 +3074,20 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets global configuration of ECN and RED Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets global configuration of ECN and RED.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">configuration_p</td><td>- configuration parameters </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">configuration_p</td><td>- Configuration parameters (see sx_cos_redecn_global_t)</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd>sx_cos_redecn_global_t</dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -3046,20 +3116,20 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets global configuration of ECN and RED Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets global configuration of ECN and RED.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">configuration_p</td><td>- configuration parameters </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">configuration_p</td><td>- Configuration parameters (see sx_cos_redecn_global_t)</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd>sx_cos_redecn_global_t</dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -3100,23 +3170,25 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function creates a single RED/ECN profile Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API creates a single RED/ECN profile.</p>
+<p>ADD create a new profile (profile_p is the output). EDIT edits a profile. DELETE deletes a profile (params_p is ignored).</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_ADD - create a new profile - profile_p is the output SX_ACCESS_CMD_EDIT - edit a profile SX_ACCESS_CMD_DELETE - delete a profile (params_p is ignored) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- parameter of redecn profile attributes </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>profile_p - configured or profile to reconfigure/delete</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/EDIT/DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- Parameter of redecn profile attributes </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>profile_p - Configured or profile to reconfigure/delete</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd>
+SX_STATUS_ERROR General error </dd>
 <dd>
-SX_STATUS_NO_RESOURCES no available </dd></dl>
+SX_STATUS_NO_RESOURCES No resources available </dd></dl>
 
 </div>
 </div>
@@ -3151,20 +3223,21 @@ SX_STATUS_NO_RESOURCES no available </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets RED/ECN profile configuration for given profile Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets RED/ECN profile configuration for given profile.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">profile</td><td>- redecn profile to get </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">params_p</td><td>- structure of retrieved profile attributes</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">params_p</td><td>- Structure of retrieved profile attributes</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -3211,22 +3284,23 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function enables/disables RED and ECN for traffic classes Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API enables/disables RED and ECN for traffic classes.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress port to set </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_classes_p</td><td>- list of traffic classes this configuration applies to </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_classes_cnt</td><td>- num of traffic classes </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- enable parameters</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Egress port to set </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_classes_p</td><td>- List of traffic classes this configuration applies to </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_classes_cnt</td><td>- Number of traffic classes </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- Enables parameters</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -3267,21 +3341,22 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets RED and ECN enabled parameters of a traffic class Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets RED and ECN enabled parameters of a traffic class.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress port to query </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_class</td><td>- traffic class to get </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">params_p</td><td>- enable parameters</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Egress port to query </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_class</td><td>- Traffic class to get </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">params_p</td><td>- Enables parameters</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -3340,24 +3415,26 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function binds RED and ECN profiles to the traffic class and traffic type (TCP/non-TCP, color). Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API binds RED and ECN profiles to the traffic class and traffic type (TCP/non-TCP, color).</p>
+<p>BIND binds a port+TC+flow to a profile. UNBIND unbinds a port+TC+flow from a profile.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress port to bind/unbind </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_BIND - bind a port+tc+flow to a profile SX_ACCESS_CMD_UNBIND - unbind a port+tc+flow from a profile </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_classes_p</td><td>- traffic classes affected by this command </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_classes_cnt</td><td>- number of traffic classes in the above array </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">flow_type</td><td>- flow type to bind/unbind </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- profile to bind to this flow type</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Egress port to bind/unbind </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- BIND/UNBIND </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_classes_p</td><td>- Traffic classes affected by this command </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_classes_cnt</td><td>- Number of traffic classes in the above array </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flow_type</td><td>- Flow type to bind/unbind </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- Profile to bind to this flow type</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -3404,22 +3481,23 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves the binding of RED/ECN profiles configuration for given egress port and traffic class. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves the binding of RED/ECN profiles configuration for a given egress port and traffic class.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress port to query </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_class</td><td>- traffic class to retrieve </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">flow_type</td><td>- flow type to bind/unbind </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">params_p</td><td>- profile to bind to this flow type</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Egress port to query </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">traffic_class</td><td>- Traffic class to retrieve </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flow_type</td><td>- Flow type to bind/unbind </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">params_p</td><td>- Profile to bind to this flow type</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -3460,21 +3538,22 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000006">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This function sets the rate based configuration for RED/ECN Supported devices: Currently this API is not supported.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000006">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This API sets the rate based configuration for RED/ECN.</dd></dl>
+<p>Supported devices: Currently this API is not supported.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">enabled</td><td>- enable/disable </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress port to configure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- parameters - used only when enabling</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enabled</td><td>- Enable/disable </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Egress port to configure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- Parameters (used only when enabling)</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -3515,21 +3594,22 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000007">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This function gets the rate based configuration for RED/ECN Supported devices: Currently this API is not supported.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000007">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This API gets the rate based configuration for RED/ECN.</dd></dl>
+<p>Supported devices: Currently this API is not supported.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress port to configure </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">params_p</td><td>- configured parameters </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">enabled_p</td><td>- is rate based enabled</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Egress port to configure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">params_p</td><td>- Configured parameters </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">enabled_p</td><td>- Shows if rate based enabled</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -3570,21 +3650,22 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the mirroring binding for packets that are discarded (due to tail drop or RED) in the egress port. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the mirroring binding for packets that are discarded (due to tail drop or RED) in the egress port.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_ADD or SX_ACCESS_CMD_DELETE </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">ingress_port</td><td>- port to mirror to </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">span_session_id</td><td>- session id to use</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ingress_port</td><td>- Port to mirror to </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">span_session_id</td><td>- Session ID to use</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -3619,20 +3700,21 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets the mirroring binding for packets that are discarded (due to tail drop or RED) in the egress port. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets the mirroring binding for packets that are discarded (due to tail drop or RED) in the egress port.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">ingress_port_p</td><td>- port to test </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">enabled_p</td><td>- enabled/disabled for the port</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ingress_port_p</td><td>- Port to test </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">enabled_p</td><td>- Enabled/disabled for the port</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -3673,21 +3755,22 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function get the RED/ECN counter for a specific egress_port Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets the RED/ECN counter for a specific egress_port.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_READ or SX_ACCESS_CMD_READ_CLEAR </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- egress port to query </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">counters_p</td><td>- counters structure</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ/READ_CLEAR </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Egress port to query </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">counters_p</td><td>- Counters structure</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -3740,25 +3823,26 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function reads the RED drop counter for one or more user provided traffic Classes for a given specific egress_port Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API reads the RED drop counter for one or more user-provided traffic classes for a specific given egress port.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_READ or SX_ACCESS_CMD_READ_CLEAR </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical egress port to query </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">tc_list_p</td><td>- list of traffic classes on the specified port </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">tc_list_cnt</td><td>- num of traffic classes </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">red_counter_p</td><td>- array of counters indexed in same order as tc_list_p</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ/READ_CLEAR </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical egress port to query </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tc_list_p</td><td>- List of traffic classes on the specified port </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tc_list_cnt</td><td>- Number of traffic classes </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">red_counter_p</td><td>- Counters indexed in same order as tc_list_p</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED if input cmd is not supported </dd>
+SX_STATUS_CMD_UNSUPPORTED Unsupported command </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -3799,23 +3883,24 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function reads the ECN counter for a user specified egress_port Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API reads the ECN counter for a user-specified egress port.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_READ or SX_ACCESS_CMD_READ_CLEAR </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical egress port to query </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">ecn_counters_p</td><td>- return counter of number of ecn packets sent on this port</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ/READ_CLEAR </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical egress port to query </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ecn_counters_p</td><td>- Return counter of number of ECN packets sent on this port</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED if input cmd is not supported </dd>
+SX_STATUS_CMD_UNSUPPORTED Unsupported command </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -3844,21 +3929,22 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function is used to configure whether ecn marking should be counted Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API is used to configure whether ECN marking should be counted.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">enabled</td><td>true for counting, false to not count</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>-SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enabled</td><td>-True for counting/false to not count</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd>
+SX_STATUS_ERROR General error </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED if the function is being called in an unsupported chip </dd></dl>
+SX_STATUS_CMD_UNSUPPORTED Function is being called in an unsupported chip </dd></dl>
 
 </div>
 </div>
@@ -3887,19 +3973,20 @@ SX_STATUS_CMD_UNSUPPORTED if the function is being called in an unsupported chip
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function is used to retrieve if the SDK counts ECN marked packets or not. Supported devices: Spectrum</p>
+<p>This API is used to retrieve if the SDK counts ECN marked packets or not.</p>
+<p>Supported devices: Spectrum</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">enabled_p</td><td>true for counting, false to not count</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enabled_p</td><td>- True for counting/false to not count</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -3928,17 +4015,350 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function is used to get buffer consumption Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API is used to get buffer consumption.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">buff_consumption_p</td><td>a pointer to buffer consumption struct</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">buff_consumption_p</td><td>- Pointer to buffer consumption</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR General error </dd></dl>
+
+</div>
+</div>
+<a id="a636045547ceb62c5e2f00844d6227d5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a636045547ceb62c5e2f00844d6227d5c">&#9670;&nbsp;</a></span>sx_api_cos_elephant_detection_config_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_elephant_detection_config_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_cos_elephant_config_attribs_t *&#160;</td>
+          <td class="paramname"><em>config_attribs_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function sets global configuration for the detection of elephant flows. Note: configuration change will override and reset all previously detected flows. Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">config_attribs_p</td><td>- a pointer to configuration attributes</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a null pointer was passed as input </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE if an asynchronous read transaction (streaming) is in progress </dd>
+<dd>
+SX_STATUS_ERROR in case of other general error </dd></dl>
+
+</div>
+</div>
+<a id="a64277f19ebe3b62ff202b1130facfdb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64277f19ebe3b62ff202b1130facfdb3">&#9670;&nbsp;</a></span>sx_api_cos_elephant_detection_config_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_elephant_detection_config_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_cos_elephant_config_attribs_t *&#160;</td>
+          <td class="paramname"><em>config_attribs_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function gets the global configuration for the detection of elephant flows. Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">config_attribs_p</td><td>- a pointer to configuration attributes</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a null pointer was passed as input </dd>
+<dd>
+SX_STATUS_MODULE_UNINITIALIZED if no configuration was previously set </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a id="ad30577a40a70b99777d8695287100471"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad30577a40a70b99777d8695287100471">&#9670;&nbsp;</a></span>sx_api_cos_elephant_detection_port_state_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_elephant_detection_port_state_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t *&#160;</td>
+          <td class="paramname"><em>log_ports_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>log_ports_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function set the switch elephant flow detection state on given physical ports. Set command enables detection and unset command disables it. Detection can't be enabled without providing initial configuration first, using sx_api_cos_elephant_config_set(). State is disabled by default for all ports Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- access command - SX_ACCESS_CMD_SET, SX_ACCESS_CMD_UNSET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_ports_list_p</td><td>- a pointer to a list of logical port IDs (ingress ports) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_ports_cnt</td><td>- count of logical port IDs in the list</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a null pointer was passed as input </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a id="aadcb9ef8d82d0d059a88493bbfc9f032"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadcb9ef8d82d0d059a88493bbfc9f032">&#9670;&nbsp;</a></span>sx_api_cos_elephant_detection_port_state_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_elephant_detection_port_state_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_cos_elephant_detection_state_e *&#160;</td>
+          <td class="paramname"><em>state_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function gets the switch elephant detection state on the given physical port. Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID (ingress port) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">state_p</td><td>- a pointer to the detection state</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a null pointer was passed as input </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a id="a9087240827c71784767eff7e591b6d45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9087240827c71784767eff7e591b6d45">&#9670;&nbsp;</a></span>sx_api_cos_elephant_detection_port_flows_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_elephant_detection_port_flows_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_cos_elephant_flow_id_t *&#160;</td>
+          <td class="paramname"><em>flow_ids_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>flow_ids_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function gets a list of elephant detected flow IDs on the given physical port, or clears them. Clear command clears all detected flows. Please note that the detection, and hence the list, are subject to change according to traffic conditions. For controlled management of the detected IDs (meaning that ID is valid until cleared manually), use AUTOMATIC_CLEAR_DISABLE method when setting configuration (see sx_cos_elephant_detection_config_set() description). Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- access commands: SX_ACCESS_CMD_READ, SX_ACCESS_CMD_CLEAR </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">flow_ids_list_p</td><td>- a pointer to a list of the detected flow IDs to be returned. Reserved when command is SX_ACCESS_CMD_CLEAR </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>flow_ids_cnt_p - [in] a pointer to the number of IDs to get. if 0 is passed then the function refers to all detected flows. Maximum number of flow IDs is SX_COS_ELEPHANT_FLOW_ID_NUM_MAX. [out] a pointer to the number of IDs managed to get. Reserved when command is SX_ACCESS_CMD_CLEAR</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a null pointer was passed as input </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd></dl>
+
+</div>
+</div>
+<a id="a838a4c56c946d32190c47848be10cca8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a838a4c56c946d32190c47848be10cca8">&#9670;&nbsp;</a></span>sx_api_cos_elephant_detection_port_flows_data_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_elephant_detection_port_flows_data_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_cos_elephant_flow_id_t *&#160;</td>
+          <td class="paramname"><em>flow_ids_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_cos_elephant_flow_data_t *&#160;</td>
+          <td class="paramname"><em>flow_data_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>list_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This function reads flow data for the given flow IDs on the given physical port. Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- access commands: SX_ACCESS_CMD_READ , SX_ACCESS_READ_CLEAR </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flow_ids_list_p</td><td>- a pointer to a list of flow IDs </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">flow_data_list_p</td><td>- a pointer to a list of the flow data requested for the given flow IDs </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>list_cnt_p - [in] a pointer to the count of flow IDs list [out] a pointer to the count of flow data entries returned</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a null pointer was passed as input </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -3948,7 +4368,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 14 2021 09:59:52 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 30 2021 08:43:42 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_issu.h File Reference</title>
+<title>NVIDIA Ethernet Switch SDK API Guide: sdk/sx_api_issu.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.2522</span>
+   <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
+   &#160;<span id="projectnumber">4.4.3102</span>
    </div>
   </td>
  </tr>
@@ -128,11 +128,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the log verbosity level of ISSU MODULE. Supported devices: Spectrum, Spectrum 2, Spectrum 3</p>
+<p>This API sets the log verbosity level of the ISSU module.</p>
+<p>Supported devices: Spectrum, Spectrum 2, Spectrum 3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Sets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- ISSU module verbosity level </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- ISSU API verbosity level</td></tr>
   </table>
@@ -183,11 +184,12 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets the log verbosity level of ISSU MODULE. Supported devices: Spectrum, Spectrum 2, Spectrum 3.</p>
+<p>This API gets the log verbosity level of the ISSU module.</p>
+<p>Supported devices: Spectrum, Spectrum 2, Spectrum 3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Sets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- ISSU module verbosity level </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- ISSU API verbosity level</td></tr>
   </table>
@@ -216,7 +218,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to prepare the SDK for restart in "FAST-FAST Boot mode". It triggers ISSU (In Service Software Upgrade) of the SDK &amp; FW by shutting down SDK, resetting the ASIC and switching to a new SDK/FW if available. Supported devices: Spectrum, Spectrum 2, Spectrum 3.</p>
+<p>This API is used to prepare the SDK for restart in "FAST-FAST Boot mode". It triggers ISSU (In Service Software Upgrade) of the SDK and firmware by shutting down the SDK, resetting the ASIC, and switching to a new SDK/firmware, if available.</p>
+<p>Supported devices: Spectrum, Spectrum 2, Spectrum 3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle</td></tr>
@@ -244,7 +247,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to notify the newly upgraded SDK in "FAST-FAST Boot Mode" that the configuration stage of the ISSU (In Service Software Upgrade) process has finished and to resume normal operations. Supported devices: Spectrum, Spectrum 2, Spectrum 3.</p>
+<p>This API is used to notify the newly-upgraded SDK in "FAST-FAST Boot Mode" that the configuration stage of the ISSU (In Service Software Upgrade) process has finished and to resume normal operations.</p>
+<p>Supported devices: Spectrum, Spectrum 2, Spectrum 3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle</td></tr>
@@ -282,27 +286,28 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API prepares the SDK for CRIU (checkpoint/restore in userspace) Hibernation. The SDK configuration is written to persistent storage from where it can be restored. This is also referred to as SDK "Warm Boot" Mode Supported devices: Spectrum, Spectrum 2, Spectrum 3.</p>
+<p>This API prepares the SDK for CRIU (checkpoint/restore in userspace) Hibernation. The SDK configuration is written to persistent storage from where it can be restored. This is also referred to as SDK "Warm Boot" mode.</p>
+<p>Supported devices: Spectrum, Spectrum 2, Spectrum 3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">pause_params_p</td><td>- pause params.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pause_params_p</td><td>- Pause params</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>sx_status_t: </dd>
 <dd>
-SX_STATUS_SUCCESS - Operation completes successfully </dd>
+SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR - Input parameters error - NULL handle </dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
-SX_STATUS_COMM_ERROR - Input parameters error - Invalid handle </dd>
+SX_STATUS_COMM_ERROR if handle is invalid </dd>
 <dd>
-SX_STATUS_CMD_UNPERMITTED - if SDK is already paused </dd>
+SX_STATUS_CMD_UNPERMITTED if SDK is already paused </dd>
 <dd>
-SX_STATUS_ISSU_IN_PROGRESS - When ISSU is already in progress. </dd>
+SX_STATUS_ISSU_IN_PROGRESS when ISSU is already in progress </dd>
 <dd>
-SX_STATUS_NO_MEMORY - Out of Memory </dd></dl>
+SX_STATUS_NO_MEMORY if no more memory is available </dd></dl>
 
 </div>
 </div>
@@ -331,25 +336,26 @@ SX_STATUS_NO_MEMORY - Out of Memory </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used for "Warm" boot mode to "resume" the SDK from CRIU hibernation This API restores the SDK from CRIU (checkpoint/restore in userspace) Hibernation. This is also referred to as SDK "Warm Boot" Mode Supported devices: Spectrum, Spectrum 2, Spectrum 3.</p>
+<p>This API restores the SDK from CRIU (checkpoint/restore in userspace) Hibernation. It is used in "Warm Boot" mode.</p>
+<p>Supported devices: Spectrum, Spectrum 2, Spectrum 3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">resume_params_p</td><td>- resume params.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">resume_params_p</td><td>- Resume params</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>sx_status_t: </dd>
 <dd>
-SX_STATUS_SUCCESS - Operation completes successfully </dd>
+SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR - Input parameters error - NULL handle </dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid casing a NULL handle </dd>
 <dd>
-SX_STATUS_COMM_ERROR - Input parameters error - Invalid handle </dd>
+SX_STATUS_COMM_ERROR if handle is invalid </dd>
 <dd>
-SX_STATUS_CMD_UNPERMITTED - If SDK is not paused </dd>
+SX_STATUS_CMD_UNPERMITTED if SDK is not paused </dd>
 <dd>
-SX_STATUS_NO_MEMORY - No more memory available </dd></dl>
+SX_STATUS_NO_MEMORY if no more memory is available </dd></dl>
 
 </div>
 </div>
@@ -357,7 +363,7 @@ SX_STATUS_NO_MEMORY - No more memory available </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 14 2021 09:59:53 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 30 2021 08:43:42 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

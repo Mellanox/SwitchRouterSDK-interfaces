@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_mc_container.h File Reference</title>
+<title>NVIDIA Ethernet Switch SDK API Guide: sdk/sx_api_mc_container.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.2522</span>
+   <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
+   &#160;<span id="projectnumber">4.4.3102</span>
    </div>
   </td>
  </tr>
@@ -126,11 +126,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the log verbosity level of MC_CONTAINER MODULE. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the log verbosity level of MC_CONTAINER module.</p>
+<p>Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Sets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- MC_CONTAINER module verbosity level </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- MC_CONTAINER API verbosity level</td></tr>
   </table>
@@ -181,11 +182,12 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets the log verbosity level of MC_CONTAINER MODULE. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>Gets the log verbosity level of MC_CONTAINER module.</p>
+<p>Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- get verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Gets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- MC_CONTAINER module verbosity level </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- MC_CONTAINER API verbosity level</td></tr>
   </table>
@@ -248,31 +250,32 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Manipulate a multicast container Command CREATE creates a new container with the specified list of next_hops_cnt next hops in next_hop_list_p, and returns its new container ID in container_id_p. Commands ADD and DELETE, adds or deletes the next hops specified by next_hop_list_p and next_hop_cnt to/from an existing container specified by container_id_p. Command SET replaces the contents of an existing container specified by container_id_p, with the specified list of next hops in next_hop_list_p. Command DESTROY deletes an existing container specified by container_id_p. Command DELETE_ALL deletes all existing containers. Notes: A container in use (e.g. by a multicast route or ACL) cannot be destroyed. A container may contain at most RM_API_ROUTER_RIFS_MAX next hops</p>
-<p>Note for MC containers of the SX_MC_CONTAINER_TYPE_BRIDGE_MC type: An MC container of the SX_MC_CONTAINER_TYPE_BRIDGE_MC type can contain multiple next hops of the SX_MC_NEXT_HOP_TYPE_LOG_PORT type and either multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the SX_ECMP_CONTAINER_TYPE_NVE_MC type only. Note for MC containers of the SX_MC_CONTAINER_TYPE_NVE_FLOOD type: An MC container of the SX_MC_CONTAINER_TYPE_NVE_FLOOD type can contain either multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the SX_ECMP_CONTAINER_TYPE_NVE_FLOOD type only. Note for ECMP containers of the SX_MC_CONTAINER_TYPE_VLAN_UNAWARE type: An MC container of the SX_MC_CONTAINER_TYPE_VLAN_UNAWARE type can contain either multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the following types: SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC;</p>
+<p>This API allows to manipulate a multicast container.</p>
+<p>CREATE creates a new container with the specified list of next_hops_cnt, next hops in next_hop_list_p, and returns its new container ID in container_id_p. ADD/DELETE adds or deletes the next hops specified by next_hop_list_p and next_hop_cnt to/from an existing container specified by container_id_p. SET replaces the contents of an existing container specified by container_id_p, with the specified list of next hops in next_hop_list_p. DESTROY deletes an existing container specified by container_id_p. DELETE_ALL deletes all existing containers.</p>
+<p>Note: A container in use (e.g. by a multicast route or ACL) cannot be destroyed. Note: A container may contain, at most, RM_API_ROUTER_RIFS_MAX next hops. Note: For MC containers of the SX_MC_CONTAINER_TYPE_BRIDGE_MC type, a MC container of the SX_MC_CONTAINER_TYPE_BRIDGE_MC type can contain multiple next hops of the SX_MC_NEXT_HOP_TYPE_LOG_PORT type and either multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the SX_ECMP_CONTAINER_TYPE_NVE_MC type only. Note: For MC containers of the SX_MC_CONTAINER_TYPE_NVE_FLOOD type, a MC container of the SX_MC_CONTAINER_TYPE_NVE_FLOOD type can next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of contain either multiple of the SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the SX_ECMP_CONTAINER_TYPE_NVE_FLOOD type only. Note: For ECMP containers of the SX_MC_CONTAINER_TYPE_VLAN_UNAWARE type, a MC container of the SX_MC_CONTAINER_TYPE_VLAN_UNAWARE type can contain either multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the following types: SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/ADD/DELETE/SET/DESTROY/DELETE_ALL. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/ADD/DELETE/SET/DESTROY/DELETE_ALL </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">container_id_p</td><td>- Specifies or returns the container ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">next_hop_list_p</td><td>- Specifies the list of next hops for the container </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">next_hop_cnt</td><td>- Specifies the amount of next hops in next_hop_list_p </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">container_attr_p</td><td>- Specifies the container attributes</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">next_hop_list_p</td><td>- List of next hops for the container </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">next_hop_cnt</td><td>- Amount of next hops in next_hop_list_p </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">container_attr_p</td><td>- Container attributes</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
-SX_STATUS_PARAM_NULL if any input parameter is a NULL pointer. </dd>
+SX_STATUS_PARAM_NULL if any input parameter is a NULL pointer </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if specified container ID does not exist. </dd>
+SX_STATUS_ENTRY_NOT_FOUND if specified container ID does not exist </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if there are no resources for the operation. </dd>
+SX_STATUS_NO_RESOURCES if there are no resources for the operation </dd>
 <dd>
-SX_STATUS_RESOURCE_IN_USE if group is in use and cannot be destroyed. </dd></dl>
+SX_STATUS_RESOURCE_IN_USE if group is in use and cannot be destroyed </dd></dl>
 
 </div>
 </div>
@@ -325,26 +328,28 @@ SX_STATUS_RESOURCE_IN_USE if group is in use and cannot be destroyed. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Retrieve information about a multicast container Command GET retrieves information about the container specified by container_id_p. Command GETFIRST retrieves the first container, its ID, next hops and attributes. Command GETNEXT retrieves the next container after container_id_p, its ID, next hops and attributes. Command COUNT returns the number of existing containers, in *next_hop_cnt Notes: *next_hop_cnt should contain the maximum amount of next hops to retrieve. If next_hop_list_p is NULL, then next hops are not retrieved at all. If *next_hop_cnt is 0, or if next_hop_list_p is NULL, then the amount of next hops is returned in *next_hop_cnt If container_attr is NULL, then attributes are not retrieved.</p>
+<p>This API retrieves information about a multicast container.</p>
+<p>GET retrieves information about the container specified by container_id_p. GET_FIRST retrieves the first container, its ID, next hops, and attributes. GET_NEXT retrieves the next container after container_id_p, its ID, next hops, and attributes. COUNT returns the number of existing containers in *next_hop_cnt.</p>
+<p>Note: *next_hop_cnt should contain the maximum amount of next hops to retrieve. Note: If next_hop_list_p is NULL, then next hops are not retrieved at all. If *next_hop_cnt is 0, or if next_hop_list_p is NULL, then the amount of next hops is returned in *next_hop_cnt. If container_attr is NULL, then attributes are not retrieved.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">container_id</td><td>- Specifies a container ID whose attributes needs to be retrieved. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">next_hop_list_p</td><td>- Returns the list of next hops in the container </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">next_hop_cnt_p</td><td>- Specifies the maximum amount of next hops to retrieve, and returns the amount of next hops retrieved </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_FIRST/GET_NEXT/COUNT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">container_id</td><td>- Container ID whose attributes needs to be retrieved </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">next_hop_list_p</td><td>- List of next hops in the container </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">next_hop_cnt_p</td><td>- [in] maximum amount of next hops to retrieve/[out]returns the amount of next hops retrieved </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">container_attr_p</td><td>- Returns the container attributes</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED if access command isn't supported. </dd>
+SX_STATUS_CMD_UNSUPPORTED if access command is not supported </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if specified container does not exist, or no more containers. </dd></dl>
+SX_STATUS_ENTRY_NOT_FOUND if specified container does not exist or no more containers are found </dd></dl>
 
 </div>
 </div>
@@ -397,26 +402,27 @@ SX_STATUS_ENTRY_NOT_FOUND if specified container does not exist, or no more cont
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves a list of MC Containers. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves a list of multicast Containers.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>GET/GET_NEXT/GET_FIRST. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">container_id_key</td><td>- Container ID to use as key. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">container_filter_p</td><td>- Filter to use (not supported yet). </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">container_id_list_p</td><td>- pointer to the list of Container IDs returned. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">container_id_cnt_p</td><td>[in] number of entries to retrieve; [out] retrieved number of entries.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_NEXT/GET_FIRST </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">container_id_key</td><td>- Container ID to use as key </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">container_filter_p</td><td>- Filter to use (not supported yet) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">container_id_list_p</td><td>- Pointer to the list of Container IDs returned </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">container_id_cnt_p</td><td>- [in] number of entries to retrieve/[out] retrieved number of entries</td></tr>
   </table>
   </dd>
 </dl>
-<p>The following use case scenarios apply with different input parameters X = don't-care</p><ul>
-<li>1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, list = X, Count = 0: In this case the API will return the total number of containers in the Internal DB</li>
-<li>2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, list = Valid, Count = 1: In this case the API will check if the specified key exists. if it does the key will be returned in the list along with a count of 1. If the key does not exist an empty list will be returned with count = 0</li>
-<li>3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = X, list is Valid, Count &gt; 1: A count &gt; 1 will be treated as a count of 1 and the behaviour will be same as earlier GET use cases.</li>
-<li>5) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X, list = Null, Count = 0: For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT a zero count will return an empty list.</li>
-<li>6) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = X, list = Valid, Count &gt; 0: In this case the API will return the first Container IDs starting from the head of the database. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. The key is dont-care but a non-Null return list pointer must be provided</li>
-<li>7) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = X, list = Valid, Count &gt; 0: In this case the API will return the next set of IDs starting from the next valid container after the specified key. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. If no valid next counter exists in the DB (key = end of list, or invalid key specified, or key too large), an empty list will be returned.</li>
-</ul>
+<p>The following use case scenarios apply with different input parameters X = don't-care 1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, list = X, Count = 0: In this case, the API will return the total number of containers in the internal database.</p>
+<p>2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, list = Valid, Count = 1: In this case, the API will check if the specified key exists. If it does, the key will be returned in the list along with a count of 1. If the key does not exist, an empty list will be returned with count = 0.</p>
+<p>3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = X, list is Valid, Count &gt; 1: A count &gt; 1 will be treated as a count of 1 and the behavior will be same as earlier GET use cases.</p>
+<p>5) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X, list = Null, Count = 0: For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, a zero count will return an empty list.</p>
+<p>6) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = X, list = Valid, Count &gt; 0: In this case, the API will return the first Container IDs starting from the head of the database. The total elements fetched will be returned as the return count.</p>
+<p>Note: Return count may be less than or equal to the requested count. The key is dont-care, but a non-null return list pointer must be provided.</p>
+<p>7) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = X, list = Valid, Count &gt; 0: In this case, the API will return the next set of IDs starting from the next valid container after the specified key. The total elements fetched will be returned as the return count.</p>
+<p>Note: Return count may be less than or equal to the requested count. If no valid next counter exists in the database (key = end of list, invalid key specified, or key too large), an empty list will be returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if parameter is invalid. </dd>
@@ -433,7 +439,7 @@ SX_STATUS_ERROR general error. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 14 2021 09:59:53 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 30 2021 08:43:42 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

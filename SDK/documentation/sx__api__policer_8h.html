@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_policer.h File Reference</title>
+<title>NVIDIA Ethernet Switch SDK API Guide: sdk/sx_api_policer.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.2522</span>
+   <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
+   &#160;<span id="projectnumber">4.4.3102</span>
    </div>
   </td>
  </tr>
@@ -130,11 +130,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the log verbosity level of POLICER MODULE Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<p>This API sets the log verbosity level of the POLICER module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Sets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- POLICER module verbosity level </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- POLICER API verbosity level</td></tr>
   </table>
@@ -181,11 +182,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets the log verbosity level of POLICER MODULE Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<p>This API gets the log verbosity level of POLICER module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- get verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Gets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- POLICER module verbosity level </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- POLICER API verbosity level</td></tr>
   </table>
@@ -232,13 +234,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function creates/destroys/edits a policer in the system. Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<p>This API creates/destroys/edits a policer in the system.</p>
+<p>CREATE creates a new policer and returns a policer ID in policer_id_p. DESTROY destroys an existing policer (according to policer_id_p). EDIT edits configuration parameters of an existing policer. Only CIR, EIR, EBS, CBS, yellow action and red action can be edited.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_CREATE: create a new policer and returns a policer ID in policer_id_p SX_ACCESS_CMD_DESTROY: destroy an existing policer (according to policer_id_p) SX_ACCESS_CMD_EDIT: edit configuration parameters of an existing policer. only CIR, EIR, EBS, CBS, yellow action and red action can be edited </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">policer_attr_p</td><td>- policer attributes. Ignored when cmd is DESTROY. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">policer_id_p</td><td>- policer ID</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/DESTROY/EDIT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">policer_attr_p</td><td>- Policer attributes (ignored when command is DESTROY) </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">policer_id_p</td><td>- Policer ID</td></tr>
   </table>
   </dd>
 </dl>
@@ -289,12 +293,13 @@ SX_STATUS_WRONG_POLICER_TYPE if wrong policer_type was supplied </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets the attributes of the given policer ID. Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<p>This API gets the attributes of the given policer ID.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">policer_id</td><td>- policer ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">policer_attr_p</td><td>- pointer to policer attributes</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">policer_id</td><td>- Policer ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">policer_attr_p</td><td>- Pointer to policer attributes</td></tr>
   </table>
   </dd>
 </dl>
@@ -304,7 +309,7 @@ SX_STATUS_PARAM_ERROR if any other input error </dd>
 <dd>
 SX_STATUS_ERROR general error </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested object is not found in DB </dd></dl>
+SX_STATUS_ENTRY_NOT_FOUND if requested object is not found in database </dd></dl>
 
 </div>
 </div>
@@ -357,35 +362,36 @@ SX_STATUS_ENTRY_NOT_FOUND if requested object is not found in DB </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves a list of Policer IDs. Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<p>This API retrieves a list of Policer IDs.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>GET/GET_NEXT/GET_FIRST. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">policer_id_key</td><td>- Policer ID to use as key. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">policer_filter_p</td><td>- Filter to use (not supported yet). </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">policer_id_list_p</td><td>- pointer to the list of Policer IDs returned. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">policer_id_cnt_p</td><td>[in] number of entries to retrieve; [out] retrieved number of entries.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_NEXT/GET_FIRST </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">policer_id_key</td><td>- Policer ID to use as key </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">policer_filter_p</td><td>- Filter to use (not supported yet) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">policer_id_list_p</td><td>- Pointer to the list of Policer IDs returned </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">policer_id_cnt_p</td><td>- [in] number of entries to retrieve/[out] retrieved number of entries</td></tr>
   </table>
   </dd>
 </dl>
-<p>The following use case scenarios apply with different input parameters X = don't-care</p><ul>
-<li>1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, list = X, Count = 0: In this case the API will return the total number of policers in the Internal db</li>
-<li>2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, list = Valid, Count = 1: In this case the API will check if the specified key exists. if it does the key will be returned in the list along with a count of 1. If the key does not exist an empty list will be returned with count = 0</li>
-<li>3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = X, list is Valid, Count &gt; 1: A count &gt;1 will be treated as a count of 1 and the behaviour will be same as earlier GET use cases.</li>
-<li>5) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X, list = Null, Count = 0: For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT a zero count will return an empty list.</li>
-<li>6) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = X, list = Valid, Count &gt; 0: In this case the API will return the first policer IDs starting from the head of the database. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. The key is dont-care but a non-Null return list pointer must be provided</li>
-<li>7) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = X, list = Valid, Count &gt; 0: In this case the API will return the next set of IDs starting from the next valid policer after the specified key. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. If no valid next counter exists in the DB (key = end of list, or invalid key specified, or key too large), an empty list will be returned.</li>
-</ul>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<p>The following use case scenarios apply with different input parameters. X = don't-care. 1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, list = X, Count = 0: In this case, the API will return the total number of policers in the internal database.</p>
+<p>2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, list = Valid, Count = 1: In this case, the API will check if the specified key exists. If it does, the key will be returned in the list along with a count of 1. If the key does not exist an empty list will be returned with count = 0.</p>
+<p>3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = X, list is Valid, Count &gt; 1: A count &gt;1 will be treated as a count of 1 and the behaviour will be same as earlier GET use cases.</p>
+<p>4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X, list = Null, Count = 0: For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT a zero count will return an empty list.</p>
+<p>5) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = X, list = Valid, Count &gt; 0: In this case, the API will return the first policer IDs starting from the head of the database. The total elements fetched will be returned as the return count.</p>
+<p>Note: Return count may be less than or equal to the requested count. The key is dont-care but a non-Null return list pointer must be provided.</p>
+<p>6) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = X, list = Valid, Count &gt; 0: In this case, the API will return the next set of IDs starting from the next valid policer after the specified key. The total elements fetched will be returned as the return count.</p>
+<p>Note: Return count may be less than or equal to the requested count. If no valid next counter exists in the database (key = end of list, or invalid key specified, or key too large), an empty list will be returned.</p>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if parameter is invalid. </dd>
+SX_STATUS_PARAM_ERROR if parameter is invalid </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED if command is not supported. </dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
 <dd>
-SX_STATUS_INVALID_HANDLE if handle is invalid. </dd>
+SX_STATUS_INVALID_HANDLE if handle is invalid </dd>
 <dd>
-SX_STATUS_ERROR general error. </dd></dl>
+SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
@@ -420,11 +426,13 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function clears policer counters values. Supported devices: Spectrum, Spectrum2, Spectrum3 </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API clears policer counters values.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">policer_id</td><td>- policer ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">clear_counters</td><td>- which counters to clear</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">policer_id</td><td>- Policer ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">clear_counters</td><td>- Counters to be cleared</td></tr>
   </table>
   </dd>
 </dl>
@@ -467,12 +475,13 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function retrieves policer counters values. Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<p>This API retrieves policer counters values.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">policer_id</td><td>- policer ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">policer_counters_p</td><td>- pointer to a policer counter struct.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">policer_id</td><td>- Policer ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">policer_counters_p</td><td>- Pointer to a policer counter</td></tr>
   </table>
   </dd>
 </dl>
@@ -488,7 +497,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 14 2021 09:59:53 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 30 2021 08:43:42 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

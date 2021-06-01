@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_bridge.h File Reference</title>
+<title>NVIDIA Ethernet Switch SDK API Guide: sdk/sx_api_bridge.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.2522</span>
+   <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
+   &#160;<span id="projectnumber">4.4.3102</span>
    </div>
   </td>
  </tr>
@@ -142,21 +142,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the log verbosity level of BRIDGE MODULE. Supported devices: Spectrum , Spectrum2, Spectrum3.</p>
+<p>This API sets the log verbosity level of the BRIDGE module.</p>
+<p>Supported devices: Spectrum , Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Sets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- BRIDGE module verbosity level </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- BRIDGE API verbosity level</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR An input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -197,21 +198,22 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the log verbosity level of BRIDGE MODULE. Supported devices: Spectrum , Spectrum2, Spectrum3.</p>
+<p>This API gets the log verbosity level of the BRIDGE module.</p>
+<p>Supported devices: Spectrum , Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- get verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Gets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- BRIDGE module verbosity level </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- BRIDGE API verbosity level</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -246,12 +248,14 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function is used to create/destroy a bridge. This function is supported in 802.1D mode only. Supported devices: Spectrum , Spectrum2, Spectrum3.</p>
+<p>This function is used to create/destroy a bridge.</p>
+<p>Note: This function is only supported in 802.1D mode.</p>
+<p>Supported devices: Spectrum , Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/DESTROY </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">bridge_id_p</td><td>- a bridge_id. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">bridge_id_p</td><td>- Bridge ID </td></tr>
   </table>
   </dd>
 </dl>
@@ -313,32 +317,31 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <li>3) cmd = SX_ACCESS_CMD_GET, bridge_id = valid/invalid, bridge_id_list = valid, bridge_id_cnt &gt; 1: A bridge_id_cnt &gt; 1 will be treated as a bridge_id_cnt of 1 and the behavior will be same as the earlier GET use cases.</li>
 <li>4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, bridge_id = X, bridge_id_list = NULL, bridge_id_cnt = 0: A zero bridge_id_cnt and an empty bridge_id_list will be returned.</li>
 <li>5) cmd = SX_ACCESS_CMD_GET_FIRST, bridge_id = X, bridge_id_list = valid, bridge_id_cnt &gt; 0: In this case the API will return the first bridge_id_cnt bridge IDs starting from the head of the database. The total number of elements fetched will be returned as bridge_id_cnt. Note: returned bridge_id_cnt may be less than or equal to the requested bridge_id_cnt. The input bridge ID is ignored in this case. A non-NULL bridge_id_list pointer must be provided in this case.</li>
-<li>6) cmd = SX_ACCESS_CMD_GETNEXT, bridge_id = valid/invalid, bridge_id_list = valid, bridge_id_cnt &gt; 0: In this case the API will return the next set of bridge IDs starting from the next bridge ID after the specified bridge ID. The total number of elements fetched will be returned as the bridge_id_cnt. Note: returned bridge_id_cnt may be less than or equal to the requested bridge_id_cnt. If no valid next bridge ID exists in the db, an empty list will be returned. A non-NULL bridge_id_list pointer must be provided in this case.</li>
+<li><p class="startli">6) cmd = SX_ACCESS_CMD_GETNEXT, bridge_id = valid/invalid, bridge_id_list = valid, bridge_id_cnt &gt; 0: In this case the API will return the next set of bridge IDs starting from the next bridge ID after the specified bridge ID. The total number of elements fetched will be returned as the bridge_id_cnt.</p>
+<p class="startli">Note: returned bridge_id_cnt may be less than or equal to the requested bridge_id_cnt. If no valid next bridge ID exists in the db, an empty list will be returned. A non-NULL bridge_id_list pointer must be provided in this case.</p>
+</li>
 </ul>
 <p>Supported devices: Spectrum , Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_FIRST/GET_NEXT </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">bridge_id</td><td>- bridge ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- specify a filter parameter (not supported yet) </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">bridge_id_list_p</td><td>- return list of bridge IDs </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">bridge_id_cnt_p</td><td>- [in] number of bridge IDs to get<ul>
-<li>[out] number of bridge IDs returned</li>
-</ul>
-</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bridge_id</td><td>- Bridge ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- Specify a filter parameter (not supported yet) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">bridge_id_list_p</td><td>- Return list of bridge IDs </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">bridge_id_cnt_p</td><td>- [in] number of bridge IDs to get/[out] number of bridge IDs returned</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+SX_STATUS_INVALID_HANDLE NULL handle received </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+SX_STATUS_CMD_UNSUPPORTED Command is not supported </dd>
 <dd>
-SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+SX_STATUS_PARAM_NULL Parameter is NULL </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -379,23 +382,24 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3. This function is used to add/del a virtual port to/from a bridge.</p>
+<p>This function is used to add/delete a virtual port to/from a bridge.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE/DELETE_ALL </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">bridge_id</td><td>- bridge_id. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical virtual port ID.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bridge_id</td><td>- Bridge ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical virtual port ID</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Any input parameter is invalid </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if bridge not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND Bridge is not found in DB </dd>
 <dd>
-SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
+SX_STATUS_ERROR Unexpected behavior </dd></dl>
 
 </div>
 </div>
@@ -436,23 +440,24 @@ SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3. This function is used to get a list of all virtual ports associated with a bridge. When bridge_vport_cnt_p == 0, the number of existing entries will be returned.</p>
+<p>This function is used to get a list of all virtual ports associated with a bridge. When bridge_vport_cnt_p == 0, the number of existing entries will be returned.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">bridge_id</td><td>- bridge_id. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">bridge_vport_list_p</td><td>- a pointer to a sx_port_log_id_t list. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>bridge_vport_cnt_p - size of the bridge_vport_list.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bridge_id</td><td>- Bridge ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">bridge_vport_list_p</td><td>- Pointer to a sx_port_log_id_t list </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>bridge_vport_cnt_p - Size of the bridge_vport_list</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Any input parameter is invalid </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if bridge not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND Bridge is not found in DB </dd>
 <dd>
-SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
+SX_STATUS_ERROR Unexpected behavior </dd></dl>
 
 </div>
 </div>
@@ -499,7 +504,8 @@ SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3. This function is used to add/del a virtual ports from list to corresponding bridge from list.</p>
+<p>This function is used to add/delete virtual ports from log_port_list list to the corresponding bridge from bridge_id_list.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -510,13 +516,13 @@ SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Any input parameter is invalid </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if bridge not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND Bridge is not found in DB </dd>
 <dd>
-SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
+SX_STATUS_ERROR Unexpected behavior </dd></dl>
 
 </div>
 </div>
@@ -557,7 +563,8 @@ SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3. This function is used to bind/unbind a flow counter to a bridge.</p>
+<p>This function is used to bind/unbind a flow counter to a bridge.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -567,13 +574,13 @@ SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Any input parameter is invalid </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if bridge is not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND Bridge is not found in DB </dd>
 <dd>
-SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
+SX_STATUS_ERROR Unexpected behavior </dd></dl>
 
 </div>
 </div>
@@ -608,7 +615,8 @@ SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3. This function is used to get the flow counter bound to the bridge. If there is no counter bound to the bridge, the API will return SX_STATUS_ENTRY_NOT_FOUND and flow_counter_id_p will be set to SX_FLOW_COUNTER_ID_INVALID.</p>
+<p>This function is used to get the flow counter bound to the bridge. If there is no counter bound to the bridge, the API will return SX_STATUS_ENTRY_NOT_FOUND and flow_counter_id_p will be set to SX_FLOW_COUNTER_ID_INVALID.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -617,13 +625,13 @@ SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Any input parameter is invalid </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if bridge is not found in DB or no counter is bound </dd>
+SX_STATUS_ENTRY_NOT_FOUND Bridge is not found in DB or no counter is bound </dd>
 <dd>
-SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
+SX_STATUS_ERROR Unexpected behavior </dd></dl>
 
 </div>
 </div>
@@ -664,23 +672,25 @@ SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000003">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Supported devices: Spectrum, Spectrum2, Spectrum3. This function sets the mirroring mode for a bridge. Currently only ingress direction is supported.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000003">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future.</dd></dl>
+<p>This function sets the mirroring mode for a bridge. Currently, only ingress direction is supported.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">bridge_id</td><td>- mirror bridge. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mirror_direction</td><td>- ingress\egress </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mirror_mode</td><td>- enabled\disabled</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bridge_id</td><td>- Mirror bridge </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mirror_direction</td><td>- Ingress\egress </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mirror_mode</td><td>- Enabled\disabled</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Any input parameter is invalid </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if bridge not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND Bridge is not found in DB </dd>
 <dd>
-SX_STATUS_ERROR if unexpected behavior occurs </dd></dl>
+SX_STATUS_ERROR Unexpected behavior </dd></dl>
 
 </div>
 </div>
@@ -721,7 +731,9 @@ SX_STATUS_ERROR if unexpected behavior occurs </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000004">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Supported devices: Spectrum, Spectrum2, Spectrum3. This function gets the mirroring mode of a bridge by direction and bridge ID Currently only ingress direction is supported.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000004">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future.</dd></dl>
+<p>This function gets the mirroring mode of a bridge by direction and bridge ID. Currently, only ingress direction is supported.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -731,13 +743,13 @@ SX_STATUS_ERROR if unexpected behavior occurs </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Any input parameter is invalid </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if bridge is not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND Bridge is not found in DB </dd>
 <dd>
-SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
+SX_STATUS_ERROR Unexpected behavior </dd></dl>
 
 </div>
 </div>
@@ -784,30 +796,30 @@ SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API binds/un-binds a counter to/from a tunnel mapped to the bridge</p>
-<p>For ENCAP_UC and ENCAP_MC counters this operation can be performed only when FDB doesn't contain any entries for tunnel in fid. When Lazy Delete mode is enabled, flow counters will be automatically unbounded once the deletion of related VNI mapping is completed and VNI mapping delete notification is sent. Counters can be bound only if the bridge/VLAN to tunnel mapping is configured.</p>
+<p>This API binds/un-binds a counter to/from a tunnel mapped to the bridge.</p>
+<p>For ENCAP_UC and ENCAP_MC counters, this operation can be performed only when FDB does not contain any entries for tunnel in fid. When Lazy Delete mode is enabled, flow counters will be automatically unbounded once the deletion of the related VNI mapping is completed and VNI mapping delete notification is sent. Counters can be bound only if the bridge/VLAN to tunnel mapping is configured.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_BIND/SX_ACCESS_CMD_UNBIND. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">bridge_id</td><td>- bridge_id/vlan_id on which tunnel mapped. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">attr_p</td><td>- counter attributes (type, tunnel_id) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">counter_d</td><td>- flow counter ID which will be bound</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_BIND/SX_ACCESS_CMD_UNBIND </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bridge_id</td><td>- bridge_id/vlan_id on which tunnel mapped </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">attr_p</td><td>- Counter attributes (type, tunnel_id) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">counter_d</td><td>- Flow counter ID to be bound</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameters is invalid. </dd>
+SX_STATUS_PARAM_ERROR Any input parameters is invalid </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED if cmd is unsupported in this API. </dd>
+SX_STATUS_CMD_UNSUPPORTED Command unsupported in this API </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if tunnel or tunnel mapping does not exist. </dd>
+SX_STATUS_ENTRY_NOT_FOUND Tunnel or tunnel mapping does not exist </dd>
 <dd>
-SX_STATUS_ENTRY_ALREADY_BOUND if counter already bound. </dd>
+SX_STATUS_ENTRY_ALREADY_BOUND Counter is already bound </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_BOUND if specified counter is not bound. </dd></dl>
+SX_STATUS_ENTRY_NOT_BOUND Counter is not bound </dd></dl>
 
 </div>
 </div>
@@ -848,24 +860,24 @@ SX_STATUS_ENTRY_NOT_BOUND if specified counter is not bound. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>This API gets the bound flow counter ID of the tunnel mapped to the bridge.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
-<p>This API gets flow counter for tunnel mapped to the bridge</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">bridge_id</td><td>- bridge_id/vlan_id on which tunnel mapped. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">attr_p</td><td>- counter attributes (type, tunnel_id) </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">counter_id_p</td><td>- pointer to flow counter ID. Returns bound counter_id</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">bridge_id</td><td>- bridge_id/vlan_id on which tunnel is mapped </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">attr_p</td><td>- Counter attributes (type, tunnel_id) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">counter_id_p</td><td>- Pointer to flow counter ID (returns bound counter_id)</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+SX_STATUS_PARAM_ERROR Any input parameters is invalid </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if tunnel isn't exists or mapping is not found. </dd>
+SX_STATUS_ENTRY_NOT_FOUND Tunnel does not exist or mapping is not found </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_BOUND if counter isn't bound. </dd></dl>
+SX_STATUS_ENTRY_NOT_BOUND Counter is not bound </dd></dl>
 
 </div>
 </div>
@@ -873,7 +885,7 @@ SX_STATUS_ENTRY_NOT_BOUND if counter isn't bound. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 14 2021 09:59:52 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 30 2021 08:43:42 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

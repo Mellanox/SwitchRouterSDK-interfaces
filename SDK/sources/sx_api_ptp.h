@@ -25,11 +25,12 @@
  ***********************************************/
 
 /**
- * This API sets the log verbosity level of PTP MODULE.
- *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * This API sets the log verbosity level of PTP module.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                   - SX-API handle
- * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
+ * @param[in] verbosity_target         - Sets verbosity of API/MODULE/BOTH
  * @param[in] module_verbosity_level   - PTP module verbosity level
  * @param[in] api_verbosity_level      - PTP API verbosity level
  *
@@ -42,11 +43,12 @@ sx_status_t sx_api_ptp_log_verbosity_level_set(const sx_api_handle_t           h
                                                const sx_verbosity_level_t      api_verbosity_level);
 
 /**
- * This API gets the log verbosity level of PTP MODULE.
- *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * This API gets the log verbosity level of PTP module.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in]  handle                   - SX-API handle
- * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
+ * @param[in]  verbosity_target         - Gets verbosity of API/MODULE/BOTH
  * @param[out] module_verbosity_level_p - PTP module verbosity level
  * @param[out] api_verbosity_level_p    - PTP API verbosity level
  *
@@ -59,12 +61,12 @@ sx_status_t sx_api_ptp_log_verbosity_level_get(const sx_api_handle_t           h
                                                sx_verbosity_level_t           *api_verbosity_level_p);
 
 /**
- * This function initializes the PTP module
+ * This API initializes the PTP module.
  *
  * Supported devices: Spectrum
  *
  * @param[in] handle     - SX-API handle
- * @param[in] ptp_params - struct including the PTP parameters
+ * @param[in] ptp_params - PTP parameters
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
@@ -77,7 +79,7 @@ sx_status_t sx_api_ptp_init_set(const sx_api_handle_t  handle,
                                 const sx_ptp_params_t *ptp_params);
 
 /**
- * This function deinitializes the PTP module
+ * This API deinitializes the PTP module.
  *
  * Supported devices: Spectrum
  *

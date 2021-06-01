@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_init.h File Reference</title>
+<title>NVIDIA Ethernet Switch SDK API Guide: sdk/sx_api_init.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.2522</span>
+   <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
+   &#160;<span id="projectnumber">4.4.3102</span>
    </div>
   </td>
  </tr>
@@ -138,11 +138,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the log verbosity level of all modules in SwitchX SDK Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the log verbosity level of all modules in SwitchX SDK.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Sets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- SwitchX SDK modules verbosity level </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- SwitchX SDK API verbosity level</td></tr>
   </table>
@@ -189,11 +190,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets the log verbosity level of all modules in SwitchX SDK Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets the log verbosity level of all modules in SwitchX SDK.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- get verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Gets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- SwitchX SDK modules verbosity level </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- SwitchX SDK API verbosity level</td></tr>
   </table>
@@ -228,17 +230,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API allows to enable/disable function enter/leave debugging log messages. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API allows to enable/disable function enter/leave debugging log messages.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">attr_p</td><td>- target verbosity attributes such as verbosity target API or MODULE and flag whether we want to enable/disable function enter/leave logs for this target.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">attr_p</td><td>- Target verbosity attributes (e.g.,verbosity target API or MODULE)</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_NULL if parameter is NULL. </dd>
+SX_STATUS_PARAM_NULL if parameter is NULL </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
@@ -271,17 +274,18 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the configured state for the function enter/leave debugging log messages. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets the configured state of function level entry/exit logging.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">attr_p</td><td>- target verbosity attributes such as verbosity target API or MODULE and flag which indicates whether function enter/leave logs are enabled/disabled for this target.</td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">attr_p</td><td>- Target verbosity attributes (e.g.,verbosity target API or MODULE)</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_NULL if parameter is NULL. </dd>
+SX_STATUS_PARAM_NULL if parameter is NULL </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
@@ -314,25 +318,26 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function opens channel to SX-API operations. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API opens channel to SX-API operations.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">logging_cb</td><td>- optional log messages callback </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">handle</td><td>- handle that should be used in all further SX-API operations. Invalid handle (0) returned in case of an error.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">logging_cb</td><td>- Optional log messages callback </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">handle</td><td>- Handle that should be used in all further SX-API operations Invalid handle (0) is returned, in case of an error</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>sx_status_t: </dd>
 <dd>
-SX_STATUS_SUCCESS - Operation completes successfully </dd>
+SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR - Input parameters error </dd>
+SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
-SX_STATUS_NO_MEMORY - Memory allocation failed </dd>
+SX_STATUS_NO_MEMORY if memory allocation failed </dd>
 <dd>
-SX_STATUS_COMM_ERROR - client communication channel open failed </dd>
+SX_STATUS_COMM_ERROR if client communication channel failed </dd>
 <dd>
-SX_STATUS_ERROR - open SX-API client mutex failed </dd></dl>
+SX_STATUS_ERROR if open SX-API client mutex failed </dd></dl>
 
 </div>
 </div>
@@ -351,20 +356,21 @@ SX_STATUS_ERROR - open SX-API client mutex failed </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function closes channel to SX-API operations. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API closes channel to SX-API operations.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>sx_status_t: </dd>
 <dd>
-SX_STATUS_SUCCESS - Operation completes successfully </dd>
+SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR - Input parameters error - NULL handle </dd>
+SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
-SX_STATUS_COMM_ERROR - Input parameters error - Invalid handle </dd></dl>
+SX_STATUS_COMM_ERROR if client communication channel failed </dd></dl>
 
 </div>
 </div>
@@ -393,23 +399,24 @@ SX_STATUS_COMM_ERROR - Input parameters error - Invalid handle </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function initializes SwitchX SDK. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API initializes SwitchX SDK.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sdk_init_params_p</td><td>- SwitchX SDK init parameters.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sdk_init_params_p</td><td>- SwitchX SDK init parameters</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>sx_status_t: </dd>
 <dd>
-SX_STATUS_SUCCESS - Operation completes successfully </dd>
+SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_INVALID_HANDLE - Input parameters error - Invalid handle </dd>
+SX_STATUS_INVALID_HANDLE if handle is invalid </dd>
 <dd>
-SX_STATUS_COMM_ERROR - Communication channel message Send/Receive error </dd>
+SX_STATUS_COMM_ERROR if there is a communication error in channel message send/receive </dd>
 <dd>
-SX_STATUS_PARAM_ERROR - no SWID was defined </dd></dl>
+SX_STATUS_PARAM_ERROR if no SWID was defined </dd></dl>
 
 </div>
 </div>
@@ -438,23 +445,24 @@ SX_STATUS_PARAM_ERROR - no SWID was defined </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function is used to get SDK init parameters. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API is used to get SDK initialization parameters.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">sdk_init_params_p</td><td>- SDK init parameters.</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">sdk_init_params_p</td><td>- SDK init parameters</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>sx_status_t: </dd>
 <dd>
-SX_STATUS_SUCCESS - Operation completes successfully </dd>
+SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_INVALID_HANDLE - if handle is invalid </dd>
+SX_STATUS_INVALID_HANDLE if handle is invalid </dd>
 <dd>
-SX_STATUS_PARAM_NULL - if parameter is NULL </dd>
+SX_STATUS_PARAM_NULL if any input parameters is invalid </dd>
 <dd>
-SX_STATUS_ERROR - if unexpected behavior occurs </dd></dl>
+SX_STATUS_ERROR if unexpected behavior occurs </dd></dl>
 
 </div>
 </div>
@@ -483,21 +491,22 @@ SX_STATUS_ERROR - if unexpected behavior occurs </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function returns the versions of the various components of SwitchX SDK package. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API returns the versions of the various components of SwitchX SDK package.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">versions_p</td><td>- SwitchX SDK versions.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">versions_p</td><td>- SwitchX SDK versions</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>sx_status_t: </dd>
 <dd>
-SX_STATUS_SUCCESS - Operation completes successfully </dd>
+SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR - Input parameters error </dd>
+SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
 <dd>
-SX_STATUS_COMM_ERROR - Communication channel message send/ Receive error </dd></dl>
+SX_STATUS_COMM_ERROR if there is a communication error in channel message send/receive </dd></dl>
 
 </div>
 </div>
@@ -526,11 +535,12 @@ SX_STATUS_COMM_ERROR - Communication channel message send/ Receive error </dd></
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function is used to enter/exit transaction burst mode. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API is used to enter/exit transaction burst mode.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ENABLE /DISABLE</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ENABLE/DISABLE</td></tr>
   </table>
   </dd>
 </dl>
@@ -576,7 +586,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to get the reference count of an SDK object.</p>
-<p>Supported devices: Spectrum, Spectrum-A1, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -585,15 +595,15 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_NULL if parameter is NULL. </dd>
+SX_STATUS_PARAM_NULL if parameter is NULL </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if router object isn't found. </dd>
+SX_STATUS_ENTRY_NOT_FOUND if router object is not found </dd>
 <dd>
-SX_STATUS_ERROR if a general error occurs. </dd></dl>
+SX_STATUS_ERROR if a general error occurs </dd></dl>
 
 </div>
 </div>
@@ -601,7 +611,7 @@ SX_STATUS_ERROR if a general error occurs. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 14 2021 09:59:53 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 30 2021 08:43:42 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

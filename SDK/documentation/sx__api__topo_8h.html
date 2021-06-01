@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_topo.h File Reference</title>
+<title>NVIDIA Ethernet Switch SDK API Guide: sdk/sx_api_topo.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.2522</span>
+   <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
+   &#160;<span id="projectnumber">4.4.3102</span>
    </div>
   </td>
  </tr>
@@ -138,11 +138,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the log verbosity level of TOPOLOGY MODULE Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3</p>
+<p>This API sets the log verbosity level of TOPOLOGY module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Sets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- TOPOLOGY module verbosity level </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- TOPOLOGY API verbosity level</td></tr>
   </table>
@@ -189,11 +190,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets the log verbosity level of TOPOLOGY MODULE Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3</p>
+<p>This API gets the log verbosity level of TOPOLOGY module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- get verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Gets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- TOPOLOGY module verbosity level </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- TOPOLOGY API verbosity level</td></tr>
   </table>
@@ -234,13 +236,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the devices. Each device that is introduced to the system must be configured through the topology library. This API maintains a database that is used by other libraries to receive a device irrelevant for configuration</p>
-<p>Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3</p>
+<p>This API sets the devices. Each device that is introduced to the system must be configured through the topology library. This API maintains a database that is used by other libraries to receive a device irrelevant for configuration.</p>
+<p>ADD adds a new device to topology library. DELETE deletes the device from topology library. Note: The device should be removed from all forwarding trees associated with unicast/multicast/flood_tree_hndl_arr prior to that operation change. READY device is declared ready when traffic can be routed from/to /via this device. Note:Trees (unicast/multicast/flood) must be configured with the new device.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_ADD - Adds new device to topo lib. SX_ACCESS_CMD_DELETE - Deletes the device from topo lib. Note that the device should be removed from all forwarding tree associated with unicast/multicast/flood_tree_hndl_arr prior to that operation change. SX_ACCESS_CMD_READY - device is made ready when traffic can be routed from/to /via this device. please note that trees(unicast/multicast/flood_ must be configured with the new device </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">dev_info</td><td>- pointer to device info to set</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE/READY </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dev_info</td><td>- Pointer to device information to set</td></tr>
   </table>
   </dd>
 </dl>
@@ -285,12 +288,14 @@ SX_STATUS_PARAM_NULL if null pointer is given </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function prints device topology information into the debug output Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3</p>
+<p>This API prints device topology information into the debug output.</p>
+<p>GET_ALL dumps the topology tree.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET_ALL - dump the topo tree </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">dump_info</td><td>- pointer to dump info</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET_ALL </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dump_info</td><td>- Pointer to dump information</td></tr>
   </table>
   </dd>
 </dl>
@@ -335,12 +340,14 @@ SX_STATUS_PARAM_NULL if null parameter is given </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function prints topology tree to the debug output Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3</p>
+<p>This API prints topology tree to the debug output.</p>
+<p>GET_ALL dumps the topology tree.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET_ALL - dump the topo tree </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">dump_info</td><td>- pointer to dump info</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET_ALL </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dump_info</td><td>- Pointer to dump information</td></tr>
   </table>
   </dd>
 </dl>
@@ -385,12 +392,14 @@ SX_STATUS_PARAM_NULL if null pointer is given </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets forwarding tree. Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3</p>
+<p>This API sets a forwarding tree.</p>
+<p>ADD adds a new tree. EDIT adds leaf to an existing tree. DELETE removes a tree.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_ADD - Adds a new tree SX_ACCESS_CMD_EDIT - Add leaf to existing tree SX_ACCESS_CMD_DELETE - Removes a tree </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sx_topo_lib_tree_t</td><td>- pointer to tree</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/EDIT/DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sx_topo_lib_tree_t</td><td>- Pointer to tree</td></tr>
   </table>
   </dd>
 </dl>
@@ -437,10 +446,13 @@ SX_STATUS_MEMORY_ERROR if there's not enough memory </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function reload balance unicast traffic Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3</p>
+<p>This API triggers load balance for unicast traffic.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle [in] tree - all ports that forward traffic via "tree" should replace (chose another tree) possible value specific tree handle/ALL_TREE [in] log_port- rebalance this port possible value port/ALL_PORT</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tree</td><td>- Specific tree handle/ALL_TREE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port</td></tr>
   </table>
   </dd>
 </dl>
@@ -483,12 +495,14 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets multicast tree group. Multicast tree group is a group of devices that tag ingress packet with the same MID (multicast ID) Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3</p>
+<p>This API sets a multicast tree group. Multicast tree group is a group of devices that tag ingress packets with the same MID (multicast ID).</p>
+<p>CREATE creates a new multicast tree group DELETE deletes a multicast tree group (the tree group should be empty before deletion).</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_CREATE - create a new multicast tree group SX_ACCESS_CMD_DELETE - delete multicast tree group. The tree group should be empty before deletion. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">mc_tree_group_id</td><td>- Out: Pointer to multicast group id.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/DELETE </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">mc_tree_group_id</td><td>- [out] pointer to multicast group ID</td></tr>
   </table>
   </dd>
 </dl>
@@ -543,14 +557,15 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function add/remove devices from tree group. Tree group is a group of devices that tag ingress packet with the same MID (multicast ID) Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3</p>
+<p>This API adds/removes devices from a tree group. A tree group is a group of devices whose tag ingress packet has the same MID (multicast ID).</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">old_tree_group</td><td>- </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">new_tree_group</td><td>- </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">dev_id</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">old_tree_group</td><td>- Old tree groups </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">new_tree_group</td><td>- New tree groups </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dev_id</td><td>- Dev ID</td></tr>
   </table>
   </dd>
 </dl>
@@ -599,13 +614,14 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function add/remove forwarding tree form mc tree group Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3</p>
+<p>This API add/remove forwarding tree form a multicast tree group.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_CREATE, SX_ACCESS_CMD_DELETE</td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">tree_group</td><td>- multicast tree group </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">tree</td><td>forwarding tree</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tree_group</td><td>- Multicast tree group </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tree</td><td>- Forwarding tree</td></tr>
   </table>
   </dd>
 </dl>
@@ -642,10 +658,11 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function reload balance multicast traffic Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3</p>
+<p>This API conducts a reload balance of multicast traffic.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle [in] tree - reload balance all multicast that forward traffic via mc_tree_group_id value.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle ([in] tree reload balances all multicast that forward traffic via mc_tree_group_id value)</td></tr>
   </table>
   </dd>
 </dl>
@@ -661,7 +678,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 14 2021 09:59:53 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 30 2021 08:43:42 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

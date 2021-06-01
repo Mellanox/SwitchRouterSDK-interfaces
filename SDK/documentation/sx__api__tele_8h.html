@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_tele.h File Reference</title>
+<title>NVIDIA Ethernet Switch SDK API Guide: sdk/sx_api_tele.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.2522</span>
+   <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
+   &#160;<span id="projectnumber">4.4.3102</span>
    </div>
   </td>
  </tr>
@@ -142,11 +142,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the log verbosity level of TELEMETRY MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the log verbosity level of TELEMETRY module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Sets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- TELEMETRY module verbosity level </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- TELEMETRY API verbosity level</td></tr>
   </table>
@@ -197,11 +198,12 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Gets the log verbosity level of TELEMETRY MODULE. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Gets the log verbosity level of TELEMETRY module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- get verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Gets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- TELEMETRY module verbosity level </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- TELEMETRY API verbosity level</td></tr>
   </table>
@@ -240,17 +242,18 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to initialize telemetry module. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API is used to initialize the TELEMETRY module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- pointer to init params structure.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- Pointer to initialization parameters structure</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if cannot allocate resources for telemetry. </dd>
+SX_STATUS_NO_RESOURCES if cannot allocate resources for telemetry </dd>
 <dd>
 SX_STATUS_ERROR general error </dd></dl>
 
@@ -271,7 +274,8 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to deinit telemetry module. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API is used to deinitialize the TELEMETRY module.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle</td></tr>
@@ -321,28 +325,34 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the Histogram attributes. Command SET sets the histogram attributes described on key to attributes_data</p>
-<p>Note: For Spectrum: sample time is global, last configured sample time is applied to all histograms. For latency histograms (supported on Spectrum2 and Spectrum3):</p><ol type="1">
+<p>This API sets the histogram attributes.</p>
+<p>SET sets the histogram attributes described on key to attributes_data.</p>
+<p>Note: On Spectrum devices, sample time is global. The last configured sample time is applied to all histograms. Note: For latency histograms (supported on Spectrum-2 and Spectrum-3) the following is true:</p><ol type="1">
 <li>Histogram attributes must be identical for all TCs of the same port.</li>
-<li>Edit command is not supported. (Destroy all latency histograms on port, than set new configuration).</li>
+<li>Edit command is not supported (To edit, destroy all latency histograms on a port and then set a new configuration).</li>
+<li>The behavior of Latency-Histograms will be undefined, if CRC parameters on at least one port are configured in the following way:<ul>
+<li>Egress as SX_PORT_CRC_EGRESS_RECALC_MODE_PREVENT (using sx_api_port_crc_params_set API) AND</li>
+<li>Ingress as SX_TS_OVER_CRC_INGRESS_MODE_ENABLE_E (using sx_api_tele_attributes_set API)</li>
+</ul>
+</li>
 </ol>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET/EDIT/DESTROY. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">attributes_key</td><td>- Histogram key. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">attributes_data</td><td>- Histogram attributes data.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET/EDIT/DESTROY </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">attributes_key</td><td>- Histogram key </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">attributes_data</td><td>- Histogram attributes data</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if there are no resources for the operation. </dd>
+SX_STATUS_NO_RESOURCES if there are no resources for the operation </dd>
 <dd>
-SX_STAUS_ERROR on internal error. </dd></dl>
+SX_STAUS_ERROR on internal error </dd></dl>
 
 </div>
 </div>
@@ -383,24 +393,24 @@ SX_STAUS_ERROR on internal error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Retrieves the histogram attributes data that match the key.</p>
+<p>This API retrieves the histogram attributes data that match the key.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>- Histogram key. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">data_p</td><td>- Histogram attributes data pointer.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>- Histogram key </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">data_p</td><td>- Histogram attributes data pointer</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED if access command isn't supported. </dd>
+SX_STATUS_CMD_UNSUPPORTED if access command isn't supported </dd>
 <dd>
-SX_STAUS_ERROR general error. </dd></dl>
+SX_STAUS_ERROR general error </dd></dl>
 
 </div>
 </div>
@@ -453,40 +463,44 @@ SX_STAUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function returns a list of one or more histogram keys. The following use case scenarios apply with different input parameters X = don't-care</p><ul>
-<li>1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, hist_list = X, Count =0: In this case the API will return the total number of histograms in the Internal db</li>
-<li>2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, hist_list = Valid, Count = 1: In this case the API will check if the specified key exists. if it does the key will be returned in the hist_list along with a count of 1. If the key does not exist an empty list will be returned with count = 0</li>
-<li>3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = Valid, hist_list is Valid, Count =1: In this case the API will check if the specified key exists. if it does it will check it against the filter parameter. If the filter matches, the key will be returned in the hist_list along with a count of 1. If the key does not exist or the filter does not match an empty list will be returned with count = 0</li>
+<p>This API returns a list of one or more histogram keys. The following use case scenarios apply with different input parameters. X = don't-care.</p><ul>
+<li>1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, hist_list = X, Count =0: In this case, the API will return the total number of histograms in the internal database.</li>
+<li>2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, hist_list = Valid, Count = 1: In this case, the API will check if the specified key exists. If it does, the key will be returned in the hist_list along with a count of 1. If the key does not exist an empty list will be returned with count = 0.</li>
+<li>3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = Valid, hist_list is Valid, Count =1: In this case, the API will check if the specified key exists. If it does, it will check it against the filter parameter. If the filter matches, the key will be returned in the hist_list along with a count of 1. If the key does not exist or the filter does not match an empty list will be returned with count = 0.</li>
 <li>4) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = Valid/invalid, hist_list is Valid, Count &gt; 1: A count &gt;1 will be treated as a count of 1 and the behavior will be same as earlier GET use cases.</li>
-<li>5) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X, hist_list = Null, Count =0: For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT a zero count will return an empty list.</li>
-<li>6) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = valid/invalid, hist_list = Valid, Count &gt; 0: In this case the API will return the first count histograms starting from the head of the database. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. The key is dont-care. If a filter is specified only those histograms that match the filter will be returned. a non-Null return hist_list pointer must be provided</li>
-<li>7) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = valid/invalid, hist_list = Valid, Count &gt; 0: In this case the API will return the next set of histograms starting from the next valid histogram after the specified key. The total elements fetched will be returned as the return count. If a filter is specified only those histograms that match the filter will be returned. Note: return count may be less than or equal to the requested count. If no valid next histogram exists in the db (key = end of list, or invalid key specified, or key too large), an empty list will be returned.</li>
+<li>5) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X, hist_list = Null, Count =0: For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, a zero count will return an empty list.</li>
+<li><p class="startli">6) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = valid/invalid, hist_list = Valid, Count &gt; 0: In this case, the API will return the first count histograms starting from the head of the database. The total elements fetched will be returned as the return count.</p>
+<p class="startli">Note: Return count may be less than or equal to the requested count. The key is dont-care. If a filter is specified only those histograms that match the filter will be returned. A non-Null return hist_list pointer must be provided.</p>
+</li>
+<li><p class="startli">7) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = valid/invalid, hist_list = Valid, Count &gt; 0: In this case, the API will return the next set of histograms starting from the next valid histogram after the specified key. The total elements fetched will be returned as the return count. If a filter is specified, only those histograms that match the filter will be returned.</p>
+<p class="startli">Note: Return count may be less than or equal to the requested count. If no valid next histogram exists in the database (key = end of list, or invalid key specified, or key too large), an empty list will be returned.</p>
+</li>
 </ul>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>: SX API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>: GET/GET_FIRST/GET_NEXT </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">hist_key_p</td><td>:specify a histogram key </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">filter</td><td>: specify a filter parameter </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">hist_list_p</td><td>: return list of histogram keys </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">hist_cnt_p</td><td>: [in] number of histograms to get. max 20 : [out] number of histograms returned</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_FIRST/GET_NEXT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hist_key_p</td><td>-Specify a histogram key </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filter</td><td>- specify a filter parameter </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">hist_list_p</td><td>- Return list of histogram keys </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">hist_cnt_p</td><td>- [in] number of histograms to get. max 20/[out] number of histograms returned</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR general error. </dd>
+SX_STATUS_ERROR general error </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed </dd>
+SX_STATUS_CMD_UNSUPPORTED if invalid command is passed </dd>
 <dd>
-SX_STATUS_MODULE_UNINITIALIZED - if router module is uninitialized </dd>
+SX_STATUS_MODULE_UNINITIALIZED if router module is uninitialized </dd>
 <dd>
-SX_STATUS_CMD_ERROR - if internal RPC mechanism to SDK server fails </dd>
+SX_STATUS_CMD_ERROR if internal RPC mechanism to SDK server fails </dd>
 <dd>
-SX_STATUS_DB_NOT_INITIALIZED - if internal RIF DB is not initialized </dd></dl>
+SX_STATUS_DB_NOT_INITIALIZED if internal RIF database is not initialized </dd></dl>
 
 </div>
 </div>
@@ -527,25 +541,25 @@ SX_STATUS_DB_NOT_INITIALIZED - if internal RIF DB is not initialized </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Retrieves the histogram data. Where histogram is created, histogram data is being sampled. The occupancy is being sampled according to the attributes configured in sx_api_tele_histogram_set. The relevant bin is being increased according to the current sample occupancy.</p>
-<p>For Spectrum: Bin sampling stop when one of the bins reaches max value by bits according to resource manager variable tele_histogram_data_bin_bits_max.</p>
+<p>This API retrieves the histogram data. Where histogram is created, histogram data is being sampled. The occupancy is being sampled according to the attributes configured in sx_api_tele_histogram_set. The relevant bin is increased according to the current sample occupancy.</p>
+<p>Note: On Spectrum devices, bin sampling stops when one of the bins reaches max value by bits according to resource manager variable tele_histogram_data_bin_bits_max.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_READ | SX_ACCESS_CMD_READ_CLEAR </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>- Histogram key. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">histogram_p</td><td>- Histogram data. out - num of bins and bins content.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ/CLEAR </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>- Histogram key </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">histogram_p</td><td>- Histogram data ([out] number of bins and bins content)</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED if access command isn't supported. </dd>
+SX_STATUS_CMD_UNSUPPORTED if access command isn't supported </dd>
 <dd>
-SX_STAUS_ERROR general error. </dd></dl>
+SX_STAUS_ERROR general error </dd></dl>
 
 </div>
 </div>
@@ -586,26 +600,25 @@ SX_STAUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the congestion threshold for a specific port and enables a specific TC (in addition to enabled ones). Note: SET command cannot be called on an existing entry. in order to modify, use EDIT. For port related thresholds: 1. network and LAG ports are supported.</p><ol type="1">
-<li>On spectrum, the last threshold that was set on a port will apply to all TC's in the port.</li>
-</ol>
+<p>This API sets the congestion threshold for a specific port and enables a specific TC (in addition to enabled ones). For port-related threshold types, network and LAG ports are supported.</p>
+<p>Note: On spectrum devices, the last threshold that was set on a port will apply to all TC's in the port. Note: SET cannot be called on an existing entry. To modify, use EDIT.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET/EDIT/DESTROY. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>- threshold key. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>- threshold data.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET/EDIT/DESTROY </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>- Threshold key </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>- Threshold data</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if there are no resources for the operation. </dd>
+SX_STATUS_NO_RESOURCES if there are no resources for the operation </dd>
 <dd>
-SX_STAUS_ERROR on internal error. </dd></dl>
+SX_STAUS_ERROR on internal error </dd></dl>
 
 </div>
 </div>
@@ -646,24 +659,24 @@ SX_STAUS_ERROR on internal error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Retrieves the congestion threshold for a specific port and the TC's the threshold is configured to. For port related threshold types, network and LAG ports are supported.</p>
+<p>This API retrieves the congestion threshold for a specific port and the TC's the threshold is configured to. For port-related threshold types, network and LAG ports are supported.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>- threshold attributes key. </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">data</td><td>- threshold attributes data.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>- Threshold attributes key </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">data</td><td>- Threshold attributes data</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if there are no resources for the operation. </dd>
+SX_STATUS_NO_RESOURCES if there are no resources for the operation </dd>
 <dd>
-SX_STAUS_ERROR on internal error. </dd></dl>
+SX_STAUS_ERROR on internal error </dd></dl>
 
 </div>
 </div>
@@ -710,25 +723,25 @@ SX_STAUS_ERROR on internal error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Retrieves the current threshold congestion state (below / above threshold) for a list of keys. For port related threshold types, only network ports are supported.</p>
+<p>This API retrieves the current threshold congestion state (below/above threshold) for a list of keys. For port related threshold types, only network ports are supported.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">key_p</td><td>- list of threshold key. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">crossed_data_p</td><td>- list of threshold crossed data. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">key_cnt</td><td>- number of elements in key list and crossed data list.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key_p</td><td>- List of threshold key </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">crossed_data_p</td><td>- List of threshold crossed data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key_cnt</td><td>- Number of elements in key list and crossed data list</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if there are no resources for the operation. </dd>
+SX_STATUS_NO_RESOURCES if there are no resources for the operation </dd>
 <dd>
-SX_STAUS_ERROR on internal error. </dd></dl>
+SX_STAUS_ERROR on internal error </dd></dl>
 
 </div>
 </div>
@@ -757,11 +770,11 @@ SX_STAUS_ERROR on internal error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the attributes of telemetry module. Supported devices: Spectrum2, Spectrum3.</p>
+<p>This API sets the attributes of TELEMETRY module. Supported devices: Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">attributes</td><td>- Telemetry module attributes struct</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">attributes</td><td>- Telemetry module attributes</td></tr>
   </table>
   </dd>
 </dl>
@@ -798,7 +811,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Retrieves the attributes of telemetry module. Supported devices: Spectrum2, Spectrum3.</p>
+<p>This API retrieves the attributes of TELEMETRY module.</p>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -818,7 +832,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 14 2021 09:59:53 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 30 2021 08:43:42 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

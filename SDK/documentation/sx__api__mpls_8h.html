@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mellanox SwitchX SDK API Guide: sdk/sx_api_mpls.h File Reference</title>
+<title>NVIDIA Ethernet Switch SDK API Guide: sdk/sx_api_mpls.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Mellanox SwitchX SDK API Guide
-   &#160;<span id="projectnumber">4.4.2522</span>
+   <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
+   &#160;<span id="projectnumber">4.4.3102</span>
    </div>
   </td>
  </tr>
@@ -140,11 +140,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the log verbosity level of MPLS MODULE. Supported devices: Spectrum.</p>
+<p>This API sets the log verbosity level of MPLS module.</p>
+<p>Supported devices: Spectrum.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- set verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Sets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- MPLS module verbosity level </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- MPLS API verbosity level</td></tr>
   </table>
@@ -191,11 +192,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the log verbosity level of MPLS MODULE. Supported devices: Spectrum.</p>
+<p>This API gets the log verbosity level of MPLS module.</p>
+<p>Supported devices: Spectrum.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- get verbosity of : API / MODULE / BOTH </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Gets verbosity of API/MODULE/BOTH </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- MPLS module verbosity level </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- MPLS API verbosity level</td></tr>
   </table>
@@ -230,11 +232,11 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function initiates the MPLS module in SDK. Supported devices: Spectrum.</p>
-<p>This API can be called only after the router module is initialized.</p>
+<p>This API initiates the MPLS module in SDK. This API can be called only after the router module is initialized.</p>
+<p>Supported devices: Spectrum.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">general_params_p</td><td>- MPLS general parameters</td></tr>
   </table>
   </dd>
@@ -258,11 +260,11 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function de-initializes the MPLS block in the SDK. Supported devices: Spectrum.</p>
-<p>This API must be called before the router module is de-initialized if MPLS block was initialized previously.</p>
+<p>This API de-initializes the MPLS block in the SDK. This API must be called before the router module is de-initialized if MPLS block was initialized previously.</p>
+<p>Supported devices: Spectrum.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle</td></tr>
   </table>
   </dd>
 </dl>
@@ -301,16 +303,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function creates ILM table Supported devices: Spectrum.</p>
+<p>This API creates an ILM table.</p>
+<p>Note: Only label space 0 is currently supported (ilm_table).</p>
+<p>Supported devices: Spectrum.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/ADD/DELETE/DESTROY </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ilm_table</td><td>- MPLS ILM table ID</td></tr>
   </table>
   </dd>
 </dl>
-<p>Only label space 0 is currently supported (ilm_table).</p>
 <dl class="section return"><dt>Returns</dt><dd>sx_status_t </dd></dl>
 
 </div>
@@ -352,14 +355,15 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets an in-segment Supported devices: Spectrum.</p>
-<p>Match on one label is currently supported. Only label space 0 is currently supported (ilm_table).</p>
+<p>This API sets an in-segment parameters.</p>
+<p>Note: Match on one label is currently supported. Note: Only label space 0 is currently supported (ilm_table).</p>
+<p>Supported devices: Spectrum.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/EDIT/DESTROY </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_key_p</td><td>- in-segment incoming label </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_params_p</td><td>- parameters for in-segment</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_key_p</td><td>- In-segment incoming label </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_params_p</td><td>- Parameters for in-segment</td></tr>
   </table>
   </dd>
 </dl>
@@ -398,13 +402,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets an in-segment parameters Supported devices: Spectrum.</p>
-<p>In-segment filter is currently unsupported.</p>
+<p>This API gets in-segment parameters.</p>
+<p>Note: In-segment filter is currently unsupported.</p>
+<p>Supported devices: Spectrum.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_key_p</td><td>- specify a in-segment key </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">in_segment_params_p</td><td>- list of in-segment params</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_key_p</td><td>- Specify a in-segment key </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">in_segment_params_p</td><td>- List of in-segment params</td></tr>
   </table>
   </dd>
 </dl>
@@ -461,43 +466,43 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function returns a list of one or more in-segment key identifiers. The following use case scenarios apply with different input parameters X = don't-care</p><ul>
-<li>1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, in_segment_key_list = X, Count =0: In this case the API will return the total number of in-segment keys in the ILM</li>
-<li>2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, in_segment_key_list = Valid, Count = 1: In this case the API will check if the specified key exists. if it does the key will be returned in the in_segment_key_list along with a count of 1. If the key does not exist an empty list will be returned with count = 0</li>
-<li>3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = X, in_segment_key_list is Valid, Count &gt; 1: A count &gt; 1 will be treated as a count of 1 and the behavior will be same as earlier GET use cases.</li>
-<li>4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X, in_segment_key_list = Null, Count =0: For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT a zero count will return an empty list.</li>
-<li>5) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = X, in_segment_key_list = Valid, Count &gt; 0: In this case the API will return the first count in-segments starting from the head of the database. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. The key is dont-care.</li>
-<li>6) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = X, Rif_list = Valid, Count &gt; 0: In this case the API will return the next set of in-segments starting from the next valid in segment k after the specified key. The total elements fetched will be returned as the return count. Note: return count may be less than or equal to the requested count. If no valid next in-segment exists in the db (key = end of list, or invalid key specified, or key too large), an empty list will be returned.</li>
-</ul>
+<p>This API returns a list of one or more in-segment key identifiers. The following use case scenarios apply with different input parameters X = don't-care 1) cmd = SX_ACCESS_CMD_GET, key = X, Filter = X, in_segment_key_list = X, Count =0: In this case, the API will return the total number of in-segment keys in the ILM.</p>
+<p>2) cmd = SX_ACCESS_CMD_GET, key = valid/invalid, Filter = X, in_segment_key_list = Valid, Count = 1: In this case, the API will check if the specified key exists. If it does, the key will be returned in the in_segment_key_list along with a count of 1. If the key does not exist, an empty list will be returned with count = 0</p>
+<p>3) cmd = SX_ACCESS_CMD_GET, key = valid, Filter = X, in_segment_key_list is Valid, Count &gt; 1: A count &gt; 1 will be treated as a count of 1 and the behavior will be the same as earlier GET use cases.</p>
+<p>4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = X, Filter = X, in_segment_key_list = Null, Count =0: For either SX_ACCESS_CMD_GET_FIRST or SX_ACCESS_CMD_GETNEXT, a zero count will return an empty list.</p>
+<p>5) cmd = SX_ACCESS_CMD_GET_FIRST, key = X, Filter = X, in_segment_key_list = Valid, Count &gt; 0: In this case, the API will return the first count in-segments starting from the head of the database. The total elements fetched will be returned as the return count.</p>
+<p>Note: Return count may be less than or equal to the requested count. The key is dont-care.</p>
+<p>6) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = X, rif_list = Valid, Count &gt; 0: In this case, the API will return the next set of in-segments starting from the next valid in segment k after the specified key. The total elements fetched will be returned as the return count.</p>
+<p>Note: Return count may be less than or equal to the requested count. If no valid next in-segment exists in the database (key = end of list, or invalid key specified, or key too large), an empty list will be returned. *</p>
 <p>Supported devices: Spectrum.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>: SX API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>: GET/GET_FIRST/GET_NEXT </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_key_p</td><td>: specify a in segment key </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">filter</td><td>: specify a filter parameter </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">in_segment_key_list_p</td><td>: return list of in segment keys </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">in_segment_get_entries_cnt_p</td><td>: [in] number of in segments to get : [out] number of in segments returned</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_FIRST/GET_NEXT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_key_p</td><td>- Specify a in segment key </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filter</td><td>- Specify a filter parameter </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">in_segment_key_list_p</td><td>- Return list of in segment keys </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">in_segment_get_entries_cnt_p</td><td>- [in] number of in segments to get/[out] number of in segments returned</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully. </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range. </dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if parameters exceed range </dd>
 <dd>
-SX_STATUS_PARAM_NULL if an unexpected NULL parameter was passed. </dd>
+SX_STATUS_PARAM_NULL if an unexpected NULL parameter was passed </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid. </dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR general error. </dd>
+SX_STATUS_ERROR general error </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed </dd>
+SX_STATUS_CMD_UNSUPPORTED if invalid command is passed </dd>
 <dd>
-SX_STATUS_MODULE_UNINITIALIZED - if router module is uninitialized </dd>
+SX_STATUS_MODULE_UNINITIALIZED if a router module is uninitialized </dd>
 <dd>
-SX_STATUS_CMD_ERROR - if internal RPC mechanism to SDK server fails </dd>
+SX_STATUS_CMD_ERROR if internal RPC mechanism to SDK server fails </dd>
 <dd>
-SX_STATUS_DB_NOT_INITIALIZED - if internal RIF DB is not initialized </dd></dl>
+SX_STATUS_DB_NOT_INITIALIZED if internal RIF database is not initialized </dd></dl>
 
 </div>
 </div>
@@ -532,13 +537,14 @@ SX_STATUS_DB_NOT_INITIALIZED - if internal RIF DB is not initialized </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets the MPLS attributes of the interface Supported devices: Spectrum.</p>
-<p>Must be called to enable/disable MPLS on a router interface. Only label space 0 is currently supported (ilm_table_id).</p>
+<p>This API sets the MPLS attributes of the interface. It must be called to enable/disable MPLS on a router interface.</p>
+<p>Note: Only label space 0 is currently supported (ilm_table_id).</p>
+<p>Supported devices: Spectrum.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">rif_p</td><td>- router interface ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">rif_mpls_attr_p</td><td>- the MPLS attributes of the interface</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rif_p</td><td>- Router interface ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rif_mpls_attr_p</td><td>- MPLS attributes of the interface</td></tr>
   </table>
   </dd>
 </dl>
@@ -577,12 +583,13 @@ SX_STATUS_DB_NOT_INITIALIZED - if internal RIF DB is not initialized </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets the MPLS attributes of the interface Supported devices: Spectrum.</p>
+<p>This API gets the MPLS attributes of the interface</p>
+<p>Supported devices: Spectrum.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">rif_p</td><td>- router interface ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">rif_mpls_attr_p</td><td>- the MPLS attributes of the interface</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rif_p</td><td>- Router interface ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">rif_mpls_attr_p</td><td>- MPLS attributes of the interface</td></tr>
   </table>
   </dd>
 </dl>
@@ -627,13 +634,14 @@ SX_STATUS_DB_NOT_INITIALIZED - if internal RIF DB is not initialized </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Binds or un-binds a flow counter to an existing ILM entry Supported devices: Spectrum.</p>
+<p>This API binds or un-binds a flow counter to an existing ILM entry.</p>
+<p>Supported devices: Spectrum.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- BIND/UNBIND </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_key</td><td>- in-segment identification </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">counter_id</td><td>- A flow counter identifier</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_key</td><td>- In-segment identification </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">counter_id</td><td>- Flow counter identifier</td></tr>
   </table>
   </dd>
 </dl>
@@ -678,12 +686,13 @@ SX_STATUS_DB_NOT_INITIALIZED - if internal RIF DB is not initialized </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Retrieves a flow counter identifier bounded to an existing ILM entry Supported devices: Spectrum.</p>
+<p>This API retrieves a flow counter identifier bounded to an existing ILM entry.</p>
+<p>Supported devices: Spectrum.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_key_p</td><td>- in-segment identification </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">in_segment_key_p</td><td>- In-segment identification </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">counter_id_p</td><td>- A flow counter identifier</td></tr>
   </table>
   </dd>
@@ -696,7 +705,7 @@ SX_STATUS_DB_NOT_INITIALIZED - if internal RIF DB is not initialized </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Apr 14 2021 09:59:53 for Mellanox SwitchX SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 30 2021 08:43:42 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
