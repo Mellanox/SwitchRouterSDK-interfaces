@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2021. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2021. NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -1132,9 +1132,11 @@ sx_status_t sx_api_fdb_flood_get(const sx_api_handle_t  handle,
                                  sx_mc_container_id_t * flood_vector);
 
 /**
+ * \deprecated This API is deprecated and will be removed in the future.
+ *
  * This API is used to retrieve flooding counters of the switch.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: N/A
  *
  * @param[in] handle    - SX-API handle
  * @param[in] cmd       - READ/READ_CLEAR
@@ -1154,9 +1156,11 @@ sx_status_t sx_api_fdb_flood_counter_get(const sx_api_handle_t       handle,
                                          sx_flood_counters_t * const counters);
 
 /**
+ * \deprecated This API is deprecated and will be removed in the future.
+ *
  * This API is used to clear flooding counters of the switch.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: N/A
  *
  * @param[in] handle - SX-API handle
  * @param[in] swid   - Virtual switch partition ID

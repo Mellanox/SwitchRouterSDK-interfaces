@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2021. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2021. NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -483,6 +483,46 @@ sx_status_t sx_api_acl_policy_based_switching_get(const sx_api_handle_t handle,
                                                   sx_acl_pbs_entry_t   *pbs_entry_p);
 
 /**
+ * This API gets a list of one or more PBS set object IDs.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ * @param[in] handle           - SX-API handle
+ * @param[in] cmd              - GET/GET_NEXT/GET_FIRST
+ * @param[in] swid             - SWID of the PBS entry
+ * @param[in] pbs_id_key       - PBS entry ID to use as pbs_id_key for GET and GET_NEXT commands
+ * @param[in] pbs_id_filter_p  - Filter the entries retrieved based on entry type.
+ * @param[out] pbs_id_list_p   - Pointer to the list of PBS IDs returned
+ * @param[in,out] pbs_id_cnt_p  - [in] number of entries to retrieve /[out] number of entries retrieved.
+ *
+ * Input/Output Types
+ *    - Get first - Gets a list of first N entries. The command should be SX_ACCESS_CMD_GET_FIRST and
+ *      count should be equal to N (pbs_id_key is irrelevant in this case). Returns the number of
+ *      entries retrieved via pbs_id_cnt_p.
+ *    - Get next - Gets N entries after a specified pbs_id_key (it does not have to exist).
+ *      The command should be SX_ACCESS_CMD_GETNEXT. The value of pbs_id_cnt_p should be equal to N.
+ *      Returns the number of entries retrieved via pbs_id_cnt_p.
+ *    - Get - Gets a specific entry. The command should be SX_ACCESS_CMD_GET and the value of pbs_id_cnt_p should be 1
+ *      Setting the input value of pbs_id_cnt_p is 0 returns the total count of the PBS IDs available.
+ *    - filter – If a valid filter value is provided, the above commands will return PBS IDs that match the filter only.
+ *                If none match, the API will succeed with a return count of 0 and an empty list.
+ *
+ *
+ * @return SX_STATUS_SUCCESS              Operation completed successfully
+ * @return SX_STATUS_PARAM_ERROR          Any parameter is in error
+ * @return SX_STATUS_CMD_UNSUPPORTED      Command is not supported
+ * @return SX_STATUS_INVALID_HANDLE       Handle in invalid
+ * @return SX_STATUS_ERROR                General error
+ */
+sx_status_t sx_api_acl_policy_based_switching_iter_get(const sx_api_handle_t      handle,
+                                                       const sx_access_cmd_t      cmd,
+                                                       const sx_swid_t            swid,
+                                                       const sx_acl_pbs_id_t      pbs_id_key,
+                                                       const sx_acl_pbs_filter_t *pbs_id_filter_p,
+                                                       sx_acl_pbs_id_t           *pbs_id_list_p,
+                                                       uint32_t                  *pbs_id_cnt_p);
+
+/***
  * This API adds/edits/deletes a Layer 4 port range comparison set (up to SX_ACL_MAX_PORT_RANGES).
  *
  * ADD command is used to create a new range ID from the supplied port range.

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.4.3110</span>
+   &#160;<span id="projectnumber">4.4.3210</span>
    </div>
   </td>
  </tr>
@@ -297,7 +297,7 @@ SX_STATUS_ERROR Operation failed </dd></dl>
 </div><div class="memdoc">
 <p>This API initiates or cancels an asynchronous bulk-counter-read operation.</p>
 <p>READ reads a set of counters. READ_CLEAR reads and clears a set of counters. READ_FLUSH flushes and reads a set of counters (supported only for SX_BULK_CNTR_KEY_TYPE_FLOW_E). READ_CLEAR_FLUSH flushes, reads, and clears a set of counters (supported only for SX_BULK_CNTR_KEY_TYPE_FLOW_E). DISABLE cancels an active operation.</p>
-<p>Note: In "Normal" operation the SDK reads immediate value of the counter that can be different from its final value. "Flush" operation ensures that all device subsystems clear their cached values and final counter value is updated. Note: After initiating the operation, an SX_BULK_READ_DONE event is sent and then API <a class="el" href="sx__api__bulk__counter_8h.html#a65d664a825b59434d5d51d00668ec9a3">sx_api_bulk_counter_transaction_get()</a> should be used. Until SX_BULK_READ_DONE event is received, buffer cannot be used with API <a class="el" href="sx__api__bulk__counter_8h.html#a65d664a825b59434d5d51d00668ec9a3">sx_api_bulk_counter_transaction_get()</a>. Note: When initiating LAG port bulk-counter-read, its members are determined on operation initiation. Any change to the LAG port or to its members during the operation will not be reflected when reading the LAG counters upon operation completion. Note: elephant-detected-flow-read does not support LAG ports. Note: Upon disable, the buffer cannot be used on another operation or freed until the SW_BULK_READ_DONE event is received. Note: Up to two transactions are allowed in parallel by the system: a. 2 x Port_Counters. b. Any combination of two different bulk counter types. Note: When port bulk counter transaction is in progress, it is not allowed to call any synchronous port counter API (sx_api_port_counter_xxx).</p>
+<p>Note: In "Normal" operation the SDK reads immediate value of the counter that can be different from its final value. "Flush" operation ensures that all device subsystems clear their cached values and final counter value is updated. Note: After initiating the operation, an SX_BULK_READ_DONE event is sent and then API <a class="el" href="sx__api__bulk__counter_8h.html#a65d664a825b59434d5d51d00668ec9a3">sx_api_bulk_counter_transaction_get()</a> should be used. Until SX_BULK_READ_DONE event is received, buffer cannot be used with API <a class="el" href="sx__api__bulk__counter_8h.html#a65d664a825b59434d5d51d00668ec9a3">sx_api_bulk_counter_transaction_get()</a>. And to identify the event is what's expected by user, user should compare the buffer id in event info with the one in buffer_p, cookie should be compared too if user provided it in API <a class="el" href="sx__api__bulk__counter_8h.html#a96068ea7142761ce156fd1c8ab51faf4">sx_api_bulk_counter_buffer_set()</a>. Note: When initiating LAG port bulk-counter-read, its members are determined on operation initiation. Any change to the LAG port or to its members during the operation will not be reflected when reading the LAG counters upon operation completion. Note: elephant-detected-flow-read does not support LAG ports. Note: Upon disable, the buffer cannot be used on another operation or freed until the SW_BULK_READ_DONE event is received. Note: Up to two transactions are allowed in parallel by the system: a. 2 x Port_Counters. b. Any combination of two different bulk counter types. Note: When port bulk counter transaction is in progress, it is not allowed to call any synchronous port counter API (sx_api_port_counter_xxx).</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -387,7 +387,7 @@ SX_STATUS_ERROR Operation failure </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 4 2021 00:50:56 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jun 20 2021 19:17:39 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

@@ -1,5 +1,5 @@
 /*
- *  Copyright (C) 2014-2021. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ *  Copyright (C) 2014-2021. NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License"); you may
  *    not use this file except in compliance with the License. You may obtain
@@ -110,6 +110,8 @@ sx_status_t sx_api_bulk_counter_buffer_set(const sx_api_handle_t            hand
  *       "Flush" operation ensures that all device subsystems clear their cached values and final counter value is updated.
  * Note: After initiating the operation, an SX_BULK_READ_DONE event is sent and then API sx_api_bulk_counter_transaction_get()
  *  should be used. Until SX_BULK_READ_DONE event is received, buffer cannot be used with API sx_api_bulk_counter_transaction_get().
+ *  And to identify the event is what's expected by user, user should compare the buffer id in event info with the one in buffer_p,
+ *  cookie should be compared too if user provided it in API sx_api_bulk_counter_buffer_set().
  * Note: When initiating LAG port bulk-counter-read, its members are determined on operation initiation.
  *  Any change to the LAG port or to its members during the operation will not be reflected when reading the LAG counters
  *  upon operation completion.
