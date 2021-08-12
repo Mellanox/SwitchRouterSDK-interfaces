@@ -237,6 +237,7 @@ sx_status_t sx_api_tele_histogram_data_get(const sx_api_handle_t         handle,
  *
  * Note: On spectrum devices, the last threshold that was set on a port will apply to all TC's in the port.
  * Note: SET cannot be called on an existing entry. To modify, use EDIT.
+ * Note: Number of latency thresholds is limited to rm_resource_global.tele_threshold_latency_table_size.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *

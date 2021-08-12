@@ -2004,7 +2004,7 @@ sx_status_t sx_api_port_crc_params_get(const sx_api_handle_t  handle,
  *
  * EDIT changes grand master port
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum.
  *
  * @param[in] handle                        - SX-API handle
  * @param[in] cmd                           - EDIT
@@ -2025,7 +2025,7 @@ sx_status_t sx_api_port_ptp_params_set(const sx_api_handle_t       handle,
  *
  * GET changes grand master port
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum.
  *
  * @param[in] handle                 - SX-API handle
  * @param[in] cmd                    - GET

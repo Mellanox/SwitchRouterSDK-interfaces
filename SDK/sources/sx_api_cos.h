@@ -1284,9 +1284,9 @@ sx_status_t sx_api_cos_redecn_rate_based_get(const sx_api_handle_t              
 
 
 /**
- * This API sets the mirroring binding for packets that are discarded (due to tail drop or RED) in the egress port.
+ * This API sets the mirroring binding for packets that are discarded (due to RED) in the ingress port.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] cmd              - ADD/DELETE
@@ -1304,9 +1304,9 @@ sx_status_t sx_api_cos_redecn_mirroring_set(const sx_api_handle_t      handle,
 
 
 /**
- * This API gets the mirroring binding for packets that are discarded (due to tail drop or RED) in the egress port.
+ * This API gets the mirroring binding for packets that are discarded (due to RED) in the ingress port.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum.
  *
  * @param[in]   handle            - SX-API handle
  * @param[out]  ingress_port_p    - Port to test

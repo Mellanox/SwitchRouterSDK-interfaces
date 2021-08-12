@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.4.3228</span>
+   &#160;<span id="projectnumber">4.4.3320</span>
    </div>
   </td>
  </tr>
@@ -601,7 +601,7 @@ SX_STAUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the congestion threshold for a specific port and enables a specific TC (in addition to enabled ones). For port-related threshold types, network and LAG ports are supported.</p>
-<p>Note: On spectrum devices, the last threshold that was set on a port will apply to all TC's in the port. Note: SET cannot be called on an existing entry. To modify, use EDIT.</p>
+<p>Note: On spectrum devices, the last threshold that was set on a port will apply to all TC's in the port. Note: SET cannot be called on an existing entry. To modify, use EDIT. Note: Number of latency thresholds is limited to rm_resource_global.tele_threshold_latency_table_size.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -832,7 +832,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 5 2021 08:36:56 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Aug 8 2021 23:48:13 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
