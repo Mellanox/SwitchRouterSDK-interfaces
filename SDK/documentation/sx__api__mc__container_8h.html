@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.4.3334</span>
+   &#160;<span id="projectnumber">4.5.1006</span>
    </div>
   </td>
  </tr>
@@ -252,7 +252,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div><div class="memdoc">
 <p>This API allows to manipulate a multicast container.</p>
 <p>CREATE creates a new container with the specified list of next_hops_cnt, next hops in next_hop_list_p, and returns its new container ID in container_id_p. ADD/DELETE adds or deletes the next hops specified by next_hop_list_p and next_hop_cnt to/from an existing container specified by container_id_p. SET replaces the contents of an existing container specified by container_id_p, with the specified list of next hops in next_hop_list_p. DESTROY deletes an existing container specified by container_id_p. DELETE_ALL deletes all existing containers.</p>
-<p>Note: A container in use (e.g. by a multicast route or ACL) cannot be destroyed. Note: A container may contain, at most, RM_API_ROUTER_RIFS_MAX next hops. Note: For MC containers of the SX_MC_CONTAINER_TYPE_BRIDGE_MC type, a MC container of the SX_MC_CONTAINER_TYPE_BRIDGE_MC type can contain multiple next hops of the SX_MC_NEXT_HOP_TYPE_LOG_PORT type and either multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the SX_ECMP_CONTAINER_TYPE_NVE_MC type only. Note: For MC containers of the SX_MC_CONTAINER_TYPE_NVE_FLOOD type, a MC container of the SX_MC_CONTAINER_TYPE_NVE_FLOOD type can next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of contain either multiple of the SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the SX_ECMP_CONTAINER_TYPE_NVE_FLOOD type only. Note: For ECMP containers of the SX_MC_CONTAINER_TYPE_VLAN_UNAWARE type, a MC container of the SX_MC_CONTAINER_TYPE_VLAN_UNAWARE type can contain either multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the following types: SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC.</p>
+<p>Note: A container in use (e.g. by a multicast route or ACL) cannot be destroyed. Note: A container may contain, at most, RM_API_ROUTER_RIFS_MAX next hops. Note: An MC container of the SX_MC_CONTAINER_TYPE_BRIDGE_MC type can contain multiple next hops of the SX_MC_NEXT_HOP_TYPE_LOG_PORT type and either multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the SX_ECMP_CONTAINER_TYPE_NVE_MC type only. Note: An MC container of the SX_MC_CONTAINER_TYPE_NVE_FLOOD type can contain either multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the SX_ECMP_CONTAINER_TYPE_NVE_FLOOD type only. Note: An MC container of the SX_MC_CONTAINER_TYPE_VLAN_UNAWARE type can contain either multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the following types: SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -439,7 +439,7 @@ SX_STATUS_ERROR general error. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 19 2021 16:51:06 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Oct 5 2021 00:47:58 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

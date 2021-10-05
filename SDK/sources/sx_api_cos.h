@@ -889,19 +889,20 @@ sx_status_t sx_api_cos_port_prio_to_exp_rewrite_get(const sx_api_handle_t    han
 /**
  * This API sets PTP shaper parameters.
  *
- * SET sets new shaper parameters
- * DELETE resets shaper parameters to default
+ * SET sets new shaper parameters.
+ * DELETE resets shaper parameters to default.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum.
  *
  * @param[in] handle                        - SX-API handle
  * @param[in] cmd                           - SET/DELETE
  * @param[in] port_speed                    - Link speed of the port
  * @param[in] shaper_params                 - PTP shaper parameters
  *
- * @return SX_STATUS_SUCCESS        Operation completed successfully
- * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
+ * @return SX_STATUS_SUCCESS        If operation completed successfully
+ * @return SX_STATUS_PARAM_ERROR    If input parameter is invalid
  * @return SX_STATUS_ERROR          General error
+ * @return SX_STATUS_UNSUPPORTED    Unsupported device
  */
 sx_status_t sx_api_cos_ets_ptp_shaper_param_set(const sx_api_handle_t          handle,
                                                 const sx_access_cmd_t          cmd,
@@ -913,16 +914,17 @@ sx_status_t sx_api_cos_ets_ptp_shaper_param_set(const sx_api_handle_t          h
  *
  * GET retrieves current shaper parameters.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] cmd                   - GET
  * @param[in] port_speed            - Link speed of the port
  * @param[in] shaper_params         - PTP shaper parameters
  *
- * @return SX_STATUS_SUCCESS        Operation completed successfully
- * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
+ * @return SX_STATUS_SUCCESS        If operation completed successfully
+ * @return SX_STATUS_PARAM_ERROR    If input parameter is invalid
  * @return SX_STATUS_ERROR          General error
+ * @return SX_STATUS_UNSUPPORTED    Unsupported device
  */
 sx_status_t sx_api_cos_ets_ptp_shaper_param_get(const sx_api_handle_t           handle,
                                                 const sx_access_cmd_t           cmd,
@@ -1069,9 +1071,9 @@ sx_status_t sx_api_cos_redecn_log_verbosity_level_get(const sx_api_handle_t     
                                                       sx_verbosity_level_t           *module_verbosity_level_p,
                                                       sx_verbosity_level_t           *api_verbosity_level_p);
 /**
- * This API sets global configuration of ECN and RED.
+ * This API sets global configuration of ECN, RED and ECE.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] configuration_p   - Configuration parameters (see sx_cos_redecn_global_t)
@@ -1087,9 +1089,9 @@ sx_status_t sx_api_cos_redecn_general_param_set(const sx_api_handle_t         ha
 
 
 /**
- * This API gets global configuration of ECN and RED.
+ * This API gets global configuration of ECN, RED and ECE.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle
  * @param[out] configuration_p  - Configuration parameters (see sx_cos_redecn_global_t)
@@ -1149,9 +1151,9 @@ sx_status_t sx_api_cos_redecn_profile_get(const sx_api_handle_t               ha
 
 
 /**
- * This API enables/disables RED and ECN for traffic classes.
+ * This API enables/disables RED, ECN and ECE for traffic classes.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                  - SX-API handle
  * @param[in] log_port                - Egress port to set
@@ -1171,7 +1173,7 @@ sx_status_t sx_api_cos_redecn_tc_enable_set(const sx_api_handle_t               
 
 
 /**
- * This API gets RED and ECN enabled parameters of a traffic class.
+ * This API gets RED, ECN and ECE enabled parameters of a traffic class.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -1191,12 +1193,12 @@ sx_status_t sx_api_cos_redecn_tc_enable_get(const sx_api_handle_t          handl
 
 
 /**
- * This API binds RED and ECN profiles to the traffic class and traffic type (TCP/non-TCP, color).
+ * This API binds RED, ECN and ECE profiles to the traffic class and traffic type (TCP/non-TCP, color).
  *
  * BIND binds a port+TC+flow to a profile.
  * UNBIND unbinds a port+TC+flow from a profile.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle              - SX-API handle
  * @param[in] log_port            - Egress port to bind/unbind
@@ -1220,9 +1222,9 @@ sx_status_t sx_api_cos_redecn_profile_tc_bind_set(const sx_api_handle_t         
 
 
 /**
- * This API retrieves the binding of RED/ECN profiles configuration for a given egress port and traffic class.
+ * This API retrieves the binding of RED/ECN/ECE profiles configuration for a given egress port and traffic class.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]  handle        - SX-API handle
  * @param[in]  log_port      - Egress port to query
@@ -1323,6 +1325,8 @@ sx_status_t sx_api_cos_redecn_mirroring_get(const sx_api_handle_t  handle,
 /**
  * This API gets the RED/ECN counter for a specific egress_port.
  *
+ * Note: tc_ecn_marked_packet is supported in Spectrum3 and above.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle        - SX-API handle
@@ -1330,8 +1334,8 @@ sx_status_t sx_api_cos_redecn_mirroring_get(const sx_api_handle_t  handle,
  * @param[in] log_port      - Egress port to query
  * @param[out] counters_p   - Counters structure
  *
- * @return SX_STATUS_SUCCESS        Operation completed successfully
- * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
+ * @return SX_STATUS_SUCCESS        If operation completed successfully
+ * @return SX_STATUS_PARAM_ERROR    If input parameter is invalid
  * @return SX_STATUS_ERROR          General error
  */
 sx_status_t sx_api_cos_redecn_counters_get(const sx_api_handle_t          handle,
@@ -1565,6 +1569,123 @@ sx_status_t sx_api_cos_elephant_detection_port_flows_data_get(const sx_api_handl
                                                               const sx_cos_elephant_flow_id_t *flow_ids_list_p,
                                                               sx_cos_elephant_flow_data_t     *flow_data_list_p,
                                                               uint32_t                        *list_cnt_p);
+
+
+/**
+ * This API configures snapshot trigger on a snapshot object. This configuration can be applied on a per port TC, port PG, or a port basis
+ * depending on the snapshot trigger type.
+ *
+ * Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param[in] handle   - SX-API handle
+ * @param[in] cmd      - SET/DELETE
+ * @param[in] object_p - Snapshot trigger enable object
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ */
+sx_status_t sx_api_cos_sb_snapshot_trigger_set(const sx_api_handle_t                         handle,
+                                               const sx_access_cmd_t                         cmd,
+                                               const sx_sb_snapshot_trigger_enable_object_t *object_p);
+
+
+/**
+ * This API returns a list of snapshot objects as per object type.
+ *
+ * Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param[in] handle            - SX-API handle
+ * @param[in] cmd               - supported commands:GET/GET_FIRST/GETNEXT
+ * @param[in] object_key_p      - A reference snapshot trigger enable object key
+ * @param[in] filter_p          - Return only enabled object that match this filter param if valid
+ * @param[out] object_list_p    - return list of objects
+ * @param[in,out] object_cnt_p  - [in] number of objects to get (when object_cnt_p=0 will get number of all valid objects per type)
+ *                                [out] number of objects retrieved
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if any input parameter is NULL
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in database
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_CMD_UNSUPPORTED if invalid cmd is passed
+ * @return SX_STATUS_DB_NOT_INITIALIZED if internal database is not initialized
+ *
+ *
+ * The following use case scenarios apply with different input parameters. X = don't-care.
+ * - 1) cmd = SX_ACCESS_CMD_GET, key = (type,port=X,tc_pg=X), filter = X, list = X, count = 0:
+ *        In this case, the API will return the total number of snapshot enabled object count from internal database.
+ *
+ * - 2) cmd = SX_ACCESS_CMD_GET, key = valid/(type,port=X,tc_pg=X), filter = X, list = Valid, count = 1:
+ *        In this case, the API will check if the specified key exists. If it does, the key will be returned in the list along
+ *        with a count of 1. If the key does not exist, an empty list will be returned with count = 0.
+ *
+ * - 3) cmd = SX_ACCESS_CMD_GET, key = valid, filter = X, list = valid, count > 1:
+ *        A count > 1 will be treated as a count of 1 and the behaviour will be the same as earlier GET use cases.
+ *
+ * - 4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = (type,port=X,tc_pg=X), filter = X, list = NULL, count = 0:
+ *        For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT,a zero count will return an empty list.
+ *
+ * - 5) cmd = SX_ACCESS_CMD_GET_FIRST, key = (type,port=X,tc_pg=X), filter = X, list = valid, count > 0:
+ *        In this case, the API will return the first snapshot enabled object starting from the head of the database. The total
+ *        elements fetched will be returned as the return count.
+ *
+ *        Note: Return count may be less than or equal to the requested count. The key must have type the rest is dont-care but
+ *        a non-NULL return list pointer must be provided.
+ *
+ * - 6) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/(type,port=X,tc_pg=X), filter = X, list = valid, count > 0:
+ *        In this case, the API will return the next set of snapshot enabled objects starting from the next valid snapshot enabled
+ *        object after the specified key. The total elements fetched will be returned as the return count.
+ *
+ *        Note: Return count may be less than or equal to the requested count. If no valid next counter exists in the database
+ *        (key = end of list, or invalid key specified, or key too large), an empty list will be returned.
+ */
+sx_status_t sx_api_cos_sb_snapshot_trigger_iter_get(const sx_api_handle_t                        handle,
+                                                    const sx_access_cmd_t                        cmd,
+                                                    sx_sb_snapshot_trigger_enable_object_t      *object_key_p,
+                                                    sx_sb_snapshot_trigger_enable_iter_filter_t *filter_p,
+                                                    sx_sb_snapshot_trigger_enable_object_t      *object_list_p,
+                                                    uint32_t                                    *object_cnt_p);
+
+
+/**
+ * This API enables to take SW snapshot action which change the snapshot state to taken and the buffer counters to stop updating.
+ * In this state the following can be done:
+ *  1. Configure HW triggers.
+ *  2. Read snapshot information and statistics.
+ * Snapshot action release will release the lock and the counters will resume updating again.
+ *
+ *
+ * Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param[in] handle   - SX-API handle
+ * @param[in] action   - Snapshot action
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_CMD_UNPERMITTED if shared buffer bulk counter transaction is in progress
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ */
+sx_status_t sx_api_cos_sb_snapshot_action_set(const sx_api_handle_t         handle,
+                                              const sx_sb_snapshot_action_e action);
+
+
+/**
+ * This API gets the snapshot status and information related to the latest snapshot.
+ *
+ * Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param[in] handle   - SX-API handle
+ * @param[out] snapshot_info_p    - return snapshot information(status, latest trigger and timestamp)
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ */
+sx_status_t sx_api_cos_sb_snapshot_info_get(const sx_api_handle_t         handle,
+                                            sx_sb_snapshot_information_t *snapshot_info_p);
 
 
 #endif /* __SX_API_COS_H__ */

@@ -372,6 +372,56 @@ sx_status_t sx_api_port_mtu_get(const sx_api_handle_t  handle,
                                 sx_port_mtu_t         *oper_mtu_size_p);
 
 /**
+ * This API controls enabling of the port ingress truncation mode and sets the truncation size of packets that ingress the port.
+ * Note: - Ingress MTU discard is not functional on a Port with Ingress Truncation enabled.
+ *       - Truncation size minimal value is 128B with granularity of 8 bytes.
+ *       - The packets will be truncated to "size-4B" (4B for CRC).
+ *       - The ingress MTU size will be minimum of [MTU, truncation size].
+ *       - In case MTU size < truncation size, SDK will round up MTU value to a valid
+ *         truncation size and will return the MTU to it's original value once truncation is disabled.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ * @param[in] handle   - SX-API handle
+ * @param[in] cmd      - SET/UNSET
+ * @param[in] log_port - Logical Port ID
+ * @param[in] truncation_p - The truncation attributes configured on this port.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ */
+sx_status_t sx_api_port_ingress_truncation_set(const sx_api_handle_t       handle,
+                                               const sx_access_cmd_t       cmd,
+                                               const sx_port_log_id_t      log_port,
+                                               const sx_port_truncation_t *truncation_p);
+
+/**
+ * This API gets the given port's ingress truncation mode state.
+ * When enabled, the API will return the size to which ingress packets will be truncated to.
+ * When disabled, the truncation size will be returned as 0.
+ * Note: The packets are truncated to truncation size -4B for the CRC.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ * @param[in] handle   - SX-API handle
+ * @param[in] cmd      - GET
+ * @param[in] log_port - Logical Port ID
+ * @param[out] truncation_p - Truncation attributes pointer.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ */
+sx_status_t sx_api_port_ingress_truncation_get(const sx_api_handle_t  handle,
+                                               const sx_access_cmd_t  cmd,
+                                               const sx_port_log_id_t log_port,
+                                               sx_port_truncation_t  *truncation_p);
+
+/**
  * This API sets the port type & speed. This API enables the application to set the port enabled mode(s).
  * When the link is up, the current active protocol is retrieved (after SET).
  * When the link is down, the supported protocols are retrieved (after SET).
@@ -1515,64 +1565,21 @@ sx_status_t sx_api_port_vport_counter_bind_get(const sx_api_handle_t  handle,
                                                sx_flow_counter_id_t  *flow_counter_id_p);
 
 /**
- * \deprecated This API is deprecated and will be removed in the future.
+ * This API sets the port's PHY mode in the SDK.
  *
- * This API sets the mirroring state for a virtual port. Currently only ingress direction is supported.
+ * Note: 1. Changing the FEC mode of 25GbE speed also sets 50GbE speed mode and vice versa.
+ *       2. When changing FEC mode, the new setting will only apply after link training has succeeded.
+ *          This can be achieved by toggling the port admin state (down-up).
+ *       3. It is recommended to query the supported FEC capabilities before attempting to set a new mode.
+ *          Attempting to set an unsupported FEC mode will be ignored, and the API will return a success.
+ *
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle            - SX-API handle
- * @param[in] virtual_port      - Mirroring VPort
- * @param[in] mirror_direction  - Ingress/egress
- * @param[in] mirror_mode       - Enabled/disabled
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
- * @return SX_STATUS_ENTRY_NOT_FOUND if virtual_port is not found in database
- * @return SX_STATUS_ERROR if unexpected behavior occurs
- **/
-
-sx_status_t sx_api_port_vport_mirror_set(const sx_api_handle_t       handle,
-                                         const sx_port_log_id_t      virtual_port,
-                                         const sx_mirror_direction_t mirror_direction,
-                                         const sx_mirror_mode_t      mirror_mode);
-
-
-/**
- * \deprecated This API is deprecated and will be removed in the future.
- *
- * This API gets the mirroring mode for a virtual port by direction. Currently only ingress direction is supported.
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
- *
- * @param[in] handle           - SX-API handle
- * @ param[in] virtual_port    - Mirroring VPort
- * @param[in] mirror_direction - Ingress/egress
- * @param[out] mirror_mode_p   - Returned mirroring mode
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
- * @return SX_STATUS_ENTRY_NOT_FOUND if virtual_port is not found in database
- * @return SX_STATUS_ERROR if unexpected behaviour occurs
- **/
-sx_status_t sx_api_port_vport_mirror_get(const sx_api_handle_t       handle,
-                                         const sx_port_log_id_t      virtual_port,
-                                         const sx_mirror_direction_t mirror_direction,
-                                         sx_mirror_mode_t           *mirror_mode_p);
-
-/**
- * This API sets the port's phy mode in the SDK.
- *
- * Note: Changing the FEC mode of 25GbE speed also sets 50GbE speed mode and vice versa.
- * Note: When changing FEC mode, the new setting will only apply after link training has succeeded
- *       This can be achieved by toggling the port admin state (down-up)
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
- *
- * @param[in] handle   - SX-API handle
- * @param[in] log_port - Logical Port ID
- * @param[in] speed    - Phy Speed
- * @param[in] mode     - New phy admin mode
+ * @param[in] log_port          - Logical Port ID
+ * @param[in] speed             - PHY Speed
+ * @param[in] admin_mode    - New PHY admin mode
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
@@ -2294,7 +2301,7 @@ sx_status_t sx_mgmt_phy_mod_pwr_attr_set(const sx_api_handle_t             handl
  *
  * @param[in] handle         - SX-API handle
  * @param[in] module_id      - Module ID
- * @param[in/out] pwr_attr_p – Phy module power attribute
+ * @param[in/out] pwr_attr_p - Phy module power attribute
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received

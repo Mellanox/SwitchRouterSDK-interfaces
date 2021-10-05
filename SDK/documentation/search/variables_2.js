@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['immediate_5fvalue',['immediate_value',['../structsx__flex__modifier__emt__data.html#a86e252f67856bb16f908d49f240c1983',1,'sx_flex_modifier_emt_data']]]
+  ['congestion_5fthresh_5fhi',['congestion_thresh_hi',['../structsx__ar__congestion__threshold__values.html#ae77e3c56dda3daaf1767420c90274d5d',1,'sx_ar_congestion_threshold_values']]],
+  ['congestion_5fthresh_5flo',['congestion_thresh_lo',['../structsx__ar__congestion__threshold__values.html#aa660e7446274b66037ce55b40361b3a9',1,'sx_ar_congestion_threshold_values']]],
+  ['congestion_5fthresh_5fmed',['congestion_thresh_med',['../structsx__ar__congestion__threshold__values.html#aafad0d638555f013d4bf8073b3a018f5',1,'sx_ar_congestion_threshold_values']]]
 ];
