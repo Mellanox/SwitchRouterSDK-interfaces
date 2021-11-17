@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.1006</span>
+   &#160;<span id="projectnumber">4.5.1152</span>
    </div>
   </td>
  </tr>
@@ -181,6 +181,8 @@ Functions</h2></td></tr>
 <tr class="separator:adfb5216bf594357e8c6067bebd65d511"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa14ff3de7ade2aa6f5af206fda62fa26"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#aa14ff3de7ade2aa6f5af206fda62fa26">sx_api_acl_flex_rules_priority_set</a> (const sx_api_handle_t handle, const sx_acl_region_id_t region_id, const sx_flex_acl_rule_priority_t min_priority, const sx_flex_acl_rule_priority_t max_priority, const int32_t priority_change)</td></tr>
 <tr class="separator:aa14ff3de7ade2aa6f5af206fda62fa26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c96c801de30c35d6dabeefb4e163479"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a5c96c801de30c35d6dabeefb4e163479">sx_api_acl_activity_notify</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flex_acl_activity_notify_attr_t *activity_attr_p)</td></tr>
+<tr class="separator:a5c96c801de30c35d6dabeefb4e163479"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="aadfc89bd1ed719720aef093a6d27aef0"></a>
@@ -3436,11 +3438,61 @@ SX_STATUS_ENTRY_NOT_FOUND ACL element is not found in database </dd></dl>
 
 </div>
 </div>
+<a id="a5c96c801de30c35d6dabeefb4e163479"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c96c801de30c35d6dabeefb4e163479">&#9670;&nbsp;</a></span>sx_api_acl_activity_notify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_activity_notify </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_flex_acl_activity_notify_attr_t *&#160;</td>
+          <td class="paramname"><em>activity_attr_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API triggers a notification of ACL rules activity. The application can listen for the SX_TRAP_ID_ACL_ACTIVITY Trap to get the data. The application can get multiple trap events per a notification procedure. If entry_cnt in trap event is 0, means it's the end of this notification procedure. If DDD is enabled, region id filtering is not allowed. In this case, will return SX_STATUS_PARAM_ERROR if filter_by_region_id is valid in activity_attr_p. Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ/READ_CLEAR </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">activity_attr</td><td>- Activity notifier attribute</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if parameter is invalid </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE if a notification procedure is already running. </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 5 2021 00:47:58 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Nov 13 2021 16:11:16 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

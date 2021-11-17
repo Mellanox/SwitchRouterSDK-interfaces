@@ -1429,5 +1429,26 @@ sx_status_t sx_api_acl_flex_rules_priority_set(const sx_api_handle_t            
                                                const sx_flex_acl_rule_priority_t max_priority,
                                                const int32_t                     priority_change);
 
+/**
+ * This API triggers a notification of ACL rules activity.
+ * The application can listen for the SX_TRAP_ID_ACL_ACTIVITY Trap to get the data.
+ * The application can get multiple trap events per a notification procedure.
+ * If entry_cnt in trap event is 0, means it's the end of this notification procedure.
+ * If DDD is enabled, region id filtering is not allowed. In this case,
+ * will return SX_STATUS_PARAM_ERROR if filter_by_region_id is valid in activity_attr_p.
+ * Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param[in] handle            - SX-API handle
+ * @param[in] cmd               - READ/READ_CLEAR
+ * @param[in] activity_attr     - Activity notifier attribute
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if parameter is invalid
+ * @return SX_STATUS_RESOURCE_IN_USE if a notification procedure is already running.
+ * @return SX_STATUS_ERROR general error
+ */
+sx_status_t sx_api_acl_activity_notify(const sx_api_handle_t                     handle,
+                                       const sx_access_cmd_t                     cmd,
+                                       const sx_flex_acl_activity_notify_attr_t *activity_attr_p);
 
 #endif /* ifndef __SX_API_ACL_H__ */
