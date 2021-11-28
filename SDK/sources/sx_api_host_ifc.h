@@ -265,6 +265,38 @@ sx_status_t sx_api_host_ifc_trap_group_iter_get(const sx_api_handle_t         ha
                                                 sx_trap_group_t              *trap_group_id_list_p,
                                                 uint32_t                     *trap_group_id_cnt_p);
 
+
+/**
+ * \deprecated This API is deprecated and will be removed in the future. Please use sx_api_host_ifc_trap_id_ext_set in its place.
+ *
+ * This API configures traps/event properties for each device in the system:
+ *       Map Trap ID/Event ID to Priority group.
+ *       Configure trap action (for traps only).
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ * @param[in]     handle        - SX-API handle
+ * @param[in]     swid          - Switch ID
+ * @param[in]     trap_id       - Trap ID.
+ * @param[in]     trap_group    - Trap group handle.
+ * @param[in]     trap_action   - Trap action.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
+ * @return SX_STATUS_ERROR general error
+ * @return SX_STATUS_MEMORY_ERROR error handling memory
+ * @return SX_STATUS_NO_RESOURCES device was not opened
+ *
+ * Note: When configuring trap_id of SX_TRAP_ID_ETH_L2_PACKET_SAMPLING /SX_TRAP_ID_GENERAL_FDB /SX_TRAP_ID_ACL/SX_TRAP_ID_IPTRAP,
+ *       trap_action field is ignored. Instead, the action should be configured in each module.
+ *
+ */
+sx_status_t sx_api_host_ifc_trap_id_set(const sx_api_handle_t  handle,
+                                        const sx_swid_t        swid,
+                                        const sx_trap_id_t     trap_id,
+                                        const sx_trap_group_t  trap_group,
+                                        const sx_trap_action_t trap_action);
+
 /**
  * This API configures traps/event properties for each device in the system: Map Trap ID/Event ID to 1 of the 3 Priority groups,
  * HIGH, MEDIUM, LOW. It configures trap action (for traps only).
@@ -619,30 +651,15 @@ sx_status_t sx_api_host_ifc_policer_bind_get(const sx_api_handle_t handle,
 /**
  * This API gets host interface counters.
  *
- * To fetch all the trap id/trap group counters via range filters, provide start as '0' and
- * end as max of trap id/trap group
  * Note: Due to hardware limitations, this API may have some counter inconsistency for trap IDs that belong to both the regular
  *   and the monitor trap group simultaneously. Use sx_api_host_ifc_trap_group_stat_get to get accurate values.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in]     handle         - SX-API handle
  * @param[in]     cmd            - READ/READ_CLEAR
  * @param[in]     filter_p       - Filter to determine which counters to get
  * @param[out]    host_ifc_cnt_p - Host interface counters
- *
- *                Following are allowed filter types (filter_p->counter_type), values(filter_p->u_counter_type)  in request and its corresponding
- *                host interface counters(host_ifc_cnt_p)
- *                Filter type                               Filter Value                        Counters
- *                ==========================================================================================================================
- *                HOST_IFC_COUNTER_TYPE_TRAP_GROUP_E        u_counter_type.trap_group           trap_group_counters
- *                                                          array of trap groups                array of counters for valid trap groups
- *                HOST_IFC_COUNTER_TYPE_TRAP_ID_E           u_counter_type.trap_id              trap_id_counters
- *                                                          array of trap ids                   array of counters for valid trap ids
- *                HOST_IFC_COUNTER_TYPE_TRAP_GROUP_RANGE_E  u_counter_type.trap_group_range     trap_group_counters
- *                                                          trap group range                    array of counters
- *                HOST_IFC_COUNTER_TYPE_TRAP_ID_RANGE_E     u_counter_type.trap_id              trap_id_counters
- *                                                          trap id range                       array of counters
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_NULL if any input parameters is null

@@ -301,7 +301,6 @@ sx_status_t sx_api_router_vrid_iter_get(const sx_api_handle_t   handle,
  * @return SX_STATUS_ENTRY_NOT_FOUND if router interface was not added
  * @return SX_STATUS_NO_RESOURCES if no interface is available to create
  * @return SX_STATUS_RESOURCE_IN_USE if router interface has routes
- * @return SX_STATUS_ENTRY_ALREADY_BOUND adaptive RIF is bound to bridge/VPORT.
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_router_interface_set(const sx_api_handle_t              handle,
@@ -1599,7 +1598,7 @@ sx_status_t sx_api_router_mc_route_counter_bind_get(const sx_api_handle_t    han
  * This API creates/destroys redirection between an ECMP (ecmp) and a destination ECMP (redirect_ecmp).
  *
  * Note: Only ECMP NVE containers can be redirected.
- * ECMP container ("ecmp") can be redirected to an ECMP container (redirect_ecmp) only if the following is true:
+ * ECMP container ("ecmp") can be redirected to an ECMP container (redirect_ecmp) only if the following wi true:
  *      1. ECMP container redirect_ecmp is not in use (the reference counter of ECMP container is equal 0) (e.g., there are no
  *          FDB entries that point to redirect_ecmp)
  *      2. redirect_ecmp is not redirected to any other ECMP and no other container is already redirected to redirect_ecmp.
@@ -1719,6 +1718,5 @@ sx_status_t sx_api_router_user_defined_lpm_tree_get(const sx_api_handle_t  handl
                                                     const sx_lpm_tree_id_t tree_id,
                                                     sx_lpm_tree_node_t   * nodes_list_p,
                                                     uint8_t              * nodes_cnt_p);
-
 
 #endif /* __SX_API_ROUTER_H__ */

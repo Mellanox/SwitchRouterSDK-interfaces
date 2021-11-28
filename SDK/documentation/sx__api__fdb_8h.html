@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.1152</span>
+   &#160;<span id="projectnumber">4.4.3360</span>
    </div>
   </td>
  </tr>
@@ -2047,7 +2047,6 @@ SX_STATUS_ERROR General error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000004">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future.</dd></dl>
 <p>This API maps VLANs to filtering databases for shared VLAN learning (SVL) between VLANs. If independent VLAN learning is desired, a single VLAN should be mapped to a single FID.</p>
 <p>ADD adds FID to VID mapping record to the selected SWID. DELETE deletes FID to VID mapping record from the selected SWID. DEF_FID value is added to the corresponding VLAN.</p>
 <p>Note: This API performs FDB flushing by FID before changing FID-to-VID mapping. Note: Only independent learning is supported in the current release. Note: This API is only valid in 802.1Q mode.</p>
@@ -2940,7 +2939,7 @@ SX_STATUS_ERROR General error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000008">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future.</dd></dl>
 <p>This API is used to retrieve flooding counters of the switch.</p>
 <p>Supported devices: N/A</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -2989,7 +2988,7 @@ SX_STATUS_ERROR General error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000006">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000009">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future.</dd></dl>
 <p>This API is used to clear flooding counters of the switch.</p>
 <p>Supported devices: N/A</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -4121,7 +4120,7 @@ SX_STATUS_ERROR General error </dd></dl>
 <p>When a logical port goes DOWN, the API can redirect UC traffic from this logical port to a tunnel, and once the port is UP again, the API can redirect UC traffic back to this port.</p>
 <p>The redirection is done by changing the destination according to protection_data of all UC FDB entries that match with protection_key.</p>
 <p>Redirecting FDB entries to/from a port updates the number of FDB entries on that port, but the limit of FDB entries is not enforced, so it may cause a state where the limit is exceeded.</p>
-<p>The API does not affect learnt FDB entries that were not processed before calling this API. In the CONTROL learn mode, the user should process notifications about each learnt FDB entry using sx_api_fdb_uc_mac_addr_set by himself. In the AUTO learn mode, SDK configures each learnt FDB entries according to the learning source (a port or a tunnel).</p>
+<p>The API does not affect aged and learnt FDB entries that were not processed before calling this API. In the CONTROL learn mode, the user should process notifications about each aged or learnt FDB entries using sx_api_fdb_uc_mac_addr_set by himself. In the AUTO learn mode, SDK removes each aged FDB entry and configures each learnt FDB entries according to the learning source (a port or a tunnel).</p>
 <p>Notes: The API should not be called during the ISSU process or during the FAST boot.</p>
 <p>Notes for Spectrum: The redirection from a logical port to a tunnel using a tunnel next-hop is the only supported redirection. In other words, the only valid combination of destinations is: protection_key.protection_object.dest_type == SX_FDB_UC_MAC_ADDR_DEST_TYPE_LOGICAL_PORT and protection_data.protection_object.dest_type == SX_FDB_UC_MAC_ADDR_DEST_TYPE_NEXT_HOP.</p>
 <p>Notes for Spectrum2, Spectrum3: Only the following redirection options are supported:</p><ul>
@@ -4154,7 +4153,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Nov 13 2021 16:11:16 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 14 2021 14:47:06 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
