@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.4.3360</span>
+   &#160;<span id="projectnumber">4.5.1154</span>
    </div>
   </td>
  </tr>
@@ -223,6 +223,14 @@ Functions</h2></td></tr>
 <tr class="separator:a9087240827c71784767eff7e591b6d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a838a4c56c946d32190c47848be10cca8"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a838a4c56c946d32190c47848be10cca8">sx_api_cos_elephant_detection_port_flows_data_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_cos_elephant_flow_id_t *flow_ids_list_p, sx_cos_elephant_flow_data_t *flow_data_list_p, uint32_t *list_cnt_p)</td></tr>
 <tr class="separator:a838a4c56c946d32190c47848be10cca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc7bdaad793cd417c798f5360c77ddcb"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#afc7bdaad793cd417c798f5360c77ddcb">sx_api_cos_sb_snapshot_trigger_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_sb_snapshot_trigger_enable_object_t *object_p)</td></tr>
+<tr class="separator:afc7bdaad793cd417c798f5360c77ddcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6b5284fec2228147ea51d8b2f34d90f"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#af6b5284fec2228147ea51d8b2f34d90f">sx_api_cos_sb_snapshot_trigger_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_sb_snapshot_trigger_enable_object_t *object_key_p, sx_sb_snapshot_trigger_enable_iter_filter_t *filter_p, sx_sb_snapshot_trigger_enable_object_t *object_list_p, uint32_t *object_cnt_p)</td></tr>
+<tr class="separator:af6b5284fec2228147ea51d8b2f34d90f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a321ba7e743d3dcd47b91b70fac094be1"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a321ba7e743d3dcd47b91b70fac094be1">sx_api_cos_sb_snapshot_action_set</a> (const sx_api_handle_t handle, const sx_sb_snapshot_action_e action)</td></tr>
+<tr class="separator:a321ba7e743d3dcd47b91b70fac094be1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8287a4568ff0362639550b490e4a80f3"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a8287a4568ff0362639550b490e4a80f3">sx_api_cos_sb_snapshot_info_get</a> (const sx_api_handle_t handle, sx_sb_snapshot_information_t *snapshot_info_p)</td></tr>
+<tr class="separator:a8287a4568ff0362639550b490e4a80f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a75fb421fa03095f214dbe8f465d9f9d2"></a>
@@ -2587,8 +2595,8 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets PTP shaper parameters.</p>
-<p>SET sets new shaper parameters DELETE resets shaper parameters to default</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>SET sets new shaper parameters. DELETE resets shaper parameters to default.</p>
+<p>Supported devices: Spectrum.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2598,11 +2606,13 @@ SX_STATUS_ERROR General error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS If operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR If input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR General error </dd></dl>
+SX_STATUS_ERROR General error </dd>
+<dd>
+SX_STATUS_UNSUPPORTED Unsupported device </dd></dl>
 
 </div>
 </div>
@@ -2645,7 +2655,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves PTP shaper parameters.</p>
 <p>GET retrieves current shaper parameters.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2655,11 +2665,13 @@ SX_STATUS_ERROR General error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS If operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR If input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR General error </dd></dl>
+SX_STATUS_ERROR General error </dd>
+<dd>
+SX_STATUS_UNSUPPORTED Unsupported device </dd></dl>
 
 </div>
 </div>
@@ -2918,7 +2930,7 @@ SX_STATUS_ERROR General error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Use sx_api_cos_redecn_log_verbosity_level_set in its place. This API sets the log verbosity level of REDECN module.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Use sx_api_cos_redecn_log_verbosity_level_set in its place. This API sets the log verbosity level of REDECN module.</dd></dl>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3074,8 +3086,8 @@ SX_STATUS_ERROR General error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets global configuration of ECN and RED.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets global configuration of ECN, RED and ECE.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3116,8 +3128,8 @@ SX_STATUS_ERROR General error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets global configuration of ECN and RED.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API gets global configuration of ECN, RED and ECE.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3284,8 +3296,8 @@ SX_STATUS_ERROR General error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API enables/disables RED and ECN for traffic classes.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API enables/disables RED, ECN and ECE for traffic classes.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3341,7 +3353,7 @@ SX_STATUS_ERROR General error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets RED and ECN enabled parameters of a traffic class.</p>
+<p>This API gets RED, ECN and ECE enabled parameters of a traffic class.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3415,9 +3427,9 @@ SX_STATUS_ERROR General error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API binds RED and ECN profiles to the traffic class and traffic type (TCP/non-TCP, color).</p>
+<p>This API binds RED, ECN and ECE profiles to the traffic class and traffic type (TCP/non-TCP, color).</p>
 <p>BIND binds a port+TC+flow to a profile. UNBIND unbinds a port+TC+flow from a profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3481,8 +3493,8 @@ SX_STATUS_ERROR General error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves the binding of RED/ECN profiles configuration for a given egress port and traffic class.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API retrieves the binding of RED/ECN/ECE profiles configuration for a given egress port and traffic class.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3538,7 +3550,7 @@ SX_STATUS_ERROR General error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000006">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This API sets the rate based configuration for RED/ECN.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000002">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This API sets the rate based configuration for RED/ECN.</dd></dl>
 <p>Supported devices: Currently this API is not supported.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3594,7 +3606,7 @@ SX_STATUS_ERROR General error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000007">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This API gets the rate based configuration for RED/ECN.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000003">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This API gets the rate based configuration for RED/ECN.</dd></dl>
 <p>Supported devices: Currently this API is not supported.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3756,6 +3768,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the RED/ECN counter for a specific egress_port.</p>
+<p>Note: tc_ecn_marked_packet is supported in Spectrum3 and above.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3766,9 +3779,9 @@ SX_STATUS_ERROR General error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS If operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR If input parameter is invalid </dd>
 <dd>
 SX_STATUS_ERROR General error </dd></dl>
 
@@ -4364,11 +4377,243 @@ SX_STATUS_ERROR for a general error </dd></dl>
 
 </div>
 </div>
+<a id="afc7bdaad793cd417c798f5360c77ddcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc7bdaad793cd417c798f5360c77ddcb">&#9670;&nbsp;</a></span>sx_api_cos_sb_snapshot_trigger_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_sb_snapshot_trigger_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_sb_snapshot_trigger_enable_object_t *&#160;</td>
+          <td class="paramname"><em>object_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API configures snapshot trigger on a snapshot object. This configuration can be applied on a per port TC, port PG, or a port basis depending on the snapshot trigger type.</p>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET/DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">object_p</td><td>- Snapshot trigger enable object</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR if unexpected behavior occurs </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
+
+</div>
+</div>
+<a id="af6b5284fec2228147ea51d8b2f34d90f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6b5284fec2228147ea51d8b2f34d90f">&#9670;&nbsp;</a></span>sx_api_cos_sb_snapshot_trigger_iter_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_sb_snapshot_trigger_iter_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_sb_snapshot_trigger_enable_object_t *&#160;</td>
+          <td class="paramname"><em>object_key_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_sb_snapshot_trigger_enable_iter_filter_t *&#160;</td>
+          <td class="paramname"><em>filter_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_sb_snapshot_trigger_enable_object_t *&#160;</td>
+          <td class="paramname"><em>object_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>object_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API returns a list of snapshot objects as per object type.</p>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- supported commands:GET/GET_FIRST/GETNEXT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">object_key_p</td><td>- A reference snapshot trigger enable object key </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- Return only enabled object that match this filter param if valid </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">object_list_p</td><td>- return list of objects </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">object_cnt_p</td><td>- [in] number of objects to get (when object_cnt_p=0 will get number of all valid objects per type) [out] number of objects retrieved</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if any input parameter is NULL </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in database </dd>
+<dd>
+SX_STATUS_ERROR if unexpected behavior occurs </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if invalid cmd is passed </dd>
+<dd>
+SX_STATUS_DB_NOT_INITIALIZED if internal database is not initialized</dd></dl>
+<p>The following use case scenarios apply with different input parameters. X = don't-care.</p><ul>
+<li>1) cmd = SX_ACCESS_CMD_GET, key = (type,port=X,tc_pg=X), filter = X, list = X, count = 0: In this case, the API will return the total number of snapshot enabled object count from internal database.</li>
+<li>2) cmd = SX_ACCESS_CMD_GET, key = valid/(type,port=X,tc_pg=X), filter = X, list = Valid, count = 1: In this case, the API will check if the specified key exists. If it does, the key will be returned in the list along with a count of 1. If the key does not exist, an empty list will be returned with count = 0.</li>
+<li>3) cmd = SX_ACCESS_CMD_GET, key = valid, filter = X, list = valid, count &gt; 1: A count &gt; 1 will be treated as a count of 1 and the behaviour will be the same as earlier GET use cases.</li>
+<li>4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = (type,port=X,tc_pg=X), filter = X, list = NULL, count = 0: For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT,a zero count will return an empty list.</li>
+<li><p class="startli">5) cmd = SX_ACCESS_CMD_GET_FIRST, key = (type,port=X,tc_pg=X), filter = X, list = valid, count &gt; 0: In this case, the API will return the first snapshot enabled object starting from the head of the database. The total elements fetched will be returned as the return count.</p>
+<p class="startli">Note: Return count may be less than or equal to the requested count. The key must have type the rest is dont-care but a non-NULL return list pointer must be provided.</p>
+</li>
+<li><p class="startli">6) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/(type,port=X,tc_pg=X), filter = X, list = valid, count &gt; 0: In this case, the API will return the next set of snapshot enabled objects starting from the next valid snapshot enabled object after the specified key. The total elements fetched will be returned as the return count.</p>
+<p class="startli">Note: Return count may be less than or equal to the requested count. If no valid next counter exists in the database (key = end of list, or invalid key specified, or key too large), an empty list will be returned. </p>
+</li>
+</ul>
+
+</div>
+</div>
+<a id="a321ba7e743d3dcd47b91b70fac094be1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a321ba7e743d3dcd47b91b70fac094be1">&#9670;&nbsp;</a></span>sx_api_cos_sb_snapshot_action_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_sb_snapshot_action_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_sb_snapshot_action_e&#160;</td>
+          <td class="paramname"><em>action</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API enables to take SW snapshot action which change the snapshot state to taken and the buffer counters to stop updating. In this state the following can be done:</p><ol type="1">
+<li>Configure HW triggers.</li>
+<li>Read snapshot information and statistics. Snapshot action release will release the lock and the counters will resume updating again.</li>
+</ol>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">action</td><td>- Snapshot action</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR if unexpected behavior occurs </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED if shared buffer bulk counter transaction is in progress </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
+
+</div>
+</div>
+<a id="a8287a4568ff0362639550b490e4a80f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8287a4568ff0362639550b490e4a80f3">&#9670;&nbsp;</a></span>sx_api_cos_sb_snapshot_info_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_cos_sb_snapshot_info_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_sb_snapshot_information_t *&#160;</td>
+          <td class="paramname"><em>snapshot_info_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API gets the snapshot status and information related to the latest snapshot.</p>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">snapshot_info_p</td><td>- return snapshot information(status, latest trigger and timestamp)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_ERROR if unexpected behavior occurs </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 14 2021 14:47:06 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 28 2021 19:04:58 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

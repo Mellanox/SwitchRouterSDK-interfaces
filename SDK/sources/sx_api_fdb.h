@@ -789,6 +789,8 @@ sx_status_t sx_api_fdb_flush_by_type_set(const sx_api_handle_t  handle,
 
 
 /**
+ * \deprecated This API is deprecated and will be removed in the future.
+ *
  * This API maps VLANs to filtering databases for shared VLAN learning (SVL) between VLANs.
  * If independent VLAN learning is desired, a single VLAN should be mapped to a single FID.
  *
@@ -1611,11 +1613,11 @@ sx_status_t sx_api_fdb_mc_ip_addr_group_activity_notify(const sx_api_handle_t   
  *  Redirecting FDB entries to/from a port updates the number of FDB entries on that port,
  *  but the limit of FDB entries is not enforced, so it may cause a state where the limit is exceeded.
  *
- *  The API does not affect aged and learnt FDB entries that were not processed before calling this API.
- *  In the CONTROL learn mode, the user should process notifications about each aged or learnt FDB entries
- *  using sx_api_fdb_uc_mac_addr_set by himself.
- *  In the AUTO learn mode, SDK removes each aged FDB entry and configures each learnt FDB entries
- *  according to the learning source (a port or a tunnel).
+ *  The API does not affect learnt FDB entries that were not processed before calling this API.
+ *  In the CONTROL learn mode, the user should process notifications about each learnt FDB entry using
+ *  sx_api_fdb_uc_mac_addr_set by himself.
+ *  In the AUTO learn mode, SDK configures each learnt FDB entries according to the learning source (a
+ *  port or a tunnel).
  *
  *  Notes:
  *    The API should not be called during the ISSU process or during the FAST boot.

@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['emt_5fdata_5fcnt',['emt_data_cnt',['../structsx__flex__modifier__emt__cfg.html#aa2947f600d3316b6455b5ed06c9e6345',1,'sx_flex_modifier_emt_cfg']]],
-  ['emt_5fdata_5flist',['emt_data_list',['../structsx__flex__modifier__emt__cfg.html#ae078df82e7b2351ba26264ecde751806',1,'sx_flex_modifier_emt_cfg']]],
-  ['emt_5fid',['emt_id',['../structsx__flex__modifier__emt__key.html#a6867a8dfd411a49c19bf7da660752cf9',1,'sx_flex_modifier_emt_key']]],
-  ['emt_5fupdate_5fcnt',['emt_update_cnt',['../structsx__flex__modifier__emt__cfg.html#aff969a9cec25b5fa826aed2ed3bbb648',1,'sx_flex_modifier_emt_cfg']]],
-  ['emt_5fupdate_5flist',['emt_update_list',['../structsx__flex__modifier__emt__cfg.html#a703fb21445f3ecd98afeaaabd882911a',1,'sx_flex_modifier_emt_cfg']]]
+  ['congestion_5fthresh_5fhi',['congestion_thresh_hi',['../structsx__ar__congestion__threshold__values.html#ae77e3c56dda3daaf1767420c90274d5d',1,'sx_ar_congestion_threshold_values']]],
+  ['congestion_5fthresh_5flo',['congestion_thresh_lo',['../structsx__ar__congestion__threshold__values.html#aa660e7446274b66037ce55b40361b3a9',1,'sx_ar_congestion_threshold_values']]],
+  ['congestion_5fthresh_5fmed',['congestion_thresh_med',['../structsx__ar__congestion__threshold__values.html#aafad0d638555f013d4bf8073b3a018f5',1,'sx_ar_congestion_threshold_values']]]
 ];

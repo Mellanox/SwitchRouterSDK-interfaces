@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.4.3360</span>
+   &#160;<span id="projectnumber">4.5.1154</span>
    </div>
   </td>
  </tr>
@@ -111,6 +111,10 @@ Functions</h2></td></tr>
 <tr class="separator:a177cc12ea300d6609cfce0d2affecbb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30b32059620165e64aea03eeb674ffc0"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a30b32059620165e64aea03eeb674ffc0">sx_api_port_mtu_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_mtu_t *max_mtu_size_p, sx_port_mtu_t *oper_mtu_size_p)</td></tr>
 <tr class="separator:a30b32059620165e64aea03eeb674ffc0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a367bff148b952a11aeb33287ac9aa299"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a367bff148b952a11aeb33287ac9aa299">sx_api_port_ingress_truncation_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_port_truncation_t *truncation_p)</td></tr>
+<tr class="separator:a367bff148b952a11aeb33287ac9aa299"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a3d5ceb5663b3f8474c78af325c37b0"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a2a3d5ceb5663b3f8474c78af325c37b0">sx_api_port_ingress_truncation_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_truncation_t *truncation_p)</td></tr>
+<tr class="separator:a2a3d5ceb5663b3f8474c78af325c37b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1eb11c6043ef0aaf7941b424c00bb2e9"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a1eb11c6043ef0aaf7941b424c00bb2e9">sx_api_port_speed_admin_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_speed_capability_t *admin_speed_p)</td></tr>
 <tr class="separator:a1eb11c6043ef0aaf7941b424c00bb2e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9903aa3a1fec695b1df5a1afd9cce1fb"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a9903aa3a1fec695b1df5a1afd9cce1fb">sx_api_port_speed_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_speed_capability_t *admin_speed_p, sx_port_oper_speed_t *oper_speed_p)</td></tr>
@@ -209,10 +213,6 @@ Functions</h2></td></tr>
 <tr class="separator:ae4b08efe8e636733ebce2910ea3f14ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53a335bd4164f0d7b0ec3dd5ef0b4e86"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a53a335bd4164f0d7b0ec3dd5ef0b4e86">sx_api_port_vport_counter_bind_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t virtual_port, sx_flow_counter_id_t *flow_counter_id_p)</td></tr>
 <tr class="separator:a53a335bd4164f0d7b0ec3dd5ef0b4e86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e385909330b1a91c195bdfcfccf2ce5"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a6e385909330b1a91c195bdfcfccf2ce5">sx_api_port_vport_mirror_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t virtual_port, const sx_mirror_direction_t mirror_direction, const sx_mirror_mode_t mirror_mode)</td></tr>
-<tr class="separator:a6e385909330b1a91c195bdfcfccf2ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb429aafa04ed85e5067e1c260330cf8"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#afb429aafa04ed85e5067e1c260330cf8">sx_api_port_vport_mirror_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t virtual_port, const sx_mirror_direction_t mirror_direction, sx_mirror_mode_t *mirror_mode_p)</td></tr>
-<tr class="separator:afb429aafa04ed85e5067e1c260330cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7497db77430915b70638c5643044a66"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#ae7497db77430915b70638c5643044a66">sx_api_port_phy_mode_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_phy_speed_t speed, const sx_port_phy_mode_t admin_mode)</td></tr>
 <tr class="separator:ae7497db77430915b70638c5643044a66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af025d901dace3b52c1c96874cdb54250"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#af025d901dace3b52c1c96874cdb54250">sx_api_port_phy_mode_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_phy_speed_t speed, sx_port_phy_mode_t *admin_mode_p, sx_port_phy_mode_t *oper_mode_p)</td></tr>
@@ -1224,6 +1224,129 @@ SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
+
+</div>
+</div>
+<a id="a367bff148b952a11aeb33287ac9aa299"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a367bff148b952a11aeb33287ac9aa299">&#9670;&nbsp;</a></span>sx_api_port_ingress_truncation_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_ingress_truncation_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_truncation_t *&#160;</td>
+          <td class="paramname"><em>truncation_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API controls enabling of the port ingress truncation mode and sets the truncation size of packets that ingress the port. Note: - Ingress MTU discard is not functional on a Port with Ingress Truncation enabled.</p><ul>
+<li>Truncation size minimal value is 128B with granularity of 8 bytes.</li>
+<li>The packets will be truncated to "size-4B" (4B for CRC).</li>
+<li>The ingress MTU size will be minimum of [MTU, truncation size].</li>
+<li>In case MTU size &lt; truncation size, SDK will round up MTU value to a valid truncation size and will return the MTU to it's original value once truncation is disabled.</li>
+</ul>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET/UNSET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical Port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">truncation_p</td><td>- The truncation attributes configured on this port.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
+
+</div>
+</div>
+<a id="a2a3d5ceb5663b3f8474c78af325c37b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a3d5ceb5663b3f8474c78af325c37b0">&#9670;&nbsp;</a></span>sx_api_port_ingress_truncation_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_ingress_truncation_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_truncation_t *&#160;</td>
+          <td class="paramname"><em>truncation_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API gets the given port's ingress truncation mode state. When enabled, the API will return the size to which ingress packets will be truncated to. When disabled, the truncation size will be returned as 0. Note: The packets are truncated to truncation size -4B for the CRC.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical Port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">truncation_p</td><td>- Truncation attributes pointer.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
 
 </div>
 </div>
@@ -4131,123 +4254,6 @@ SX_STATUS_ENTRY_NOT_FOUND if VPort or flow counter do not exist </dd></dl>
 
 </div>
 </div>
-<a id="a6e385909330b1a91c195bdfcfccf2ce5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e385909330b1a91c195bdfcfccf2ce5">&#9670;&nbsp;</a></span>sx_api_port_vport_mirror_set()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_port_vport_mirror_set </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_port_log_id_t&#160;</td>
-          <td class="paramname"><em>virtual_port</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_mirror_direction_t&#160;</td>
-          <td class="paramname"><em>mirror_direction</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_mirror_mode_t&#160;</td>
-          <td class="paramname"><em>mirror_mode</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000011">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future.</dd></dl>
-<p>This API sets the mirroring state for a virtual port. Currently only ingress direction is supported.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">virtual_port</td><td>- Mirroring VPort </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mirror_direction</td><td>- Ingress/egress </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mirror_mode</td><td>- Enabled/disabled</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if virtual_port is not found in database </dd>
-<dd>
-SX_STATUS_ERROR if unexpected behavior occurs </dd></dl>
-
-</div>
-</div>
-<a id="afb429aafa04ed85e5067e1c260330cf8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb429aafa04ed85e5067e1c260330cf8">&#9670;&nbsp;</a></span>sx_api_port_vport_mirror_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_port_vport_mirror_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_port_log_id_t&#160;</td>
-          <td class="paramname"><em>virtual_port</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_mirror_direction_t&#160;</td>
-          <td class="paramname"><em>mirror_direction</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_mirror_mode_t *&#160;</td>
-          <td class="paramname"><em>mirror_mode_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000012">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future.</dd></dl>
-<p>This API gets the mirroring mode for a virtual port by direction. Currently only ingress direction is supported.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle @ param[in] virtual_port - Mirroring VPort </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mirror_direction</td><td>- Ingress/egress </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">mirror_mode_p</td><td>- Returned mirroring mode</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if virtual_port is not found in database </dd>
-<dd>
-SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
-
-</div>
-</div>
 <a id="ae7497db77430915b70638c5643044a66"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae7497db77430915b70638c5643044a66">&#9670;&nbsp;</a></span>sx_api_port_phy_mode_set()</h2>
 
@@ -4285,15 +4291,18 @@ SX_STATUS_ERROR if unexpected behaviour occurs </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the port's phy mode in the SDK.</p>
-<p>Note: Changing the FEC mode of 25GbE speed also sets 50GbE speed mode and vice versa. Note: When changing FEC mode, the new setting will only apply after link training has succeeded This can be achieved by toggling the port admin state (down-up)</p>
+<p>This API sets the port's PHY mode in the SDK.</p>
+<p>Note: 1. Changing the FEC mode of 25GbE speed also sets 50GbE speed mode and vice versa.</p><ol type="1">
+<li>When changing FEC mode, the new setting will only apply after link training has succeeded. This can be achieved by toggling the port admin state (down-up).</li>
+<li>It is recommended to query the supported FEC capabilities before attempting to set a new mode. Attempting to set an unsupported FEC mode will be ignored, and the API will return a success.</li>
+</ol>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical Port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">speed</td><td>- Phy Speed </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>- New phy admin mode</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">speed</td><td>- PHY Speed </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">admin_mode</td><td>- New PHY admin mode</td></tr>
   </table>
   </dd>
 </dl>
@@ -5620,7 +5629,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the Physical Medium Depended (PMD) port type. By default, all types are enabled. As such, this API allows to reduce the set of allowed port types.</p>
 <p>Supported devices: Spectrum2, Spectrum3.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000013">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_admin_type_set in its place.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000007">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_admin_type_set in its place.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5676,7 +5685,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 </div><div class="memdoc">
 <p>This API gets the operational Physical Medium Dependent port type.</p>
 <p>Supported devices: Spectrum2, Spectrum3.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000014">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_oper_type_get in its place.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000008">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_oper_type_get in its place.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5743,7 +5752,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the electrical interface types which are supported by module.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000015">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_capability_get in its place.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000009">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_capability_get in its place.</dd></dl>
 <p>Supported devices: Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -5980,7 +5989,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the power Mode of a module. This API internally disables and then enables the module with desired power mode setting. This disable and enable will result in additional PMAOS events.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000016">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_set in its place.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000010">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_set in its place.</dd></dl>
 <p>Note: By default, modules are initialized in low power mode and the module power mode is set as per EEPROM data in the initialization process. SX_MGT_PHY_MOD_PWR_MODE_AUTO_E mode is used to reset power mode to default value. Changing module power mode to SX_MGT_PHY_MOD_PWR_MODE_HIGH_E is not allowed. Note: This API supports only power attribute SX_MGMT_PHY_MOD_PWR_ATTR_PWR_MODE_E. Note: This API does not support changing the power attributes of backplane module.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -6036,13 +6045,13 @@ SX_STATUS_CMD_UNSUPPORTED if command is not SET </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the module power status.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000017">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_get in its place. Note: This API returns the operational power mode and admin power mode as SX_MGMT_PHY_MOD_PWR_MODE_INVALID_E when the module is not plugged in.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000011">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_get in its place. Note: This API returns the operational power mode and admin power mode as SX_MGMT_PHY_MOD_PWR_MODE_INVALID_E when the module is not plugged in.</dd></dl>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">module_id</td><td>- Module ID </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>pwr_attr_p – Phy module power attribute</td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>pwr_attr_p - Phy module power attribute</td></tr>
   </table>
   </dd>
 </dl>
@@ -6084,7 +6093,7 @@ SX_STATUS_PARAM_ERROR if a module parameter is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API resets the phy module.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000018">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_reset in its place.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000012">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_reset in its place.</dd></dl>
 <p>Note: Resetting the module might result in link flaps. Note: PMAOS events are generated during reset functionality.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -6170,7 +6179,7 @@ SX_STATUS_ERROR if the port mapping attribute retrieval failed. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 14 2021 14:47:06 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 28 2021 19:04:58 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

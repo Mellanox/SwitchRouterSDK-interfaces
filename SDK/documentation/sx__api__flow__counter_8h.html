@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.4.3360</span>
+   &#160;<span id="projectnumber">4.5.1154</span>
    </div>
   </td>
  </tr>
@@ -456,13 +456,14 @@ SX_STATUS_INVALID_HANDLE if called Invalid Handle </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets a list of flow counters.</p>
+<p>Note: The API can return up to SX_FLOW_COUNTER_ITER_GET_MAX counters. To get all the counters in the system, the API can be called first with the SX_ACCESS_CMD_GET_FIRST command, and then, if needed, it can be called with the SX_ACCESS_CMD_GETNEXT command multiple times until an empty list is returned.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_NEXT/GET_FIRST </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">counter_id_key</td><td>- Flow counter ID to use and key </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">counter_filter_p</td><td>- Filter to use (not supported yet) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">counter_filter_p</td><td>- Filter to use </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">counter_id_list_p</td><td>- Pointer to the list of flow counter IDs returned </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">counter_id_cnt_p</td><td>- [in] number of entries to retrieve/[out] retrieved number of entries.</td></tr>
   </table>
@@ -542,7 +543,7 @@ SX_STATUS_ENTRY_NOT_FOUND if an invalid counter was cleared </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 14 2021 14:47:06 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 28 2021 19:04:58 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
