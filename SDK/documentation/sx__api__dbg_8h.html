@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.1158</span>
+   &#160;<span id="projectnumber">4.5.1208</span>
    </div>
   </td>
  </tr>
@@ -91,6 +91,8 @@ Functions</h2></td></tr>
 <tr class="separator:ab44e0081d56ace2a3fb4b1905c168adf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07a4d339ead90f26bb557100ded9c5aa"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__dbg_8h.html#a07a4d339ead90f26bb557100ded9c5aa">sx_api_fw_dbg_test</a> (const sx_api_handle_t handle, const sx_dbg_test_params_t *params)</td></tr>
 <tr class="separator:a07a4d339ead90f26bb557100ded9c5aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c1e6f5463779cd20cb6cfbe50299afc"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__dbg_8h.html#a3c1e6f5463779cd20cb6cfbe50299afc">sx_api_dbg_fatal_failure_detection_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_dbg_health_sample_params_t *health_sample_params_p)</td></tr>
+<tr class="separator:a3c1e6f5463779cd20cb6cfbe50299afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a360b89af171824b953ac5be3ecd37a4c"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__dbg_8h.html#a360b89af171824b953ac5be3ecd37a4c">sx_api_dbg_api_logger_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_dbg_api_logger_params_t *params_p)</td></tr>
 <tr class="separator:a360b89af171824b953ac5be3ecd37a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54764dd1ab21695038b934b9c0cdca7e"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__dbg_8h.html#a54764dd1ab21695038b934b9c0cdca7e">sx_api_dbg_api_logger_get</a> (const sx_api_handle_t handle, sx_dbg_api_logger_params_t *params_p)</td></tr>
@@ -422,6 +424,64 @@ SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
+<a id="a3c1e6f5463779cd20cb6cfbe50299afc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c1e6f5463779cd20cb6cfbe50299afc">&#9670;&nbsp;</a></span>sx_api_dbg_fatal_failure_detection_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_dbg_fatal_failure_detection_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_dbg_health_sample_params_t *&#160;</td>
+          <td class="paramname"><em>health_sample_params_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API enable detection of SDK and FW failures. The mechanism will monitor and detect: SDK components health state, user space modules, kernel space modules and HW interfaces that SDK uses to communicate with HW, so if issue was found health event will be sent, in parallel the mechanism inform via SysFs ("kernel_health") on the liveness of the system.</p>
+<p>ENABLE trigger the health checks - it's not allowed to enable it during ISSU, during SDK initialization or during SDK shutdown in such case SDK will postpone automatically the health monitoring. DISABLE will cancel an active operation.</p>
+<p>Note: Upon ISSU / SDK deinit, health monitor mechanism will be disabled.</p>
+<p>Note: When cmd is ENABLE and health_sample_params_p is NULL SDK use default values, see sx_dbg_health_sample_params_t description</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ENABLE/DISABLE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dbg_sample_params_p</td><td>- Pointer to sample parameters</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS If operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR If any input parameter is invalid </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED If cmd is different then ENABLE/DISABLE </dd>
+<dd>
+SX_STATUS_SDK_NOT_INITIALIZED In case API sent with ENABLE during init </dd>
+<dd>
+SX_STATUS_ISSU_IN_PROGRESS In case API sent with ENABLE during ISSU </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE Any health sample parameter exceeds range limitation. </dd></dl>
+
+</div>
+</div>
 <a id="a360b89af171824b953ac5be3ecd37a4c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a360b89af171824b953ac5be3ecd37a4c">&#9670;&nbsp;</a></span>sx_api_dbg_api_logger_set()</h2>
 
@@ -525,7 +585,7 @@ SX_STATUS_ERROR General error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 5 2021 08:16:03 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 10 2021 12:37:16 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

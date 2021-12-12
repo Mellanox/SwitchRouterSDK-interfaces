@@ -314,4 +314,21 @@ sx_status_t sx_api_ar_shaper_rate_set(const sx_api_handle_t      handle,
 sx_status_t sx_api_ar_shaper_rate_get(const sx_api_handle_t handle,
                                       sx_ar_shaper_attr_t  *shaper_attr_p);
 
+/*
+ * This API retrieves adaptive routing global counters values.
+ *
+ * Supported devices: Spectrum2, Spectrum3
+ *
+ * @param[in] handle            - SX-API handle
+ * @param[in] cmd               - READ/READ_CLEAR
+ * @param[out] ar_counters_p    - Pointer to an AR global counter
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any other input error
+ * @return SX_STATUS_ERROR general error
+ */
+sx_status_t sx_api_ar_counters_get(const sx_api_handle_t    handle,
+                                   const sx_access_cmd_t    cmd,
+                                   sx_ar_global_counters_t *ar_counters_p);
+
 #endif /* ifndef __SX_API_ADAPTIVE_ROUTING_H__ */

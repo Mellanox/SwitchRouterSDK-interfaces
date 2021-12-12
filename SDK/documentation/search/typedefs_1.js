@@ -15,6 +15,7 @@ var searchData=
   ['sx_5far_5fclassifier_5ftype_5fe',['sx_ar_classifier_type_e',['../sx__ar__auto_8h.html#a75877bb7ca7d7ef229d1fe370082048b',1,'sx_ar_auto.h']]],
   ['sx_5far_5fcongestion_5fthreshold_5fattr_5ft',['sx_ar_congestion_threshold_attr_t',['../sx__ar__auto_8h.html#a8757b8cacea8d2e6983b46fdeb17e7fa',1,'sx_ar_auto.h']]],
   ['sx_5far_5fcongestion_5fthreshold_5fvalues_5ft',['sx_ar_congestion_threshold_values_t',['../sx__ar__auto_8h.html#a5490e4f4512f11955ada6c606c24327f',1,'sx_ar_auto.h']]],
+  ['sx_5far_5fglobal_5fcounters_5ft',['sx_ar_global_counters_t',['../sx__ar__auto_8h.html#a7c21b66ae780a614651107f17d63c78a',1,'sx_ar_auto.h']]],
   ['sx_5far_5fgrade_5fmode_5fe',['sx_ar_grade_mode_e',['../sx__ar__auto_8h.html#a2c195815c94ca3618ba82152af145613',1,'sx_ar_auto.h']]],
   ['sx_5far_5fgrade_5ft',['sx_ar_grade_t',['../sx__ar__auto_8h.html#a0bb30ada0f265490501de6dddcf2b84e',1,'sx_ar_auto.h']]],
   ['sx_5far_5finit_5fparams_5ft',['sx_ar_init_params_t',['../sx__ar__auto_8h.html#af67fb85870d0e5fe335c1af80f451d90',1,'sx_ar_auto.h']]],

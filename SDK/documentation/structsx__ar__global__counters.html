@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>NVIDIA Ethernet Switch SDK API Guide: sx_ar_congestion_threshold_attr Struct Reference</title>
+<title>NVIDIA Ethernet Switch SDK API Guide: sx_ar_global_counters Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -65,28 +65,30 @@ $(function() {
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
-<div class="title">sx_ar_congestion_threshold_attr Struct Reference</div>  </div>
+<div class="title">sx_ar_global_counters Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:afe0c6f989d28068595f6f37fdf7920e3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="sx__ar__auto_8h.html#a5490e4f4512f11955ada6c606c24327f">sx_ar_congestion_threshold_values_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsx__ar__congestion__threshold__attr.html#afe0c6f989d28068595f6f37fdf7920e3">port_threshold</a></td></tr>
-<tr class="separator:afe0c6f989d28068595f6f37fdf7920e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56c13f82156e3d5b28f18a72a582ea55"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsx__ar__global__counters.html#a56c13f82156e3d5b28f18a72a582ea55">ar_congestion_changes</a></td></tr>
+<tr class="separator:a56c13f82156e3d5b28f18a72a582ea55"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Field Documentation</h2>
-<a id="afe0c6f989d28068595f6f37fdf7920e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe0c6f989d28068595f6f37fdf7920e3">&#9670;&nbsp;</a></span>port_threshold</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>AR global counters. </p>
+</div><h2 class="groupheader">Field Documentation</h2>
+<a id="a56c13f82156e3d5b28f18a72a582ea55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56c13f82156e3d5b28f18a72a582ea55">&#9670;&nbsp;</a></span>ar_congestion_changes</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="sx__ar__auto_8h.html#a5490e4f4512f11955ada6c606c24327f">sx_ar_congestion_threshold_values_t</a> sx_ar_congestion_threshold_attr::port_threshold</td>
+          <td class="memname">uint64_t sx_ar_global_counters::ar_congestion_changes</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Port congestion threshold </p>
+<p>Count the number of adaptive routing change events which have been triggered due to congestion or due to link-down. </p>
 
 </div>
 </div>

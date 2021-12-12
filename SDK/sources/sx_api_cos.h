@@ -1570,6 +1570,41 @@ sx_status_t sx_api_cos_elephant_detection_port_flows_data_get(const sx_api_handl
                                                               sx_cos_elephant_flow_data_t     *flow_data_list_p,
                                                               uint32_t                        *list_cnt_p);
 
+/**
+ * This function sets one kind of Tunnel QoS Profile data type at a time: TTL, QoS or ECN.
+ * Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param[in]  handle            - SX-API handle
+ * @param[in]  cmd               - access commands: SX_ACCESS_CMD_SET
+ * @param[in]  profile_key_p     - a pointer. specifies which profile to set
+ * @param[in]  params_data_p     - a pointer to one of the three TQ profile data types and its selector
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if a null pointer was passed as input
+ * @return SX_STATUS_UNSUPPORTED if an unsupported profile key was passed an input
+ */
+sx_status_t sx_api_cos_tq_profile_set(const sx_api_handle_t           handle,
+                                      const sx_access_cmd_t           cmd,
+                                      const sx_cos_tq_profile_key_t  *profile_key_p,
+                                      const sx_cos_tq_profile_data_t *params_data_p);
+
+/**
+ * This function populate the out argument with a full TQ profile description: TTL, QoS and ECN.
+ * Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param[in]  handle            - SX-API handle
+ * @param[in]  profile_key_p     - a pointer. specifies which profile to set
+ * @param[out] params_data_p     - a pointer to a concrete profile entry to be populated
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if a null pointer was passed as input
+ * @return SX_STATUS_UNSUPPORTED if an unsupported profile key was passed an input
+ */
+sx_status_t sx_api_cos_tq_profile_get(const sx_api_handle_t           handle,
+                                      const sx_cos_tq_profile_key_t  *profile_key_p,
+                                      sx_cos_tq_profile_entry_type_t *profile_entry_p);
 
 /**
  * This API configures snapshot trigger on a snapshot object. This configuration can be applied on a per port TC, port PG, or a port basis
@@ -1686,6 +1721,5 @@ sx_status_t sx_api_cos_sb_snapshot_action_set(const sx_api_handle_t         hand
  */
 sx_status_t sx_api_cos_sb_snapshot_info_get(const sx_api_handle_t         handle,
                                             sx_sb_snapshot_information_t *snapshot_info_p);
-
 
 #endif /* __SX_API_COS_H__ */

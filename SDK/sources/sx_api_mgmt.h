@@ -83,6 +83,8 @@ sx_status_t sx_mgmt_slot_info_get(const sx_api_handle_t handle,
  * Note - Currently, this API supports applying and deleting the initialization config file for a slot.
  * Deleting(RESET) the initialization file can only be executed after all the port associated with slot are deleted.
  * If RESET is executed on a non initialized slot, then list of ports that underwent mapping changes will be empty.
+ * APPLY operation is an asynchronous operation. Once the INI APPLY is finished, BCTOE trap id would be sent with
+ * the current state(valid/non-valid) of INI and the INI operational status.
  *
  * @param[in]   handle              - SX-API handle
  * @param[in]   slot_id             - slot ID

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.1158</span>
+   &#160;<span id="projectnumber">4.5.1208</span>
    </div>
   </td>
  </tr>
@@ -105,6 +105,8 @@ Functions</h2></td></tr>
 <tr class="separator:af26188bb8786cd4a95a1b37503e3bb4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa68b43a4d8f4ef5c1cfc7eb6d7dfc135"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__adaptive__routing_8h.html#aa68b43a4d8f4ef5c1cfc7eb6d7dfc135">sx_api_ar_shaper_rate_get</a> (const sx_api_handle_t handle, <a class="el" href="sx__ar__auto_8h.html#a02ec58e4b91d91c6757c522208683bd5">sx_ar_shaper_attr_t</a> *shaper_attr_p)</td></tr>
 <tr class="separator:aa68b43a4d8f4ef5c1cfc7eb6d7dfc135"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4270492c8f8a061edf7b605473b12b77"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__adaptive__routing_8h.html#a4270492c8f8a061edf7b605473b12b77">sx_api_ar_counters_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, <a class="el" href="sx__ar__auto_8h.html#a7c21b66ae780a614651107f17d63c78a">sx_ar_global_counters_t</a> *ar_counters_p)</td></tr>
+<tr class="separator:a4270492c8f8a061edf7b605473b12b77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a4c57dc298755b00d0aaca2f2fc4e42b2"></a>
@@ -807,11 +809,45 @@ SX_STATUS_ERROR general error. </dd></dl>
 
 </div>
 </div>
+<a id="a4270492c8f8a061edf7b605473b12b77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4270492c8f8a061edf7b605473b12b77">&#9670;&nbsp;</a></span>sx_api_ar_counters_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_ar_counters_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="sx__ar__auto_8h.html#a7c21b66ae780a614651107f17d63c78a">sx_ar_global_counters_t</a> *&#160;</td>
+          <td class="paramname"><em>ar_counters_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Dec 5 2021 08:16:03 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Dec 10 2021 12:37:16 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
