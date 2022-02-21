@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2021 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -70,6 +70,7 @@ sx_status_t sx_api_cos_log_verbosity_level_get(const sx_api_handle_t           h
  * fields that determine the priority value are unavailable in the packet.
  *
  * Note: In Spectrum, the function sets the default switch priority.
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -89,7 +90,10 @@ sx_status_t sx_api_cos_port_default_prio_set(const sx_api_handle_t   handle,
 /**
  * This API retrieves the default port switch priority value.
  *
+ * Note: this API supports port profile.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
  *
  * @param[in]  handle          - SX-API handle
  * @param[in]  log_port        - Logical port ID
@@ -119,6 +123,8 @@ sx_status_t sx_api_cos_port_default_prio_get(const sx_api_handle_t  handle,
  *         If a switch priority is mapped to a higher TC X [where 8 <= X <= 15],
  *         packets sent on TC X will still be counted against TC X-8.
  *
+ * Note: This Api supports port profile.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle        - SX-API handle
@@ -141,6 +147,8 @@ sx_status_t sx_api_cos_port_tc_prio_map_set(const sx_api_handle_t        handle,
 
 /**
  * This API retrieves the traffic class of a specific switch priority.
+ *
+ * Note: This Api supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -170,6 +178,7 @@ sx_status_t sx_api_cos_port_tc_prio_map_get(const sx_api_handle_t   handle,
  *   Otherwise, tagged L2 packets are assigned with packets priority, untagged packets are assigned with port's priority.
  *
  * Note: In Spectrum, for MPLS packets EXP field is used instead of DSCP.
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -189,6 +198,8 @@ sx_status_t sx_api_cos_port_trust_set(const sx_api_handle_t      handle,
 /**
  * This API retrieves the port trust level value.
  *
+ * Note: This API supports port profile.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in]  handle        - SX-API handle
@@ -207,6 +218,7 @@ sx_status_t sx_api_cos_port_trust_get(const sx_api_handle_t  handle,
  * This API sets the port's priority to buffer map in the SDK.
  *
  * Note: Untagged frames must use a buffer used by one of the priorities.
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -228,6 +240,7 @@ sx_status_t sx_api_cos_port_prio_buff_map_set(const sx_api_handle_t    handle,
 /**
  * This API retrieves the port's priority to buffer mapping from the SDK.
  *
+ * Note: This API supports port profile.
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle          - SX-API handle
@@ -290,6 +303,8 @@ sx_status_t sx_api_cos_shared_buff_pool_get(const sx_api_handle_t handle,
  * With logical port param, a validation is done to allocate MC buffer only if the  user sets log_port param with a single
  * reserved value of MC_LOG_ID as defined in sx_port.
  *
+ * Note: This API supports port profile.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                    - SX-API handle
@@ -311,6 +326,8 @@ sx_status_t sx_api_cos_port_buff_type_set(const sx_api_handle_t            handl
 /**
  * This API gets the port buffers size and thresholds (Xon/Xoff) according to port buffer attribute type.
  * Port buffer thresholds can only be retrieved for a single buffer type.
+ *
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -339,6 +356,8 @@ sx_status_t sx_api_cos_port_buff_type_get(const sx_api_handle_t      handle,
  * With logical port param, a validation is done to allocate MC buffer only if the user sets log_port param with single
  * reserved value MC_LOG_ID as defined in sx_port.
  *
+ * Note: This API supports port profile.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                            - SX-API handle
@@ -359,6 +378,8 @@ sx_status_t sx_api_cos_port_shared_buff_type_set(const sx_api_handle_t          
 
 /**
  * This API gets the port shared buffers attributes according to port shared buffer attribute type.
+ *
+ *  Note: This API supports port profile
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -468,6 +489,7 @@ sx_status_t sx_api_cos_pool_statistic_get(const sx_api_handle_t               ha
  * relevant priority field for the configured trust level(L2/L3).
  *
  * Note: This API is not supported for VPORT.
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -487,6 +509,7 @@ sx_status_t sx_api_cos_port_default_color_set(const sx_api_handle_t  handle,
  * This API retrieves the default port color value.
  *
  * Note: This API is not supported for VPORT.
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -506,6 +529,7 @@ sx_status_t sx_api_cos_port_default_color_get(const sx_api_handle_t  handle,
  * This API sets the default PCP,DEI field value for arriving untagged packets.
  *
  * Note: This API is not supported for VPORT. See sx_api_cos_port_default_prio_set.
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -525,6 +549,7 @@ sx_status_t sx_api_cos_port_default_pcpdei_set(const sx_api_handle_t  handle,
  * This API retrieves the default PCP,DEI field value for arriving untagged packets.
  *
  * Note: This API is not supported for VPORT.
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -543,6 +568,8 @@ sx_status_t sx_api_cos_port_default_pcpdei_get(const sx_api_handle_t  handle,
 /**
  * This API sets the mapping between PCP, DEI and switch priority, color.
  * This table is used when the port trust mode is set to 'trust L2'.
+ *
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -564,6 +591,8 @@ sx_status_t sx_api_cos_port_pcpdei_to_prio_set(const sx_api_handle_t          ha
 
 /**
  * This API retrieves the mapping from PCP,DEI to switch priority and color.
+ *
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -627,6 +656,8 @@ sx_status_t sx_api_cos_prio_to_ieeeprio_get(const sx_api_handle_t handle,
  * This API sets the mapping from EXP to switch priority, color, and ECN value.
  * This table is used for MPLS packets when the port trust mode is set to L3.
  *
+ * Note: This API supports port profile.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                  - SX-API handle
@@ -649,6 +680,8 @@ sx_status_t sx_api_cos_port_exp_to_prio_set(const sx_api_handle_t          handl
 
 /**
  * This API retrieves the mapping from EXP to switch priority, color, and ECN value.
+ *
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -675,6 +708,7 @@ sx_status_t sx_api_cos_port_exp_to_prio_get(const sx_api_handle_t    handle,
  * This table is used when the port trust mode is set to L3.
  *
  * Note: The mapping from DSCP to switch priority is done per port and is applicable only in Spectrum.
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -696,6 +730,8 @@ sx_status_t sx_api_cos_port_dscp_to_prio_set(const sx_api_handle_t          hand
 
 /**
  * This API retrieves the mapping from DSCP to switch priority and color.
+ *
+ * Note: this API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -719,6 +755,7 @@ sx_status_t sx_api_cos_port_dscp_to_prio_get(const sx_api_handle_t    handle,
  * This API defines rewrite-enable option setting of PCP, DEI, DSCP, and EXP bits in packet header.
  * The values of rewriting are defined by mapping in the following functions. The rewrite is defined on an ingress port.
  *
+ * Note: This API supports port profile.
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle   - SX-API handle
@@ -735,6 +772,8 @@ sx_status_t sx_api_cos_port_rewrite_enable_set(const sx_api_handle_t         han
 
 /**
  * This API retrieves rewrite-enable option setting of PCP, DEI, DSCP, and EXP bits in packet header.
+ *
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -753,6 +792,8 @@ sx_status_t sx_api_cos_port_rewrite_enable_get(const sx_api_handle_t    handle,
 /**
  * This API defines the mapping from switch priority, color to PCP, DEI for PCP, and DEI rewrite in packet headers.
  * The mapping will change the PCP, DEI values only if PCP, DEI rewrite was enabled in sx_api_cos_port_rewrite_enable_set.
+ *
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -777,6 +818,8 @@ sx_status_t sx_api_cos_port_prio_to_pcpdei_rewrite_set(const sx_api_handle_t    
 /**
  * This API retrieves the mapping from switch priority, color to PCP, DEI for PCP, and DEI rewrite in packet header.
  *
+ * Note: This API supports port profile.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                   - SX-API handle
@@ -798,6 +841,8 @@ sx_status_t sx_api_cos_port_prio_to_pcpdei_rewrite_get(const sx_api_handle_t    
 /**
  * This API defines the mapping from switch priority, color to DSCP, for DSCP rewrite, in packet header.
  * The mapping will change the DSCP values only if DSCP rewrite was enabled in sx_api_cos_port_rewrite_enable_set.
+ *
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -821,6 +866,8 @@ sx_status_t sx_api_cos_port_prio_to_dscp_rewrite_set(const sx_api_handle_t      
 /**
  * This API retrieves the mapping from switch priority, color to DSCP, for DSCP rewrite, in packet header.
  *
+ * Note: This API supports port profile.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                   - SX-API handle
@@ -842,6 +889,8 @@ sx_status_t sx_api_cos_port_prio_to_dscp_rewrite_get(const sx_api_handle_t    ha
 /**
  * This API defines the mapping from switch priority, color and ECN to EXP for EXP rewrite in packet header.
  * The mapping will change the EXP values only if EXP rewrite was enabled in sx_api_cos_port_rewrite_enable_set.
+ *
+ * Note: This API support port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -866,6 +915,8 @@ sx_status_t sx_api_cos_port_prio_to_exp_rewrite_set(const sx_api_handle_t       
 
 /**
  * This API retrieves rewriting of EXP bit's setting.
+ *
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -939,6 +990,8 @@ sx_status_t sx_api_cos_ets_ptp_shaper_param_get(const sx_api_handle_t           
  * EDIT edits an element in an existing queuing structure.
  * DESTROY destroys the queuing structure (return to default).
  *
+ * Note: This API supports port profile.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle            - SX-API handle
@@ -959,6 +1012,8 @@ sx_status_t sx_api_cos_port_ets_element_set(const sx_api_handle_t              h
 
 /**
  * This API retrieves all elements of the queuing system.
+ *
+ * * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -981,6 +1036,8 @@ sx_status_t sx_api_cos_port_ets_element_get(const sx_api_handle_t        handle,
  * higher TCs (8-15) and the UC traffic will be mapped to the lower TCs (0-7).
  * If there is a mapping configured to TC 8-15, the function will return SX_STATUS_ERROR.
  *
+ * Note: This API supports port profile.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle         - SX-API handle
@@ -997,6 +1054,8 @@ sx_status_t sx_api_cos_port_tc_mcaware_set(const sx_api_handle_t  handle,
 
 /**
  * This API retrieves the port MC awareness mode.
+ *
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -1153,6 +1212,8 @@ sx_status_t sx_api_cos_redecn_profile_get(const sx_api_handle_t               ha
 /**
  * This API enables/disables RED, ECN and ECE for traffic classes.
  *
+ * Note: This API supports port profile.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                  - SX-API handle
@@ -1174,6 +1235,8 @@ sx_status_t sx_api_cos_redecn_tc_enable_set(const sx_api_handle_t               
 
 /**
  * This API gets RED, ECN and ECE enabled parameters of a traffic class.
+ *
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -1197,6 +1260,8 @@ sx_status_t sx_api_cos_redecn_tc_enable_get(const sx_api_handle_t          handl
  *
  * BIND binds a port+TC+flow to a profile.
  * UNBIND unbinds a port+TC+flow from a profile.
+ *
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -1223,6 +1288,8 @@ sx_status_t sx_api_cos_redecn_profile_tc_bind_set(const sx_api_handle_t         
 
 /**
  * This API retrieves the binding of RED/ECN/ECE profiles configuration for a given egress port and traffic class.
+ *
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *

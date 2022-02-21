@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2021 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -280,6 +280,7 @@ sx_status_t sx_api_bridge_counter_bind_get(const sx_api_handle_t handle,
  * for tunnel in fid.  When Lazy Delete mode is enabled, flow counters will be automatically unbounded once the deletion
  * of the related VNI mapping is completed and VNI mapping delete notification is sent.
  * Counters can be bound only if the bridge/VLAN to tunnel mapping is configured.
+ * Note: Flex tunnels are not supported.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *

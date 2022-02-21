@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.1208</span>
+   &#160;<span id="projectnumber">4.5.2028</span>
    </div>
   </td>
  </tr>
@@ -628,6 +628,7 @@ SX_STATUS_PARAM_NULL Parameter is NULL </dd></dl>
 <p>Note: If sx_fdb_uc_mac_addr_params_t.dest_type is SX_FDB_UC_MAC_ADDR_DEST_TYPE_ECMP_NEXT_HOP_CONTAINER</p><ul>
 <li>sx_fdb_uc_mac_addr_params_t.entry_type cannot be SX_FDB_UC_AGEABLE</li>
 <li>sx_fdb_uc_mac_addr_params_t.dest.ecmp should point to the ECMP that is one of the following types: SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC</li>
+<li>ECMP pointed by sx_fdb_uc_mac_addr_params_t.dest.ecmp cannot contain flex tunnel next hops.</li>
 </ul>
 <p>Note: In Spectrum systems, when FDB learning is enabled, a packet with the SMAC=MAC1 triggers flushing of remote UC tunnel-ECMP FDB MAC1 entry from the FDB and a roaming MAC1 event is sent to the CPU, the next packets that have DMAC=MAC1 will be flooded. Note: In 802.1D mode, instead of providing a VID (VLAN ID) or FID (filtering ID) in mac_list_p-&gt;fid_vid, provide a bridge_id.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
@@ -4154,7 +4155,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 10 2021 12:37:16 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 17 2022 19:38:59 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

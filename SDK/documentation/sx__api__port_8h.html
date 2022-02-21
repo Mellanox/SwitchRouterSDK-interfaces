@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.1208</span>
+   &#160;<span id="projectnumber">4.5.2028</span>
    </div>
   </td>
  </tr>
@@ -201,6 +201,10 @@ Functions</h2></td></tr>
 <tr class="separator:a7237363eecd004ca61be7554df1ae40e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d6c00fd2eb2cce675faf8488bdd4856"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a7d6c00fd2eb2cce675faf8488bdd4856">sx_api_port_isolate_mode_get</a> (const sx_api_handle_t handle, sx_port_isolate_mode_t *port_isolate_mode_p)</td></tr>
 <tr class="separator:a7d6c00fd2eb2cce675faf8488bdd4856"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b19e24ea500f46fef1f2745bf4662ab"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a8b19e24ea500f46fef1f2745bf4662ab">sx_api_port_isolate_bridge_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_isolation_cfg_t *isolation_cfg_p)</td></tr>
+<tr class="separator:a8b19e24ea500f46fef1f2745bf4662ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a116a26c010a90f79dffb70907273ca00"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a116a26c010a90f79dffb70907273ca00">sx_api_port_isolate_bridge_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_isolation_cfg_t *isolation_cfg_p)</td></tr>
+<tr class="separator:a116a26c010a90f79dffb70907273ca00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad40cb2f24f0db8d65dec6e1020c814e3"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#ad40cb2f24f0db8d65dec6e1020c814e3">sx_api_port_swid_type_get</a> (const sx_api_handle_t handle, const sx_swid_t swid, sx_swid_type_t *swid_type_p)</td></tr>
 <tr class="separator:ad40cb2f24f0db8d65dec6e1020c814e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a993301f3abf5d96ab7c5d638ea0a82fe"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a993301f3abf5d96ab7c5d638ea0a82fe">sx_api_port_vport_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_vlan_id_t vlan_id, sx_port_log_id_t *log_vport_p)</td></tr>
@@ -283,6 +287,16 @@ Functions</h2></td></tr>
 <tr class="separator:a3c705e0cd6c1c038837097104f926844"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e17b9614692d6fbd5fd14e866ceb9a0"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a7e17b9614692d6fbd5fd14e866ceb9a0">sx_api_port_device_mapping_get</a> (const sx_api_handle_t handle, const sx_device_id_t device_id, sx_port_attributes_t *port_attributes_list_p, uint32_t *port_attributes_list_size_p)</td></tr>
 <tr class="separator:a7e17b9614692d6fbd5fd14e866ceb9a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fa5e7366dfd6cb89bd6a6c3122ec45c"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a2fa5e7366dfd6cb89bd6a6c3122ec45c">sx_api_port_profile_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_profile_params_t *params_p, sx_port_log_id_t *port_profile_id_p)</td></tr>
+<tr class="separator:a2fa5e7366dfd6cb89bd6a6c3122ec45c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1347e4dc758a2d0867156a2f95fa8d9"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#ac1347e4dc758a2d0867156a2f95fa8d9">sx_api_port_profile_apply_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t port_profile_id, const sx_port_profile_apply_params_t *params_p)</td></tr>
+<tr class="separator:ac1347e4dc758a2d0867156a2f95fa8d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28103f8dbb39ad935976c42e2c1076b6"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a28103f8dbb39ad935976c42e2c1076b6">sx_api_port_connector_type_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_connector_type_params_t *connector_type_p)</td></tr>
+<tr class="separator:a28103f8dbb39ad935976c42e2c1076b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f0103f24442b33d50a8f0f1d89ee041"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a2f0103f24442b33d50a8f0f1d89ee041">sx_api_port_remote_capability_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_remote_port_capability_t *remote_port_capability_p)</td></tr>
+<tr class="separator:a2f0103f24442b33d50a8f0f1d89ee041"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46fa9a17c45d9b70f6073f4a4134e478"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a46fa9a17c45d9b70f6073f4a4134e478">sx_api_port_state_ext_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_ext_port_state_t *port_state_p)</td></tr>
+<tr class="separator:a46fa9a17c45d9b70f6073f4a4134e478"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ac3457a41837c6780bbf94b56dd2a0cd4"></a>
@@ -450,7 +464,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <p>Device base MAC address given is used by hardware to assign MAC addresses to all physical ports incrementally from the given address.</p>
 <p>On Spectrum-based devices, a given base MAC address should be aligned to 64 and in Spectrum-2 and Spectrum-3 devices, the given base MAC address should be aligned to 128, according to the number of physical ports in the device.</p>
 <p>The SDK will map the device's local ports to unique logical ports (returned within port_attributes_list_p). The logical ports represent SDK ports and used further in port APIs.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, SwitchIB-2, Quantum, Quantum2.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -777,7 +791,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceed its range </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API adds/deletes a SWID to/from the SDK. A SWID which has ports bound to it cannot be deleted.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, SwitchIB-2, Quantum, Quantum2.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -883,7 +897,8 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if SWIDs list length is 0 (zero) </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API binds/unbinds a logical port to/from a SWID in the SDK. To unbind a port from a SWID, the SWID field should be SX_SWID_ID_DISABLED. Port attributes reset during an unbind operation (e.g., VLAN membership and QinQ).</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Note: This API supports port profile for bind operation. Un-binding a port profile is done during destroy of port profile.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, SwitchIB-2, Quantum, Quantum2.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1153,7 +1168,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical Port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical Port ID, port profile is supported. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">mtu_size</td><td>- new MTU size. The MTU size is L2 frame size (payload size + L2 header size).</td></tr>
   </table>
   </dd>
@@ -1382,7 +1397,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the port type &amp; speed. This API enables the application to set the port enabled mode(s). When the link is up, the current active protocol is retrieved (after SET). When the link is down, the supported protocols are retrieved (after SET).</p>
-<p>Note: Disabling auto-negotiation also disables auto FEC.</p>
+<p>Note: Disabling auto-negotiation also disables auto FEC. Note: This API supports port profile. For port profile type of port operational and mode MTU size are equal to admin mtu configured by sx_api_port_mtu_set</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1444,6 +1459,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port's admin and operational speed from the SDK.</p>
+<p>Note: This API supports port profile. For port profile port type operational speed is not valid.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1721,6 +1737,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the port's physical loopback. LAG port cannot be loopback.</p>
+<p>Note: This API supports port profile.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1774,6 +1791,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port's physical loopback (LAG port cannot be loopback).</p>
+<p>Note: This API supports port profile.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1827,6 +1845,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the port administrative state in the SDK.</p>
+<p>Note: This API supports port profile.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1892,6 +1911,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port's administrative, operational, and module state from the SDK.</p>
+<p>Note: This API supports port profile.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1948,15 +1968,8 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- logical port ID (whose flow control configuration to set) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">fc_mode</td><td>- Tx/Rx flow control state</td></tr>
-  </table>
-  </dd>
-</dl>
 <p>This API sets the port flow control pause configuration. fc_mode sets the mode of both Rx and Tx with one of 4 possible EN/DIS combinations.</p>
+<p>Note: This API supports port profile.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2008,6 +2021,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port flow control pause configuration from the SDK. fc_mode_p gets the mode of both Rx and Tx with one of 4 possible EN/DIS combinations.</p>
+<p>Note: This API supports port profile.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2065,7 +2079,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the port priority flow control (PFC) configuration. fc_mode sets the mode of both Rx and Tx with one of 4 possible EN/DIS combinations.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Note: This API supports port profile. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2123,6 +2137,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port priority flow control (PFC) configuration from the SDK. fc_mode_p gets the mode of both Rx and Tx with one of 4 possible EN/DIS combinations.</p>
+<p>Note: This API supports port profile.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3112,6 +3127,7 @@ SX_STATUS_CMD_UNPERMITTED if port bulk counter transaction is in progress </dd><
       </table>
 </div><div class="memdoc">
 <p>This API initializes the port in the SDK.</p>
+<p>Note: This API supports port profile. Deinit of port profile is done as part of destruction of port profile.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3636,7 +3652,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API controls loopback filter state of the port.</p>
-<p>Notes relevant to NVE port: On Spectrum systems, changing of the state of the loopback filter is not supported on Spectrum. Changing of the state affects only UC traffic (MC and flooding are always filtered). The state of the filter can be changed only when there is a connected NVE tunnel in the system.</p>
+<p>Notes relevant to NVE port: On Spectrum systems, changing of the state of the loopback filter is not supported on Spectrum. Changing of the state affects only UC traffic (MC and flooding are always filtered). The state of the filter can be changed only when there is a connected NVE/Flex tunnel in the system.</p>
+<p>Note: This API supports port profile. Note: Flex tunnels are supported from Spectrum2 and above.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3686,7 +3703,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the loopback filter state of the port.</p>
-<p>Note: On Spectrum-2 systems, the API can retrieve the state of the loopback filter on the NVE port. The API can retrieve the state of the loopback filter on the NVE port only when there is connected NVE tunnel in the system.</p>
+<p>Note: On Spectrum-2 systems, the API can retrieve the state of the loopback filter on the NVE port. The API can retrieve the state of the loopback filter on the NVE/Flex port only when there is connected NVE/Flex tunnel in the system.</p>
+<p>Note: This API supports port profile. Note: Flex tunnels are supported from Spectrum2 and above.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3751,7 +3769,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the isolation group of the port (a list of ports from which traffic should not be transmitted to log_port). Isolation is supported only between ports that are on the same device and on the same SWID.</p>
 <p>SET adds ports to isolation group (overwrites previous configuration). ADD adds ports to isolation group (in addition to previous configuration). DELETE removes ports from isolation group. DELETE_ALL empties isolation group.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3812,7 +3830,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the isolation group of the port (a list of ports from which traffic should not be transmitted to log_port). Use log_port_cnt_p=0 to retrieve only the size of the isolation group.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3859,8 +3877,13 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API defines port isolation mode: whether pass or filter frames, which went through the router. This API is added for backward compatibility and for performance considerations. If pass_routed_frames is True, frame performance penalty is possible. pass_routed_frames=True relates to the physical ports and not to the internal tunnel ports.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API defines port isolation mode: whether to pass or filter frames, which went through the router and/or bridge. This API is added for backward compatibility and for performance considerations. If pass_routed_frames is True, frame performance penalty is possible for Spectrum and Spectrum2. Note that for Spectrum pass_routed_frames=True relates to the physical ports and not to the internal tunnel ports. Possible filtering modes are allowed for Bridge and Routed (L2/L3) or Bridge-only (L2):</p><ul>
+<li>pass_routed_frames=True – Isolation will be done on Bridge-only (L2) – only L2 frames will be isolated</li>
+<li>pass_router_frames=False – Isolation will be done for Routed (L2/L3) and Bridge (L2) frames.</li>
+<li>isolate_bridged_and_routed=True – SDK users may intermix L2/L3 and L2 isolation for different ports. Supported by Spectrum3 and above.</li>
+<li>isolate_bridged_and_routed=False – SDK users can use only isolation mode defined by ‘pass_routed_frames’ parameter. Supported by Spectrum3 and above. Note that both pass_routed_frames and isolate_bridge_and_routed can not be set to True since they will interfere with each other. Note that changing the isolation mode on Spectrum3 and above clears the isolation table and port isolation configuration should be restored by user.</li>
+</ul>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3906,7 +3929,7 @@ SX_STATUS_PARAM_ERROR if a parameters exceeds its range </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves port isolation mode.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3917,6 +3940,121 @@ SX_STATUS_PARAM_ERROR if a parameters exceeds its range </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
 SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
+
+</div>
+</div>
+<a id="a8b19e24ea500f46fef1f2745bf4662ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b19e24ea500f46fef1f2745bf4662ab">&#9670;&nbsp;</a></span>sx_api_port_isolate_bridge_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_isolate_bridge_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_isolation_cfg_t *&#160;</td>
+          <td class="paramname"><em>isolation_cfg_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API sets the isolation group of the port (a list of ports from which L2 traffic should not be transmitted to log_port – Bridge filtering only). Isolation is supported only between ports that are on the same device and on the same SWID.</p>
+<p>Note that this API can be used only for L2 port isolation mode configured using isolate_bridge_and_routed=True from the sx_api_port_isolate_mode_set API.</p>
+<p>SET adds ports to isolation group (overwrites previous configuration). ADD adds ports to isolation group (in addition to previous configuration). DELETE removes ports from isolation group. DELETE_ALL empties isolation group.</p>
+<p>Supported devices: Spectrum3, Spectrum4.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET/ADD/DELETE/DELETE_ALL </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical Port ID or Tunnel Port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">isolation_cfg_p</td><td>- Isolation config which should be applied to the log_port</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the database </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range </dd></dl>
+
+</div>
+</div>
+<a id="a116a26c010a90f79dffb70907273ca00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a116a26c010a90f79dffb70907273ca00">&#9670;&nbsp;</a></span>sx_api_port_isolate_bridge_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_isolate_bridge_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_isolation_cfg_t *&#160;</td>
+          <td class="paramname"><em>isolation_cfg_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API retrieves the isolation group of the port (a list of ports from which L2 traffic should not be transmitted to log_port). Use isolation_cfg_p-&gt;log_port_cnt=0 to retrieve only the size of the isolation group. Note that for Spectrum3 and above as a log_port can be used tunnel port to which traffic should not be transmitted.</p>
+<p>Supported devices: Spectrum3, Spectrum4.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical Port ID or Tunnel Port ID </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">isolation_cfg_p</td><td>- Isolation config which was applied to the log_port</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the database </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range </dd></dl>
 
 </div>
 </div>
@@ -4473,7 +4611,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received O/W, the appropriate error
       </table>
 </div><div class="memdoc">
 <p>This API sets the port's forwarding mode (cut-through vs. store-and-forward) in the SDK.</p>
-<p>Note: Port operational forwarding mode will be updated only after port toggling.</p>
+<p>Note: Port operational forwarding mode will be updated only after port toggling. Note: This API supports port profile.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -4526,6 +4664,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the port's forwarding mode (cut-through vs. store-and-forward) from the SDK.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Note: This API supports port profile.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5461,7 +5600,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the port rate values bitmask only (speed value and not physical connector type).</p>
 <p>This API is mutually exclusive with sx_api_port_speed_admin_set, so, per single SDK life cycle, only one of them can be used.</p>
-<p>Note: Disabling auto-negotiation also disables Auto FEC.</p>
+<p>Note: Disabling auto-negotiation also disables Auto FEC. Note: This API supports port profile.</p>
 <p>Supported devices: Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -6175,11 +6314,271 @@ SX_STATUS_ERROR if the port mapping attribute retrieval failed. </dd></dl>
 
 </div>
 </div>
+<a id="a2fa5e7366dfd6cb89bd6a6c3122ec45c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fa5e7366dfd6cb89bd6a6c3122ec45c">&#9670;&nbsp;</a></span>sx_api_port_profile_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_profile_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_profile_params_t *&#160;</td>
+          <td class="paramname"><em>params_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_log_id_t *&#160;</td>
+          <td class="paramname"><em>port_profile_id_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Allocates/destroys port profile. Port profile is used as logical port in configuration APIs.</p>
+<p>CREATE - allocated port profile DESTROY- clears port profile</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3 </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/DESTROY </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- Port profile params. Ignored and can be NULL for cmd = DESTROY @params[inout] port_profile_id - Port profile ID</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS If operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR If any input parameters is invalid </dd>
+<dd>
+SX_STATUS_ERROR If fails general error </dd>
+<dd>
+SX_STATUS_NO_RESOURCES If all port_profile ids are already used </dd></dl>
+
+</div>
+</div>
+<a id="ac1347e4dc758a2d0867156a2f95fa8d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1347e4dc758a2d0867156a2f95fa8d9">&#9670;&nbsp;</a></span>sx_api_port_profile_apply_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_profile_apply_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>port_profile_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_profile_apply_params_t *&#160;</td>
+          <td class="paramname"><em>params_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Applies the chosen port profile parameters to a given list of logical ports. This is asynchronous API and the user should wait for event SX_TRAP_ID_PORT_PROFILE_APPLY_DONE for return status.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_profile_id</td><td>- Port profile ID @params[in] params_p - Port profile and list of ports to apply it</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS If operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR If any input parameters is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL If any input parameters is NULL </dd>
+<dd>
+SX_STATUS_ERROR If operation failed </dd></dl>
+
+</div>
+</div>
+<a id="a28103f8dbb39ad935976c42e2c1076b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28103f8dbb39ad935976c42e2c1076b6">&#9670;&nbsp;</a></span>sx_api_port_connector_type_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_connector_type_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_connector_type_params_t *&#160;</td>
+          <td class="paramname"><em>connector_type_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API retrieves port connector type.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical Port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">connector_type_p</td><td>- Pointer to a port connector type</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any other input error </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a id="a2f0103f24442b33d50a8f0f1d89ee041"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f0103f24442b33d50a8f0f1d89ee041">&#9670;&nbsp;</a></span>sx_api_port_remote_capability_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_remote_capability_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_remote_port_capability_t *&#160;</td>
+          <td class="paramname"><em>remote_port_capability_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API retrieves remote port capability.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical Port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">remote_port_capability_p</td><td>- Pointer to remote port capability</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any other input error </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a id="a46fa9a17c45d9b70f6073f4a4134e478"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46fa9a17c45d9b70f6073f4a4134e478">&#9670;&nbsp;</a></span>sx_api_port_state_ext_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_state_ext_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_ext_port_state_t *&#160;</td>
+          <td class="paramname"><em>port_state_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API retrieves the port's enhanced state from the SDK. This API replaces sx_api_port_state_get.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical Port ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">port_state_p</td><td>- Port enhanced state</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero </dd>
+<dd>
+SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd>
+<dd>
+SX_STATUS_COMM_ERROR if client communication fails </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Dec 10 2021 12:37:16 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 17 2022 19:38:59 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2021 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -169,6 +169,7 @@ sx_status_t sx_api_fdb_polling_interval_get(const sx_api_handle_t      handle,
  *       - sx_fdb_uc_mac_addr_params_t.entry_type cannot be SX_FDB_UC_AGEABLE
  *       - sx_fdb_uc_mac_addr_params_t.dest.ecmp should point to the ECMP that is one of the following types:
  *         SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC
+ *       - ECMP pointed by sx_fdb_uc_mac_addr_params_t.dest.ecmp cannot contain flex tunnel next hops.
  *
  * Note: In Spectrum systems, when FDB learning is enabled, a packet with the SMAC=MAC1 triggers flushing of remote UC
  *  tunnel-ECMP FDB MAC1 entry from the FDB and a roaming MAC1 event is sent to the CPU, the next packets that have

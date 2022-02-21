@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2021 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -197,6 +197,8 @@ sx_status_t sx_api_vlan_port_multi_vlan_set(const sx_api_handle_t  handle,
 /**
  * This API sets the priority tagged attribute per port.
  *
+ * Note: This API supports port profile.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                - SX-API handle
@@ -219,6 +221,8 @@ sx_status_t sx_api_vlan_port_prio_tagged_set(const sx_api_handle_t          hand
 /**
  * This API retrieves the priority tagged attribute per port.
  *
+ * Note: This API supports port profile.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                    - SX-API handle
@@ -239,6 +243,8 @@ sx_status_t sx_api_vlan_port_prio_tagged_get(const sx_api_handle_t     handle,
  * This API enables/disables ingress VLAN filtering on a port. The VLAN membership is defined in sx_vlan_ports_set API.
  *
  * This function is only valid when in 802.1Q bridge mode.
+ *
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -262,6 +268,7 @@ sx_status_t sx_api_vlan_port_ingr_filter_set(const sx_api_handle_t       handle,
  * This API retrieves ingress VLAN filtering on a port.
  *
  * Note: This function is only valid when in 802.1Q bridge mode.
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -284,6 +291,7 @@ sx_status_t sx_api_vlan_port_ingr_filter_get(const sx_api_handle_t  handle,
  * This API sets a port's default VLAN ID. The PVID is set to untagged packets that ingress on the port.
  *
  * Note: When the PVID is deleted from the port, it is assigned with the default VLAN ID.
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -303,6 +311,8 @@ sx_status_t sx_api_vlan_port_pvid_set(const sx_api_handle_t  handle,
 
 /**
  * This API retrieves a port's default VLAN ID.
+ *
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -325,6 +335,7 @@ sx_status_t sx_api_vlan_port_pvid_get(const sx_api_handle_t  handle,
  *
  * Note: By default, all ports are configured to accept all frame types.
  * Note: Priority tagged packets are considered as untagged packets.
+ * Note: This API supports port profile.
  *
  *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -343,6 +354,8 @@ sx_status_t sx_api_vlan_port_accptd_frm_types_set(const sx_api_handle_t        h
 
 /**
  * This API retrieves a port's accepted frame types.
+ *
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
