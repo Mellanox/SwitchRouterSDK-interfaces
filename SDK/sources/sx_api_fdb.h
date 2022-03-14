@@ -169,7 +169,6 @@ sx_status_t sx_api_fdb_polling_interval_get(const sx_api_handle_t      handle,
  *       - sx_fdb_uc_mac_addr_params_t.entry_type cannot be SX_FDB_UC_AGEABLE
  *       - sx_fdb_uc_mac_addr_params_t.dest.ecmp should point to the ECMP that is one of the following types:
  *         SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC
- *       - ECMP pointed by sx_fdb_uc_mac_addr_params_t.dest.ecmp cannot contain flex tunnel next hops.
  *
  * Note: In Spectrum systems, when FDB learning is enabled, a packet with the SMAC=MAC1 triggers flushing of remote UC
  *  tunnel-ECMP FDB MAC1 entry from the FDB and a roaming MAC1 event is sent to the CPU, the next packets that have
@@ -950,6 +949,8 @@ sx_status_t sx_api_fdb_fid_learn_mode_get(const sx_api_handle_t handle,
  * This API sets a port's learn mode.
  *
  * Note: The learn mode on the NVE port can be configured only when there is a connected NVE tunnel in the system.
+ * Note: The learning of decapsulated MACs from NVE IPv6 tunnels is not supported, thus setting anything except
+ * the SX_FDB_LEARN_MODE_DONT_LEARN mode on the NVE port when there is a connected NVE IPv6 tunnel will return an error.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *

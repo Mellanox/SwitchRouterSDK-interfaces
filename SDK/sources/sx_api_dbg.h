@@ -204,27 +204,7 @@ sx_status_t sx_api_fw_dbg_test(const sx_api_handle_t handle, const sx_dbg_test_p
 sx_status_t sx_api_dbg_fatal_failure_detection_set(const sx_api_handle_t                handle,
                                                    const sx_access_cmd_t                cmd,
                                                    const sx_dbg_health_sample_params_t *health_sample_params_p);
-/**
- * This API returns if the health check mechanism is enabled/disabled .
- * If the health check is enabled, then this API returns the currently configured
- * parameters for the health check feature in sx_dbg_health_sample_params_t.
- * If the health check is disabled, then the is_enable_p pointer value will be
- * False and the sx_dbg_health_sample_params_t values can be ignored
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
- *
- *
- * @param[in] handle               - SX-API handle.
- * @param[out] is_enable_p         - Indicate if health check mechanism is enabled.
- * @param[out] dbg_sample_params_p - Pointer to sample parameters.
- *
- * @return SX_STATUS_SUCCESS               If operation completes successfully
- * @return SX_STATUS_PARAM_ERROR           If any input parameter is invalid
- *
- */
-sx_status_t sx_api_dbg_fatal_failure_detection_get(const sx_api_handle_t          handle,
-                                                   boolean_t                     *is_enable_p,
-                                                   sx_dbg_health_sample_params_t *health_sample_params_p);
+
 /**
  * This API configures API logger parameters.
  * To change parameters of active API logger, the user must first disable it and then enable it again with new parameters.

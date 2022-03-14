@@ -114,8 +114,6 @@ sx_status_t sx_api_flex_parser_deinit_set(const sx_api_handle_t handle);
  * Note: Spectrum systems only support the following:
  *  - Fixed header types
  *  - Transition from UDP to VxLAN with outer encapsulation level
- * Note: The API may impact the ISSU for Flex transition. To enable ISSU support user should use the new API (sx_api_flex_parser_flex_transition_set)
- *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * Parameters:
@@ -176,8 +174,6 @@ sx_status_t sx_api_flex_parser_transition_get(const sx_api_handle_t         hand
  * Note that this API only supports transitions that involve at least one flex header (FPP).
  * For setting a transition involving only hard headers please refer to sx_api_flex_parser_hard_graph_set.
  * Note that some combinations of parser headers may be unsupported and will return SX_STATUS_UNSUPPORTED.
- * Note that the API may impact the ISSU for Flex transition. To enable ISSU support user should use the new API (sx_api_flex_parser_flex_transition_set)
- *
  * Supported devices: Spectrum2, Spectrum3.
  * Parameters:
  * @param[in]    handle             - SX-API handle
@@ -222,65 +218,6 @@ sx_status_t sx_api_flex_parser_hard_graph_set(const sx_api_handle_t             
                                               const sx_access_cmd_t                cmd,
                                               const sx_flex_parser_graph_action_t *actions_list_p,
                                               const uint32_t                       actions_list_cnt);
-
-
-/**
- * This API configures the transition between two flex transition headers in the parse graph. The API supports ISSU.
- * User should invoke the API first to create the requested transition index and later to set the transition.
- * User must specify the transition index to be created.
- *
- * Notes
- * transition_cfg is not used if cmd is CREATE, DESTROY, and UNSET.
- * An entry with a given pair of {from_hdr, transition_value} must not exist more than once in the flex table.
- * On-the-fly change allowed only for fields: to_hdr.
- * Some combinations of flex parser headers may be unsupported and will return SX_STATUS_UNSUPPORTED.
- * This API is for flex transitions only. For hard transitions, use sx_api_flex_parser_transition_set().
- * This API supports ISSU.
- * For flex transitions, user should not mix this API with the other APIs (sx_api_flex_parser_flex_graph_set or sx_api_flex_parser_transition_set)
- *
- * Supported devices:  Spectrum2, Spectrum3.
- *
- * Parameters:
- * @param[in] handle - SX-API handle
- * @param[in] cmd - SX_ACCESS_CMD_CREATE/SX_ACCESS_CMD_DESTROY/SX_ACCESS_CMD_SET/SX_ACCESS_CMD_UNSET
- * @param[in] transition_index - Flex parser transition index (0-15)
- * @param[in] transition_cfg_p - Flex transition between headers information
- *
- * @return SX_STATUS_SUCCESS if the operation completes successfully
- * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
- * @return SX_STATUS_ERROR general error
- * @return SX_STATUS_UNSUPPORTED if the configuration is not supported by the platform
- * @return SX_STATUS_NO_RESOURCES if configuration fails due to a lack of hardware resources
- * @return SX_STATUS_MODULE_UNINITIALIZED if an API is called without initialization
- * @return SX_STATUS_CMD_UNSUPPORTED if an invalid command is passed
- */
-sx_status_t sx_api_flex_parser_flex_transition_set(const sx_api_handle_t               handle,
-                                                   const sx_access_cmd_t               cmd,
-                                                   sx_flex_parser_transition_index_t  *transition_index_p,
-                                                   sx_flex_parser_transition_action_t *transition_cfg_p);
-
-/**
- * This API retrieves the configured transition information between two flex transition headers in the parse graph given the transition index.
- *
- * Note:
- * If the transition index passed to the API has not been configured in the system, then the transition_en field in transition_cfg_p will be 0.
- *
- * Supported devices: Spectrum2, Spectrum3.
- *
- * Parameters:
- * @param[in] handle - SX-API handle
- * @param[in] transition_index - Flex parser transition index (0-15)
- * @param[out] transition_cfg_p - Flex transition between headers information
- *
- * @return SX_STATUS_SUCCESS if the operation completes successfully
- * @return SX_STATUS_ERROR general error
- * @return SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization
- *
- * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
- */
-sx_status_t sx_api_flex_parser_flex_transition_get(const sx_api_handle_t                   handle,
-                                                   const sx_flex_parser_transition_index_t transition_index,
-                                                   sx_flex_parser_transition_action_t     *transition_cfg_p);
 
 /**
  * This API configures (CREATE/SET/DESTROY) a flexible parsing program (FPP).
@@ -360,8 +297,7 @@ sx_status_t sx_api_flex_parser_root_set(const sx_api_handle_t                han
  * Parameters:
  * @param[in]     handle              - SX-API handle
  * @param[in]     cmd                 - SX_ACCESS_CMD_GET / SX_ACCESS_CMD_GET_FIRST / SX_ACCESS_CMD_GETNEXT
- * @param[in]     logical_port        - The logical port for which to retrieve the root SOP -
- *                                      relevant only for SX_ACCESS_CMD_GET & SX_ACCESS_CMD_GETNEXT cmd.
+ * @param[in]     logical_port        - The logical port for which to retrieve the root SOP (relevant only for GET cmd).
  * @param[in/out] root_sop_cfg_list_p - Pointer to a list SOP entries to be retrieved.
  * @param[in/out] root_sop_cfg_cnt_p  - IN - Specifies the size of the list to be retrieved.
  *                                      OUT - The number of entries that were actually retrieved.
@@ -385,9 +321,9 @@ sx_status_t sx_api_flex_parser_root_get(const sx_api_handle_t          handle,
  * Supported devices: Spectrum2, Spectrum3.
  * Parameters:
  * @param[in]  handle    - SX-API handle
- * @param[in]  cmd       - SX_ACCESS_CMD_SET / SX_ACCESS_CMD_UNSET
+ * @param[in]  cmd       - SX_ACCESS_CMD_SET
  * @param[in]  hph_id    - The hard parsing header to configure.
- * @param[in]  hph_cfg_p - Pointer to the configuration to apply to this header (relevant only for SX_ACCESS_CMD_SET cmd).
+ * @param[in]  hph_cfg_p - Pointer to the configuration to apply to this header.
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid

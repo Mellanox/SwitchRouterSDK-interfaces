@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.2028</span>
+   &#160;<span id="projectnumber">4.5.1500</span>
    </div>
   </td>
  </tr>
@@ -484,14 +484,13 @@ SX_STATUS_ENTRY_NOT_FOUND Entry is not found in database </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to create a single region ACL.</p>
 <p>CREATE is used for creating a new ACL. It will return an ACL ID upon successful creation. DESTROY may be used to destroy the ACL when it is not bound to the hardware.</p>
-<p>Note: If an ACL is created with the SX_ACL_DIRECTION_MULTI_POINTS_E direction, the user must set the ACL direction bitmap (acl_attributes.multi_direction.acl_direction_bitmap) of the desired directions using the sx_api_acl_attributes_set API prior to any other API operations (for example, setting it to an ACL group, adding rules to the bound ACL region).</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/DESTROY </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">acl_type</td><td>- ACL type of this ACL (only AGNOSTIC type is currently supported) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">acl_direction</td><td>- ACL direction </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acl_direction</td><td>- ACL direction (ingress or egress port or ingress or egress RIF ACL) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">acl_region_group_p</td><td>- ACL region group matching ACL type </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">acl_id_p</td><td>- ACL ID, as described above</td></tr>
   </table>
@@ -691,7 +690,6 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to set the attributes of an ACL.</p>
-<p>Note: The ACL direction bitmap of an ACL can be set only once and cannot be changed. To change other attributes, the user can pass an empty bitmap (bitmap = 0) or exactly the same that has been set already. Note: The ACL direction bitmap can contain any combinations of ACL directions as long as each one of the used ACL keys is supported in all selected directions.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -898,13 +896,12 @@ SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_NULL Any input parameter is invalid </d
 </div><div class="memdoc">
 <p>This API is used for controlling ACL groups. Allows to create a liked list of ACL blocks up to the size of SX_ACL_MAX_ACL_GROUP_SIZE.</p>
 <p>CREATE is used to create a new group with a specified group direction and returns new group ID. SET is used to add a list of ACLs to the group. The ACLs need to be in the same direction as the group. DESTROY is used to destroy the ACL group. This can be done only if the ACL group is not bound to the hardware.</p>
-<p>Note: SX_ACL_DIRECTION_MULTI_POINTS_E ACL groups are not supported. Note: An ACL that has the SX_ACL_DIRECTION_MULTI_POINTS_E direction cannot be added to an ACL group until the ACL direction bitmap is set. Note: Every ACL that is being set to the group should either have the same direction as the group or if the ACL has MULTI-POINTS direction, then ACL's direction bitmap should include the group's direction.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/SET/DESTROY </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">acl_direction</td><td>- ACL group direction </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acl_direction</td><td>- ACL group direction (all ACLs in this group must have the same direction) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">acl_id_list_p</td><td>- Ordered list of ACL IDs (ignored when using the command CREATE or DESTROY) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">acl_id_cnt</td><td>- Number of elements in the list of ACL IDs (ignored when using the command CREATE or DESTROY) </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">group_id</td><td>- ACL group ID</td></tr>
@@ -1887,7 +1884,7 @@ SX_STATUS_SXD_RETURNED_NON_ZERO Hardware failure </dd></dl>
 <p>This API is used to bind/unbind an ACL or an ACL group to a port (or LAG). Binding more than one ACL to port may be achieved by using ACL groups.</p>
 <p>BIND command is used for binding a single ACL or a single ACL group to a port. UNBIND command will clear port binding, even if there are multiple ACL groups which are bound to the port. ADD command can be used to bind additional ACL groups (not ACLs) to the port. In this case, the order of group execution is determined by the group priority, set by sx_api_acl_group_attributes_set API. DELETE command can be used to remove an ACL group from multiple ACL groups bound to the port/LAG.</p>
 <p>Binding to L2 tunnel ports is supported in this API as well. Spectrum systems support NVE port binding by providing the NVE logical port. Spectrum support is a virtual binding to the NVE decap table, where ADD and DELETE commands are not supported. Spectrum2 support for L2 tunnel port binding has API support like any other port binding. In order to bind L2 tunnel port, the appropriate logical port and an ACL group with one of the directions SX_ACL_DIRECTION_TPORT_INGRESS or SX_ACL_DIRECTION_TPORT_EGRESS should be provided.</p>
-<p>Note: ADD and DELETE commands support binding of ACL groups only. Note: Binding or adding groups may fail if there are insufficient resources in hardware. Note: An ACL that has the SX_ACL_DIRECTION_MULTI_POINTS_E direction cannot be bound to a port directly, instead the user has to create an ACL group, add the ACL into it, and then bind this ACL group to a port.</p>
+<p>Note: ADD and DELETE commands support binding of ACL groups only. Note: Binding or adding groups may fail if there are insufficient resources in hardware.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1950,7 +1947,6 @@ SX_STATUS_CMD_UNSUPPORTED Command is unsupported </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to get the ACL ID of an ACL table or ACL group which is bound to a specific port. When multiple groups are bound to a port, this API will return the highest priority group. To retrieve multiple bindings, it is recommended to use the sx_api_acl_port_bindings_get API.</p>
-<p>Note: The acl_direction cannot be set to the SX_ACL_DIRECTION_MULTI_POINTS_E direction.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2014,7 +2010,6 @@ SX_STATUS_ENTRY_NOT_FOUND Port is not bound </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to retrieve the ACL IDs/groups bound to a specific port. Since multiple groups may be bound to a port, the caller of this API is responsible of providing an allocated array for getting the ACL IDs.</p>
 <p>If the API is called with acl_id_p parameter set to NULL or *acl_cnt_p set to 0, it will return the actual number of ACL IDs bound to this port.</p>
-<p>Note: The acl_direction cannot be set to the SX_ACL_DIRECTION_MULTI_POINTS_E direction.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2215,7 +2210,7 @@ SX_STATUS_CMD_UNSUPPORTED 802.1D mode is enabled </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to bind/unbind an ACL or an ACL group to a VLAN group. Binding more than one ACL to the VLAN group may be achieved by using ACL groups.</p>
 <p>BIND command is used for binding a single ACL or a single ACL group to a VLAN group. UNBIND command will clear the VLAN group binding, even if there are multiple ACL groups which are bound to the VLAN group. ADD command can be used to bind multiple ACL groups to the VLAN group. In this case, the order of group execution is determined by the group priority, set by sx_api_acl_group_attributes_set API. DELETE command can similarly be used to remove an ACL group from multiple ACL groups bound to a VLAN group.</p>
-<p>Note: ADD and DELETE commands support binding of ACL groups only. Note: Binding or adding groups may fail if there are insufficient resources in hardware. Note: When in 802.1D mode instead of providing a VLAN group, a bridge_id should be used. Note: An ACL that has the SX_ACL_DIRECTION_MULTI_POINTS_E direction cannot be bound to a VLAN group directly, instead the user has to create an ACL group, add the ACL into it, and then bind this ACL group to a VLAN group.</p>
+<p>Note: ADD and DELETE commands support binding of ACL groups only. Note: Binding or adding groups may fail if there are insufficient resources in hardware. Note: When in 802.1D mode instead of providing a VLAN group, a bridge_id should be used.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2278,7 +2273,7 @@ SX_STATUS_CMD_UNSUPPORTED Command is unsupported </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to get the ACL ID of an ACL table or an ACL group which is bound to a specific VLAN group. When multiple ACLs are bound to the VLAN group, this API will only return the one carrying the highest priority. To retrieve multiple bindings, use sx_api_acl_vlan_group_bindings_get.</p>
-<p>Note: When in 802.1D mode, instead of providing a VLAN group, a bridge_id should be used. Note: The acl_direction cannot be set to the SX_ACL_DIRECTION_MULTI_POINTS_E direction.</p>
+<p>Note: When in 802.1D mode, instead of providing a VLAN group, a bridge_id should be used.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2342,7 +2337,6 @@ SX_STATUS_ENTRY_NOT_FOUND VLAN group is not bound </dd></dl>
 </div><div class="memdoc">
 <p>This API allows getting ACL IDs bound to a specific VLAN group. Since multiple groups may be bound to a VLAN group, the caller of this API is responsible of providing an allocated array for getting the ACL IDs.</p>
 <p>If this API is called with acl_id_p parameter set to NULL or *acl_cnt_p set to 0, it will return the actual number of ACL IDs bound to this VLAN group.</p>
-<p>Note: The acl_direction cannot be set to the SX_ACL_DIRECTION_MULTI_POINTS_E direction.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2586,7 +2580,6 @@ SX_STATUS_ENTRY_NOT_FOUND Key handle is not found in the database </dd></dl>
 <li>SX_FLEX_ACL_ACTION_EGRESS_MIRROR or SX_FLEX_ACL_ACTION_MIRROR</li>
 <li>SX_FLEX_ACL_ACTION_TRAP or SX_FLEX_ACL_ACTION_TRAP_W_USER_ID Using multiple FORWARD or multiple MIRROR commands, or a combination where there is more than one of any of the above will return PARAM_ERROR.</li>
 </ul>
-<p>Note: Rules cannot be added to an ACL region, if the ACL region is bound to an ACL that has the SX_ACL_DIRECTION_MULTI_POINTS_E direction and the the ACL direction bitmap is not set.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2718,7 +2711,7 @@ SX_STATUS_PARAM_ERROR Invalid parameter </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to bind/unbind an ACL or an ACL group to a RIF. Binding more than one ACL to a RIF may be achieved by using ACL groups.</p>
 <p>BIND command is used for binding a single ACL or a single ACL group to a RIF. UNBIND command clears RIF binding, even if there are multiple ACL groups bound to the RIF. ADD command can be used to bind additional groups to the RIF. In this case, the order of group execution is determined by the group priority, as set by sx_api_acl_group_attributes_set API. DELETE command can be used to remove an ACL group from multiple ACL groups bound RIF.</p>
-<p>Note: ADD and DELETE commands support binding of ACL groups only. Note: Binding or adding groups may fail if there are insufficient resources in hardware. Note: An ACL that has the SX_ACL_DIRECTION_MULTI_POINTS_E direction cannot be bound to a RIF directly, instead the user has to create an ACL group, add the ACL into it, and then bind this ACL group to a RIF.</p>
+<p>Note: ADD and DELETE commands support binding of ACL groups only. Note: Binding or adding groups may fail if there are insufficient resources in hardware.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2779,7 +2772,6 @@ SX_STATUS_ERROR Operation cannot be completed </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to get the ACL or ACL group ID that is bound to the RIF. When multiple ACLs are bound to the RIF, this API will only return the one carrying the highest priority. To retrieve multiple bindings, it is recommended to use the sx_api_acl_rif_bindings_get API instead.</p>
-<p>Note: The acl_direction cannot be set to the SX_ACL_DIRECTION_MULTI_POINTS_E direction.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2842,7 +2834,6 @@ SX_STATUS_PARAM_ERROR Invalid parameter </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API allows getting ACL IDs bound to a specific RIF. Since multiple groups may be bound to a RIF, the caller of this API is responsible of providing a pre-allocated array for getting the ACL IDs and priority group. If the API is called with acl_id_p parameter set to NULL or *acl_cnt_p set to 0, it will return the actual number of ACL IDs bound to this RIF.</p>
-<p>Note: The acl_direction cannot be set to the SX_ACL_DIRECTION_MULTI_POINTS_E direction.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3011,8 +3002,8 @@ SX_STATUS_PARAM_ERROR Invalid parameter </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>The API is used to manipulate a port list container.</p>
-<p>CREATE creates a new container with the specified list of logical/tunnel ports and returns its new container ID in port_list_id_p. SET replaces the contents of an existing container specified by port_list_id_p with the specified list of logical/tunnel ports in port_list_p. DESTROY deletes an existing container specified by port_list_id_p.</p>
-<p>Note: A port list in use (e.g., by an ACL key) cannot be destroyed or modified. Note: A container may contain, at most, RM_API_ACL_PORT_LIST_MAX logical ports. Note: A container may contain either Ethernet logical ports or Tunnel logical ports but not both. LAG ports are not supported.</p>
+<p>CREATE creates a new container with the specified list of logical ports and returns its new container ID in port_list_id_p. SET replaces the contents of an existing container specified by port_list_id_p with the specified list of logical ports in port_list_p. DESTROY deletes an existing container specified by port_list_id_p.</p>
+<p>Note: A port list in use (e.g., by an ACL key) cannot be destroyed or modified. Note: A container may contain, at most, RM_API_ACL_PORT_LIST_MAX logical ports. Note: A container may contain only Ethernet logical ports and not LAG ports.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3501,7 +3492,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 17 2022 19:38:59 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 9 2022 15:40:17 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

@@ -353,8 +353,6 @@ sx_status_t sx_api_lag_hash_flow_params_get(const sx_api_handle_t handle,
  * the number of fields / field enables.
  * Once this API is called sx_api_lag_hash_flow_params_get is disabled
  *
- * Note: This API supports port profile.
- *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in]     handle                       - SX-API handle

@@ -91,16 +91,13 @@ sx_status_t sx_api_mpls_deinit_set(const sx_api_handle_t handle);
 /**
  * This API creates an ILM table.
  *
- * Note: ilm_table can only be an MPLS VRID.
- *       MPLS label space is a router VRID.
- *       Only a single VRID is supported.
- *       This VRID contains all MPLS RIFs.
  *
  * Supported devices: Spectrum.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] cmd       - CREATE/ADD/DELETE/DESTROY
  * @param[in] ilm_table - MPLS ILM table ID
+ *
  *
  * @return sx_status_t
  */
@@ -112,10 +109,8 @@ sx_status_t sx_api_mpls_ilm_init_set(const sx_api_handle_t        handle,
 /**
  * This API sets an in-segment parameters.
  *
- * Note: ilm_table can only be an MPLS VRID.
- *       MPLS label space is a router VRID.
- *       Only a single VRID is supported.
- *       This VRID contains all MPLS RIFs.
+ * Note: Match on one label is currently supported.
+ * Note: Only label space 0 is currently supported (ilm_table).
  *
  * Supported devices: Spectrum.
  *

@@ -280,7 +280,6 @@ sx_status_t sx_api_bridge_counter_bind_get(const sx_api_handle_t handle,
  * for tunnel in fid.  When Lazy Delete mode is enabled, flow counters will be automatically unbounded once the deletion
  * of the related VNI mapping is completed and VNI mapping delete notification is sent.
  * Counters can be bound only if the bridge/VLAN to tunnel mapping is configured.
- * Note: Flex tunnels are not supported.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *

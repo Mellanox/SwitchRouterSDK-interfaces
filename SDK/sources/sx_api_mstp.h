@@ -282,8 +282,6 @@ sx_status_t sx_api_mstp_inst_port_state_get(const sx_api_handle_t      handle,
 /**
  * This API sets the RSTP port state in the SDK.
  *
- * Note: This API supports port profile.
- *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle     - SX-API handle
@@ -307,8 +305,6 @@ sx_status_t sx_api_rstp_port_state_set(const sx_api_handle_t           handle,
 
 /**
  * This API retrieves the RSTP port state from the SDK.
- *
- * Note: This APi supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *

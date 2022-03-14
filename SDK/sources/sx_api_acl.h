@@ -122,17 +122,12 @@ sx_status_t sx_api_acl_region_get(const sx_api_handle_t    handle,
  * CREATE is used for creating a new ACL. It will return an ACL ID upon successful creation.
  * DESTROY may be used to destroy the ACL when it is not bound to the hardware.
  *
- * Note: If an ACL is created with the SX_ACL_DIRECTION_MULTI_POINTS_E direction,
- * the user must set the ACL direction bitmap (acl_attributes.multi_direction.acl_direction_bitmap) of the desired directions
- * using the sx_api_acl_attributes_set API prior to any other API operations
- * (for example, setting it to an ACL group, adding rules to the bound ACL region).
- *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle             - SX-API handle
  * @param[in] cmd                - CREATE/DESTROY
  * @param[in] acl_type           - ACL type of this ACL (only AGNOSTIC type is currently supported)
- * @param[in] acl_direction      - ACL direction
+ * @param[in] acl_direction      - ACL direction (ingress or egress port or ingress or egress RIF ACL)
  * @param[in] acl_region_group_p - ACL region group matching ACL type
  * @param[in,out] acl_id_p       - ACL ID, as described above
  *
@@ -212,12 +207,6 @@ sx_status_t sx_api_acl_iter_get(const sx_api_handle_t  handle,
  *
  * This API is used to set the attributes of an ACL.
  *
- * Note: The ACL direction bitmap of an ACL can be set only once and cannot be changed.
- * To change other attributes, the user can pass an empty bitmap (bitmap = 0) or
- * exactly the same that has been set already.
- * Note: The ACL direction bitmap can contain any combinations of ACL directions
- * as long as each one of the used ACL keys is supported in all selected directions.
- *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle         - SX-API handle
@@ -295,16 +284,11 @@ sx_status_t sx_api_acl_global_attributes_get(const sx_api_handle_t             h
  * SET is used to add a list of ACLs to the group. The ACLs need to be in the same direction as the group.
  * DESTROY is used to destroy the ACL group. This can be done only if the ACL group is not bound to the hardware.
  *
- * Note: SX_ACL_DIRECTION_MULTI_POINTS_E ACL groups are not supported.
- * Note: An ACL that has the SX_ACL_DIRECTION_MULTI_POINTS_E direction cannot be added to an ACL group until the ACL direction bitmap is set.
- * Note: Every ACL that is being set to the group should either have the same direction as the group or if the ACL has MULTI-POINTS direction,
- * then ACL's direction bitmap should include the group's direction.
- *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] cmd           - CREATE/SET/DESTROY
- * @param[in] acl_direction - ACL group direction
+ * @param[in] acl_direction - ACL group direction (all ACLs in this group must have the same direction)
  * @param[in] acl_id_list_p - Ordered list of ACL IDs (ignored when using the command CREATE or DESTROY)
  * @param[in] acl_id_cnt    - Number of elements in the list of ACL IDs (ignored when using the command CREATE or DESTROY)
  * @param[in,out] group_id  - ACL group ID
@@ -753,8 +737,6 @@ sx_status_t sx_api_acl_rule_block_move_set(const sx_api_handle_t      handle,
  *
  * Note: ADD and DELETE commands support binding of ACL groups only.
  * Note: Binding or adding groups may fail if there are insufficient resources in hardware.
- * Note: An ACL that has the SX_ACL_DIRECTION_MULTI_POINTS_E direction cannot be bound to a port directly,
- * instead the user has to create an ACL group, add the ACL into it, and then bind this ACL group to a port.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -780,8 +762,6 @@ sx_status_t sx_api_acl_port_bind_set(const sx_api_handle_t  handle,
  * When multiple groups are bound to a port, this API will return the highest priority group.
  * To retrieve multiple bindings, it is recommended to use the sx_api_acl_port_bindings_get API.
  *
- * Note: The acl_direction cannot be set to the SX_ACL_DIRECTION_MULTI_POINTS_E direction.
- *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle        - SX-API handle
@@ -805,8 +785,6 @@ sx_status_t sx_api_acl_port_bind_get(const sx_api_handle_t    handle,
  *
  * If the API is called with acl_id_p parameter set to NULL or *acl_cnt_p set to 0,
  * it will return the actual number of ACL IDs bound to this port.
- *
- * Note: The acl_direction cannot be set to the SX_ACL_DIRECTION_MULTI_POINTS_E direction.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -900,8 +878,6 @@ sx_status_t sx_api_acl_vlan_group_map_get(const sx_api_handle_t     handle,
  * Note: ADD and DELETE commands support binding of ACL groups only.
  * Note: Binding or adding groups may fail if there are insufficient resources in hardware.
  * Note: When in 802.1D mode instead of providing a VLAN group, a bridge_id should be used.
- * Note: An ACL that has the SX_ACL_DIRECTION_MULTI_POINTS_E direction cannot be bound to a VLAN group directly,
- * instead the user has to create an ACL group, add the ACL into it, and then bind this ACL group to a VLAN group.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -928,7 +904,6 @@ sx_status_t sx_api_acl_vlan_group_bind_set(const sx_api_handle_t     handle,
  * To retrieve multiple bindings, use sx_api_acl_vlan_group_bindings_get.
  *
  * Note: When in 802.1D mode, instead of providing a VLAN group, a bridge_id should be used.
- * Note: The acl_direction cannot be set to the SX_ACL_DIRECTION_MULTI_POINTS_E direction.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -952,8 +927,6 @@ sx_status_t sx_api_acl_vlan_group_bind_get(const sx_api_handle_t     handle,
  *
  * If this API is called with acl_id_p parameter set to NULL or *acl_cnt_p set to 0, it will return the actual number
  * of ACL IDs bound to this VLAN group.
- *
- * Note: The acl_direction cannot be set to the SX_ACL_DIRECTION_MULTI_POINTS_E direction.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -1056,9 +1029,6 @@ sx_status_t sx_api_acl_flex_key_get(const sx_api_handle_t   handle,
  * Using multiple FORWARD or multiple MIRROR commands, or a combination where there is more than one of
  * any of the above will return PARAM_ERROR.
  *
- * Note: Rules cannot be added to an ACL region, if the ACL region is bound to an ACL that has
- * the SX_ACL_DIRECTION_MULTI_POINTS_E direction and the the ACL direction bitmap is not set.
- *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                - SX-API handle
@@ -1141,8 +1111,6 @@ sx_status_t sx_api_acl_flex_rules_get(const sx_api_handle_t    handle,
  *
  * Note: ADD and DELETE commands support binding of ACL groups only.
  * Note: Binding or adding groups may fail if there are insufficient resources in hardware.
- * Note: An ACL that has the SX_ACL_DIRECTION_MULTI_POINTS_E direction cannot be bound to a RIF directly,
- * instead the user has to create an ACL group, add the ACL into it, and then bind this ACL group to a RIF.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -1167,8 +1135,6 @@ sx_status_t sx_api_acl_rif_bind_set(const sx_api_handle_t handle,
  * this API will only return the one carrying the highest priority. To retrieve multiple bindings, it is recommended
  * to use the sx_api_acl_rif_bindings_get API instead.
  *
- * Note: The acl_direction cannot be set to the SX_ACL_DIRECTION_MULTI_POINTS_E direction.
- *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                  - SX-API handle
@@ -1190,8 +1156,6 @@ sx_status_t sx_api_acl_rif_bind_get(const sx_api_handle_t    handle,
  * this API is responsible of providing a pre-allocated array for getting the ACL IDs and priority group.
  * If the API is called with acl_id_p parameter set to NULL or *acl_cnt_p set to 0, it will return the actual number
  * of ACL IDs bound to this RIF.
- *
- * Note: The acl_direction cannot be set to the SX_ACL_DIRECTION_MULTI_POINTS_E direction.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -1258,14 +1222,14 @@ sx_status_t sx_api_acl_group_bind_get(sx_api_handle_t handle,
 /**
  * The API is used to manipulate a port list container.
  *
- * CREATE creates a new container with the specified list of logical/tunnel ports and returns its new container ID in port_list_id_p.
- * SET replaces the contents of an existing container specified by port_list_id_p with the specified list of logical/tunnel ports
+ * CREATE creates a new container with the specified list of logical ports and returns its new container ID in port_list_id_p.
+ * SET replaces the contents of an existing container specified by port_list_id_p with the specified list of logical ports
  * in port_list_p.
  * DESTROY deletes an existing container specified by port_list_id_p.
  *
  * Note: A port list in use (e.g., by an ACL key) cannot be destroyed or modified.
  * Note: A container may contain, at most, RM_API_ACL_PORT_LIST_MAX logical ports.
- * Note: A container may contain either Ethernet logical ports or Tunnel logical ports but not both. LAG ports are not supported.
+ * Note: A container may contain only Ethernet logical ports and not LAG ports.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *

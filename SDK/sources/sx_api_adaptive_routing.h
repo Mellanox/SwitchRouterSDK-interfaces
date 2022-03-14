@@ -59,21 +59,20 @@ sx_status_t sx_api_ar_deinit_set(const sx_api_handle_t handle);
 
 /**
  * This API sets the AR profile configuration parameters.
- * Only one of the profiles or both of the profiles can be configured.
- *
- * Note: Only CREATE and DESTROY access commands are supported.
+ * The user can configure only one of the profiles or both.
  *
  * Supported devices: Spectrum2, Spectrum3.
+ * Note - Only CREATE and DESTROY access commands are supported.
  *
  * @param[in]  handle                       - SX-API handle
  * @param[in]  cmd                          - SX access command - SET
- * @param[in]  profile_key_p                - Profile ID.
- * @param[in]  profile_attr_p               - Profile attributes.
+ * @param[in]  profile_key_p                - Profile id.
+ * @param[in]  profile_attr_p               - profile attributes.
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received.
- * @return SX_STATUS_MODULE_UNINITIALIZED if AR module was not initialized.
- * @return SX_STATUS_CMD_UNSUPPORTED if access command is not supported.
+ * @return SX_STATUS_MODULE_UNINITIALIZED if AR module wasn't initialized.
+ * @return SX_STATUS_CMD_UNSUPPORTED if access command isn't supported.
  * @return SX_STATUS_ERROR for a general error
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid.
  * @return SX_STATUS_PARAM_NULL if any input/output parameter is NULL.
