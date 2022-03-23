@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.1500</span>
+   &#160;<span id="projectnumber">4.4.3380</span>
    </div>
   </td>
  </tr>
@@ -99,6 +99,8 @@ Functions</h2></td></tr>
 <tr class="separator:aa9f1f7b2a2e99c7a8042321f3914fa25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b311526a58fe66b893bf2d1e8b0a9d4"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#a1b311526a58fe66b893bf2d1e8b0a9d4">sx_api_host_ifc_trap_group_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_id_t swid, const sx_trap_group_t trap_group_id, const sx_trap_group_filter_t *filter_p, sx_trap_group_t *trap_group_id_list_p, uint32_t *trap_group_id_cnt_p)</td></tr>
 <tr class="separator:a1b311526a58fe66b893bf2d1e8b0a9d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b99edc2800fa0eb9f5da2084f34673f"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#a3b99edc2800fa0eb9f5da2084f34673f">sx_api_host_ifc_trap_id_set</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_trap_id_t trap_id, const sx_trap_group_t trap_group, const sx_trap_action_t trap_action)</td></tr>
+<tr class="separator:a3b99edc2800fa0eb9f5da2084f34673f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4f538188f60a9c06e99f758d7b379f7"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#ae4f538188f60a9c06e99f758d7b379f7">sx_api_host_ifc_trap_id_ext_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_host_ifc_trap_key_t *trap_key_p, const sx_host_ifc_trap_attr_t *trap_attr_p)</td></tr>
 <tr class="separator:ae4f538188f60a9c06e99f758d7b379f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8d9a4e915d67d3ab4e6448138bf67d6"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__host__ifc_8h.html#ad8d9a4e915d67d3ab4e6448138bf67d6">sx_api_host_ifc_trap_id_ext_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_host_ifc_trap_key_t *trap_key_p, sx_host_ifc_trap_attr_t *trap_attr_p, uint32_t *attr_cnt_p)</td></tr>
@@ -645,6 +647,75 @@ SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
 SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
 <dd>
 SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a id="a3b99edc2800fa0eb9f5da2084f34673f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b99edc2800fa0eb9f5da2084f34673f">&#9670;&nbsp;</a></span>sx_api_host_ifc_trap_id_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_host_ifc_trap_id_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_swid_t&#160;</td>
+          <td class="paramname"><em>swid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_trap_id_t&#160;</td>
+          <td class="paramname"><em>trap_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_trap_group_t&#160;</td>
+          <td class="paramname"><em>trap_group</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_trap_action_t&#160;</td>
+          <td class="paramname"><em>trap_action</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000010">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_api_host_ifc_trap_id_ext_set in its place.</dd></dl>
+<p>This API configures traps/event properties for each device in the system: Map Trap ID/Event ID to Priority group. Configure trap action (for traps only).</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_id</td><td>- Trap ID. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_group</td><td>- Trap group handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">trap_action</td><td>- Trap action.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameters is invalid </dd>
+<dd>
+SX_STATUS_ERROR general error </dd>
+<dd>
+SX_STATUS_MEMORY_ERROR error handling memory </dd>
+<dd>
+SX_STATUS_NO_RESOURCES device was not opened</dd></dl>
+<p>Note: When configuring trap_id of SX_TRAP_ID_ETH_L2_PACKET_SAMPLING /SX_TRAP_ID_GENERAL_FDB /SX_TRAP_ID_ACL/SX_TRAP_ID_IPTRAP, trap_action field is ignored. Instead, the action should be configured in each module. </p>
 
 </div>
 </div>
@@ -1517,26 +1588,14 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets host interface counters.</p>
-<p>To fetch all the trap id/trap group counters via range filters, provide start as '0' and end as max of trap id/trap group Note: Due to hardware limitations, this API may have some counter inconsistency for trap IDs that belong to both the regular and the monitor trap group simultaneously. Use sx_api_host_ifc_trap_group_stat_get to get accurate values.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Note: Due to hardware limitations, this API may have some counter inconsistency for trap IDs that belong to both the regular and the monitor trap group simultaneously. Use sx_api_host_ifc_trap_group_stat_get to get accurate values.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ/READ_CLEAR </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- Filter to determine which counters to get </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">host_ifc_cnt_p</td><td>- Host interface counters <pre class="fragment">           Following are allowed filter types (filter_p-&gt;counter_type), values(filter_p-&gt;u_counter_type)  in request and its corresponding
-           host interface counters(host_ifc_cnt_p)
-           Filter type                               Filter Value                        Counters
-           ==========================================================================================================================
-           HOST_IFC_COUNTER_TYPE_TRAP_GROUP_E        u_counter_type.trap_group           trap_group_counters
-                                                     array of trap groups                array of counters for valid trap groups
-           HOST_IFC_COUNTER_TYPE_TRAP_ID_E           u_counter_type.trap_id              trap_id_counters
-                                                     array of trap ids                   array of counters for valid trap ids
-           HOST_IFC_COUNTER_TYPE_TRAP_GROUP_RANGE_E  u_counter_type.trap_group_range     trap_group_counters
-                                                     trap group range                    array of counters
-           HOST_IFC_COUNTER_TYPE_TRAP_ID_RANGE_E     u_counter_type.trap_id              trap_id_counters
-                                                     trap id range                       array of counters
-</pre></td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">host_ifc_cnt_p</td><td>- Host interface counters</td></tr>
   </table>
   </dd>
 </dl>
@@ -1707,7 +1766,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 9 2022 15:40:17 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 23 2022 14:56:45 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

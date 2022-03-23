@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.1500</span>
+   &#160;<span id="projectnumber">4.4.3380</span>
    </div>
   </td>
  </tr>
@@ -125,6 +125,10 @@ Functions</h2></td></tr>
 <tr class="separator:a2700b896f2d6045890fd567e2ddf5fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ef4198e307f8593b7d693f363297678"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a4ef4198e307f8593b7d693f363297678">sx_api_acl_range_get</a> (const sx_api_handle_t handle, const sx_acl_port_range_id_t range_id, sx_acl_range_entry_t *range_entry_p)</td></tr>
 <tr class="separator:a4ef4198e307f8593b7d693f363297678"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85de9c7f09f1494b0af588835ba5febb"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a85de9c7f09f1494b0af588835ba5febb">sx_api_acl_rules_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_region_id_t region_id, const sx_acl_rule_t *rules_list_p, const uint32_t rules_cnt)</td></tr>
+<tr class="separator:a85de9c7f09f1494b0af588835ba5febb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a71f177218829d87debe98d4c399238"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a8a71f177218829d87debe98d4c399238">sx_api_acl_rules_get</a> (const sx_api_handle_t handle, const sx_acl_region_id_t region_id, const sx_acl_rule_offset_t start_offset, sx_acl_rule_t *rules_list_p, uint32_t *rules_cnt_p)</td></tr>
+<tr class="separator:a8a71f177218829d87debe98d4c399238"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae2d4dde1a42506c57445dedaa2934d7"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#aae2d4dde1a42506c57445dedaa2934d7">sx_api_acl_rule_activity_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_region_id_t region_id, const sx_acl_rule_offset_t rule_offset, boolean_t *activity_p)</td></tr>
 <tr class="separator:aae2d4dde1a42506c57445dedaa2934d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a022e95843912425808dcbb26058e6c5f"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a022e95843912425808dcbb26058e6c5f">sx_api_acl_rule_block_move_set</a> (const sx_api_handle_t handle, const sx_acl_region_id_t region_id, const sx_acl_rule_offset_t block_start, const sx_acl_size_t block_size, const sx_acl_rule_offset_t new_block_start)</td></tr>
@@ -181,8 +185,6 @@ Functions</h2></td></tr>
 <tr class="separator:adfb5216bf594357e8c6067bebd65d511"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa14ff3de7ade2aa6f5af206fda62fa26"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#aa14ff3de7ade2aa6f5af206fda62fa26">sx_api_acl_flex_rules_priority_set</a> (const sx_api_handle_t handle, const sx_acl_region_id_t region_id, const sx_flex_acl_rule_priority_t min_priority, const sx_flex_acl_rule_priority_t max_priority, const int32_t priority_change)</td></tr>
 <tr class="separator:aa14ff3de7ade2aa6f5af206fda62fa26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c96c801de30c35d6dabeefb4e163479"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a5c96c801de30c35d6dabeefb4e163479">sx_api_acl_activity_notify</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flex_acl_activity_notify_attr_t *activity_attr_p)</td></tr>
-<tr class="separator:a5c96c801de30c35d6dabeefb4e163479"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="aadfc89bd1ed719720aef093a6d27aef0"></a>
@@ -1389,10 +1391,10 @@ SX_STATUS_INVALID_HANDLE Invalid handle error </dd></dl>
   </dd>
 </dl>
 <p>Input/Output Types</p><ul>
-<li>GET_FIRST - Gets a list of first N entries. The command should be SX_ACCESS_CMD_GET_FIRST and count should be equal to N (pbs_id_key is irrelevant in this case). Returns the number of entries retrieved via pbs_id_cnt_p.</li>
-<li>GET_NEXT - Gets N entries after a specified pbs_id_key (it does not have to exist). The command should be SX_ACCESS_CMD_GETNEXT. The value of pbs_id_cnt_p should be equal to N. Returns the number of entries retrieved via pbs_id_cnt_p.</li>
-<li>GET - Gets a specific entry. The command should be SX_ACCESS_CMD_GET and the value of pbs_id_cnt_p should be 1. Setting the input value of pbs_id_cnt_p is 0 returns the total count of the PBS IDs available.</li>
-<li>filter - If a valid filter value is provided, the above commands will return PBS IDs that match the filter only. If none match, the API will succeed with a return count of 0 and an empty list.</li>
+<li>Get first - Gets a list of first N entries. The command should be SX_ACCESS_CMD_GET_FIRST and count should be equal to N (pbs_id_key is irrelevant in this case). Returns the number of entries retrieved via pbs_id_cnt_p.</li>
+<li>Get next - Gets N entries after a specified pbs_id_key (it does not have to exist). The command should be SX_ACCESS_CMD_GETNEXT. The value of pbs_id_cnt_p should be equal to N. Returns the number of entries retrieved via pbs_id_cnt_p.</li>
+<li>Get - Gets a specific entry. The command should be SX_ACCESS_CMD_GET and the value of pbs_id_cnt_p should be 1 Setting the input value of pbs_id_cnt_p is 0 returns the total count of the PBS IDs available.</li>
+<li>filter – If a valid filter value is provided, the above commands will return PBS IDs that match the filter only. If none match, the API will succeed with a return count of 0 and an empty list.</li>
 </ul>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
@@ -1400,7 +1402,7 @@ SX_STATUS_PARAM_ERROR Any parameter is in error </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED Command is not supported </dd>
 <dd>
-SX_STATUS_INVALID_HANDLE Handle is invalid </dd>
+SX_STATUS_INVALID_HANDLE Handle in invalid </dd>
 <dd>
 SX_STATUS_ERROR General error </dd></dl>
 
@@ -1710,6 +1712,144 @@ SX_STATUS_ENTRY_NOT_FOUND ACL element is not found in database </dd>
 SX_STATUS_SXD_RETURNED_NON_ZERO Hardware failure </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE Invalid handle error </dd></dl>
+
+</div>
+</div>
+<a id="a85de9c7f09f1494b0af588835ba5febb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85de9c7f09f1494b0af588835ba5febb">&#9670;&nbsp;</a></span>sx_api_acl_rules_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_rules_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_region_id_t&#160;</td>
+          <td class="paramname"><em>region_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_rule_t *&#160;</td>
+          <td class="paramname"><em>rules_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>rules_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_api_acl_flex_rules_set in its place.</dd></dl>
+<p>This API is used for inserting rules into an ACL region. Inserting rules is allowed before and after bind operation. Rule is inserted to an explicit offset, overriding existing rule on that offset. Rules must have the same key type as the ACL region.</p>
+<p>Note: When in 802.1D mode, provide a bridge_id instead of providing a vid(Vlan ID) in rules[].key.fields.key_type.vid (if present in the key_type) and rules[].mask.fields.key_type.vid (if present) and rules[].action.basic_action.vid (if present).</p>
+<p>Supported devices: SwitchX, SwitchX2.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET/DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">region_id</td><td>- ACL region ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rules_p</td><td>- Representation of rule content (should be in size of num_of_rules) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">num_of_rules</td><td>- Number of rules to configure (number of elements in the array)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE Any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND ACL element is not found in database </dd>
+<dd>
+SX_STATUS_NO_RESOURCES No more space for rules </dd>
+<dd>
+SX_STATUS_SXD_RETURNED_NON_ZERO Hardware failure </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED Command is unsupported </dd></dl>
+
+</div>
+</div>
+<a id="a8a71f177218829d87debe98d4c399238"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a71f177218829d87debe98d4c399238">&#9670;&nbsp;</a></span>sx_api_acl_rules_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_rules_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_region_id_t&#160;</td>
+          <td class="paramname"><em>region_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_rule_offset_t&#160;</td>
+          <td class="paramname"><em>start_offset</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_rule_t *&#160;</td>
+          <td class="paramname"><em>rules_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>rules_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000002">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_api_acl_flex_rules_get in its place.</dd></dl>
+<p>This API is used for getting rules of an ACL block.</p>
+<p>Note: When in 802.1D mode, bridge_id's are provided instead of receiving a vid (VLAN ID) on rules[].key.fields.key_type.vid, rules[].mask.fields.key_type.vid, and rules[].action.basic_action.vid.</p>
+<p>Supported devices: SwitchX, SwitchX2.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">region_id</td><td>- ACL region ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">start_offset</td><td>- Start offset within the region </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">rules_p</td><td>- Pointer to representation of rule content (should be in size of num_of_rules) </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">num_of_rules</td><td>- [IN] number of rules to get (number of elements in the array)/ [OUT] number of rules that were actually read from ACL table</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE Any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND ACL element is not found in database </dd>
+<dd>
+SX_STATUS_SXD_RETURNED_NON_ZERO Hardware failure requested </dd></dl>
 
 </div>
 </div>
@@ -3438,61 +3578,11 @@ SX_STATUS_ENTRY_NOT_FOUND ACL element is not found in database </dd></dl>
 
 </div>
 </div>
-<a id="a5c96c801de30c35d6dabeefb4e163479"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c96c801de30c35d6dabeefb4e163479">&#9670;&nbsp;</a></span>sx_api_acl_activity_notify()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_acl_activity_notify </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_access_cmd_t&#160;</td>
-          <td class="paramname"><em>cmd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_flex_acl_activity_notify_attr_t *&#160;</td>
-          <td class="paramname"><em>activity_attr_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API triggers a notification of ACL rules activity. The application can listen for the SX_TRAP_ID_ACL_ACTIVITY Trap to get the data. The application can get multiple trap events per a notification procedure. If entry_cnt in trap event is 0, means it's the end of this notification procedure. If DDD is enabled, region id filtering is not allowed. In this case, will return SX_STATUS_PARAM_ERROR if filter_by_region_id is valid in activity_attr_p. Supported devices: Spectrum2, Spectrum3.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ/READ_CLEAR </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">activity_attr</td><td>- Activity notifier attribute</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if parameter is invalid </dd>
-<dd>
-SX_STATUS_RESOURCE_IN_USE if a notification procedure is already running. </dd>
-<dd>
-SX_STATUS_ERROR general error </dd></dl>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 9 2022 15:40:17 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 23 2022 14:56:45 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

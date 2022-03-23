@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2021 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -789,8 +789,6 @@ sx_status_t sx_api_fdb_flush_by_type_set(const sx_api_handle_t  handle,
 
 
 /**
- * \deprecated This API is deprecated and will be removed in the future.
- *
  * This API maps VLANs to filtering databases for shared VLAN learning (SVL) between VLANs.
  * If independent VLAN learning is desired, a single VLAN should be mapped to a single FID.
  *
@@ -949,8 +947,6 @@ sx_status_t sx_api_fdb_fid_learn_mode_get(const sx_api_handle_t handle,
  * This API sets a port's learn mode.
  *
  * Note: The learn mode on the NVE port can be configured only when there is a connected NVE tunnel in the system.
- * Note: The learning of decapsulated MACs from NVE IPv6 tunnels is not supported, thus setting anything except
- * the SX_FDB_LEARN_MODE_DONT_LEARN mode on the NVE port when there is a connected NVE IPv6 tunnel will return an error.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -1615,11 +1611,11 @@ sx_status_t sx_api_fdb_mc_ip_addr_group_activity_notify(const sx_api_handle_t   
  *  Redirecting FDB entries to/from a port updates the number of FDB entries on that port,
  *  but the limit of FDB entries is not enforced, so it may cause a state where the limit is exceeded.
  *
- *  The API does not affect learnt FDB entries that were not processed before calling this API.
- *  In the CONTROL learn mode, the user should process notifications about each learnt FDB entry using
- *  sx_api_fdb_uc_mac_addr_set by himself.
- *  In the AUTO learn mode, SDK configures each learnt FDB entries according to the learning source (a
- *  port or a tunnel).
+ *  The API does not affect aged and learnt FDB entries that were not processed before calling this API.
+ *  In the CONTROL learn mode, the user should process notifications about each aged or learnt FDB entries
+ *  using sx_api_fdb_uc_mac_addr_set by himself.
+ *  In the AUTO learn mode, SDK removes each aged FDB entry and configures each learnt FDB entries
+ *  according to the learning source (a port or a tunnel).
  *
  *  Notes:
  *    The API should not be called during the ISSU process or during the FAST boot.

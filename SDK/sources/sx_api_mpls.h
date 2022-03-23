@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2021 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -91,6 +91,7 @@ sx_status_t sx_api_mpls_deinit_set(const sx_api_handle_t handle);
 /**
  * This API creates an ILM table.
  *
+ * Note: Only label space 0 is currently supported (ilm_table).
  *
  * Supported devices: Spectrum.
  *

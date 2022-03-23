@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2021 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -496,22 +496,22 @@ sx_status_t sx_api_acl_policy_based_switching_get(const sx_api_handle_t handle,
  * @param[in,out] pbs_id_cnt_p  - [in] number of entries to retrieve /[out] number of entries retrieved.
  *
  * Input/Output Types
- *    - GET_FIRST - Gets a list of first N entries. The command should be SX_ACCESS_CMD_GET_FIRST and
+ *    - Get first - Gets a list of first N entries. The command should be SX_ACCESS_CMD_GET_FIRST and
  *      count should be equal to N (pbs_id_key is irrelevant in this case). Returns the number of
  *      entries retrieved via pbs_id_cnt_p.
- *    - GET_NEXT - Gets N entries after a specified pbs_id_key (it does not have to exist).
+ *    - Get next - Gets N entries after a specified pbs_id_key (it does not have to exist).
  *      The command should be SX_ACCESS_CMD_GETNEXT. The value of pbs_id_cnt_p should be equal to N.
  *      Returns the number of entries retrieved via pbs_id_cnt_p.
- *    - GET - Gets a specific entry. The command should be SX_ACCESS_CMD_GET and the value of pbs_id_cnt_p should be 1.
+ *    - Get - Gets a specific entry. The command should be SX_ACCESS_CMD_GET and the value of pbs_id_cnt_p should be 1
  *      Setting the input value of pbs_id_cnt_p is 0 returns the total count of the PBS IDs available.
- *    - filter -  If a valid filter value is provided, the above commands will return PBS IDs that match the filter only.
+ *    - filter – If a valid filter value is provided, the above commands will return PBS IDs that match the filter only.
  *                If none match, the API will succeed with a return count of 0 and an empty list.
  *
  *
  * @return SX_STATUS_SUCCESS              Operation completed successfully
  * @return SX_STATUS_PARAM_ERROR          Any parameter is in error
  * @return SX_STATUS_CMD_UNSUPPORTED      Command is not supported
- * @return SX_STATUS_INVALID_HANDLE       Handle is invalid
+ * @return SX_STATUS_INVALID_HANDLE       Handle in invalid
  * @return SX_STATUS_ERROR                General error
  */
 sx_status_t sx_api_acl_policy_based_switching_iter_get(const sx_api_handle_t      handle,
@@ -666,6 +666,67 @@ sx_status_t sx_api_acl_range_set(const sx_api_handle_t       handle,
 sx_status_t sx_api_acl_range_get(const sx_api_handle_t        handle,
                                  const sx_acl_port_range_id_t range_id,
                                  sx_acl_range_entry_t        *range_entry_p);
+
+/**
+ *  \deprecated This API is deprecated and will be removed in the future. Please use sx_api_acl_flex_rules_set in its place.
+ *
+ * This API is used for inserting rules into an ACL region.
+ * Inserting rules is allowed before and after bind operation.
+ * Rule is inserted to an explicit offset, overriding existing rule on that offset.
+ * Rules must have the same key type as the ACL region.
+ *
+ * Note: When in 802.1D mode, provide a bridge_id instead of providing a vid(Vlan ID) in rules[].key.fields.key_type.vid
+ *  (if present in the key_type) and rules[].mask.fields.key_type.vid (if present) and rules[].action.basic_action.vid (if present).
+ *
+ * Supported devices: SwitchX, SwitchX2.
+ *
+ *
+ * @param[in] handle       - SX-API handle
+ * @param[in] cmd          - SET/DELETE
+ * @param[in] region_id    - ACL region ID
+ * @param[in] rules_p      - Representation of rule content (should be in size of num_of_rules)
+ * @param[in] num_of_rules - Number of rules to configure (number of elements in the array)
+ *
+ * @return SX_STATUS_SUCCESS                                                             Operation completed successfully
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE  Any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND                                                     ACL element is not found in database
+ * @return SX_STATUS_NO_RESOURCES                                                        No more space for rules
+ * @return SX_STATUS_SXD_RETURNED_NON_ZERO                                               Hardware failure
+ * @return SX_STATUS_CMD_UNSUPPORTED                                                     Command is unsupported
+ */
+sx_status_t sx_api_acl_rules_set(const sx_api_handle_t    handle,
+                                 const sx_access_cmd_t    cmd,
+                                 const sx_acl_region_id_t region_id,
+                                 const sx_acl_rule_t     *rules_list_p,
+                                 const uint32_t           rules_cnt);
+
+/**
+ * \deprecated This API is deprecated and will be removed in the future. Please use sx_api_acl_flex_rules_get in its place.
+ *
+ * This API is used for getting rules of an ACL block.
+ *
+ * Note: When in 802.1D mode, bridge_id's are provided instead of receiving a vid (VLAN ID) on rules[].key.fields.key_type.vid,
+ * rules[].mask.fields.key_type.vid, and rules[].action.basic_action.vid.
+ *
+ * Supported devices: SwitchX, SwitchX2.
+ *
+ * @param[in] handle           - SX-API handle
+ * @param[in] region_id        - ACL region ID
+ * @param[in] start_offset     - Start offset within the region
+ * @param[out] rules_p         - Pointer to representation of rule content (should be in size of num_of_rules)
+ * @param[in,out] num_of_rules - [IN] number of rules to get (number of elements in the array)/
+ *                               [OUT] number of rules that were actually read from ACL table
+ *
+ * @return SX_STATUS_SUCCESS                                                             Operation completed successfully
+ * @return SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE  Any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND                                                     ACL element is not found in database
+ * @return SX_STATUS_SXD_RETURNED_NON_ZERO                                               Hardware failure requested
+ */
+sx_status_t sx_api_acl_rules_get(const sx_api_handle_t      handle,
+                                 const sx_acl_region_id_t   region_id,
+                                 const sx_acl_rule_offset_t start_offset,
+                                 sx_acl_rule_t             *rules_list_p,
+                                 uint32_t                  *rules_cnt_p);
 
 /**
  * This API is used for getting and/or clearing the activity of a specific rule.
@@ -1429,26 +1490,5 @@ sx_status_t sx_api_acl_flex_rules_priority_set(const sx_api_handle_t            
                                                const sx_flex_acl_rule_priority_t max_priority,
                                                const int32_t                     priority_change);
 
-/**
- * This API triggers a notification of ACL rules activity.
- * The application can listen for the SX_TRAP_ID_ACL_ACTIVITY Trap to get the data.
- * The application can get multiple trap events per a notification procedure.
- * If entry_cnt in trap event is 0, means it's the end of this notification procedure.
- * If DDD is enabled, region id filtering is not allowed. In this case,
- * will return SX_STATUS_PARAM_ERROR if filter_by_region_id is valid in activity_attr_p.
- * Supported devices: Spectrum2, Spectrum3.
- *
- * @param[in] handle            - SX-API handle
- * @param[in] cmd               - READ/READ_CLEAR
- * @param[in] activity_attr     - Activity notifier attribute
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_ERROR if parameter is invalid
- * @return SX_STATUS_RESOURCE_IN_USE if a notification procedure is already running.
- * @return SX_STATUS_ERROR general error
- */
-sx_status_t sx_api_acl_activity_notify(const sx_api_handle_t                     handle,
-                                       const sx_access_cmd_t                     cmd,
-                                       const sx_flex_acl_activity_notify_attr_t *activity_attr_p);
 
 #endif /* ifndef __SX_API_ACL_H__ */

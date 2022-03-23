@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2021 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -137,18 +137,12 @@ sx_status_t sx_api_flow_counter_get(const sx_api_handle_t      handle,
 /**
  * This API gets a list of flow counters.
  *
- * Note:
- *  The API can return up to SX_FLOW_COUNTER_ITER_GET_MAX counters.
- *  To get all the counters in the system, the API can be called first with the SX_ACCESS_CMD_GET_FIRST command,
- *  and then, if needed, it can be called with the SX_ACCESS_CMD_GETNEXT command multiple times until
- *  an empty list is returned.
- *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd   - GET/GET_NEXT/GET_FIRST
  * @param[in] counter_id_key - Flow counter ID to use and key
- * @param[in] counter_filter_p - Filter to use
+ * @param[in] counter_filter_p - Filter to use (not supported yet)
  * @param[out] counter_id_list_p - Pointer to the list of flow counter IDs returned
  * @param[in,out] counter_id_cnt_p - [in] number of entries to retrieve/[out] retrieved number of entries.
  *
@@ -187,6 +181,7 @@ sx_status_t sx_api_flow_counter_get(const sx_api_handle_t      handle,
  * @return SX_STATUS_INVALID_HANDLE if handle in invalid
  * @return SX_STATUS_ERROR general error
  */
+
 sx_status_t sx_api_flow_counter_iter_get(const sx_api_handle_t      handle,
                                          const sx_access_cmd_t      cmd,
                                          const sx_flow_counter_id_t counter_id_key,
@@ -214,4 +209,4 @@ sx_status_t sx_api_flow_counter_iter_get(const sx_api_handle_t      handle,
 sx_status_t sx_api_flow_counter_clear_set(const sx_api_handle_t      handle,
                                           const sx_flow_counter_id_t counter_id);
 
-#endif /* ifndef __SX_API_FLOW_COUNTER_H__ */
+#endif
