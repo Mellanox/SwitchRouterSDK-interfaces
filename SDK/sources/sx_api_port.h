@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2021 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -78,7 +78,7 @@ sx_status_t sx_api_port_log_verbosity_level_get(const sx_api_handle_t           
  * The SDK will map the device's local ports to unique logical ports (returned within port_attributes_list_p).
  * The logical ports represent SDK ports and used further in port APIs.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, SwitchIB-2, Quantum, Quantum2.
  *
  * @param[in] handle                     - SX-API handle
  * @param[in] cmd                        - ADD/DELETE
@@ -198,7 +198,7 @@ sx_status_t sx_api_port_device_list_get(const sx_api_handle_t handle,
  * This API adds/deletes a SWID to/from the SDK.
  * A SWID which has ports bound to it cannot be deleted.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, SwitchIB-2, Quantum, Quantum2.
  *
  * @param[in] handle  - SX-API handle
  * @param[in] cmd     - ADD/DELETE
@@ -238,7 +238,10 @@ sx_status_t sx_api_port_swid_list_get(const sx_api_handle_t handle,
  * To unbind a port from a SWID, the SWID field should be SX_SWID_ID_DISABLED.
  * Port attributes reset during an unbind operation (e.g., VLAN membership and QinQ).
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Note: This API supports port profile for bind operation.
+ *       Un-binding a port profile is done during destroy of port profile.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, SwitchIB-2, Quantum, Quantum2.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] log_port - Logical Port ID
@@ -257,6 +260,7 @@ sx_status_t sx_api_port_swid_bind_set(const sx_api_handle_t  handle,
  * This API retrieves a logical port's bound SWID.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
  *
  * @param[in] handle     - SX-API handle
  * @param[in] log_port   - Logical Port ID
@@ -335,8 +339,9 @@ sx_status_t sx_api_port_mode_get(const sx_api_handle_t  handle,
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
+ *
  * @param[in] handle   - SX-API handle
- * @param[in] log_port - Logical Port ID
+ * @param[in] log_port - Logical Port ID, port profile is supported.
  * @param[in] mtu_size - new MTU size. The MTU size is L2 frame size (payload size + L2 header size).
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
@@ -372,11 +377,65 @@ sx_status_t sx_api_port_mtu_get(const sx_api_handle_t  handle,
                                 sx_port_mtu_t         *oper_mtu_size_p);
 
 /**
+ * This API controls enabling of the port ingress truncation mode and sets the truncation size of packets that ingress the port.
+ * Note: - Ingress MTU discard is not functional on a Port with Ingress Truncation enabled.
+ *       - Truncation size minimal value is 128B with granularity of 8 bytes.
+ *       - The packets will be truncated to "size-4B" (4B for CRC).
+ *       - The ingress MTU size will be minimum of [MTU, truncation size].
+ *       - In case MTU size < truncation size, SDK will round up MTU value to a valid
+ *         truncation size and will return the MTU to it's original value once truncation is disabled.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ * @param[in] handle   - SX-API handle
+ * @param[in] cmd      - SET/UNSET
+ * @param[in] log_port - Logical Port ID
+ * @param[in] truncation_p - The truncation attributes configured on this port.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ */
+sx_status_t sx_api_port_ingress_truncation_set(const sx_api_handle_t       handle,
+                                               const sx_access_cmd_t       cmd,
+                                               const sx_port_log_id_t      log_port,
+                                               const sx_port_truncation_t *truncation_p);
+
+/**
+ * This API gets the given port's ingress truncation mode state.
+ * When enabled, the API will return the size to which ingress packets will be truncated to.
+ * When disabled, the truncation size will be returned as 0.
+ * Note: The packets are truncated to truncation size -4B for the CRC.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ * @param[in] handle   - SX-API handle
+ * @param[in] cmd      - GET
+ * @param[in] log_port - Logical Port ID
+ * @param[out] truncation_p - Truncation attributes pointer.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ */
+sx_status_t sx_api_port_ingress_truncation_get(const sx_api_handle_t  handle,
+                                               const sx_access_cmd_t  cmd,
+                                               const sx_port_log_id_t log_port,
+                                               sx_port_truncation_t  *truncation_p);
+
+/**
  * This API sets the port type & speed. This API enables the application to set the port enabled mode(s).
  * When the link is up, the current active protocol is retrieved (after SET).
  * When the link is down, the supported protocols are retrieved (after SET).
  *
  * Note: Disabling auto-negotiation also disables auto FEC.
+ * Note: This API supports port profile.
+ *       For port profile type of port operational and mode MTU size are equal to admin mtu
+ *       configured by sx_api_port_mtu_set
+ *
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -397,6 +456,9 @@ sx_status_t sx_api_port_speed_admin_set(const sx_api_handle_t             handle
 
 /**
  * This API retrieves the port's admin and operational speed from the SDK.
+ *
+ * Note: This API supports port profile.
+ *       For port profile port type operational speed is not valid.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -501,6 +563,8 @@ sx_status_t sx_api_port_phys_addr_set(const sx_api_handle_t  handle,
 /**
  * This API sets the port's physical loopback. LAG port cannot be loopback.
  *
+ * Note: This API supports port profile.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle          - SX-API handle
@@ -519,6 +583,8 @@ sx_status_t sx_api_port_phys_loopback_set(const sx_api_handle_t         handle,
 
 /**
  * This API retrieves the port's physical loopback (LAG port cannot be loopback).
+ *
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -540,6 +606,8 @@ sx_status_t sx_api_port_phys_loopback_get(const sx_api_handle_t    handle,
 /**
  * This API sets the port administrative state in the SDK.
  *
+ * Note: This API supports port profile.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle      - SX-API handle
@@ -558,6 +626,8 @@ sx_status_t sx_api_port_state_set(const sx_api_handle_t       handle,
 
 /**
  * This API retrieves the port's administrative, operational, and module state from the SDK.
+ *
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -582,12 +652,10 @@ sx_status_t sx_api_port_state_get(const sx_api_handle_t   handle,
 
 /**
  *
- * @param[in] handle   - SX-API handle
- * @param[in] log_port - logical port ID (whose flow control configuration to set)
- * @param[in] fc_mode  - Tx/Rx flow control state
- *
  * This API sets the port flow control pause configuration.
  * fc_mode sets the mode of both Rx and Tx with one of 4 possible EN/DIS combinations.
+ *
+ *  Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -609,7 +677,10 @@ sx_status_t sx_api_port_global_fc_enable_set(const sx_api_handle_t          hand
  * This API retrieves the port flow control pause configuration from the SDK.
  * fc_mode_p gets the mode of both Rx and Tx with one of 4 possible EN/DIS combinations.
  *
+ * Note: This API supports port profile.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
  *
  * @param[in] handle     - SX-API handle
  * @param[in] log_port   - Logical Port ID (whose flow control configuration to retrieve)
@@ -629,8 +700,8 @@ sx_status_t sx_api_port_global_fc_enable_get(const sx_api_handle_t     handle,
  * This API sets the port priority flow control (PFC) configuration.
  * fc_mode sets the mode of both Rx and Tx with one of 4 possible EN/DIS combinations.
  *
+ * Note: This API supports port profile.
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
- *
  *
  * @param[in] handle   - SX-API handle
  * @param[in] log_port - Port ID
@@ -650,6 +721,8 @@ sx_status_t sx_api_port_pfc_enable_set(const sx_api_handle_t          handle,
 /**
  * This API retrieves the port priority flow control (PFC) configuration from the SDK.
  * fc_mode_p gets the mode of both Rx and Tx with one of 4 possible EN/DIS combinations.
+ *
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -1072,6 +1145,9 @@ sx_status_t sx_api_port_counter_phy_layer_internal_link_get(const sx_api_handle_
 /**
  * This API initializes the port in the SDK.
  *
+ * Note: This API supports port profile.
+ *       Deinit of port profile is done as part of destruction of port profile.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle   - SX-API handle
@@ -1266,7 +1342,12 @@ sx_status_t sx_api_port_sflow_statistics_get(const sx_api_handle_t       handle,
  * Notes relevant to NVE port:
  *  On Spectrum systems, changing of the state of the loopback filter is not supported on Spectrum.
  *  Changing of the state affects only UC traffic (MC and flooding are always filtered).
- *  The state of the filter can be changed only when there is a connected NVE tunnel in the system.
+ *  The state of the filter can be changed only when there is a connected NVE/Flex tunnel in the system.
+ *
+ * Note: This API supports port profile.
+ * Note: Flex tunnels are supported from Spectrum2 and above.
+ *
+ *
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -1286,7 +1367,10 @@ sx_status_t sx_api_port_loopback_filter_set(const sx_api_handle_t               
  * This API retrieves the loopback filter state of the port.
  *
  * Note: On Spectrum-2 systems, the API can retrieve the state of the loopback filter on the NVE port. The API can retrieve
- *  the state of the loopback filter on the NVE port only when there is connected NVE tunnel in the system.
+ *  the state of the loopback filter on the NVE/Flex port only when there is connected NVE/Flex tunnel in the system.
+ *
+ * Note: This API supports port profile.
+ * Note: Flex tunnels are supported from Spectrum2 and above.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -1312,7 +1396,8 @@ sx_status_t sx_api_port_loopback_filter_get(const sx_api_handle_t           hand
  * DELETE removes ports from isolation group.
  * DELETE_ALL empties isolation group.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] cmd               - SET/ADD/DELETE/DELETE_ALL
@@ -1336,7 +1421,7 @@ sx_status_t sx_api_port_isolate_set(const sx_api_handle_t   handle,
  * This API retrieves the isolation group of the port (a list of ports from which traffic should not be transmitted to log_port).
  * Use log_port_cnt_p=0 to retrieve only the size of the isolation group.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle              - SX-API handle
  * @param[in] log_port            - Logical Port ID
@@ -1355,12 +1440,21 @@ sx_status_t sx_api_port_isolate_get(const sx_api_handle_t  handle,
                                     uint32_t              *log_port_cnt_p);
 
 /**
- * This API defines port isolation mode: whether pass or filter frames, which went through the router.
+ * This API defines port isolation mode: whether to pass or filter frames, which went through the router and/or bridge.
  * This API is added for backward compatibility and for performance considerations.
- * If pass_routed_frames is True, frame performance penalty is possible. pass_routed_frames=True relates to the physical ports
- * and not to the internal tunnel ports.
+ * If pass_routed_frames is True, frame performance penalty is possible for Spectrum and Spectrum2.
+ * Note that for Spectrum pass_routed_frames=True relates to the physical ports and not to the internal tunnel ports.
+ * Possible filtering modes are allowed for Bridge and Routed (L2/L3) or Bridge-only (L2):
+ * - pass_routed_frames=True – Isolation will be done on Bridge-only (L2) – only L2 frames will be isolated
+ * - pass_router_frames=False – Isolation will be done for Routed (L2/L3) and Bridge (L2) frames.
+ * - isolate_bridged_and_routed=True – SDK users may intermix L2/L3 and L2 isolation for different ports. Supported by Spectrum3 and above.
+ * - isolate_bridged_and_routed=False – SDK users can use only isolation mode defined by ‘pass_routed_frames’ parameter. Supported by Spectrum3 and above.
+ * Note that both pass_routed_frames and isolate_bridge_and_routed can not be set to True since they will interfere with each other.
+ * Note that changing the isolation mode on Spectrum3 and above clears the isolation table and port isolation configuration should be restored by user.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle              - SX-API handle
  * @param[in] port_isolate_mode_p - Port isolate mode
@@ -1378,7 +1472,7 @@ sx_status_t sx_api_port_isolate_mode_set(const sx_api_handle_t         handle,
 /**
  * This API retrieves port isolation mode.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle               - SX-API handle
  * @param[out] port_isolate_mode_p - Port isolate mode
@@ -1389,6 +1483,61 @@ sx_status_t sx_api_port_isolate_mode_set(const sx_api_handle_t         handle,
 
 sx_status_t sx_api_port_isolate_mode_get(const sx_api_handle_t   handle,
                                          sx_port_isolate_mode_t *port_isolate_mode_p);
+
+
+/**
+ * This API sets the isolation group of the port (a list of ports from which L2 traffic should
+ * not be transmitted to log_port – Bridge filtering only).
+ * Isolation is supported only between ports that are on the same device and on the same SWID.
+ *
+ * Note that this API can be used only for L2 port isolation mode configured using
+ * isolate_bridge_and_routed=True from the sx_api_port_isolate_mode_set API.
+ *
+ * SET adds ports to isolation group (overwrites previous configuration).
+ * ADD adds ports to isolation group (in addition to previous configuration).
+ * DELETE removes ports from isolation group.
+ * DELETE_ALL empties isolation group.
+ *
+ *  Supported devices: Spectrum3, Spectrum4.
+ *
+ * @param[in] handle            - SX-API handle
+ * @param[in] cmd               - SET/ADD/DELETE/DELETE_ALL
+ * @param[in] log_port          - Logical Port ID or Tunnel Port ID
+ * @param[in] isolation_cfg_p   - Isolation config which should be applied to the log_port
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the database
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range
+ */
+sx_status_t sx_api_port_isolate_bridge_set(const sx_api_handle_t    handle,
+                                           const sx_access_cmd_t    cmd,
+                                           const sx_port_log_id_t   log_port,
+                                           sx_port_isolation_cfg_t *isolation_cfg_p);
+
+/**
+ * This API retrieves the isolation group of the port (a list of ports from which L2 traffic should
+ * not be transmitted to log_port).
+ * Use isolation_cfg_p->log_port_cnt=0 to retrieve only the size of the isolation group.
+ * Note that for Spectrum3 and above as a log_port can be used tunnel port to which traffic should not be transmitted.
+ *
+ * Supported devices: Spectrum3, Spectrum4.
+ *
+ * @param[in] handle              - SX-API handle
+ * @param[in] log_port            - Logical Port ID or Tunnel Port ID
+ * @param[in,out] isolation_cfg_p - Isolation config which was applied to the log_port
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the database
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range
+ */
+sx_status_t sx_api_port_isolate_bridge_get(const sx_api_handle_t    handle,
+                                           const sx_port_log_id_t   log_port,
+                                           sx_port_isolation_cfg_t *isolation_cfg_p);
+
 
 /**
  * This API returns the SWID type as it was configured in the profile at the time of SDK initialization.
@@ -1515,64 +1664,21 @@ sx_status_t sx_api_port_vport_counter_bind_get(const sx_api_handle_t  handle,
                                                sx_flow_counter_id_t  *flow_counter_id_p);
 
 /**
- * \deprecated This API is deprecated and will be removed in the future.
+ * This API sets the port's PHY mode in the SDK.
  *
- * This API sets the mirroring state for a virtual port. Currently only ingress direction is supported.
+ * Note: 1. Changing the FEC mode of 25GbE speed also sets 50GbE speed mode and vice versa.
+ *       2. When changing FEC mode, the new setting will only apply after link training has succeeded.
+ *          This can be achieved by toggling the port admin state (down-up).
+ *       3. It is recommended to query the supported FEC capabilities before attempting to set a new mode.
+ *          Attempting to set an unsupported FEC mode will be ignored, and the API will return a success.
+ *
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle            - SX-API handle
- * @param[in] virtual_port      - Mirroring VPort
- * @param[in] mirror_direction  - Ingress/egress
- * @param[in] mirror_mode       - Enabled/disabled
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
- * @return SX_STATUS_ENTRY_NOT_FOUND if virtual_port is not found in database
- * @return SX_STATUS_ERROR if unexpected behavior occurs
- **/
-
-sx_status_t sx_api_port_vport_mirror_set(const sx_api_handle_t       handle,
-                                         const sx_port_log_id_t      virtual_port,
-                                         const sx_mirror_direction_t mirror_direction,
-                                         const sx_mirror_mode_t      mirror_mode);
-
-
-/**
- * \deprecated This API is deprecated and will be removed in the future.
- *
- * This API gets the mirroring mode for a virtual port by direction. Currently only ingress direction is supported.
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
- *
- * @param[in] handle           - SX-API handle
- * @ param[in] virtual_port    - Mirroring VPort
- * @param[in] mirror_direction - Ingress/egress
- * @param[out] mirror_mode_p   - Returned mirroring mode
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
- * @return SX_STATUS_ENTRY_NOT_FOUND if virtual_port is not found in database
- * @return SX_STATUS_ERROR if unexpected behaviour occurs
- **/
-sx_status_t sx_api_port_vport_mirror_get(const sx_api_handle_t       handle,
-                                         const sx_port_log_id_t      virtual_port,
-                                         const sx_mirror_direction_t mirror_direction,
-                                         sx_mirror_mode_t           *mirror_mode_p);
-
-/**
- * This API sets the port's phy mode in the SDK.
- *
- * Note: Changing the FEC mode of 25GbE speed also sets 50GbE speed mode and vice versa.
- * Note: When changing FEC mode, the new setting will only apply after link training has succeeded
- *       This can be achieved by toggling the port admin state (down-up)
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
- *
- * @param[in] handle   - SX-API handle
- * @param[in] log_port - Logical Port ID
- * @param[in] speed    - Phy Speed
- * @param[in] mode     - New phy admin mode
+ * @param[in] log_port          - Logical Port ID
+ * @param[in] speed             - PHY Speed
+ * @param[in] admin_mode    - New PHY admin mode
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
@@ -1651,6 +1757,7 @@ sx_status_t sx_api_port_discard_reason_get(const sx_api_handle_t     handle,
  * This API sets the port's forwarding mode (cut-through vs. store-and-forward) in the SDK.
  *
  * Note: Port operational forwarding mode will be updated only after port toggling.
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -1671,6 +1778,8 @@ sx_status_t sx_api_port_forwarding_mode_set(const sx_api_handle_t           hand
  * This API retrieves the port's forwarding mode (cut-through vs. store-and-forward) from the SDK.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ *  Note: This API supports port profile.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] log_port          - Logical Port ID
@@ -2048,6 +2157,7 @@ sx_status_t sx_api_port_ptp_params_get(const sx_api_handle_t  handle,
  * This API is mutually exclusive with sx_api_port_speed_admin_set, so, per single SDK life cycle, only one of them can be used.
  *
  * Note: Disabling auto-negotiation also disables Auto FEC.
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum2, Spectrum3.
  *
@@ -2294,7 +2404,7 @@ sx_status_t sx_mgmt_phy_mod_pwr_attr_set(const sx_api_handle_t             handl
  *
  * @param[in] handle         - SX-API handle
  * @param[in] module_id      - Module ID
- * @param[in/out] pwr_attr_p – Phy module power attribute
+ * @param[in/out] pwr_attr_p - Phy module power attribute
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
@@ -2353,5 +2463,104 @@ sx_status_t sx_api_port_device_mapping_get(const sx_api_handle_t handle,
                                            const sx_device_id_t  device_id,
                                            sx_port_attributes_t *port_attributes_list_p,
                                            uint32_t             *port_attributes_list_size_p);
+
+/**
+ * Allocates/destroys port profile. Port profile is used as logical port in configuration APIs.
+ *
+ * CREATE - allocated port profile
+ * DESTROY- clears port profile
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3
+ * @param[in] handle              - SX-API handle.
+ * @param[in] cmd                 - CREATE/DESTROY
+ * @param[in] params_p              - Port profile params. Ignored and can be NULL for cmd = DESTROY
+ * @params[inout] port_profile_id - Port profile ID
+ *
+ * @return SX_STATUS_SUCCESS            If operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR        If any input parameters is invalid
+ * @return SX_STATUS_ERROR              If fails general error
+ * @return SX_STATUS_NO_RESOURCES       If all port_profile ids are already used
+ */
+
+sx_status_t sx_api_port_profile_set(const sx_api_handle_t           handle,
+                                    const sx_access_cmd_t           cmd,
+                                    const sx_port_profile_params_t *params_p,
+                                    sx_port_log_id_t               *port_profile_id_p);
+
+/**
+ * Applies the chosen port profile parameters to a given list of logical ports.
+ * This is asynchronous API and the user should wait for event SX_TRAP_ID_PORT_PROFILE_APPLY_DONE for return status.
+ *
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3
+ *
+ * @param[in] handle                - SX-API handle.
+ * @param[in] port_profile_id       - Port profile ID
+ * @params[in] params_p             - Port profile and list of ports to apply it
+ *
+ * @return SX_STATUS_SUCCESS     If operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR If any input parameters is invalid
+ * @return SX_STATUS_PARAM_NULL  If any input parameters is NULL
+ * @return SX_STATUS_ERROR       If operation failed
+ *
+ */
+sx_status_t sx_api_port_profile_apply_set(const sx_api_handle_t                 handle,
+                                          const sx_port_log_id_t                port_profile_id,
+                                          const sx_port_profile_apply_params_t *params_p);
+
+/**
+ * This API retrieves port connector type.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3
+ *
+ * @param[in] handle            - SX-API handle
+ * @param[in] log_port          - Logical Port ID
+ * @param[out] connector_type_p - Pointer to a port connector type
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any other input error
+ * @return SX_STATUS_ERROR general error
+ */
+sx_status_t sx_api_port_connector_type_get(const sx_api_handle_t            handle,
+                                           const sx_port_log_id_t           log_port,
+                                           sx_port_connector_type_params_t *connector_type_p);
+
+/**
+ * This API retrieves remote port capability.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3
+ *
+ * @param[in] handle                    - SX-API handle
+ * @param[in] log_port                  - Logical Port ID
+ * @param[out] remote_port_capability_p - Pointer to remote port capability
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any other input error
+ * @return SX_STATUS_ERROR general error
+ */
+sx_status_t sx_api_port_remote_capability_get(const sx_api_handle_t             handle,
+                                              const sx_port_log_id_t            log_port,
+                                              sx_port_remote_port_capability_t *remote_port_capability_p);
+
+/**
+ * This API retrieves the port's enhanced state from the SDK.
+ * This API replaces sx_api_port_state_get.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ * @param[in] handle        - SX-API handle
+ * @param[in] log_port      - Logical Port ID
+ * @param[out] port_state_p - Port enhanced state
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if a parameter is NULL
+ * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
+ * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
+ * @return SX_STATUS_COMM_ERROR if client communication fails
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ */
+sx_status_t sx_api_port_state_ext_get(const sx_api_handle_t     handle,
+                                      const sx_port_log_id_t    log_port,
+                                      sx_port_ext_port_state_t *port_state_p);
 
 #endif /* __SX_API_PORT_H__ */

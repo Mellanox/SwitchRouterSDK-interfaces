@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.4.3380</span>
+   &#160;<span id="projectnumber">4.5.2204</span>
    </div>
   </td>
  </tr>
@@ -81,10 +81,14 @@ Functions</h2></td></tr>
 <tr class="separator:adcf4386120e21db8602ef65d3b1155d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46478e002f33102be690ec368085c3e4"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__modifier_8h.html#a46478e002f33102be690ec368085c3e4">sx_api_flex_modifier_log_verbosity_level_get</a> (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, sx_verbosity_level_t *module_verbosity_level_p, sx_verbosity_level_t *api_verbosity_level_p)</td></tr>
 <tr class="separator:a46478e002f33102be690ec368085c3e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0623da17127c35c729086633cd1d6dc1"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__modifier_8h.html#a0623da17127c35c729086633cd1d6dc1">sx_api_flex_modifier_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const <a class="el" href="sx__flex__modifier__auto_8h.html#a45362579da00c2c03e7a770c17120233">sx_flex_modifier_emt_key_t</a> emt_id, const <a class="el" href="sx__flex__modifier__auto_8h.html#a46febe95df7d48164550a5f8f0684c1a">sx_flex_modifier_emt_cfg_t</a> *emt_cfg_p)</td></tr>
+<tr class="memitem:a0623da17127c35c729086633cd1d6dc1"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__modifier_8h.html#a0623da17127c35c729086633cd1d6dc1">sx_api_flex_modifier_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flex_modifier_emt_key_t emt_id, const sx_flex_modifier_emt_cfg_t *emt_cfg_p)</td></tr>
 <tr class="separator:a0623da17127c35c729086633cd1d6dc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab5e4ee8850335d2eaa29acab9ac0363"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__modifier_8h.html#aab5e4ee8850335d2eaa29acab9ac0363">sx_api_flex_modifier_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const <a class="el" href="sx__flex__modifier__auto_8h.html#a45362579da00c2c03e7a770c17120233">sx_flex_modifier_emt_key_t</a> emt_id, <a class="el" href="sx__flex__modifier__auto_8h.html#a46febe95df7d48164550a5f8f0684c1a">sx_flex_modifier_emt_cfg_t</a> *emt_cfg_p)</td></tr>
+<tr class="memitem:aab5e4ee8850335d2eaa29acab9ac0363"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__modifier_8h.html#aab5e4ee8850335d2eaa29acab9ac0363">sx_api_flex_modifier_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flex_modifier_emt_key_t emt_id, sx_flex_modifier_emt_cfg_t *emt_cfg_p)</td></tr>
 <tr class="separator:aab5e4ee8850335d2eaa29acab9ac0363"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d6d384d81fe1db3faef8e8d880f244d"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__modifier_8h.html#a3d6d384d81fe1db3faef8e8d880f244d">sx_api_flex_modifier_attr_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flex_modifier_attributes_t *attr_cfg_list_p, const uint32_t attr_cfg_cnt)</td></tr>
+<tr class="separator:a3d6d384d81fe1db3faef8e8d880f244d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accaa7f000a14198c35dd918b41a508fc"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__modifier_8h.html#accaa7f000a14198c35dd918b41a508fc">sx_api_flex_modifier_attr_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_flex_modifier_attributes_t *attr_cfg_list_p, uint32_t *attr_cfg_cnt_p)</td></tr>
+<tr class="separator:accaa7f000a14198c35dd918b41a508fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="adcf4386120e21db8602ef65d3b1155d3"></a>
@@ -220,13 +224,13 @@ SX_STATUS_PARAM_NULL if an input parameter is invalid </dd></dl>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="sx__flex__modifier__auto_8h.html#a45362579da00c2c03e7a770c17120233">sx_flex_modifier_emt_key_t</a>&#160;</td>
+          <td class="paramtype">const sx_flex_modifier_emt_key_t&#160;</td>
           <td class="paramname"><em>emt_id</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="sx__flex__modifier__auto_8h.html#a46febe95df7d48164550a5f8f0684c1a">sx_flex_modifier_emt_cfg_t</a> *&#160;</td>
+          <td class="paramtype">const sx_flex_modifier_emt_cfg_t *&#160;</td>
           <td class="paramname"><em>emt_cfg_p</em>&#160;</td>
         </tr>
         <tr>
@@ -280,13 +284,13 @@ SX_STATUS_ERROR general error. </dd></dl>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="sx__flex__modifier__auto_8h.html#a45362579da00c2c03e7a770c17120233">sx_flex_modifier_emt_key_t</a>&#160;</td>
+          <td class="paramtype">const sx_flex_modifier_emt_key_t&#160;</td>
           <td class="paramname"><em>emt_id</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="sx__flex__modifier__auto_8h.html#a46febe95df7d48164550a5f8f0684c1a">sx_flex_modifier_emt_cfg_t</a> *&#160;</td>
+          <td class="paramtype">sx_flex_modifier_emt_cfg_t *&#160;</td>
           <td class="paramname"><em>emt_cfg_p</em>&#160;</td>
         </tr>
         <tr>
@@ -315,11 +319,143 @@ SX_STATUS_UNSUPPORTED if configuration is not supported by the platform </dd></d
 
 </div>
 </div>
+<a id="a3d6d384d81fe1db3faef8e8d880f244d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d6d384d81fe1db3faef8e8d880f244d">&#9670;&nbsp;</a></span>sx_api_flex_modifier_attr_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_flex_modifier_attr_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_flex_modifier_attributes_t *&#160;</td>
+          <td class="paramname"><em>attr_cfg_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>attr_cfg_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API configures the below egress modifier attributes according to the attr_type of the listed objects (att_cfg_list_p):</p>
+<p>a. port attributes (attr_type=TYPE_PORT_E): payload_offset_shift- By default the flex packet modification is supported up to the byte where the actual packet header parsing stops (actual parsing offset). also the actual parsing offset is less or equal to the configure parsing depth. the offset configuration enables to extend the actual parsing offset in order to apply either payload modification (EDIT) or additional header information element to the packet (PUSH) by the flex egress modifier. E.g : [---&mdash;default valid for flex modification-&mdash;] [---&mdash;default actual parsing offset+------&mdash;]------------------------------------------------&mdash;+ |Ethernet [18B] | ipv4[20B] | udp[8B] | Payload | +--------------&mdash;+--------------&mdash;+------&mdash;+------------------------------------------------&mdash;+</p>
+<p>configuring payload_offset_shift of 8 bytes:</p>
+<p>[---------------&mdash;valid range for flex modification------------------&mdash;] [---&mdash;default actual parsing offset+------&mdash;]-------------------&mdash;Payload-------------------&mdash;+ |Ethernet [18B] | ipv4[20B] | udp[8B] | payload_offset_shift[8B] | | +--------------&mdash;+--------------&mdash;+------&mdash;+------------------------------------------------&mdash;+</p>
+<p>Notes:</p><ul>
+<li>The configured offset is limited by up to 512B (in 2B granularity).</li>
+<li>The default configuration of the payload_offset_shift is - 0 (the payload starts at the end of the actual parsing).</li>
+<li>payload_offset_shift configuration is per port (physical ports only), split ports will not inherit the configuration from the original split port.</li>
+<li>in case of LAG membership, all port members should be configured with the same payload_offset_shift.</li>
+<li>Supported devices: Spectrum2, Spectrum3.</li>
+</ul>
+<p>Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_ADD / SX_ACCESS_CMD_DELETE. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*attr_cfg_list_p</td><td>- pointer to a list of port/common attributes to set/unset </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">attr_cfg_cnt</td><td>- number of elements in the list.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS - operation completes successfully. </dd>
+<dd>
+SX_STATUS_PARAM_NULL - referenced inputs are NULL. </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED - CMD is not supported. </dd>
+<dd>
+SX_STATUS_CMD_ERROR - received struct is not the expected </dd>
+<dd>
+SX_STATUS_PARAM_ERROR - input parameter is invalid. </dd>
+<dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE - input parameter is not in the expected range. </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND - data base call back if entry can't be retrieved. </dd>
+<dd>
+SX_STATUS_NO_MEMORY - data base call back in case of memory allocation error. </dd>
+<dd>
+SX_STATUS_NO_RESOURCES - memory allocation failure. </dd>
+<dd>
+SX_STATUS_UNSUPPORTED - configuration is not supported by the platform. </dd>
+<dd>
+SX_STATUS_MODULE_UNINITIALIZED- data base initialization failure. </dd>
+<dd>
+SX_STATUS_ERROR - general error. </dd></dl>
+
+</div>
+</div>
+<a id="accaa7f000a14198c35dd918b41a508fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accaa7f000a14198c35dd918b41a508fc">&#9670;&nbsp;</a></span>sx_api_flex_modifier_attr_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_flex_modifier_attr_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_flex_modifier_attributes_t *&#160;</td>
+          <td class="paramname"><em>attr_cfg_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>attr_cfg_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API retrieves the egress modifier attributes from the requested data base. The retrieved attributes depends on the requested attr_type of the provided list objects (attr_cfg_list_p). Supported devices: Spectrum2, Spectrum3. ts Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_GET / SX_ACCESS_CMD_GET_ALL. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*attr_cfg_list_p</td><td>- pointer to a list of port/common attributes to be retrieved. If it is NULL, the attr_cfg_cnt variable is filled out with numbers of attributes entries that could be retrieved. If the pointer is valid, attributes info is placed according to the requested log_port in the list set by the user, and attr_cfg_cnt updated with the actual number of requested entries in the list.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 23 2022 14:56:45 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Apr 11 2022 18:04:51 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

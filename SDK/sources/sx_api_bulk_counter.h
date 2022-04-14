@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2021 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -101,7 +101,7 @@ sx_status_t sx_api_bulk_counter_buffer_set(const sx_api_handle_t            hand
  * This API initiates or cancels an asynchronous bulk-counter-read operation.
  *
  * READ reads a set of counters.
- * READ_CLEAR reads and clears a set of counters.
+ * READ_CLEAR reads and clears a set of counters. Not supported for shared buffer type snapshot counter.
  * READ_FLUSH flushes and reads a set of counters (supported only for SX_BULK_CNTR_KEY_TYPE_FLOW_E).
  * READ_CLEAR_FLUSH flushes, reads, and clears a set of counters (supported only for SX_BULK_CNTR_KEY_TYPE_FLOW_E).
  * DISABLE cancels an active operation.
@@ -116,10 +116,15 @@ sx_status_t sx_api_bulk_counter_buffer_set(const sx_api_handle_t            hand
  *  Any change to the LAG port or to its members during the operation will not be reflected when reading the LAG counters
  *  upon operation completion.
  * Note: elephant-detected-flow-read does not support LAG ports.
+ * Note: shared buffer key with type SX_BULK_CNTR_SHARED_BUFFER_SNAPSHOT_E should be used after calling
+ * the API sx_api_cos_sb_snapshot_action_set with action SX_SB_SNAPSHOT_ACTION_TAKE_E.
  * Note: Upon disable, the buffer cannot be used on another operation or freed until the SW_BULK_READ_DONE event is received.
  * Note: Up to two transactions are allowed in parallel by the system:
  *           a. 2 x Port_Counters.
  *           b. Any combination of two different bulk counter types.
+ *           c. The refresh transaction (consumed by calling sx_api_bulk_counter_refresh_set) and any of the bulk counter types.
+ *           d. 2 x SX_BULK_CNTR_KEY_TYPE_FLOW_E only if one of transactions is started for
+ *              accumulated (SX_FLOW_COUNTER_TYPE_ACCUMULATED) counters and the second one for any other type of flow counters.
  * Note: When port bulk counter transaction is in progress, it is not allowed to call any synchronous port counter API
  * (sx_api_port_counter_xxx).
  *
@@ -165,4 +170,42 @@ sx_status_t sx_api_bulk_counter_transaction_get(const sx_api_handle_t          h
                                                 const sx_bulk_cntr_buffer_t   *buffer_p,
                                                 sx_bulk_cntr_data_t           *counter_data_p);
 
-#endif
+/**
+ * This API triggers the refresh of all accumulated (SX_FLOW_COUNTER_TYPE_ACCUMULATED) counters.
+ *
+ * Note:
+ *  While the refreshing is not mandatory to read the values of accumulated counters,
+ *  but if the up-to-date values are needed, then the refresh API should be called before reading.
+ *  The refresh is an asynchronous operation. Once the refresh is done, SDK will generate an
+ *  SX_TRAP_ID_BULK_REFRESH_COUNTER_DONE_EVENT event with a copy of attributes passed to the refresh API.
+ *  Once the event is received, the user can read and get fresh values of accumulated counters.
+ *
+ *  A user cookie can be provided as a part of the refresh attributes, later it can be used to
+ *  identify the refresh done event. So that the refresh done event can be registered and received in
+ *  a different process from the process where the refresh API was called.
+ *
+ *  Only one refresh can be active. Until a REFRESH_COUNTER_DONE_EVENT event is received,
+ *  the user should not start another refresh, otherwise, SDK will return an error.
+ *
+ *  The refresh also requires a free bulk counter transaction.
+ *  For more details about transactions, please see the description of sx_api_bulk_counter_transaction_set.
+ *
+ * Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] cmd - SET
+ * @param[in] counter_refresh_attr_p - Refresh attributes
+ *
+ * @return SX_STATUS_SUCCESS             Operation completes successfully
+ * @return SX_STATUS_PARAM_NULL          Refresh attributes pointer is not initialized
+ * @return SX_STATUS_RESOURCE_IN_USE     Either the refresh is already in progress or
+ *                                       there is no available bulk counter transaction.
+ * @return SX_STATUS_CMD_UNSUPPORTED     Command is not supported
+ * @return SX_STATUS_INVALID_HANDLE      Called invalid handle
+ * @return SX_STATUS_ERROR               General error happened
+ */
+sx_status_t sx_api_bulk_counter_refresh_set(const sx_api_handle_t               handle,
+                                            const sx_access_cmd_t               cmd,
+                                            const sx_bulk_cntr_refresh_attr_t * counter_refresh_attr_p);
+
+#endif /* ifndef __SX_API_BULK_COUNTER_H__ */
