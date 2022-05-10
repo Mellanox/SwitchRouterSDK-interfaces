@@ -1,7 +1,6 @@
 var searchData=
 [
   ['sx_5fapi_5facl_2eh',['sx_api_acl.h',['../sx__api__acl_8h.html',1,'']]],
-  ['sx_5fapi_5fadaptive_5frouting_2eh',['sx_api_adaptive_routing.h',['../sx__api__adaptive__routing_8h.html',1,'']]],
   ['sx_5fapi_5fbfd_2eh',['sx_api_bfd.h',['../sx__api__bfd_8h.html',1,'']]],
   ['sx_5fapi_5fbridge_2eh',['sx_api_bridge.h',['../sx__api__bridge_8h.html',1,'']]],
   ['sx_5fapi_5fbulk_5fcounter_2eh',['sx_api_bulk_counter.h',['../sx__api__bulk__counter_8h.html',1,'']]],
@@ -29,5 +28,7 @@ var searchData=
   ['sx_5fapi_5ftele_2eh',['sx_api_tele.h',['../sx__api__tele_8h.html',1,'']]],
   ['sx_5fapi_5ftopo_2eh',['sx_api_topo.h',['../sx__api__topo_8h.html',1,'']]],
   ['sx_5fapi_5ftunnel_2eh',['sx_api_tunnel.h',['../sx__api__tunnel_8h.html',1,'']]],
-  ['sx_5fapi_5fvlan_2eh',['sx_api_vlan.h',['../sx__api__vlan_8h.html',1,'']]]
+  ['sx_5fapi_5fvlan_2eh',['sx_api_vlan.h',['../sx__api__vlan_8h.html',1,'']]],
+  ['sx_5fflex_5fmodifier_2eh',['sx_flex_modifier.h',['../sx__flex__modifier_8h.html',1,'']]],
+  ['sx_5fflex_5fmodifier_5fauto_2eh',['sx_flex_modifier_auto.h',['../sx__flex__modifier__auto_8h.html',1,'']]]
 ];

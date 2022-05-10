@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2021 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -352,8 +352,6 @@ sx_status_t sx_api_lag_hash_flow_params_get(const sx_api_handle_t handle,
  * If the given number of fields / field enables is 0, the API will only return
  * the number of fields / field enables.
  * Once this API is called sx_api_lag_hash_flow_params_get is disabled
- *
- * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
