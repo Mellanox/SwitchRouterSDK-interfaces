@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2021 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -80,11 +80,11 @@ sx_status_t sx_api_tunnel_log_verbosity_level_get(const sx_api_handle_t         
  * Once the reference counter of a tunnel becomes 0, SDK will delete the tunnel and will generate a notification with the trap
  * ID SX_TRAP_ID_OBJECT_DELETED_EVENT and the ID of the tunnel that was deleted.
  *
- * Below is the list of objects that increase the reference counter of a NVE tunnel:
- * 1. Each tunnel map entry.
- * 2. Each MC RPF VIF of type SX_ROUTER_VINTERFACE_TYPE_VXLAN.
+ * Below is the list of objects that increase the reference counter of a NVE/Flex tunnel:
+ * 1. Each tunnel map entry (NVE only).
+ * 2. Each MC RPF VIF of type SX_ROUTER_VINTERFACE_TYPE_VXLAN (NVE only).
  * 3. Each ECMP next hop of the type SX_NEXT_HOP_TYPE_TUNNEL_ENCAP.
- * 4. Each MC next hop of the type SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP.
+ * 4. Each MC next hop of the type SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP (NVE only).
  * 5. Each ACL rule with an action of the type SX_FLEX_ACL_ACTION_TUNNEL_DECAP.
  * 6. Each ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_TUNNEL_ENCAP.
  *
@@ -249,6 +249,8 @@ sx_status_t sx_api_tunnel_deinit_set(const sx_api_handle_t handle);
  *
  * The map_entries_cnt parameter is limited by TUNNEL_MAP_ENTRIES_SET_MAX_NUM.
  *
+ * Note: Flex tunnels are not supported.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle             - SX-API handle
@@ -320,6 +322,8 @@ sx_status_t sx_api_tunnel_map_get(const sx_api_handle_t   handle,
  * 4. NVE tunnels support TTL_CMD_PRESERVE_E, TTL_CMD_COPY, TTL_CMD_MINIMUM in decap direction (default is PRESERVE).
  * 5. For Symmetric tunnels, the TTL behavior must be set separately for encap and decap directions.
  *
+ * Note: Flex tunnels are not supported.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle        - SX-API handle
@@ -338,6 +342,8 @@ sx_status_t sx_api_tunnel_ttl_set(const sx_api_handle_t       handle,
 
 /**
  * This API is used to get the tunnel TTL parameters.
+ *
+ * Note: Flex tunnels are not supported.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -363,6 +369,8 @@ sx_status_t sx_api_tunnel_ttl_get(const sx_api_handle_t handle,
  * 2. IPinIP tunnels support setting an IPV6_FLOW_LABEL (default value is 0).
  * 3. NVE tunnels support setting a UDP_SPORT (default value is 0).
  *
+ * Note: Flex tunnels are not supported.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle         - SX-API handle
@@ -381,6 +389,8 @@ sx_status_t sx_api_tunnel_hash_set(const sx_api_handle_t        handle,
 
 /**
  * This API is used to get the tunnel hash parameters.
+ *
+ * Note: Flex tunnels are not supported.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -416,6 +426,8 @@ sx_status_t sx_api_tunnel_hash_get(const sx_api_handle_t  handle,
  *    When dscp_action is COPY and if there is no IP header, then the value from cos_data_p->dscp_value is used.
  * 4. ECN mapping on encapsulation or decapsulation.
  *
+ * Note: Flex tunnels are not supported.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle              - SX-API handle
@@ -434,6 +446,8 @@ sx_status_t sx_api_tunnel_cos_set(const sx_api_handle_t       handle,
                                   const sx_tunnel_cos_data_t *cos_data_p);
 /**
  * This API is used to retrieve CoS data. CoS data retrieval for ENCAP or DECAP direction can be controlled by cos_data_p->param_type.
+ *
+ * Note: Flex tunnels are not supported.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -576,6 +590,59 @@ sx_status_t sx_api_tunnel_decap_rule_iter_get(const sx_api_handle_t             
                                               const sx_tunnel_decap_entry_filter_t *decap_filter_p,
                                               sx_tunnel_decap_entry_key_t          *decap_key_list_p,
                                               uint32_t                             *decap_key_cnt_p);
+
+/**
+ * This API is used to create/edit/destroy a FLEX tunnel header that can be used when creating a flex tunnel.
+ *
+ * CREATE creates a new flex tunnel header and returns the newly allocated sx_tunnel_flex_header_id_t.
+ * EDIT/DESTROY edits/destroys the previously created flex tunnel header (tunnel_flex_header_id_p should be provided as input).
+ *
+ * No need to provide the sx_tunnel_flex_header_cfg_t for DESTROY operation.
+ *
+ * Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param[in] handle                      - SX-API handle
+ * @param[in] cmd                         - CREATE/EDIT/DESTROY
+ * @param[in] tunnel_flex_header_cfg_p    - Pointer to the configuration parameters for this flex tunnel header.
+ * @param[in/out] tunnel_flex_header_id_p - Pointer to the flex tunnel ID
+ *
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_CMD_UNSUPPORTED if the command is unsupported in this API
+ * @return SX_STATUS_PARAM_NULL if a provided parameter is NULL
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid *
+ * @return SX_STATUS_ENTRY_NOT_FOUND if tunnel or some other resource does not exist
+ * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized
+ * @return SX_STATUS_ERROR general error
+ *
+ */
+
+sx_status_t sx_api_tunnel_flex_header_set(const sx_api_handle_t              handle,
+                                          const sx_access_cmd_t              cmd,
+                                          const sx_tunnel_flex_header_cfg_t *tunnel_flex_header_cfg_p,
+                                          sx_tunnel_flex_header_id_t        *tunnel_flex_header_id_p);
+
+/**
+ * This API gets the FLEX tunnel header configuration.
+ *
+ * Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param[in] handle                    - SX-API handle
+ * @param[in] cmd                       - GET
+ * @param[in] tunnel_flex_header_id     - Flex tunnel header ID
+ * @param[out] tunnel_flex_header_cfg_p - Pointer to the configuration parameters for this flex tunnel header.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
+ * @return SX_STATUS_UNSUPPORTED if API is not supported for this device
+ * @return SX_STATUS_MODULE_UNINITIALIZED when tunnel module is uninitialized
+ * @return SX_STATUS_ERROR general error
+ */
+
+sx_status_t sx_api_tunnel_flex_header_get(const sx_api_handle_t            handle,
+                                          const sx_access_cmd_t            cmd,
+                                          const sx_tunnel_flex_header_id_t tunnel_flex_header_id,
+                                          sx_tunnel_flex_header_cfg_t     *tunnel_flex_header_cfg_p);
 
 
 #endif /* __SX_API_TUNNEL_H__ */

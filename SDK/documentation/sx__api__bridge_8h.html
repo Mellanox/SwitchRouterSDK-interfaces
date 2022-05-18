@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.4.3382</span>
+   &#160;<span id="projectnumber">4.5.2262</span>
    </div>
   </td>
  </tr>
@@ -95,10 +95,6 @@ Functions</h2></td></tr>
 <tr class="separator:a2f600518fa4f5d6c059ae146e64cfeca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2091d5b177d960b08d682df06e430d41"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__bridge_8h.html#a2091d5b177d960b08d682df06e430d41">sx_api_bridge_counter_bind_get</a> (const sx_api_handle_t handle, const sx_bridge_id_t bridge_id, sx_flow_counter_id_t *flow_counter_id_p)</td></tr>
 <tr class="separator:a2091d5b177d960b08d682df06e430d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a527d1bfb48e9c09614952586b21f693a"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__bridge_8h.html#a527d1bfb48e9c09614952586b21f693a">sx_api_bridge_mirror_set</a> (const sx_api_handle_t handle, const sx_bridge_id_t bridge_id, const sx_mirror_direction_t mirror_direction, const sx_mirror_mode_t mirror_mode)</td></tr>
-<tr class="separator:a527d1bfb48e9c09614952586b21f693a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8368b2b6f15e81f9f7bdffbb68f750ad"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__bridge_8h.html#a8368b2b6f15e81f9f7bdffbb68f750ad">sx_api_bridge_mirror_get</a> (const sx_api_handle_t handle, const sx_bridge_id_t bridge_id, const sx_mirror_direction_t mirror_direction, sx_mirror_mode_t *mirror_mode_p)</td></tr>
-<tr class="separator:a8368b2b6f15e81f9f7bdffbb68f750ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a792aa5f36a6706e856cfb0e6749d4c9d"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__bridge_8h.html#a792aa5f36a6706e856cfb0e6749d4c9d">sx_api_bridge_tunnel_counter_bind_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_bridge_id_t bridge_id, const sx_bridge_tunnel_counter_attr_t *counter_attr_p, const sx_flow_counter_id_t counter_id)</td></tr>
 <tr class="separator:a792aa5f36a6706e856cfb0e6749d4c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae49baad20f4706d59a2a8700b32be549"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__bridge_8h.html#ae49baad20f4706d59a2a8700b32be549">sx_api_bridge_tunnel_counter_bind_get</a> (const sx_api_handle_t handle, const sx_bridge_id_t bridge_id, const sx_bridge_tunnel_counter_attr_t *counter_attr_p, sx_flow_counter_id_t *counter_id_p)</td></tr>
@@ -635,124 +631,6 @@ SX_STATUS_ERROR Unexpected behavior </dd></dl>
 
 </div>
 </div>
-<a id="a527d1bfb48e9c09614952586b21f693a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a527d1bfb48e9c09614952586b21f693a">&#9670;&nbsp;</a></span>sx_api_bridge_mirror_set()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_bridge_mirror_set </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_bridge_id_t&#160;</td>
-          <td class="paramname"><em>bridge_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_mirror_direction_t&#160;</td>
-          <td class="paramname"><em>mirror_direction</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_mirror_mode_t&#160;</td>
-          <td class="paramname"><em>mirror_mode</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000003">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future.</dd></dl>
-<p>This function sets the mirroring mode for a bridge. Currently, only ingress direction is supported.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">bridge_id</td><td>- Mirror bridge </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mirror_direction</td><td>- Ingress\egress </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mirror_mode</td><td>- Enabled\disabled</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR Any input parameter is invalid </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND Bridge is not found in DB </dd>
-<dd>
-SX_STATUS_ERROR Unexpected behavior </dd></dl>
-
-</div>
-</div>
-<a id="a8368b2b6f15e81f9f7bdffbb68f750ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8368b2b6f15e81f9f7bdffbb68f750ad">&#9670;&nbsp;</a></span>sx_api_bridge_mirror_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_bridge_mirror_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_bridge_id_t&#160;</td>
-          <td class="paramname"><em>bridge_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_mirror_direction_t&#160;</td>
-          <td class="paramname"><em>mirror_direction</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_mirror_mode_t *&#160;</td>
-          <td class="paramname"><em>mirror_mode_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000004">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future.</dd></dl>
-<p>This function gets the mirroring mode of a bridge by direction and bridge ID. Currently, only ingress direction is supported.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">bridge_id</td><td>- mirror bridge </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mirror_direction</td><td>- ingress/egress </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">mirror_mode_p</td><td>- the returned mirroring mode</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR Any input parameter is invalid </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND Bridge is not found in DB </dd>
-<dd>
-SX_STATUS_ERROR Unexpected behavior </dd></dl>
-
-</div>
-</div>
 <a id="a792aa5f36a6706e856cfb0e6749d4c9d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a792aa5f36a6706e856cfb0e6749d4c9d">&#9670;&nbsp;</a></span>sx_api_bridge_tunnel_counter_bind_set()</h2>
 
@@ -797,7 +675,7 @@ SX_STATUS_ERROR Unexpected behavior </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API binds/un-binds a counter to/from a tunnel mapped to the bridge.</p>
-<p>For ENCAP_UC and ENCAP_MC counters, this operation can be performed only when FDB does not contain any entries for tunnel in fid. When Lazy Delete mode is enabled, flow counters will be automatically unbounded once the deletion of the related VNI mapping is completed and VNI mapping delete notification is sent. Counters can be bound only if the bridge/VLAN to tunnel mapping is configured.</p>
+<p>For ENCAP_UC and ENCAP_MC counters, this operation can be performed only when FDB does not contain any entries for tunnel in fid. When Lazy Delete mode is enabled, flow counters will be automatically unbounded once the deletion of the related VNI mapping is completed and VNI mapping delete notification is sent. Counters can be bound only if the bridge/VLAN to tunnel mapping is configured. Note: Flex tunnels are not supported.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -885,7 +763,7 @@ SX_STATUS_ENTRY_NOT_BOUND Counter is not bound </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 8 2022 11:10:48 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon May 16 2022 06:29:10 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

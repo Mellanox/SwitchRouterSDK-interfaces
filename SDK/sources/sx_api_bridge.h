@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2021 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -274,57 +274,13 @@ sx_status_t sx_api_bridge_counter_bind_get(const sx_api_handle_t handle,
                                            sx_flow_counter_id_t* flow_counter_id_p);
 
 /**
- * \deprecated This API is deprecated and will be removed in the future.
- *
- * This function sets the mirroring mode for a bridge. Currently, only ingress direction is supported.
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
- *
- * @param[in] handle                 - SX-API handle
- * @param[in] bridge_id              - Mirror bridge
- * @param[in] mirror_direction       - Ingress\egress
- * @param[in] mirror_mode            - Enabled\disabled
- *
- * @return SX_STATUS_SUCCESS          Operation completed successfully
- * @return SX_STATUS_PARAM_ERROR      Any input parameter is invalid
- * @return SX_STATUS_ENTRY_NOT_FOUND  Bridge is not found in DB
- * @return SX_STATUS_ERROR            Unexpected behavior
- **/
-sx_status_t sx_api_bridge_mirror_set(const sx_api_handle_t       handle,
-                                     const sx_bridge_id_t        bridge_id,
-                                     const sx_mirror_direction_t mirror_direction,
-                                     const sx_mirror_mode_t      mirror_mode);
-
-/**
- * \deprecated This API is deprecated and will be removed in the future.
- *
- *  This function gets the mirroring mode of a bridge by direction and bridge ID.
- *  Currently, only ingress direction is supported.
- *
- *  Supported devices: Spectrum, Spectrum2, Spectrum3.
- *
- * @param[in] handle - SX-API handle.
- * @param[in] bridge_id - mirror bridge
- * @param[in] mirror_direction - ingress/egress
- * @param[out] mirror_mode_p - the returned mirroring mode
- *
- * @return SX_STATUS_SUCCESS        Operation completed successfully
- * @return SX_STATUS_PARAM_ERROR      Any input parameter is invalid
- * @return SX_STATUS_ENTRY_NOT_FOUND  Bridge is not found in DB
- * @return SX_STATUS_ERROR            Unexpected behavior
- **/
-sx_status_t sx_api_bridge_mirror_get(const sx_api_handle_t       handle,
-                                     const sx_bridge_id_t        bridge_id,
-                                     const sx_mirror_direction_t mirror_direction,
-                                     sx_mirror_mode_t           *mirror_mode_p);
-
-/**
  * This API binds/un-binds a counter to/from a tunnel mapped to the bridge.
  *
  * For ENCAP_UC and ENCAP_MC counters, this operation can be performed only when FDB does not contain any entries
  * for tunnel in fid.  When Lazy Delete mode is enabled, flow counters will be automatically unbounded once the deletion
  * of the related VNI mapping is completed and VNI mapping delete notification is sent.
  * Counters can be bound only if the bridge/VLAN to tunnel mapping is configured.
+ * Note: Flex tunnels are not supported.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *

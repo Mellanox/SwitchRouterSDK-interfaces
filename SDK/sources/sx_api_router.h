@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2021 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -87,6 +87,8 @@ sx_status_t sx_api_router_ecmp_hash_params_set(const sx_api_handle_t            
  * Each element in hash_field_list_p represents a different field to be included in the hash calculation which is subject to the
  * enables which are given in hash_field_enable_list_p.
  *
+ * Note: This API supports port profile.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                     - SX-API handle
@@ -114,6 +116,8 @@ sx_status_t sx_api_router_ecmp_port_hash_params_set(const sx_api_handle_t       
 /**
  * This API gets the ECMP hash function configuration parameters. Once sx_api_router_ecmp_port_hash_params_set is called,
  * this API is disabled.
+ *
+ * Note: This API supports port profile.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -301,6 +305,7 @@ sx_status_t sx_api_router_vrid_iter_get(const sx_api_handle_t   handle,
  * @return SX_STATUS_ENTRY_NOT_FOUND if router interface was not added
  * @return SX_STATUS_NO_RESOURCES if no interface is available to create
  * @return SX_STATUS_RESOURCE_IN_USE if router interface has routes
+ * @return SX_STATUS_ENTRY_ALREADY_BOUND adaptive RIF is bound to bridge/VPORT.
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_router_interface_set(const sx_api_handle_t              handle,
@@ -758,7 +763,7 @@ sx_status_t sx_api_router_counter_set(const sx_api_handle_t   handle,
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - CREATE/DESTROY
- * @param[in] type - Router counter type
+ * @param[in] cntr_attributes - counter attributes
  * @param[in,out] counter_p - Router counter ID
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
@@ -1212,6 +1217,8 @@ sx_status_t sx_api_router_cos_dscp_to_prio_get(const sx_api_handle_t    handle,
  *        - Next hop #A with weight of 1
  *        - Next hop #B with weight of 2
  *      In the hardware, this ECMP container will have three next hops with total weight of four: nh #A, nh #B, nh #A.
+ *   5. On Spectrum-2 and above these ECMP containers can contain flex tunnels along with nve tunnels.
+ *      If an ECMP contains a flex tunnel it cannot be used as the destination of a FDB entry.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -1598,7 +1605,7 @@ sx_status_t sx_api_router_mc_route_counter_bind_get(const sx_api_handle_t    han
  * This API creates/destroys redirection between an ECMP (ecmp) and a destination ECMP (redirect_ecmp).
  *
  * Note: Only ECMP NVE containers can be redirected.
- * ECMP container ("ecmp") can be redirected to an ECMP container (redirect_ecmp) only if the following wi true:
+ * ECMP container ("ecmp") can be redirected to an ECMP container (redirect_ecmp) only if the following is true:
  *      1. ECMP container redirect_ecmp is not in use (the reference counter of ECMP container is equal 0) (e.g., there are no
  *          FDB entries that point to redirect_ecmp)
  *      2. redirect_ecmp is not redirected to any other ECMP and no other container is already redirected to redirect_ecmp.
@@ -1718,5 +1725,33 @@ sx_status_t sx_api_router_user_defined_lpm_tree_get(const sx_api_handle_t  handl
                                                     const sx_lpm_tree_id_t tree_id,
                                                     sx_lpm_tree_node_t   * nodes_list_p,
                                                     uint8_t              * nodes_cnt_p);
+
+
+/**
+ * This function updates the given ECMP next-hops on the offsets list with the corresponding next-hop
+ * in the configured next-hop list for the given ECMP ID.
+ * Note: - Update applies only for type SX_ECMP_CONTAINER_TYPE_IP
+ *       - Updated next-hop weight matches the corresponding previous next-hop weight (weight can't be updated)
+ *       - Updating a non-resolved next-hop can cause configuration time overhead.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *
+ * @param[in] handle                   - SX-API handle
+ * @param[in] cmd                      - Supported CMD - SX_ACCESS_CMD_SET
+ * @param[in] ecmp_id                  - ECMP container ID
+ * @param[in] next_hop_update_list_p   - List of next-hop to update
+ * @param[in] next_hop_update_list_cnt - Number of next-hops to update
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR for invalid parameter
+ * @return SX_STATUS_ERROR for general error
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested index is not found in DB
+ * @return SX_STATUS_PARAM_NULL if parameter is NULL
+ * @return SX_STATUS_MODULE_UNINITIALIZED if router module is uninitialized
+ */
+sx_status_t sx_api_router_ecmp_update_set(const sx_api_handle_t   handle,
+                                          const sx_access_cmd_t   cmd,
+                                          const sx_ecmp_id_t      ecmp_id,
+                                          sx_ecmp_update_entry_t *next_hop_update_list_p,
+                                          uint32_t                next_hop_update_list_cnt);
 
 #endif /* __SX_API_ROUTER_H__ */

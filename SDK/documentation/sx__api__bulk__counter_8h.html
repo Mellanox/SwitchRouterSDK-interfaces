@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.4.3382</span>
+   &#160;<span id="projectnumber">4.5.2262</span>
    </div>
   </td>
  </tr>
@@ -87,6 +87,8 @@ Functions</h2></td></tr>
 <tr class="separator:adb6dbab88535de0970d0d507aeab5c8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65d664a825b59434d5d51d00668ec9a3"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__bulk__counter_8h.html#a65d664a825b59434d5d51d00668ec9a3">sx_api_bulk_counter_transaction_get</a> (const sx_api_handle_t handle, const sx_bulk_cntr_read_key_t *key_p, const sx_bulk_cntr_buffer_t *buffer_p, sx_bulk_cntr_data_t *counter_data_p)</td></tr>
 <tr class="separator:a65d664a825b59434d5d51d00668ec9a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad58d1b7290c1575b5a3265fd4f4eefe"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__bulk__counter_8h.html#aad58d1b7290c1575b5a3265fd4f4eefe">sx_api_bulk_counter_refresh_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_bulk_cntr_refresh_attr_t *counter_refresh_attr_p)</td></tr>
+<tr class="separator:aad58d1b7290c1575b5a3265fd4f4eefe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a0efa0de329413d231ca7c79568b942cc"></a>
@@ -296,8 +298,8 @@ SX_STATUS_ERROR Operation failed </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API initiates or cancels an asynchronous bulk-counter-read operation.</p>
-<p>READ reads a set of counters. READ_CLEAR reads and clears a set of counters. READ_FLUSH flushes and reads a set of counters (supported only for SX_BULK_CNTR_KEY_TYPE_FLOW_E). READ_CLEAR_FLUSH flushes, reads, and clears a set of counters (supported only for SX_BULK_CNTR_KEY_TYPE_FLOW_E). DISABLE cancels an active operation.</p>
-<p>Note: In "Normal" operation the SDK reads immediate value of the counter that can be different from its final value. "Flush" operation ensures that all device subsystems clear their cached values and final counter value is updated. Note: After initiating the operation, an SX_BULK_READ_DONE event is sent and then API <a class="el" href="sx__api__bulk__counter_8h.html#a65d664a825b59434d5d51d00668ec9a3">sx_api_bulk_counter_transaction_get()</a> should be used. Until SX_BULK_READ_DONE event is received, buffer cannot be used with API <a class="el" href="sx__api__bulk__counter_8h.html#a65d664a825b59434d5d51d00668ec9a3">sx_api_bulk_counter_transaction_get()</a>. And to identify the event is what's expected by user, user should compare the buffer id in event info with the one in buffer_p, cookie should be compared too if user provided it in API <a class="el" href="sx__api__bulk__counter_8h.html#a96068ea7142761ce156fd1c8ab51faf4">sx_api_bulk_counter_buffer_set()</a>. Note: When initiating LAG port bulk-counter-read, its members are determined on operation initiation. Any change to the LAG port or to its members during the operation will not be reflected when reading the LAG counters upon operation completion. Note: elephant-detected-flow-read does not support LAG ports. Note: Upon disable, the buffer cannot be used on another operation or freed until the SW_BULK_READ_DONE event is received. Note: Up to two transactions are allowed in parallel by the system: a. 2 x Port_Counters. b. Any combination of two different bulk counter types. Note: When port bulk counter transaction is in progress, it is not allowed to call any synchronous port counter API (sx_api_port_counter_xxx).</p>
+<p>READ reads a set of counters. READ_CLEAR reads and clears a set of counters. Not supported for shared buffer type snapshot counter. READ_FLUSH flushes and reads a set of counters (supported only for SX_BULK_CNTR_KEY_TYPE_FLOW_E). READ_CLEAR_FLUSH flushes, reads, and clears a set of counters (supported only for SX_BULK_CNTR_KEY_TYPE_FLOW_E). DISABLE cancels an active operation.</p>
+<p>Note: In "Normal" operation the SDK reads immediate value of the counter that can be different from its final value. "Flush" operation ensures that all device subsystems clear their cached values and final counter value is updated. Note: After initiating the operation, an SX_BULK_READ_DONE event is sent and then API <a class="el" href="sx__api__bulk__counter_8h.html#a65d664a825b59434d5d51d00668ec9a3">sx_api_bulk_counter_transaction_get()</a> should be used. Until SX_BULK_READ_DONE event is received, buffer cannot be used with API <a class="el" href="sx__api__bulk__counter_8h.html#a65d664a825b59434d5d51d00668ec9a3">sx_api_bulk_counter_transaction_get()</a>. And to identify the event is what's expected by user, user should compare the buffer id in event info with the one in buffer_p, cookie should be compared too if user provided it in API <a class="el" href="sx__api__bulk__counter_8h.html#a96068ea7142761ce156fd1c8ab51faf4">sx_api_bulk_counter_buffer_set()</a>. Note: When initiating LAG port bulk-counter-read, its members are determined on operation initiation. Any change to the LAG port or to its members during the operation will not be reflected when reading the LAG counters upon operation completion. Note: elephant-detected-flow-read does not support LAG ports. Note: shared buffer key with type SX_BULK_CNTR_SHARED_BUFFER_SNAPSHOT_E should be used after calling the API sx_api_cos_sb_snapshot_action_set with action SX_SB_SNAPSHOT_ACTION_TAKE_E. Note: Upon disable, the buffer cannot be used on another operation or freed until the SW_BULK_READ_DONE event is received. Note: Up to two transactions are allowed in parallel by the system: a. 2 x Port_Counters. b. Any combination of two different bulk counter types. c. The refresh transaction (consumed by calling sx_api_bulk_counter_refresh_set) and any of the bulk counter types. d. 2 x SX_BULK_CNTR_KEY_TYPE_FLOW_E only if one of transactions is started for accumulated (SX_FLOW_COUNTER_TYPE_ACCUMULATED) counters and the second one for any other type of flow counters. Note: When port bulk counter transaction is in progress, it is not allowed to call any synchronous port counter API (sx_api_port_counter_xxx).</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -383,11 +385,70 @@ SX_STATUS_ERROR Operation failure </dd></dl>
 
 </div>
 </div>
+<a id="aad58d1b7290c1575b5a3265fd4f4eefe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad58d1b7290c1575b5a3265fd4f4eefe">&#9670;&nbsp;</a></span>sx_api_bulk_counter_refresh_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_bulk_counter_refresh_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_bulk_cntr_refresh_attr_t *&#160;</td>
+          <td class="paramname"><em>counter_refresh_attr_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API triggers the refresh of all accumulated (SX_FLOW_COUNTER_TYPE_ACCUMULATED) counters.</p>
+<p>Note: While the refreshing is not mandatory to read the values of accumulated counters, but if the up-to-date values are needed, then the refresh API should be called before reading. The refresh is an asynchronous operation. Once the refresh is done, SDK will generate an SX_TRAP_ID_BULK_REFRESH_COUNTER_DONE_EVENT event with a copy of attributes passed to the refresh API. Once the event is received, the user can read and get fresh values of accumulated counters.</p>
+<p>A user cookie can be provided as a part of the refresh attributes, later it can be used to identify the refresh done event. So that the refresh done event can be registered and received in a different process from the process where the refresh API was called.</p>
+<p>Only one refresh can be active. Until a REFRESH_COUNTER_DONE_EVENT event is received, the user should not start another refresh, otherwise, SDK will return an error.</p>
+<p>The refresh also requires a free bulk counter transaction. For more details about transactions, please see the description of sx_api_bulk_counter_transaction_set.</p>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">counter_refresh_attr_p</td><td>- Refresh attributes</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_NULL Refresh attributes pointer is not initialized </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE Either the refresh is already in progress or there is no available bulk counter transaction. </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED Command is not supported </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE Called invalid handle </dd>
+<dd>
+SX_STATUS_ERROR General error happened </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 8 2022 11:10:48 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon May 16 2022 06:29:10 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
