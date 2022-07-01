@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.2262</span>
+   &#160;<span id="projectnumber">4.5.3006</span>
    </div>
   </td>
  </tr>
@@ -129,7 +129,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API sets the log verbosity level of FLEX_MODIFIER module.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -185,7 +185,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the log verbosity level of FLEX_MODIFIER module.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -240,7 +240,7 @@ SX_STATUS_PARAM_NULL if an input parameter is invalid </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API configures (CREATE/SET/DESTROY) an egress modifier template (EMT). An EMT is used to modify packets using ACL actions. An EMT needs to be allocated first (CREATE cmd) before its parameters are set (SET cmd). Note: an EMT used in an ACL action cannot be destroyed. Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API configures (CREATE/SET/DESTROY) an egress modifier template (EMT). An EMT is used to modify packets using ACL actions. An EMT needs to be allocated first (CREATE cmd) before its parameters are set (SET cmd). Note: an EMT used in an ACL action cannot be destroyed. Supported devices: Spectrum2, Spectrum3, Spectrum4. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE / SET / DESTROY </td></tr>
@@ -300,7 +300,7 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves the configuration of an egress modifier template (EMT). Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API retrieves the configuration of an egress modifier template (EMT). Supported devices: Spectrum2, Spectrum3, Spectrum4. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET </td></tr>
@@ -365,7 +365,7 @@ SX_STATUS_UNSUPPORTED if configuration is not supported by the platform </dd></d
 <li>The default configuration of the payload_offset_shift is - 0 (the payload starts at the end of the actual parsing).</li>
 <li>payload_offset_shift configuration is per port (physical ports only), split ports will not inherit the configuration from the original split port.</li>
 <li>in case of LAG membership, all port members should be configured with the same payload_offset_shift.</li>
-<li>Supported devices: Spectrum2, Spectrum3.</li>
+<li>Supported devices: Spectrum2, Spectrum3, Spectrum4.</li>
 </ul>
 <p>Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -439,7 +439,7 @@ SX_STATUS_ERROR - general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves the egress modifier attributes from the requested data base. The retrieved attributes depends on the requested attr_type of the provided list objects (attr_cfg_list_p). Supported devices: Spectrum2, Spectrum3. ts Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API retrieves the egress modifier attributes from the requested data base. The retrieved attributes depends on the requested attr_type of the provided list objects (attr_cfg_list_p). Supported devices: Spectrum2, Spectrum3, Spectrum4. ts Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_GET / SX_ACCESS_CMD_GET_ALL. </td></tr>
@@ -455,7 +455,7 @@ SX_STATUS_ERROR - general error. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 16 2022 06:29:10 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 30 2022 19:42:53 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

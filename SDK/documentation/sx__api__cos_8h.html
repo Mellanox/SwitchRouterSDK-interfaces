@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.2262</span>
+   &#160;<span id="projectnumber">4.5.3006</span>
    </div>
   </td>
  </tr>
@@ -275,7 +275,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API sets the log verbosity level of COS module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -331,7 +331,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the log verbosity level of COS module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -382,7 +382,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the port default switch priority value. This default priority value is used in "trust port" configurations. This default priority value is also used in cases when trust level is configured as L2 or L3 and the relevant packet fields that determine the priority value are unavailable in the packet.</p>
 <p>Note: In Spectrum, the function sets the default switch priority. Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -434,7 +434,7 @@ SX_STATUS_MEMORY_ERROR Error handling memory </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the default port switch priority value.</p>
 <p>Note: this API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -501,7 +501,7 @@ SX_STATUS_ERROR General error </dd></dl>
 <li>i = [8,14]: switch priority i -&gt; traffic class 7 Spectrum higher TC behavior: If a switch priority is mapped to a higher TC X [where 8 &lt;= X &lt;= 15], packets sent on TC X will still be counted against TC X-8.</li>
 </ul>
 <p>Note: This Api supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -563,7 +563,7 @@ SX_STATUS_CMD_ERROR Unsupported command </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the traffic class of a specific switch priority.</p>
 <p>Note: This Api supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -614,7 +614,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the port trust level value. User priority is assigned based on the following modes: -Trust port user priority - ignore packets priority and assign priority based on the port configuration. -Trust packet user priority/Trust L2 - tagged L2 packets are assigned with packets priority, untagged packets are assigned with port's priority. -Trust DSCP/Trust L3 - IP packets are assigned with a priority based on the DSCP to UP mapping. Non-IP packets are assigned with port's priority. -Trust both - IP packets are assigned with a priority based on the DSCP to UP mapping. Otherwise, tagged L2 packets are assigned with packets priority, untagged packets are assigned with port's priority.</p>
 <p>Note: In Spectrum, for MPLS packets EXP field is used instead of DSCP. Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -666,7 +666,7 @@ SX_STATUS_MEMORY_ERROR Error handling memory </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the port trust level value.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -722,7 +722,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the port's priority to buffer map in the SDK.</p>
 <p>Note: Untagged frames must use a buffer used by one of the priorities. Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -774,7 +774,7 @@ SX_STATUS_CMD_UNSUPPORTED Unsupported command </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port's priority to buffer mapping from the SDK.</p>
-<p>Note: This API supports port profile. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Note: This API supports port profile. Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -830,7 +830,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the pool parameters. It is used to set shared buffer pools and shared headroom pools.</p>
 <p>Note: Shared headroom pools must have ingress direction and valid size. Infinite size is not allowed and the only supported mode is SX_COS_BUFFER_MAX_MODE_BUFFER_UNITS_E. Other attributes are ignored.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -880,7 +880,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the shared buffer pool attributes.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -942,7 +942,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the port buffers size and threshold (Xon/Xoff) according to port buffer attribute type. SET (and attribute size non-zero) allocates the specific port buffer with the attribute size (configures specific buffer entry). SET (and attribute size zero), the API releases the size of specific port buffer (deletes specific buffer entry). DELETE releases specific port buffers that were received on port_buffer_attr_list_p (sets size zero for those ports). DELETE_ALL releases all the port buffers configured on specific logical port (deletes all buffer entries on logical port). With logical port param, a validation is done to allocate MC buffer only if the user sets log_port param with a single reserved value of MC_LOG_ID as defined in sx_port.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1000,7 +1000,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API gets the port buffers size and thresholds (Xon/Xoff) according to port buffer attribute type. Port buffer thresholds can only be retrieved for a single buffer type.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1064,7 +1064,7 @@ SX_STATUS_ERROR General error </dd></dl>
 <p>This API sets the port shared buffers attributes according to port shared buffer attribute type.</p>
 <p>SET (and attribute max size/alpha non-zero) allocates the specific port shared buffer with attribute depending on the mode (configures specific buffer entry). SET (and attribute max size/alpha zero) releases the size of specific port shared buffer (deletes specific buffer entry). DELETE releases specific port buffers that received on port_shared_buffer_attr_list_p (sets max alpha/size zero for those ports). DELETE_ALL releases all the port shared buffers configured on specific logical port (sets max alpha/size zero on all buffer entries on logical port). With logical port param, a validation is done to allocate MC buffer only if the user sets log_port param with single reserved value MC_LOG_ID as defined in sx_port.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1122,7 +1122,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API gets the port shared buffers attributes according to port shared buffer attribute type.</p>
 <p>Note: This API supports port profile</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1166,7 +1166,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the buffer status.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1214,7 +1214,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API returns the list of initialized pools.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1282,7 +1282,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API gets the port buffers occupancy parameters. This API input is a list of ports and requested port buffers attributes and it returns usage items, which carry also identifying attributes, for all the requested attributes.</p>
 <p>Note: the order of returned items in usage_list_p may not be identical to input in statistic_param_list_p. Note: This API allows getting multiple statistical elements per port. When the number of statistical elements exceed the API capability, the API will return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1351,7 +1351,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API gets pool occupancy statistics.</p>
 <p>Note: Shared headroom pools do not support watermark statistics.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1407,7 +1407,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the default color value of a given port. Used for trust level "port" or for packets without the relevant priority field for the configured trust level(L2/L3).</p>
 <p>Note: This API is not supported for VPORT. Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1457,7 +1457,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the default port color value.</p>
 <p>Note: This API is not supported for VPORT. Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1507,7 +1507,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the default PCP,DEI field value for arriving untagged packets.</p>
 <p>Note: This API is not supported for VPORT. See sx_api_cos_port_default_prio_set. Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1557,7 +1557,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the default PCP,DEI field value for arriving untagged packets.</p>
 <p>Note: This API is not supported for VPORT. Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1619,7 +1619,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the mapping between PCP, DEI and switch priority, color. This table is used when the port trust mode is set to 'trust L2'.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1683,7 +1683,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the mapping from PCP,DEI to switch priority and color.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1740,7 +1740,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the mapping from switch priority to IEEE priority. This IEEE priority value is used in the switch for pause flow control. The device maps the switch priority into IEEE priority value using device global switch priority to IEEE priority table (not done per port).</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1796,7 +1796,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the mapping from switch priority to IEEE priority.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1865,7 +1865,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the mapping from EXP to switch priority, color, and ECN value. This table is used for MPLS packets when the port trust mode is set to L3.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1936,7 +1936,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the mapping from EXP to switch priority, color, and ECN value.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2001,7 +2001,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the mapping from DSCP to switch priority and color. This table is used when the port trust mode is set to L3.</p>
 <p>Note: The mapping from DSCP to switch priority is done per port and is applicable only in Spectrum. Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2065,7 +2065,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the mapping from DSCP to switch priority and color.</p>
 <p>Note: this API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2116,7 +2116,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API defines rewrite-enable option setting of PCP, DEI, DSCP, and EXP bits in packet header. The values of rewriting are defined by mapping in the following functions. The rewrite is defined on an ingress port.</p>
-<p>Note: This API supports port profile. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Note: This API supports port profile. Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2166,7 +2166,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves rewrite-enable option setting of PCP, DEI, DSCP, and EXP bits in packet header.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2228,7 +2228,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API defines the mapping from switch priority, color to PCP, DEI for PCP, and DEI rewrite in packet headers. The mapping will change the PCP, DEI values only if PCP, DEI rewrite was enabled in sx_api_cos_port_rewrite_enable_set.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2292,7 +2292,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the mapping from switch priority, color to PCP, DEI for PCP, and DEI rewrite in packet header.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2356,7 +2356,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API defines the mapping from switch priority, color to DSCP, for DSCP rewrite, in packet header. The mapping will change the DSCP values only if DSCP rewrite was enabled in sx_api_cos_port_rewrite_enable_set.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2420,7 +2420,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the mapping from switch priority, color to DSCP, for DSCP rewrite, in packet header.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2490,7 +2490,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API defines the mapping from switch priority, color and ECN to EXP for EXP rewrite in packet header. The mapping will change the EXP values only if EXP rewrite was enabled in sx_api_cos_port_rewrite_enable_set.</p>
 <p>Note: This API support port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2561,7 +2561,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves rewriting of EXP bit's setting.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2742,10 +2742,10 @@ SX_STATUS_UNSUPPORTED Unsupported device </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API binds a traffic class (TC) to a TC queue and group and sets shapers and rate-based ECN threshold.</p>
+<p>This API binds a traffic class (TC) to a TC queue and group and sets shapers</p>
 <p>CREATE creates a queuing structure. ADD adds an element to an existing queuing structure. EDIT edits an element in an existing queuing structure. DESTROY destroys the queuing structure (return to default).</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2805,7 +2805,7 @@ SX_STATUS_ERROR General error </dd></dl>
 <ul>
 <li>Note: This API supports port profile.</li>
 </ul>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2856,7 +2856,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the port MC awareness mode. If mc_aware==TRUE then the MC traffic will be mapped to the higher TCs (8-15) and the UC traffic will be mapped to the lower TCs (0-7). If there is a mapping configured to TC 8-15, the function will return SX_STATUS_ERROR.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2906,7 +2906,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the port MC awareness mode.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3017,7 +3017,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the log verbosity level of REDECN module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3073,7 +3073,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the log verbosity level of REDECN module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3214,7 +3214,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API creates a single RED/ECN profile.</p>
 <p>ADD create a new profile (profile_p is the output). EDIT edits a profile. DELETE deletes a profile (params_p is ignored).</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3266,7 +3266,7 @@ SX_STATUS_NO_RESOURCES No resources available </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets RED/ECN profile configuration for given profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3386,7 +3386,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API gets RED, ECN and ECE enabled parameters of a traffic class.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3803,7 +3803,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API gets the RED/ECN counter for a specific egress_port.</p>
 <p>Note: tc_ecn_marked_packet is supported in Spectrum3 and above.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3871,7 +3871,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API reads the RED drop counter for one or more user-provided traffic classes for a specific given egress port.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3931,7 +3931,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API reads the ECN counter for a user-specified egress port.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3977,7 +3977,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to configure whether ECN marking should be counted.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>-SX-API handle </td></tr>
@@ -4021,7 +4021,7 @@ SX_STATUS_CMD_UNSUPPORTED Function is being called in an unsupported chip </dd><
       </table>
 </div><div class="memdoc">
 <p>This API is used to retrieve if the SDK counts ECN marked packets or not.</p>
-<p>Supported devices: Spectrum</p>
+<p>Supported devices: Spectrum, Spectrum4</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4063,7 +4063,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to get buffer consumption.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4104,7 +4104,7 @@ SX_STATUS_ERROR General error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets global configuration for the detection of elephant flows. Note: configuration change will override and reset all previously detected flows. Supported devices: Spectrum2, Spectrum3.</p>
+<p>This function sets global configuration for the detection of elephant flows. Note: configuration change will override and reset all previously detected flows. Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4149,7 +4149,7 @@ SX_STATUS_ERROR in case of other general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets the global configuration for the detection of elephant flows. Supported devices: Spectrum2, Spectrum3.</p>
+<p>This function gets the global configuration for the detection of elephant flows. Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4206,7 +4206,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function set the switch elephant flow detection state on given physical ports. Set command enables detection and unset command disables it. Detection can't be enabled without providing initial configuration first, using sx_api_cos_elephant_config_set(). State is disabled by default for all ports Supported devices: Spectrum2, Spectrum3.</p>
+<p>This function set the switch elephant flow detection state on given physical ports. Set command enables detection and unset command disables it. Detection can't be enabled without providing initial configuration first, using sx_api_cos_elephant_config_set(). State is disabled by default for all ports Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4257,7 +4257,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets the switch elephant detection state on the given physical port. Supported devices: Spectrum2, Spectrum3.</p>
+<p>This function gets the switch elephant detection state on the given physical port. Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4319,7 +4319,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function gets a list of elephant detected flow IDs on the given physical port, or clears them. Clear command clears all detected flows. Please note that the detection, and hence the list, are subject to change according to traffic conditions. For controlled management of the detected IDs (meaning that ID is valid until cleared manually), use AUTOMATIC_CLEAR_DISABLE method when setting configuration (see sx_cos_elephant_detection_config_set() description). Supported devices: Spectrum2, Spectrum3.</p>
+<p>This function gets a list of elephant detected flow IDs on the given physical port, or clears them. Clear command clears all detected flows. Please note that the detection, and hence the list, are subject to change according to traffic conditions. For controlled management of the detected IDs (meaning that ID is valid until cleared manually), use AUTOMATIC_CLEAR_DISABLE method when setting configuration (see sx_cos_elephant_detection_config_set() description). Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4389,7 +4389,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function reads flow data for the given flow IDs on the given physical port. Supported devices: Spectrum2, Spectrum3.</p>
+<p>This function reads flow data for the given flow IDs on the given physical port. Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4448,7 +4448,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function sets one kind of Tunnel QoS Profile data type at a time: TTL, QoS or ECN. Supported devices: Spectrum2, Spectrum3.</p>
+<p>This function sets one kind of Tunnel QoS Profile data type at a time: TTL, QoS or ECN. Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4499,7 +4499,7 @@ SX_STATUS_UNSUPPORTED if an unsupported profile key was passed an input </dd></d
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function populate the out argument with a full TQ profile description: TTL, QoS and ECN. Supported devices: Spectrum2, Spectrum3.</p>
+<p>This function populate the out argument with a full TQ profile description: TTL, QoS and ECN. Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4550,7 +4550,7 @@ SX_STATUS_UNSUPPORTED if an unsupported profile key was passed an input </dd></d
       </table>
 </div><div class="memdoc">
 <p>This API configures snapshot trigger on a snapshot object. This configuration can be applied on a per port TC, port PG, or a port basis depending on the snapshot trigger type.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4619,7 +4619,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API returns a list of snapshot objects as per object type.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4688,7 +4688,7 @@ SX_STATUS_DB_NOT_INITIALIZED if internal database is not initialized</dd></dl>
 <li>Configure HW triggers.</li>
 <li>Read snapshot information and statistics. Snapshot action release will release the lock and the counters will resume updating again.</li>
 </ol>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4734,7 +4734,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the snapshot status and information related to the latest snapshot.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4754,7 +4754,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 16 2022 06:29:10 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 30 2022 19:42:53 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

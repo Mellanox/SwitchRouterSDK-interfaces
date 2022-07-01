@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.2262</span>
+   &#160;<span id="projectnumber">4.5.3006</span>
    </div>
   </td>
  </tr>
@@ -131,7 +131,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API sets the log verbosity level of the POLICER module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -183,7 +183,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API gets the log verbosity level of POLICER module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -236,7 +236,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>This API creates/destroys/edits a policer in the system.</p>
 <p>CREATE creates a new policer and returns a policer ID in policer_id_p. DESTROY destroys an existing policer (according to policer_id_p). EDIT edits configuration parameters of an existing policer. Only CIR, EIR, EBS, CBS, yellow action and red action can be edited.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -294,7 +294,7 @@ SX_STATUS_WRONG_POLICER_TYPE if wrong policer_type was supplied </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the attributes of the given policer ID.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -363,7 +363,7 @@ SX_STATUS_ENTRY_NOT_FOUND if requested object is not found in database </dd></dl
       </table>
 </div><div class="memdoc">
 <p>This API retrieves a list of Policer IDs.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -427,7 +427,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API clears policer counters values.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -476,7 +476,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves policer counters values.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -497,7 +497,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 16 2022 06:29:11 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 30 2022 19:42:53 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

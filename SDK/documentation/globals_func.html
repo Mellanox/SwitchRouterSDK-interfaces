@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.2262</span>
+   &#160;<span id="projectnumber">4.5.3006</span>
    </div>
   </td>
  </tr>
@@ -605,6 +605,12 @@ $(function() {
 <li>sx_api_dbg_generate_dump_extra()
 : <a class="el" href="sx__api__dbg_8h.html#ade20ce33330a35da4c60a5c097c5812a">sx_api_dbg.h</a>
 </li>
+<li>sx_api_dbg_log_verbosity_level_get()
+: <a class="el" href="sx__api__dbg_8h.html#a2414f745dbc3d62270ab035f12db0037">sx_api_dbg.h</a>
+</li>
+<li>sx_api_dbg_log_verbosity_level_set()
+: <a class="el" href="sx__api__dbg_8h.html#aaee12d20a870ea4d0f150542aa149814">sx_api_dbg.h</a>
+</li>
 <li>sx_api_fdb_age_time_get()
 : <a class="el" href="sx__api__fdb_8h.html#a4396ebb8d79d5757b3f2df8b4ff3dd51">sx_api_fdb.h</a>
 </li>
@@ -625,12 +631,6 @@ $(function() {
 </li>
 <li>sx_api_fdb_flood_control_set()
 : <a class="el" href="sx__api__fdb_8h.html#a65caac4b1e478dbce337541fdfc046f2">sx_api_fdb.h</a>
-</li>
-<li>sx_api_fdb_flood_counter_clear()
-: <a class="el" href="sx__api__fdb_8h.html#a61db615ac875ccce214e8600b86102c8">sx_api_fdb.h</a>
-</li>
-<li>sx_api_fdb_flood_counter_get()
-: <a class="el" href="sx__api__fdb_8h.html#a2e4a16b9c750215270a1ffceb7d6e150">sx_api_fdb.h</a>
 </li>
 <li>sx_api_fdb_flood_get()
 : <a class="el" href="sx__api__fdb_8h.html#a23226433dadbbc949fc0a19f0254d7f9">sx_api_fdb.h</a>
@@ -878,6 +878,30 @@ $(function() {
 <li>sx_api_flex_parser_transition_set()
 : <a class="el" href="sx__api__flex__parser_8h.html#a0606e9d45b8e331dabd2882cdd34f594">sx_api_flex_parser.h</a>
 </li>
+<li>sx_api_flex_pm_app_get()
+: <a class="el" href="sx__api__flex__pm_8h.html#aa45a100892680c23264833f985949f31">sx_api_flex_pm.h</a>
+</li>
+<li>sx_api_flex_pm_app_program_context_set()
+: <a class="el" href="sx__api__flex__pm_8h.html#a9e4210cb14b60ca97bcceaa7232f6fd6">sx_api_flex_pm.h</a>
+</li>
+<li>sx_api_flex_pm_app_program_get()
+: <a class="el" href="sx__api__flex__pm_8h.html#ac87db73ebf0a7b8cc698ec4da969beec">sx_api_flex_pm.h</a>
+</li>
+<li>sx_api_flex_pm_app_program_set()
+: <a class="el" href="sx__api__flex__pm_8h.html#a3c56d7b36cfe44f68ebb56a8febc7e16">sx_api_flex_pm.h</a>
+</li>
+<li>sx_api_flex_pm_app_set()
+: <a class="el" href="sx__api__flex__pm_8h.html#ab7718de07b93503fb3e56e88e13c071b">sx_api_flex_pm.h</a>
+</li>
+<li>sx_api_flex_pm_app_state_set()
+: <a class="el" href="sx__api__flex__pm_8h.html#a1435117e5155d26bd79f19d7b94f0525">sx_api_flex_pm.h</a>
+</li>
+<li>sx_api_flex_pm_log_verbosity_level_get()
+: <a class="el" href="sx__api__flex__pm_8h.html#a80c00857d60ffc16563546a0484d89ba">sx_api_flex_pm.h</a>
+</li>
+<li>sx_api_flex_pm_log_verbosity_level_set()
+: <a class="el" href="sx__api__flex__pm_8h.html#a58717f5f7b67a6ebd030c6c56fb6954a">sx_api_flex_pm.h</a>
+</li>
 <li>sx_api_flow_counter_bulk_set()
 : <a class="el" href="sx__api__flow__counter_8h.html#a32648022211482d24912df5ea1955c07">sx_api_flow_counter.h</a>
 </li>
@@ -1048,6 +1072,72 @@ $(function() {
 </li>
 <li>sx_api_lag_redirected_lags_get()
 : <a class="el" href="sx__api__lag_8h.html#adcce195ba79880d44aa65dcfb29127c1">sx_api_lag.h</a>
+</li>
+<li>sx_api_macsec_acl_counter_get()
+: <a class="el" href="sx__api__macsec_8h.html#a92d19d161b098802ec2c5639a3bc6c34">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_acl_counter_set()
+: <a class="el" href="sx__api__macsec_8h.html#a499a9cd6d99ebd28f4fc4510cfe75fbd">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_counters_get()
+: <a class="el" href="sx__api__macsec_8h.html#a33cf31d0e8ee66cc16bc217b7fbd9fe1">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_deinit()
+: <a class="el" href="sx__api__macsec_8h.html#a062f65e58dac44fa060f5ff98d0600a6">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_events_get()
+: <a class="el" href="sx__api__macsec_8h.html#a230b2714afe087bbe7b9f00f0a503509">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_events_set()
+: <a class="el" href="sx__api__macsec_8h.html#a9b7e6fefa1a4492fafeda24f98a8ed5b">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_flow_obj_get()
+: <a class="el" href="sx__api__macsec_8h.html#a71f8dd103bbaf5512aa48ee73678fb3e">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_flow_obj_iter_get()
+: <a class="el" href="sx__api__macsec_8h.html#ae8c26bd63c79c1281b78d9647043a68e">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_flow_obj_set()
+: <a class="el" href="sx__api__macsec_8h.html#a5a940c278ee763c2840fe3488204892e">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_init()
+: <a class="el" href="sx__api__macsec_8h.html#a07d86b39bccdb83fb739bd4cc1578863">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_init_params_get()
+: <a class="el" href="sx__api__macsec_8h.html#a94a2067cc83ba61b0b9ad4dd3091482c">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_log_verbosity_level_get()
+: <a class="el" href="sx__api__macsec_8h.html#aaa25cb9b843a44ae48cdb913e089db89">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_log_verbosity_level_set()
+: <a class="el" href="sx__api__macsec_8h.html#a9b24d5259c351ae5d5ab490dd9238475">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_port_capability_get()
+: <a class="el" href="sx__api__macsec_8h.html#a992ced8eeb70bb9261c6eb96c5fbdde2">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_port_deinit()
+: <a class="el" href="sx__api__macsec_8h.html#a24133e763585376f7cf6c5379075d43f">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_port_init()
+: <a class="el" href="sx__api__macsec_8h.html#a22bbacd32eccec012d8f79b8e11dbc40">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_sa_obj_get()
+: <a class="el" href="sx__api__macsec_8h.html#ac65ae0edf1ad9f49855ac2d956c120ff">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_sa_obj_iter_get()
+: <a class="el" href="sx__api__macsec_8h.html#a712f04d7822c2d08ebeb0246f2afdd93">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_sa_obj_set()
+: <a class="el" href="sx__api__macsec_8h.html#af3a7a2c4a62be7e0dcd60bea0bc57d2c">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_sc_obj_get()
+: <a class="el" href="sx__api__macsec_8h.html#ae799faada76c21fc8d8ffaf99bf70700">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_sc_obj_iter_get()
+: <a class="el" href="sx__api__macsec_8h.html#a8d9d828d8c9016d47d5cc6f24d2203ab">sx_api_macsec.h</a>
+</li>
+<li>sx_api_macsec_sc_obj_set()
+: <a class="el" href="sx__api__macsec_8h.html#a604842c48671b1690a4c49b818aa5850">sx_api_macsec.h</a>
 </li>
 <li>sx_api_mc_container_get()
 : <a class="el" href="sx__api__mc__container_8h.html#a9326cdec1f4de0b40b239c8abdf2f1a3">sx_api_mc_container.h</a>
@@ -1267,6 +1357,9 @@ $(function() {
 </li>
 <li>sx_api_port_global_fc_enable_set()
 : <a class="el" href="sx__api__port_8h.html#a242ad744d414037daa392640ac9ad43f">sx_api_port.h</a>
+</li>
+<li>sx_api_port_group_get()
+: <a class="el" href="sx__api__port_8h.html#a0e408c302d642bf5d95bf80caae390ec">sx_api_port.h</a>
 </li>
 <li>sx_api_port_hll_get()
 : <a class="el" href="sx__api__port_8h.html#acb57f0fe402abeb9d42d47ac6a575762">sx_api_port.h</a>
@@ -1514,6 +1607,9 @@ $(function() {
 <li>sx_api_rm_entries_duplication_set()
 : <a class="el" href="sx__api__rm_8h.html#a1443e8bef2906ae154a2ede0c5ddcde1">sx_api_rm.h</a>
 </li>
+<li>sx_api_rm_free_entries_by_type_ext_get()
+: <a class="el" href="sx__api__rm_8h.html#ac83f09b852a71bc124289c294b4bd70c">sx_api_rm.h</a>
+</li>
 <li>sx_api_rm_free_entries_by_type_get()
 : <a class="el" href="sx__api__rm_8h.html#ab84197f59058f282d793a9ccd7922fc7">sx_api_rm.h</a>
 </li>
@@ -1523,6 +1619,9 @@ $(function() {
 <li>sx_api_rm_hw_table_thresholds_set()
 : <a class="el" href="sx__api__rm_8h.html#a85f5b90d97590fd51a73d5fa097ece1b">sx_api_rm.h</a>
 </li>
+<li>sx_api_rm_hw_utilization_ext_get()
+: <a class="el" href="sx__api__rm_8h.html#afb9dfb9162cbd8baf1d2b3d4c71ec484">sx_api_rm.h</a>
+</li>
 <li>sx_api_rm_hw_utilization_get()
 : <a class="el" href="sx__api__rm_8h.html#a3e56b1bd497635fffec0354f4f275a40">sx_api_rm.h</a>
 </li>
@@ -1531,6 +1630,9 @@ $(function() {
 </li>
 <li>sx_api_rm_sdk_table_thresholds_set()
 : <a class="el" href="sx__api__rm_8h.html#a27d7249b270364c6690993f60621641b">sx_api_rm.h</a>
+</li>
+<li>sx_api_rm_sdk_table_utilization_ext_get()
+: <a class="el" href="sx__api__rm_8h.html#a4d8209ea7d71ca91c7c14ab29e2dfa15">sx_api_rm.h</a>
 </li>
 <li>sx_api_rm_sdk_table_utilization_get()
 : <a class="el" href="sx__api__rm_8h.html#ad9658a5db15cd0394058b6047aac2f6e">sx_api_rm.h</a>
@@ -1684,6 +1786,12 @@ $(function() {
 </li>
 <li>sx_api_router_mc_rpf_group_set()
 : <a class="el" href="sx__api__router_8h.html#aa529787aa5b258a80c567f751dbfe2ee">sx_api_router.h</a>
+</li>
+<li>sx_api_router_nat_get()
+: <a class="el" href="sx__api__router_8h.html#a1817f2980f99fedc9719a73ce41424d0">sx_api_router.h</a>
+</li>
+<li>sx_api_router_nat_set()
+: <a class="el" href="sx__api__router_8h.html#afd652a62764779df2920d903d5025992">sx_api_router.h</a>
 </li>
 <li>sx_api_router_neigh_activity_get()
 : <a class="el" href="sx__api__router_8h.html#acf9f7e35f14c64b05c3aa179d40f4d35">sx_api_router.h</a>
@@ -2146,7 +2254,7 @@ $(function() {
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 16 2022 06:29:11 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 30 2022 19:42:54 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

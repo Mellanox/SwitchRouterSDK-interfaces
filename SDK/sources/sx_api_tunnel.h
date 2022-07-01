@@ -27,7 +27,7 @@
 /**
  * This API sets the log verbosity level of TUNNEL module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - Set verbosity of API/MODULE/BOTH
@@ -47,7 +47,7 @@ sx_status_t sx_api_tunnel_log_verbosity_level_set(const sx_api_handle_t         
 /**
  * This API gets the log verbosity level of TUNNEL module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - Get verbosity of API/MODULE/BOTH
@@ -90,7 +90,7 @@ sx_status_t sx_api_tunnel_log_verbosity_level_get(const sx_api_handle_t         
  *
  * When a tunnel is deleted, SDK also flushes (deletes) all non-static tunnel FDB entries.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] cmd             - CREATE/DESTROY/EDIT
@@ -114,7 +114,7 @@ sx_status_t sx_api_tunnel_set(const sx_api_handle_t        handle,
 /**
  * This API gets the tunnel configuration.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] tunnel_id      - Tunnel ID
@@ -133,7 +133,7 @@ sx_status_t sx_api_tunnel_get(const sx_api_handle_t  handle,
 /**
  * This API gets/clears tunnel counters.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] cmd           - READ/READ_CLEAR
@@ -155,7 +155,7 @@ sx_status_t sx_api_tunnel_counter_get(const sx_api_handle_t handle,
  * This API is used to manage rules in the tunnel decap table. The decap table is used to terminate encapsulated packets.
  * The decap key provides packet matching mechanism and each key is mapped to one tunnel.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] cmd           - CREATE/DESTROY/EDIT
@@ -179,7 +179,7 @@ sx_status_t sx_api_tunnel_decap_rules_set(const sx_api_handle_t               ha
 /**
  * This API is used to get decap rules from the decap table.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]  handle         - SX-API handle
  * @param[in]  decap_key_p    - Key to query
@@ -200,7 +200,7 @@ sx_status_t sx_api_tunnel_decap_rules_get(const sx_api_handle_t              han
  *
  * Note: Correct parsing depth should be set using sx_api_port_parsing_depth_set API for tunneling usage scenarios.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] params_p - Pointer to general params structure
@@ -214,7 +214,7 @@ sx_status_t sx_api_tunnel_init_set(const sx_api_handle_t handle, sx_tunnel_gener
 /**
  * This API is used to de-initialize the tunneling module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle   - SX-API handle
  *
@@ -251,7 +251,7 @@ sx_status_t sx_api_tunnel_deinit_set(const sx_api_handle_t handle);
  *
  * Note: Flex tunnels are not supported.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle             - SX-API handle
  * @param[in] cmd                - ADD/DELETE/DELETE_ALL
@@ -283,7 +283,7 @@ sx_status_t sx_api_tunnel_map_set(const sx_api_handle_t         handle,
  * GET_FIRST gets a list of first n<=1000 map entries of specified tunnel ID.
  * GETNEXT gets a list of n<=1000 next map entries whose value larger than the given map_entry_key of specified tunnel ID.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] cmd                   - GET_FIRST/GET_NEXT
@@ -324,7 +324,7 @@ sx_status_t sx_api_tunnel_map_get(const sx_api_handle_t   handle,
  *
  * Note: Flex tunnels are not supported.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] tunnel_id     - Tunnel ID
@@ -345,7 +345,7 @@ sx_status_t sx_api_tunnel_ttl_set(const sx_api_handle_t       handle,
  *
  * Note: Flex tunnels are not supported.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle             - SX-API handle
  * @param[in] tunnel_id          - Tunnel ID
@@ -371,7 +371,7 @@ sx_status_t sx_api_tunnel_ttl_get(const sx_api_handle_t handle,
  *
  * Note: Flex tunnels are not supported.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] tunnel_id      - Tunnel ID
@@ -392,7 +392,7 @@ sx_status_t sx_api_tunnel_hash_set(const sx_api_handle_t        handle,
  *
  * Note: Flex tunnels are not supported.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] tunnel_id       - Tunnel ID
@@ -428,7 +428,7 @@ sx_status_t sx_api_tunnel_hash_get(const sx_api_handle_t  handle,
  *
  * Note: Flex tunnels are not supported.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle              - SX-API handle
  * @param[in] tunnel_id           - Tunnel ID
@@ -449,7 +449,7 @@ sx_status_t sx_api_tunnel_cos_set(const sx_api_handle_t       handle,
  *
  * Note: Flex tunnels are not supported.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]  handle               - SX-API handle
  * @param[in]  tunnel id            - Tunnel ID
@@ -501,7 +501,7 @@ sx_status_t sx_api_tunnel_cos_get(const sx_api_handle_t handle,
  *     2) sx_tunnel_direction_e: If tunnel direction is SX_TUNNEL_DIRECTION_SYMMETRIC, it will match any direction (ENCAP/DECAP/SYMMETRIC)
  *        of the filter, otherwise, it will only match the same direction of the filter.
  *
- *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle               - SX-API handle
  * @param [in] cmd                 - GET/GET_FIRST/GET_NEXT
@@ -566,7 +566,7 @@ sx_status_t sx_api_tunnel_iter_get(const sx_api_handle_t     handle,
  *        Note: Return count may be less than or equal to the requested count. If no valid next decap key entry exists in the
  *        database (key = end of list, or invalid key specified, or key too large), an empty list will be returned.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param [in] handle               - SX-API handle
  * @param [in] cmd                  - GET/GET_FIRST/GET_NEXT
@@ -599,7 +599,7 @@ sx_status_t sx_api_tunnel_decap_rule_iter_get(const sx_api_handle_t             
  *
  * No need to provide the sx_tunnel_flex_header_cfg_t for DESTROY operation.
  *
- * Supported devices: Spectrum2, Spectrum3.
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                      - SX-API handle
  * @param[in] cmd                         - CREATE/EDIT/DESTROY
@@ -625,7 +625,7 @@ sx_status_t sx_api_tunnel_flex_header_set(const sx_api_handle_t              han
 /**
  * This API gets the FLEX tunnel header configuration.
  *
- * Supported devices: Spectrum2, Spectrum3.
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                    - SX-API handle
  * @param[in] cmd                       - GET

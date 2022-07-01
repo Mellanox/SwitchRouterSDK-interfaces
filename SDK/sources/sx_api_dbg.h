@@ -28,9 +28,49 @@
  ***********************************************/
 
 /**
+ * This API sets the log verbosity level of SX API DEBUG module.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ *
+ * @param[in] handle                   - SX-API handle
+ * @param[in] verbosity_target         - Set verbosity of API/MODULE/BOTH
+ * @param[in] module_verbosity_level   - SX API DEBUG module verbosity level
+ * @param[in] api_verbosity_level      - SX API DEBUG API verbosity level
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ERROR for a general error
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range
+ */
+sx_status_t sx_api_dbg_log_verbosity_level_set(const sx_api_handle_t           handle,
+                                               const sx_log_verbosity_target_t verbosity_target,
+                                               const sx_verbosity_level_t      module_verbosity_level,
+                                               const sx_verbosity_level_t      api_verbosity_level);
+
+/**
+ * This API gets the log verbosity level of SX API DEBUG module.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ *
+ * @param[in]  handle                   - SX-API handle
+ * @param[in]  verbosity_target         - Get verbosity of API/MODULE/BOTH
+ * @param[out] module_verbosity_level_p - SX API DEBUG module verbosity level
+ * @param[out] api_verbosity_level_p    - SX API DEBUG API verbosity level
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ERROR for a general error
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range
+ */
+sx_status_t sx_api_dbg_log_verbosity_level_get(const sx_api_handle_t           handle,
+                                               const sx_log_verbosity_target_t verbosity_target,
+                                               sx_verbosity_level_t           *module_verbosity_level_p,
+                                               sx_verbosity_level_t           *api_verbosity_level_p);
+
+/**
  * This API generates debug dump of all SDK modules, SX-core, and driver.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle              - SX-API handle
  * @param[in] dump_file_path      - Full path file name
@@ -98,7 +138,7 @@ sx_status_t sx_api_dbg_generate_dump_extra(const sx_api_handle_t      handle,
  *  During the dump, SDK may fetch hardware configuration data, according to the requested dump method. In case SDK
  *       is unable to access hardware, it will skip fetching all remaining hardware configuration data.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle              - SX-API handle
  * @param[in] dump_info_p         - Dump parameters

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.2262</span>
+   &#160;<span id="projectnumber">4.5.3006</span>
    </div>
   </td>
  </tr>
@@ -157,7 +157,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API sets the log verbosity level of FLEX_PARSER module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -213,7 +213,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the log verbosity level of FLEX_PARSER module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -257,7 +257,7 @@ SX_STATUS_PARAM_NULL if an input parameter is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API initializes the flex parser module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <p>Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -293,7 +293,7 @@ SX_STATUS_ALREADY_INITIALIZED if module is already initialized. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API de-initializes the flex parser module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <p>Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle</td></tr>
@@ -352,7 +352,7 @@ SX_STATUS_UNSUPPORTED if module is not supported by the platform </dd></dl>
 <li>Fixed header types</li>
 <li>Transition from UDP to VxLAN with outer encapsulation level Note: The API may impact the ISSU for Flex transition. To enable ISSU support user should use the new API (sx_api_flex_parser_flex_transition_set)</li>
 </ul>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <p>Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -417,7 +417,7 @@ SX_STATUS_CMD_UNSUPPORTED if invalid command is passed </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the configured transition information between given nodes in the parse graph. Caller can start at the root and iterate over the results to traverse the entire parse graph.</p>
 <p>Note: Spectrum systems only support UDP as current header.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <p>Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -479,7 +479,7 @@ SX_STATUS_PARAM_NULL if next_trans_cnt parameter is NULL </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API configures (ADD/DELETE/DELETE_ALL) multiple transitions between existing parser headers in the parse graph. For each transition the caller must specify the headers to enable the transition between "From" and "To" nodes. Note that this API only supports transitions that involve at least one flex header (FPP). For setting a transition involving only hard headers please refer to sx_api_flex_parser_hard_graph_set. Note that some combinations of parser headers may be unsupported and will return SX_STATUS_UNSUPPORTED. Note that the API may impact the ISSU for Flex transition. To enable ISSU support user should use the new API (sx_api_flex_parser_flex_transition_set)</p>
-<p>Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_ADD / SX_ACCESS_CMD_DELETE / SX_ACCESS_CMD_DELETE_ALL </td></tr>
@@ -541,7 +541,7 @@ SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API configures (SET/UNSET/DELETE_ALL) multiple transitions between existing hard headers (HPH) in the parse graph. For each transition the caller must specify the headers to enable the transition between "From" and "To" nodes. Note that this API supports transitions that involve hard headers only (such as MAC, IP, TCP etc). Note that some combinations of parser headers may be unsupported and will return SX_STATUS_UNSUPPORTED. Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API configures (SET/UNSET/DELETE_ALL) multiple transitions between existing hard headers (HPH) in the parse graph. For each transition the caller must specify the headers to enable the transition between "From" and "To" nodes. Note that this API supports transitions that involve hard headers only (such as MAC, IP, TCP etc). Note that some combinations of parser headers may be unsupported and will return SX_STATUS_UNSUPPORTED. Supported devices: Spectrum2, Spectrum3, Spectrum4. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_SET / SX_ACCESS_CMD_UNSET / SX_ACCESS_CMD_DELETE_ALL </td></tr>
@@ -603,7 +603,7 @@ SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed </dd></dl>
 </div><div class="memdoc">
 <p>This API configures the transition between two flex transition headers in the parse graph. The API supports ISSU. User should invoke the API first to create the requested transition index and later to set the transition. User must specify the transition index to be created.</p>
 <p>Notes transition_cfg is not used if cmd is CREATE, DESTROY, and UNSET. An entry with a given pair of {from_hdr, transition_value} must not exist more than once in the flex table. On-the-fly change allowed only for fields: to_hdr. Some combinations of flex parser headers may be unsupported and will return SX_STATUS_UNSUPPORTED. This API is for flex transitions only. For hard transitions, use <a class="el" href="sx__api__flex__parser_8h.html#a0606e9d45b8e331dabd2882cdd34f594">sx_api_flex_parser_transition_set()</a>. This API supports ISSU. For flex transitions, user should not mix this API with the other APIs (sx_api_flex_parser_flex_graph_set or sx_api_flex_parser_transition_set)</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <p>Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -662,7 +662,7 @@ SX_STATUS_CMD_UNSUPPORTED if an invalid command is passed </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the configured transition information between two flex transition headers in the parse graph given the transition index.</p>
 <p>Note: If the transition index passed to the API has not been configured in the system, then the transition_en field in transition_cfg_p will be 0.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <p>Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -718,7 +718,7 @@ SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API configures (CREATE/SET/DESTROY) a flexible parsing program (FPP). This API can configure a flex parsing header (FPH), an empty FPH or a TLV options parsing (FTLV). An FPP needs to be allocated first (CREATE cmd) before its parameters are set (SET cmd). Note: an FPP used in a transition cannot be modified or destroyed. Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API configures (CREATE/SET/DESTROY) a flexible parsing program (FPP). This API can configure a flex parsing header (FPH), an empty FPH or a TLV options parsing (FTLV). An FPP needs to be allocated first (CREATE cmd) before its parameters are set (SET cmd). Note: an FPP used in a transition cannot be modified or destroyed. Supported devices: Spectrum2, Spectrum3, Spectrum4. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_CREATE / SX_ACCESS_CMD_SET / SX_ACCESS_CMD_DESTROY </td></tr>
@@ -780,7 +780,7 @@ SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd></d
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves the configuration of a flexible parsing program (FPP). Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API retrieves the configuration of a flexible parsing program (FPP). Supported devices: Spectrum2, Spectrum3, Spectrum4. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_GET </td></tr>
@@ -838,7 +838,7 @@ SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd></d
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API configures (SET/UNSET) the root of a parsing graph for the specified logical ports. By default, each port is configured with start of parsing (SOP) from the MAC header. This API can change the root parsing header to be a specified FPP. Note: FTLV cannot be set as a root parsing header. Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API configures (SET/UNSET) the root of a parsing graph for the specified logical ports. By default, each port is configured with start of parsing (SOP) from the MAC header. This API can change the root parsing header to be a specified FPP. Note: FTLV cannot be set as a root parsing header. Supported devices: Spectrum2, Spectrum3, Spectrum4. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_SET / SX_ACCESS_CMD_UNSET </td></tr>
@@ -902,7 +902,7 @@ SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd></d
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves the configured root parsing header for the specified logical port. If this API is called with root_sop_cfg_list_p parameter set to NULL or *root_sop_cfg_cnt_p set to 0, it will return the actual number of root parsing configurations that exist. For GET command, the parsing header associated with the logical port will be returned. For GET_FIRST command, the first logical port in the DB with an associated parsing header will be retrieved. For GETNEXT command, the next port after logical port in the DB with an associated parsing header will be retrieved. Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API retrieves the configured root parsing header for the specified logical port. If this API is called with root_sop_cfg_list_p parameter set to NULL or *root_sop_cfg_cnt_p set to 0, it will return the actual number of root parsing configurations that exist. For GET command, the parsing header associated with the logical port will be returned. For GET_FIRST command, the first logical port in the DB with an associated parsing header will be retrieved. For GETNEXT command, the next port after logical port in the DB with an associated parsing header will be retrieved. Supported devices: Spectrum2, Spectrum3, Spectrum4. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_GET / SX_ACCESS_CMD_GET_FIRST / SX_ACCESS_CMD_GETNEXT </td></tr>
@@ -961,7 +961,7 @@ SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd></d
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the configuration for the specified hard parser header (HPH). Currently this supports setting a FTLV options parsing only. Note: not all HPH supports FTLV configuration, SX_STATUS_UNSUPPORTED will be returned in such a case. Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API sets the configuration for the specified hard parser header (HPH). Currently this supports setting a FTLV options parsing only. Note: not all HPH supports FTLV configuration, SX_STATUS_UNSUPPORTED will be returned in such a case. Supported devices: Spectrum2, Spectrum3, Spectrum4. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_SET / SX_ACCESS_CMD_UNSET </td></tr>
@@ -1019,7 +1019,7 @@ SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd></d
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves the configuration of a hard parsing header (HPH). Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API retrieves the configuration of a hard parsing header (HPH). Supported devices: Spectrum2, Spectrum3, Spectrum4. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_GET </td></tr>
@@ -1071,7 +1071,7 @@ SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd></d
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API is used to create / destroy flexible extraction points (FEXP) to be used as part of FPPs. Supported devices: Spectrum2, Spectrum3.* Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API is used to create / destroy flexible extraction points (FEXP) to be used as part of FPPs. Supported devices: Spectrum2, Spectrum3, Spectrum4. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_CREATE / SX_ACCESS_CMD_DESTROY </td></tr>
@@ -1126,7 +1126,7 @@ SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd></d
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves the current resources use of the flex parser. Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API retrieves the current resources use of the flex parser. Supported devices: Spectrum2, Spectrum3, Spectrum4. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_GET </td></tr>
@@ -1191,7 +1191,7 @@ SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd></d
 </div><div class="memdoc">
 <p>This API sets/un-sets list of extraction points for a given register key. The register can have up to 4 extraction points. When extracting, the last extraction point will be taken. This API, together with sx_api_register_set, replaces sx_api_acl_custom_bytes_set, where general purpose register N represents a set of custom byte 2N and custom byte 2N+1.</p>
 <p>Note: This API, together with sx_api_register_set, is mutually exclusive with sx_api_acl_custom_bytes_set. As such, in a single SDK life cycle, only one of them can be used.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1252,7 +1252,7 @@ SX_STATUS_PARAM_NULL if ext_point_cnt_p or ext_point_list_p is NULL </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API returns the first ext_point_cnt_p extraction points of a given register key. Returned ext_point_cnt_p may be less than or equal to the requested ext_point_cnt_p. When ext_point_list_p is NULL, ext_point_cnt_p will be set with a number of extraction points.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1278,7 +1278,7 @@ SX_STATUS_PARAM_NULL if extraction_point_cnt_p parameter is NULL </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon May 16 2022 06:29:10 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 30 2022 19:42:53 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
