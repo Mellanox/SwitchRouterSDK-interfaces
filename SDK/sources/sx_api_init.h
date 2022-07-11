@@ -29,7 +29,7 @@
 /**
  * This API sets the log verbosity level of all modules in SwitchX SDK.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - Sets verbosity of API/MODULE/BOTH
@@ -48,7 +48,7 @@ sx_status_t sx_api_system_log_verbosity_level_set(const sx_api_handle_t         
 /**
  * This API gets the log verbosity level of all modules in SwitchX SDK.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - Gets verbosity of API/MODULE/BOTH
@@ -67,7 +67,7 @@ sx_status_t sx_api_system_log_verbosity_level_get(const sx_api_handle_t         
 /**
  * This API allows to enable/disable function enter/leave debugging log messages.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] attr_p      - Target verbosity attributes (e.g.,verbosity target API or MODULE)
@@ -84,7 +84,7 @@ sx_status_t sx_api_system_log_enter_func_severity_set(const sx_api_handle_t     
 /**
  * This API gets the configured state of function level entry/exit logging.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle      - SX-API handle
  * @param[in,out] attr_p  - Target verbosity attributes (e.g.,verbosity target API or MODULE)
@@ -100,7 +100,7 @@ sx_status_t sx_api_system_log_enter_func_severity_get(const sx_api_handle_t     
 /**
  * This API opens channel to SX-API operations.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] logging_cb - Optional log messages callback
  * @param[out] handle    - Handle that should be used in all further SX-API operations
@@ -119,7 +119,7 @@ sx_status_t sx_api_open(sx_log_cb_t      logging_cb,
 /**
  * This API closes channel to SX-API operations.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle
  *
@@ -133,7 +133,7 @@ sx_status_t sx_api_close(sx_api_handle_t *handle);
 /**
  * This API initializes SwitchX SDK.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] sdk_init_params_p - SwitchX SDK init parameters
@@ -150,7 +150,7 @@ sx_status_t sx_api_sdk_init_set(const sx_api_handle_t       handle,
 /**
  * This API is used to get SDK initialization parameters.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle             - SX-API handle
  * @param[out] sdk_init_params_p - SDK init parameters
@@ -167,7 +167,7 @@ sx_status_t sx_api_sdk_init_params_get(const sx_api_handle_t handle,
 /**
  * This API returns the versions of the various components of SwitchX SDK package.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle      - SX-API handle
  * @param[out] versions_p - SwitchX SDK versions
@@ -183,7 +183,7 @@ sx_status_t sx_api_sx_sdk_version_get(const sx_api_handle_t     handle,
 /**
  * This API is used to enter/exit transaction burst mode.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd    - ENABLE/DISABLE
@@ -199,7 +199,7 @@ sx_status_t sx_api_transaction_mode_set(const sx_api_handle_t handle,
 /**
  * This API is used to get the reference count of an SDK object.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle
  * @param[in] object_id_p - Object ID

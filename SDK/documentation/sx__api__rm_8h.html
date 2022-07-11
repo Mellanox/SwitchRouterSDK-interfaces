@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.3006</span>
+   &#160;<span id="projectnumber">4.5.2308</span>
    </div>
   </td>
  </tr>
@@ -91,16 +91,10 @@ Functions</h2></td></tr>
 <tr class="separator:a5d82524e07ac1d6276d23393b35312c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9658a5db15cd0394058b6047aac2f6e"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__rm_8h.html#ad9658a5db15cd0394058b6047aac2f6e">sx_api_rm_sdk_table_utilization_get</a> (const sx_api_handle_t handle, sx_api_table_type_t *resource_list_p, uint32_t *list_count_p, sx_api_rm_table_utilization_t *utilization_list_p)</td></tr>
 <tr class="separator:ad9658a5db15cd0394058b6047aac2f6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d8209ea7d71ca91c7c14ab29e2dfa15"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__rm_8h.html#a4d8209ea7d71ca91c7c14ab29e2dfa15">sx_api_rm_sdk_table_utilization_ext_get</a> (const sx_api_handle_t handle, sx_api_rm_sdk_logical_resource_t *resource_list_p, uint32_t *list_count_p, sx_api_rm_table_utilization_t *utilization_list_p)</td></tr>
-<tr class="separator:a4d8209ea7d71ca91c7c14ab29e2dfa15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e56b1bd497635fffec0354f4f275a40"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__rm_8h.html#a3e56b1bd497635fffec0354f4f275a40">sx_api_rm_hw_utilization_get</a> (const sx_api_handle_t handle, sx_api_hw_table_type_t hw_type, uint32_t *utilization_p)</td></tr>
 <tr class="separator:a3e56b1bd497635fffec0354f4f275a40"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb9dfb9162cbd8baf1d2b3d4c71ec484"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__rm_8h.html#afb9dfb9162cbd8baf1d2b3d4c71ec484">sx_api_rm_hw_utilization_ext_get</a> (const sx_api_handle_t handle, sx_api_rm_hw_resource_t hw_type, uint32_t *utilization_p)</td></tr>
-<tr class="separator:afb9dfb9162cbd8baf1d2b3d4c71ec484"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab84197f59058f282d793a9ccd7922fc7"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__rm_8h.html#ab84197f59058f282d793a9ccd7922fc7">sx_api_rm_free_entries_by_type_get</a> (const sx_api_handle_t handle, const sx_api_table_type_t resource, uint32_t *free_cnt_p)</td></tr>
 <tr class="separator:ab84197f59058f282d793a9ccd7922fc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac83f09b852a71bc124289c294b4bd70c"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__rm_8h.html#ac83f09b852a71bc124289c294b4bd70c">sx_api_rm_free_entries_by_type_ext_get</a> (const sx_api_handle_t handle, sx_api_rm_sdk_logical_resource_t resource, uint32_t *free_cnt_p)</td></tr>
-<tr class="separator:ac83f09b852a71bc124289c294b4bd70c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a27d7249b270364c6690993f60621641b"></a>
@@ -146,7 +140,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000011">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This API is not supported in the current release. This API set the lower and upper thresholds of an sdk resource.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000013">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This API is not supported in the current release. This API set the lower and upper thresholds of an sdk resource.</dd></dl>
 <p>Supported devices: Not supported</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -200,7 +194,7 @@ SX_STATUS_PARAM_ERROR if the command is not supported/thresholds are invalid </d
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000012">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This API is not supported in the current release.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000014">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This API is not supported in the current release.</dd></dl>
 <p>This function gets the lower and upper thresholds of an SDK resource.</p>
 <p>Supported devices: Not supported.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -260,7 +254,7 @@ SX_STATUS_PARAM_ERROR if the command is not supported/thresholds are invalid </d
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000013">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This API is not supported in the current release.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000015">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This API is not supported in the current release.</dd></dl>
 <p>This function sets the lower and upper thresholds of a hardware resource.</p>
 <p>Supported devices: Not supported</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -315,7 +309,7 @@ SX_STATUS_PARAM_ERROR if the command is not supported/thresholds are invalid </d
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000014">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This API is not supported in the current release.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000016">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. This API is not supported in the current release.</dd></dl>
 <p>This function get the lower and upper thresholds of a hardware resource.</p>
 <p>Supported devices: Not supported.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -365,7 +359,7 @@ SX_STATUS_PARAM_ERROR if the command is not supported/thresholds are invalid </d
 </div><div class="memdoc">
 <p>This API allows to configure the number of times an entry should be replicated in the KVD Central/KVD Linear Database. This replication provides an increase of the data access bandwidth and general performance of the database, especially in cases when multiple requests want to get access to the same data entry.</p>
 <p>Note: Configuration is allowed at system init before any entries are added to the KVD. Note: Not all entry types support duplication.</p>
-<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -420,7 +414,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the number of entry duplication per specified table type.</p>
-<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -481,74 +475,11 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the utilization of a logical resource in the SDK. User is responsible for memory management of the retrieved utilization list.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">resource_list</td><td>- List of resources </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>list_count - [in] size of resource list/[out] size of returned list </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">Utilization</td><td>- Utilization list</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if any input parameters are invalid </dd>
-<dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameters exceed valid range </dd>
-<dd>
-SX_STATUS_UNSUPPORTED if API is not supported for this device </dd>
-<dd>
-SX_STATUS_PARAM_NULL if any parameters are NULL </dd>
-<dd>
-SX_STATUS_ERROR general error </dd></dl>
-
-</div>
-</div>
-<a id="a4d8209ea7d71ca91c7c14ab29e2dfa15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d8209ea7d71ca91c7c14ab29e2dfa15">&#9670;&nbsp;</a></span>sx_api_rm_sdk_table_utilization_ext_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_rm_sdk_table_utilization_ext_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_api_rm_sdk_logical_resource_t *&#160;</td>
-          <td class="paramname"><em>resource_list_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t *&#160;</td>
-          <td class="paramname"><em>list_count_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_api_rm_table_utilization_t *&#160;</td>
-          <td class="paramname"><em>utilization_list_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API gets the utilization of a logical resource in the SDK and allows to filter or query using a key.</p>
-<p>Note: User is responsible for memory management of the retrieved utilization list.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">resource_list</td><td>- List of logical resource types and their optional keys (mandatory in some cases e.g macsec resources) </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>list_count - [in] size of resource list/[out] size of returned list </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">Utilization</td><td>- Utilization list</td></tr>
   </table>
@@ -600,67 +531,11 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the utilization of a hardware table in the SDK.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">hw_type</td><td>- Hardware table type </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">utilization</td><td>- Utilization in 10th of percentage</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if any input parameters are invalid </dd>
-<dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameters exceed valid range </dd>
-<dd>
-SX_STATUS_UNSUPPORTED if API is not supported for this device </dd>
-<dd>
-SX_STATUS_PARAM_NULL if any parameters are NULL </dd>
-<dd>
-SX_STATUS_ERROR general error </dd></dl>
-
-</div>
-</div>
-<a id="afb9dfb9162cbd8baf1d2b3d4c71ec484"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb9dfb9162cbd8baf1d2b3d4c71ec484">&#9670;&nbsp;</a></span>sx_api_rm_hw_utilization_ext_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_rm_hw_utilization_ext_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_api_rm_hw_resource_t&#160;</td>
-          <td class="paramname"><em>hw_type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t *&#160;</td>
-          <td class="paramname"><em>utilization_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API retrieves the utilization of a hardware table in the SDK. This extended API allows to filter or query using a table type &amp; key.</p>
-<p>Note: for RM_HW_TABLE_TYPE_MACSEC_UTCAM_E, in order to get the HW Utilization of the entire table, please set rsrc_key.macsec_utcam.key_width = SX_ACL_FLEX_KEY_WIDTH_NONE_E To get the HW Utilization for a specific key width please set rsrc_key.macsec_utcam.key_width appropriately.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">hw_type</td><td>- Hardware table type + key </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">utilization</td><td>- Utilization in 10th of percentage</td></tr>
   </table>
   </dd>
@@ -712,7 +587,7 @@ SX_STATUS_ERROR general error </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the predicted number of resources that can be added assuming that no other objects are added which may compete for the same hardware resource.</p>
 <p>Note: this number provides the maximum possible and there is no guarantee that this number will be achievable in practice.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -735,67 +610,11 @@ SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
-<a id="ac83f09b852a71bc124289c294b4bd70c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac83f09b852a71bc124289c294b4bd70c">&#9670;&nbsp;</a></span>sx_api_rm_free_entries_by_type_ext_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_rm_free_entries_by_type_ext_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_api_rm_sdk_logical_resource_t&#160;</td>
-          <td class="paramname"><em>resource</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t *&#160;</td>
-          <td class="paramname"><em>free_cnt_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API retrieves the predicted number of resources that can be added to the system. For system-wide resources, it assumes that no other objects are added which may compete for the same hardware resource. For port-specific resources, such as MACSEC, a key must be specified.</p>
-<p>Note: The number provided is the maximum possible number of resources and there is no guarantee that this number will be achievable in practice.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">resource</td><td>- SDK logical resource </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">free_count_p</td><td>- Number of free entries of resource provided</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if any input parameters are invalid </dd>
-<dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if any input parameters exceed valid range </dd>
-<dd>
-SX_STATUS_UNSUPPORTED if API is not supported for this device </dd>
-<dd>
-SX_STATUS_PARAM_NULL if any parameters are NULL </dd>
-<dd>
-SX_STATUS_ERROR general error </dd></dl>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 30 2022 19:42:53 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 2 2022 17:45:12 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.3006</span>
+   &#160;<span id="projectnumber">4.5.2308</span>
    </div>
   </td>
  </tr>
@@ -198,7 +198,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API sets the log verbosity level of the HOST INTERFACE module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -250,7 +250,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API gets the log verbosity level of HOST INTERFACE module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -290,7 +290,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the file descriptor of the current open channel used for receiving a packet.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -338,7 +338,7 @@ SX_STATUS_SXD_RETURNED_NON_ZERO if there is an error closing channel to the SX d
       </table>
 </div><div class="memdoc">
 <p>This API closes the file descriptor of the current open channel used for receiving a packet.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -395,7 +395,7 @@ SX_STATUS_SXD_RETURNED_NON_ZERO error closing channel to the sx driver </dd></dl
 </div><div class="memdoc">
 <p>This API creates/edits a trap group. It allows creating a new trap group with certain attributes, and editing an existing trap group with new attributes.</p>
 <p>Note: When using edit, changing a monitor trap group (attribute is_monitor equals 1) to a regular trap group and vice versa is not allowed.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -471,7 +471,7 @@ SX_STATUS_NO_RESOURCES if the device was not opened </dd></dl>
 <p>When cmd = SX_ACCESS_CMD_EDIT, edit a trap group. Allows editing an existing trap group with new attributes.</p>
 <p>When cmd = SX_ACCESS_CMD_DESTROY, deallocate a trap group. Has similar behavior as SX_ACCESS_CMD_UNSET.</p>
 <p>Note: The trap groups set by API sx_api_host_ifc_trap_group_set can be unset by sx_api_host_ifc_trap_group_ext_set. It is recommended to use sx_api_host_ifc_trap_group_ext_set to set/unset trap groups.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -536,7 +536,7 @@ SX_STATUS_ENTRY_NOT_FOUND if trap group is not found </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the trap group attributes.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -623,7 +623,7 @@ SX_STATUS_NO_RESOURCES if device was not opened </dd></dl>
 <p>Note: Returned trap_group_id_cnt may be less than or equal to the requested trap_group_id_cnt. The input trap group ID is ignored in this case. A non-NULL trap_group_id_list pointer must be provided in this case.</p>
 <p>6) cmd = SX_ACCESS_CMD_GETNEXT, swid = valid, trap_group_id = valid/invalid, trap_group_id_list = valid, trap_group_id_cnt &gt; 0: In this case, the API will return the next set of trap group IDs starting from the next trap group ID after the specified trap group ID. The total number of elements fetched will be returned as the trap_group_id_cnt.</p>
 <p>Note: Returned trap_group_id_cnt may be less than or equal to the requested trap_group_id_cnt. If no valid next trap group ID exists in the database, an empty list will be returned. A non-NULL trap_group_id_list pointer must be provided in this case.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -687,7 +687,7 @@ SX_STATUS_ERROR general error </dd></dl>
 </div><div class="memdoc">
 <p>This API configures traps/event properties for each device in the system: Map Trap ID/Event ID to 1 of the 3 Priority groups, HIGH, MEDIUM, LOW. It configures trap action (for traps only).</p>
 <p>Note: this API allows to bind the same trap ID to regular and monitor trap groups at the same time. Note: When configuring trap_id of SX_TRAP_ID_ETH_L2_PACKET_SAMPLING/SX_TRAP_ID_GENERAL_FDB/SX_TRAP_ID_ACL/SX_TRAP_ID_IPTRAP, trap_action field is ignored. Instead, the action should be configured in each module. Note: Use SX_ACCESS_CMD_UNSET to set the trap ID to its default action according to the documentation. In this case, trap_attr_p-&gt;attr.trap_id_attr.trap_action is reserved. The trap ID will not attached to trap group.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -750,7 +750,7 @@ SX_STATUS_ERROR general error </dd></dl>
 </div><div class="memdoc">
 <p>This API gets configured traps/event properties for each device in the system.</p>
 <p>Note: when trap_attr_p is NULL, only the number of bound trap groups will be returned in trap_cnt_p.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -808,7 +808,7 @@ SX_STATUS_ERROR general error </dd></dl>
 </div><div class="memdoc">
 <p>This API gets monitor trap group information such as total number of discarded packets.</p>
 <p>Note: This API is capable of getting correct data in cases where the trap for the discarded packets is bound to the regular trap group and to the monitor trap group simultaneously.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -870,7 +870,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API adds/deletes user defined trap IDs. The trap ID created should be in the [SX_TRAP_ID_USER_BASE,SX_TRAP_ID_USER_MAX] range. When using DELETE, trap_attributes_p can be NULL.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -937,7 +937,7 @@ SX_STATUS_ENTRY_ALREADY_EXISTS If trap ID is already configured </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API registers/de-registers traps (such as STP and LACP) or events (such as port up/down or temperature event) in the driver. Configure the driver to pass packets matching this trap ID/Event ID, criteria &amp; SWID to the client (according to user_channel). The source_log_port parameter of the received L2 trap always relates to the relevant physical port.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1019,7 +1019,7 @@ SX_STATUS_NO_RESOURCES device was not opened </dd></dl>
 <p>This API gets the trap's user channel list according to the SWID and trap_id. The following use case scenarios apply with different input parameters. 1) SX_ACCESS_CMD_GET When *user_channel_cnt_p is not 0, this API returns a list of user channels. The returned user_channel_cnt may be less than or equal to the requested user_channel_cnt. When *user_channel_cnt_p is 0, this API returns the total number of user channels configured for the specified trap ID. The input user_channel is ignored in this case.</p>
 <p>2) SX_ACCESS_CMD_GET_FIRST The API will return the first set of user channels. The returned user_channel_cnt may be less than or equal to the requested user_channel_cnt. The input user_channel is ignored int this case.</p>
 <p>3) SX_ACCESS_CMD_GETNEXT The API will return the next set of user channels starting from the next user channel after the specified user channel. The returned user_channel_cnt may be less than or equal to the requested user_channel_cnt.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1092,7 +1092,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API registers/de-registers traps (such as STP or LACP) or Events (such as port up/down or temperature event) in the driver. Configure the driver to pass packets matching this trap ID/Event ID, port, or VLAN &amp; SWID to the client (according to user_channel). The source_log_port parameter of the received L2 trap always relates to the relevant physical port.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1171,7 +1171,7 @@ SX_STATUS_NO_RESOURCES device was not opened </dd></dl>
 <p>This API gets the trap's register entry (register key and user channel) list according to the SWID and trap_id. The following use case scenarios apply with different input parameters. 1) SX_ACCESS_CMD_GET When *register_entry_cnt_p is not 0, this function returns a list of register entries. The returned register_entry_cnt_p may be less than or equal to the requested register_entry_cnt_p. When *register_entry_cnt_p is 0, this function returns the total number of register entries configured for the specified trap ID. The input register entry is ignored in this case.</p>
 <p>2) SX_ACCESS_CMD_GET_FIRST The API will return the first set of register entries. The returned register_entry_cnt may be less than or equal to the requested register_entry_cnt. The input register entry is ignored in this case.</p>
 <p>3) SX_ACCESS_CMD_GETNEXT The API will return the next set of register entries starting from the next register entry after the specified register entry. The returned register_entry_cnt may be less than or equal to the requested register_entry_cnt.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1245,7 +1245,7 @@ SX_STATUS_ERROR general error </dd></dl>
 </div><div class="memdoc">
 <p>This API configures the switch to filter packets received from certain ports/LAGs.</p>
 <p>ADD adds the given ports to the filter list. DELETE removes the given ports from the trap filter list. DELETE_ALL removes all ports and LAGs which were previously added to the filter. In this case log_port_num and log_port_list parameters are ignored.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1327,7 +1327,7 @@ SX_STATUS_ERROR if a general error has occurred </dd></dl>
 <p>This API get the trap's filter list according to the SWID and trap_id. The following use case scenarios apply with different input parameters. 1) SX_ACCESS_CMD_GET When *log_port_cnt_p is not 0, this function returns a list of logical port IDs. The returned log_port_cnt may be less than or equal to the requested log_port_cnt. When *log_port_cnt_p is 0, this function returns the the total number of ports/LAGs configured for the specified trap ID. The input log_port_id is ignored in this case.</p>
 <p>2) SX_ACCESS_CMD_GET_FIRST The API will return the first set of logical port IDs. The returned log_port_cnt may be less than or equal to the requested log_port_cnt. The input log_port_id is ignored in this case.</p>
 <p>3) SX_ACCESS_CMD_GETNEXT The API will return the next set of logical port IDs starting from the next logical port ID after the specified logical port ID. The returned log_port_cnt may be less than or equal to the requested log_port_cnt.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1394,7 +1394,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API binds/unbinds a policer to a trap priority. The policer type must be a global slow policer.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1457,7 +1457,7 @@ SX_STATUS_NO_RESOURCES if the device was not opened </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets policer ID per trap group.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1601,7 +1601,7 @@ SX_STATUS_ERROR general error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets filter for registered traps (such as STP and LACP) or events (such as port up/down or temperature events) in the driver on the provided user channel. Filters can be set before or after registration of the user channel to receive traps. Traps that match filter key shall not be forwarded to the user channel. The filter takes priority on traps registration, regardless of the order of API calls.</p>
 <p>ADD adds a filter. DELETE deletes a specific filter by specifying filter attributes. DELETE_ALL clears all filters applied per the given trap ID over the provided user channel.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1680,7 +1680,7 @@ SX_STATUS_NOT_FOUND if an object to be deleted was not found </dd></dl>
 <p>This API gets a list of filter entries (filter key and user channel) according to the SWID and trap ID. The following use case scenarios apply with different input parameters. 1) SX_ACCESS_CMD_GET When *filter_entry_cnt_p is not set to 0, this function returns a list of filter entries. The returned filter_entry_cnt_p may be less than or equal to the requested filter_entry_cnt_p. When *filter_entry_cnt_p is set to 0, this function returns the total number of filter entries configured for the specified trap ID. The input filter entry is ignored in this case.</p>
 <p>2) SX_ACCESS_CMD_GET_FIRST The API will return the first set of filter entries. The returned filter_entry_cnt may be less than or equal to the requested filter_entry_cnt. The input filter entry is ignored in this case.</p>
 <p>3) SX_ACCESS_CMD_GETNEXT The API will return the next set of filter entries starting from the next filter entry after the specified filter entry. The returned filter_entry_cnt may be less than or equal to the requested filter_entry_cnt.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1707,7 +1707,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 30 2022 19:42:53 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 2 2022 17:45:12 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

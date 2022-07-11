@@ -61,7 +61,7 @@
 /**
  * This API sets the log verbosity level of the BRIDGE module.
  *
- * Supported devices: Spectrum , Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum , Spectrum2, Spectrum3.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - Sets verbosity of API/MODULE/BOTH
@@ -80,7 +80,7 @@ sx_status_t sx_api_bridge_log_verbosity_level_set(const sx_api_handle_t         
 /**
  * This API gets the log verbosity level of the BRIDGE module.
  *
- * Supported devices: Spectrum , Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum , Spectrum2, Spectrum3.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - Gets verbosity of API/MODULE/BOTH
@@ -101,7 +101,7 @@ sx_status_t sx_api_bridge_log_verbosity_level_get(const sx_api_handle_t         
  *
  * Note: This function is only supported in 802.1D mode.
  *
- * Supported devices: Spectrum , Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum , Spectrum2, Spectrum3.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] cmd            - CREATE/DESTROY
@@ -144,7 +144,7 @@ sx_status_t sx_api_bridge_set(const sx_api_handle_t handle,
  *        A non-NULL bridge_id_list pointer must be provided in this case.
  *
  *
- * Supported devices: Spectrum , Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum , Spectrum2, Spectrum3.
  *
  * @param[in] handle               - SX-API handle
  * @param [in] cmd                 - GET/GET_FIRST/GET_NEXT
@@ -171,7 +171,7 @@ sx_status_t sx_api_bridge_iter_get(const sx_api_handle_t     handle,
  *
  *  This function is used to add/delete a virtual port to/from a bridge.
  *
- *  Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] cmd         - ADD/DELETE/DELETE_ALL
@@ -192,7 +192,7 @@ sx_status_t sx_api_bridge_vport_set(const sx_api_handle_t  handle,
  *  This function is used to get a list of all virtual ports associated with a bridge.
  *  When bridge_vport_cnt_p == 0, the number of existing entries will be returned.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] bridge_id                - Bridge ID
@@ -213,7 +213,7 @@ sx_status_t sx_api_bridge_vport_get(const sx_api_handle_t handle,
 /**
  * This function is used to add/delete virtual ports from log_port_list list to the corresponding bridge from bridge_id_list.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - ADD/DELETE/DELETE_ALL
@@ -258,7 +258,7 @@ sx_status_t sx_api_bridge_counter_bind_set(const sx_api_handle_t      handle,
  * This function is used to get the flow counter bound to the bridge. If there is no counter bound to the bridge, the API
  * will return SX_STATUS_ENTRY_NOT_FOUND and  flow_counter_id_p will be set to SX_FLOW_COUNTER_ID_INVALID.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle
  * @param[in] bridge_id - bridge_id.
@@ -282,7 +282,7 @@ sx_status_t sx_api_bridge_counter_bind_get(const sx_api_handle_t handle,
  * Counters can be bound only if the bridge/VLAN to tunnel mapping is configured.
  * Note: Flex tunnels are not supported.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] cmd               - SX_ACCESS_CMD_BIND/SX_ACCESS_CMD_UNBIND
@@ -309,7 +309,7 @@ sx_status_t sx_api_bridge_tunnel_counter_bind_set(const sx_api_handle_t         
  *
  *  This API gets the bound flow counter ID of the tunnel mapped to the bridge.
  *
- *  Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] bridge_id         - bridge_id/vlan_id on which tunnel is mapped

@@ -29,7 +29,7 @@
 /**
  * This API sets the log verbosity level of REGISTER module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - Sets verbosity of API/MODULE/BOTH
@@ -49,7 +49,7 @@ sx_status_t sx_api_register_log_verbosity_level_set(const sx_api_handle_t       
 /**
  * This API gets the log verbosity level of REGISTER module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - Get verbosity of API/MODULE/BOTH
@@ -75,7 +75,7 @@ sx_status_t sx_api_register_log_verbosity_level_get(const sx_api_handle_t       
  *
  * Note: This API is mutually exclusive with sx_api_acl_custom_bytes_set. As such, per single SDK life cycle, only one can be used.
  *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param [in] handle         - SX-API handle
  * @param [in] cmd            - CREATE/DESTROY
@@ -121,7 +121,7 @@ sx_status_t sx_api_register_set(const sx_api_handle_t    handle,
  *        Note: For reg_key_cnt_p = 0 API will return success and an empty list. If no valid next register exists in the database,
  *          an empty list will be returned. In this case, reg_key_list_p pointer must be valid.
  *
- *  Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ *  Supported devices: Spectrum2, Spectrum3.
  *
  * @param [in] handle            - SX-API handle
  * @param [in] cmd               - GET/GET_FIRST/GET_NEXT

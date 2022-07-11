@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.3006</span>
+   &#160;<span id="projectnumber">4.5.2308</span>
    </div>
   </td>
  </tr>
@@ -77,10 +77,6 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aaee12d20a870ea4d0f150542aa149814"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__dbg_8h.html#aaee12d20a870ea4d0f150542aa149814">sx_api_dbg_log_verbosity_level_set</a> (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)</td></tr>
-<tr class="separator:aaee12d20a870ea4d0f150542aa149814"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2414f745dbc3d62270ab035f12db0037"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__dbg_8h.html#a2414f745dbc3d62270ab035f12db0037">sx_api_dbg_log_verbosity_level_get</a> (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, sx_verbosity_level_t *module_verbosity_level_p, sx_verbosity_level_t *api_verbosity_level_p)</td></tr>
-<tr class="separator:a2414f745dbc3d62270ab035f12db0037"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c4a3667681745a31b3bf1e5fd2e2bd9"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__dbg_8h.html#a3c4a3667681745a31b3bf1e5fd2e2bd9">sx_api_dbg_generate_dump</a> (const sx_api_handle_t handle, const char *dump_file_path)</td></tr>
 <tr class="separator:a3c4a3667681745a31b3bf1e5fd2e2bd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfc857d32552b5af43e0cbf098cd7165"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__dbg_8h.html#abfc857d32552b5af43e0cbf098cd7165">sx_api_dbg_atcam</a> (const sx_api_handle_t handle, sx_dbg_atcam_cmd_info_t *cmd_p)</td></tr>
@@ -105,122 +101,6 @@ Functions</h2></td></tr>
 <tr class="separator:a54764dd1ab21695038b934b9c0cdca7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aaee12d20a870ea4d0f150542aa149814"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaee12d20a870ea4d0f150542aa149814">&#9670;&nbsp;</a></span>sx_api_dbg_log_verbosity_level_set()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_dbg_log_verbosity_level_set </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_log_verbosity_target_t&#160;</td>
-          <td class="paramname"><em>verbosity_target</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_verbosity_level_t&#160;</td>
-          <td class="paramname"><em>module_verbosity_level</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_verbosity_level_t&#160;</td>
-          <td class="paramname"><em>api_verbosity_level</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API sets the log verbosity level of SX API DEBUG module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Set verbosity of API/MODULE/BOTH </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">module_verbosity_level</td><td>- SX API DEBUG module verbosity level </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">api_verbosity_level</td><td>- SX API DEBUG API verbosity level</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
-<dd>
-SX_STATUS_ERROR for a general error </dd>
-<dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range </dd></dl>
-
-</div>
-</div>
-<a id="a2414f745dbc3d62270ab035f12db0037"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2414f745dbc3d62270ab035f12db0037">&#9670;&nbsp;</a></span>sx_api_dbg_log_verbosity_level_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_dbg_log_verbosity_level_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_log_verbosity_target_t&#160;</td>
-          <td class="paramname"><em>verbosity_target</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_verbosity_level_t *&#160;</td>
-          <td class="paramname"><em>module_verbosity_level_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_verbosity_level_t *&#160;</td>
-          <td class="paramname"><em>api_verbosity_level_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API gets the log verbosity level of SX API DEBUG module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">verbosity_target</td><td>- Get verbosity of API/MODULE/BOTH </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">module_verbosity_level_p</td><td>- SX API DEBUG module verbosity level </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">api_verbosity_level_p</td><td>- SX API DEBUG API verbosity level</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
-<dd>
-SX_STATUS_ERROR for a general error </dd>
-<dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range </dd></dl>
-
-</div>
-</div>
 <a id="a3c4a3667681745a31b3bf1e5fd2e2bd9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3c4a3667681745a31b3bf1e5fd2e2bd9">&#9670;&nbsp;</a></span>sx_api_dbg_generate_dump()</h2>
 
@@ -247,7 +127,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API generates debug dump of all SDK modules, SX-core, and driver.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -386,7 +266,7 @@ SX_STATUS_ERROR General error </dd></dl>
 <li>None: SDK will not dump hardware configuration data at all. Use this option when only software databases are required or when a hardware problem is already observed before the dump.</li>
 <li>Extended: SDK will get all available hardware configuration data. Use this option in cases when the basic hardware configuration data may not be sufficient for the analysis. The time it takes to dump all information depends on the requested hardware dump method. During the dump, SDK may fetch hardware configuration data, according to the requested dump method. In case SDK is unable to access hardware, it will skip fetching all remaining hardware configuration data.</li>
 </ul>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -754,7 +634,7 @@ SX_STATUS_ERROR General error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 30 2022 19:42:53 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jun 2 2022 17:45:12 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
