@@ -63,7 +63,7 @@
 /**
  * This API sets the log verbosity level of SPAN module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - Sets verbosity of API/MODULE/BOTH
@@ -82,7 +82,7 @@ sx_status_t sx_api_span_log_verbosity_level_set(const sx_api_handle_t           
 /**
  * This API gets the log verbosity level of SPAN module
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - Gets verbosity of API/MODULE/BOTH
@@ -109,7 +109,7 @@ sx_status_t sx_api_span_log_verbosity_level_get(const sx_api_handle_t           
  * Note: In case a packet with encapsulation header is mirrored to an analyzer port with size larger than analyzer port's MTU,
  *  truncation should be enabled to avoid packets being discarded. Set truncate size = MTU (encapsulation or smaller).
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] access_cmd            - CREATE/EDIT/DESTROY
@@ -135,7 +135,7 @@ sx_status_t sx_api_span_session_set(const sx_api_handle_t           handle,
 /**
  * This API gets SPAN session information.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] span_session_id - SPAN session ID
@@ -202,7 +202,7 @@ sx_status_t sx_api_span_session_trap_id_get(const sx_api_handle_t      handle,
  *        Note: return count may be less than or equal to the requested count. If no valid next counter exists in the database
  *        (key = end of list, or invalid key specified, or key too large), an empty list will be returned.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle               - SX-API handle
  * @param[in] cmd                  - GET/GET_FIRST/GETNEXT
@@ -229,7 +229,7 @@ sx_status_t sx_api_span_session_iter_get(const sx_api_handle_t       handle,
 /**
  * This API sets SPAN session admin state.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] span_session_id - SPAN session ID
@@ -248,7 +248,7 @@ sx_status_t sx_api_span_session_state_set(const sx_api_handle_t      handle,
 /**
  * This API gets the SPAN session admin state.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] span_session_id - SPAN session ID
@@ -268,7 +268,7 @@ sx_status_t sx_api_span_session_state_get(const sx_api_handle_t      handle,
 /**
  * This API gets the analyzer port assigned to the SPAN session.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] span_session_id - SPAN session ID
@@ -288,7 +288,7 @@ sx_status_t sx_api_span_session_analyzer_get(const sx_api_handle_t      handle,
 /**
  * This API gets the mirror ports assigned to the SPAN session.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] span_session_id - SPAN session ID
@@ -310,7 +310,7 @@ sx_status_t sx_api_span_session_mirror_get(const sx_api_handle_t      handle,
 /**
  * This API sets the SPAN session ID using mirror port and direction as key.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - ADD/DELETE
@@ -335,7 +335,7 @@ sx_status_t sx_api_span_mirror_set(const sx_api_handle_t       handle,
 /**
  * This API gets the SPAN session ID using mirror port and direction as key.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] mirror_port - Mirror port
@@ -356,7 +356,7 @@ sx_status_t sx_api_span_mirror_get(const sx_api_handle_t       handle,
 /**
  * This API sets the SPAN mirror admin state using mirror_port and direction as key.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] mirror_port - Mirror port
@@ -379,7 +379,7 @@ sx_status_t sx_api_span_mirror_state_set(const sx_api_handle_t       handle,
 /**
  * This API gets the SPAN mirroring admin state using mirror port and direction as key.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] mirror_port - Mirror port
@@ -402,7 +402,7 @@ sx_status_t sx_api_span_mirror_state_get(const sx_api_handle_t       handle,
  *
  * Spectrum-2 and Spectrum-3 systems support CPU port as analyzer port.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  *
  * @param[in] handle - SX-API handle
@@ -426,7 +426,7 @@ sx_status_t sx_api_span_analyzer_set(const sx_api_handle_t                 handl
 /**
  * This API gets the SPAN session using analyzer ports as key.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] log_port - Analyzer port associated with SPAN
@@ -455,7 +455,7 @@ sx_status_t sx_api_span_analyzer_get(const sx_api_handle_t           handle,
  *
  * Note: In Spectrum, calling this API is optional. If not called, the default module configuration is used.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle.
  * @param[in] init_params_p     - Module configuration parameters
@@ -474,7 +474,7 @@ sx_status_t sx_api_span_init_set(sx_api_handle_t        handle,
  * This API resets the SPAN init parameters to the default setting. Calls to this API require a prior call to
  * sx_api_span_init_set. The API fails if any mirroring sessions are already allocated when it is called.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  *
@@ -489,7 +489,7 @@ sx_status_t sx_api_span_deinit_set(sx_api_handle_t handle);
 /**
  * This API retrieves or clears dropped packet counters for a mirroring session.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - READ/READ_CLEAR
@@ -516,7 +516,7 @@ sx_status_t sx_api_span_session_counter_get(const sx_api_handle_t      handle,
  * When disabled, the association between the trap group and the mirroring session is removed. It is possible to call the
  * API repeatedly to replace one mirroring session with another.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - ADD/DELETE
@@ -537,7 +537,7 @@ sx_status_t sx_api_span_mirror_tables_set(const sx_api_handle_t      handle,
  * This API retrieves the mirroring session that was configured using the trap group associated with the MIRROR trap ID for
  * modules whose own API does not refer to an explicit mirroring session.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[out] span_session_id_p - SPAN session ID
@@ -559,7 +559,7 @@ sx_status_t sx_api_span_mirror_tables_get(const sx_api_handle_t handle,
  * DELETE removes Drop Reasons from existing configuration.
  * DELETE_ALL removes all Drop Reasons from existing configuration.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - SET/ADD/DELETE/DELETE_ALL
@@ -586,7 +586,7 @@ sx_status_t sx_api_span_drop_mirror_set(const sx_api_handle_t                han
  * This API retrieves the mirroring session drop reasons configured for router-drop mirroring via the trap IDs for router drops.
  * If drop_reason_list is NULL, the number of drop reasons will be returned in drop_reason_cnt.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] span_session_id - SPAN session ID
@@ -615,7 +615,7 @@ sx_status_t sx_api_span_drop_mirror_get(const sx_api_handle_t          handle,
  *               AND
  *           - Ingress as SX_TS_OVER_CRC_INGRESS_MODE_ENABLE_E (using sx_api_tele_attributes_set API)
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] cmd      - Bind/UNBIND
@@ -639,7 +639,7 @@ sx_status_t sx_api_span_mirror_bind_set(const sx_api_handle_t             handle
 /**
  * This API gets the mirror binding attribute.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] key_p     - Bind key
@@ -660,7 +660,7 @@ sx_status_t sx_api_span_mirror_bind_get(const sx_api_handle_t            handle,
 /**
  * This API gets the mirror type bound to the SPAN session.
  *
- * Supported devices: Spectrum2, Spectrum3.
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                    - SX-API handle
  * @param[in] span_session_id           - SPAN session ID
@@ -684,7 +684,7 @@ sx_status_t sx_api_span_session_mirror_bound_get(const sx_api_handle_t      hand
  * This API enables mirroring on a mirror object. This configuration is supported on a per port TC, port PG, or a port basis
  * depending on the mirror enable type.
  *
- * Supported devices: Spectrum2, Spectrum3.
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] cmd      - SET/DELETE
@@ -704,7 +704,7 @@ sx_status_t sx_api_span_mirror_enable_set(const sx_api_handle_t                 
 /**
  * This API gets the enable attribute for mirror object
  *
- * Supported devices: Spectrum2, Spectrum3.
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]  handle     - SX-API handle
  * @param[in]  object_p   - Mirror enable object
@@ -724,7 +724,7 @@ sx_status_t sx_api_span_mirror_enable_get(const sx_api_handle_t                 
 /**
  * This API returns the a list of span objects as per object type.
  *
- * Supported devices: Spectrum2, Spectrum3.
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] cmd               - supported commands:GET/GET_FIRST/GETNEXT
@@ -784,7 +784,7 @@ sx_status_t sx_api_span_mirror_enable_iter_get(const sx_api_handle_t            
  * Note: This API should not be used when PTP protocol is active and running.
  * Note: UTC is also used for updating time stamp for ingress/egress packets to/from CPU.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] cmd         - SET
@@ -801,7 +801,7 @@ sx_status_t sx_api_span_header_time_stamp_set(const sx_api_handle_t   handle,
 /**
  * This API binds a policer to a SPAN session. The policer must be defined as a SPAN session policer.
  *
- * Supported devices: Spectrum2, Spectrum3.
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - BIND/UNBIND
@@ -824,7 +824,7 @@ sx_status_t sx_api_span_session_policer_bind_set(const sx_api_handle_t      hand
  * This API returns the policer ID bound to the provided SPAN session ID. When no policer is bound, the API will return
  * SX_STATUS_ENTRY_NOT_FOUND and policer_id_p will be set to SX_POLICER_ID_INVALID.
  *
- * Supported devices: Spectrum2, Spectrum3.
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]  handle - SX-API handle
  * @param[in]  span_session_id - SPAN session ID
@@ -843,7 +843,7 @@ sx_status_t sx_api_span_session_policer_bind_get(const sx_api_handle_t      hand
 /**
  * This API gets the SPAN attributes.
  *
- * Supported devices: Spectrum2, Spectrum3.
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[out] span_attrs_p - SPAN attributes
@@ -859,7 +859,7 @@ sx_status_t sx_api_span_attributes_get(const sx_api_handle_t handle,
 
 /**
  * This API sets the port label that appears in mirror header for a port.
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                    - SX-API handle
  * @param[in] log_port                  - logical port.
@@ -881,7 +881,7 @@ sx_status_t sx_api_span_port_attr_set(const sx_api_handle_t  handle,
 
 /**
  * This API gets the port label that appears in mirror header for a port.
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  * Note - Only GET access command is supported.
  *
  * @param[in]  handle                       - SX-API handle

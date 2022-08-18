@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.2318</span>
+   &#160;<span id="projectnumber">4.5.3140</span>
    </div>
   </td>
  </tr>
@@ -139,7 +139,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API sets the log verbosity level of the BRIDGE module.</p>
-<p>Supported devices: Spectrum , Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum , Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -195,7 +195,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the log verbosity level of the BRIDGE module.</p>
-<p>Supported devices: Spectrum , Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum , Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -246,7 +246,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This function is used to create/destroy a bridge.</p>
 <p>Note: This function is only supported in 802.1D mode.</p>
-<p>Supported devices: Spectrum , Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum , Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -317,7 +317,7 @@ SX_STATUS_ERROR General error </dd></dl>
 <p class="startli">Note: returned bridge_id_cnt may be less than or equal to the requested bridge_id_cnt. If no valid next bridge ID exists in the db, an empty list will be returned. A non-NULL bridge_id_list pointer must be provided in this case.</p>
 </li>
 </ul>
-<p>Supported devices: Spectrum , Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum , Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -379,7 +379,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function is used to add/delete a virtual port to/from a bridge.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -437,7 +437,7 @@ SX_STATUS_ERROR Unexpected behavior </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function is used to get a list of all virtual ports associated with a bridge. When bridge_vport_cnt_p == 0, the number of existing entries will be returned.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -501,7 +501,7 @@ SX_STATUS_ERROR Unexpected behavior </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function is used to add/delete virtual ports from log_port_list list to the corresponding bridge from bridge_id_list.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -612,7 +612,7 @@ SX_STATUS_ERROR Unexpected behavior </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This function is used to get the flow counter bound to the bridge. If there is no counter bound to the bridge, the API will return SX_STATUS_ENTRY_NOT_FOUND and flow_counter_id_p will be set to SX_FLOW_COUNTER_ID_INVALID.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -676,7 +676,7 @@ SX_STATUS_ERROR Unexpected behavior </dd></dl>
 </div><div class="memdoc">
 <p>This API binds/un-binds a counter to/from a tunnel mapped to the bridge.</p>
 <p>For ENCAP_UC and ENCAP_MC counters, this operation can be performed only when FDB does not contain any entries for tunnel in fid. When Lazy Delete mode is enabled, flow counters will be automatically unbounded once the deletion of the related VNI mapping is completed and VNI mapping delete notification is sent. Counters can be bound only if the bridge/VLAN to tunnel mapping is configured. Note: Flex tunnels are not supported.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -739,7 +739,7 @@ SX_STATUS_ENTRY_NOT_BOUND Counter is not bound </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the bound flow counter ID of the tunnel mapped to the bridge.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -763,7 +763,7 @@ SX_STATUS_ENTRY_NOT_BOUND Counter is not bound </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jul 24 2022 07:59:51 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 15 2022 16:51:08 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

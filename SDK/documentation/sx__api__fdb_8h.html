@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.2318</span>
+   &#160;<span id="projectnumber">4.5.3140</span>
    </div>
   </td>
  </tr>
@@ -165,10 +165,6 @@ Functions</h2></td></tr>
 <tr class="separator:a34894776eebc52ed74b59b941f701c91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23226433dadbbc949fc0a19f0254d7f9"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a23226433dadbbc949fc0a19f0254d7f9">sx_api_fdb_flood_get</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_fid_t fid, sx_mc_container_id_t *flood_vector)</td></tr>
 <tr class="separator:a23226433dadbbc949fc0a19f0254d7f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e4a16b9c750215270a1ffceb7d6e150"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a2e4a16b9c750215270a1ffceb7d6e150">sx_api_fdb_flood_counter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, sx_flood_counters_t *const counters)</td></tr>
-<tr class="separator:a2e4a16b9c750215270a1ffceb7d6e150"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61db615ac875ccce214e8600b86102c8"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a61db615ac875ccce214e8600b86102c8">sx_api_fdb_flood_counter_clear</a> (const sx_api_handle_t handle, const sx_swid_t swid)</td></tr>
-<tr class="separator:a61db615ac875ccce214e8600b86102c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ea4fb90301561b60d52be1e6d3d8199"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#a0ea4fb90301561b60d52be1e6d3d8199">sx_api_fdb_src_miss_protect_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const boolean_t enable)</td></tr>
 <tr class="separator:a0ea4fb90301561b60d52be1e6d3d8199"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af051ad00c09fa031624b47294adad966"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__fdb_8h.html#af051ad00c09fa031624b47294adad966">sx_api_fdb_src_miss_protect_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, boolean_t *enable_p)</td></tr>
@@ -247,7 +243,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API sets the log verbosity level of FDB module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -303,7 +299,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the log verbosity level of FDB module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -353,7 +349,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the FDB age time in seconds. Age time is the time after which automatically learned addresses are deleted from the FDB if they receive no traffic.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -406,7 +402,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the FDB age time in seconds. Age time is the time after which automatically-learned addresses are deleted from the FDB if they receive no traffic.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -453,7 +449,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API triggers an FDB poll for MAC-entry notifications.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -507,7 +503,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the FDB polling interval at 0.1 second granularity.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -560,7 +556,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the FDB polling interval in 0.1 second granularity.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -631,7 +627,7 @@ SX_STATUS_PARAM_NULL Parameter is NULL </dd></dl>
 <li>ECMP pointed by sx_fdb_uc_mac_addr_params_t.dest.ecmp cannot contain flex tunnel next hops.</li>
 </ul>
 <p>Note: In Spectrum systems, when FDB learning is enabled, a packet with the SMAC=MAC1 triggers flushing of remote UC tunnel-ECMP FDB MAC1 entry from the FDB and a roaming MAC1 event is sent to the CPU, the next packets that have DMAC=MAC1 will be flooded. Note: In 802.1D mode, instead of providing a VID (VLAN ID) or FID (filtering ID) in mac_list_p-&gt;fid_vid, provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -728,7 +724,7 @@ SX_STATUS_ERROR General error </dd></dl>
 <p>3) To get a list of n&lt;=64 MACs which comes after a certain MAC record (that does not have to exist), insert MAC+VLAN data in the key variable. data_cnt_p should be equal to n. mac_type is the type that should be received. key_filter_p is the filter type(s) to filter the results by. cmd should be SX_ACCESS_CMD_GETNEXT.</p>
 <p>mac_list_p returns the records' information and their quantity in data_cnt_p for all types of requests.</p>
 <p>Note: In 802.1D mode, instead of providing a VID (VLAN ID) or FID (filtering ID) in key_p-&gt;fid_vid and a FID in key_filter_p-&gt;fid, provide a bridge_id.bridge_id's will be stored in mac_list_p-&gt;fid_vid.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -790,7 +786,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API counts all MAC entries in the software FDB table (static and dynamic).</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -843,7 +839,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the number of MACs learned on a port (static and dynamic).</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -965,7 +961,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets/removes the limit on the amount of dynamic MACs learned on a port.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1021,7 +1017,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the maximum amount of dynamic MACs that can be learned on a port.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1087,7 +1083,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets/removes the limit on the amount of dynamic MACs learned on FID (filtering ID).</p>
 <p>Note: When in 802.1D mode, instead of providing a FID, provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1151,7 +1147,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the maximum amount of dynamic MACs that can be learned on an FID.</p>
 <p>Note: When in 802.1D mode, instead of providing a FID (filtering ID), provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1239,7 +1235,7 @@ SX_STATUS_ERROR General error </dd></dl>
 <li>Removes local ports from FDB MC ID records (if FDB look up by MC ID is allowed on leaf devices)</li>
 </ul>
 <p>Note: MC entries cannot be created and associated with ports at the same time (i.e., create an MC entry before adding ports). Note: The log_port_list_p list should not contain the logical port items which are specified as an Ethernet port and which are members of a LAG port at same time. Note: When in 802.1D mode, instead of providing a VID (VLAN ID), provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1325,7 +1321,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves MC MAC entries data. User is responsible for memory management of retrieved list. If the log_port_list_p is NULL or port_cnt is 0, the API retrieves the count of MC MAC entries for the VID.</p>
 <p>Note: If LAG ports are supplied, the log_port_list_p list should contain only LAG-port IDs and not LAG members logical-port IDs. Note: In 802.1D mode, instead of providing a VID (VLAN ID), provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1417,7 +1413,7 @@ SX_STATUS_ERROR General error </dd></dl>
 <p>4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, swid = X, key = X, filter = X, key_list = NULL, key_cnt = 0: A zero key_cnt and an empty key_list will be returned.</p>
 <p>5) cmd = SX_ACCESS_CMD_GET_FIRST, swid = valid, key = X, filter = valid/invalid, key_list = valid, key_cnt &gt; 0: In this case, the API will return a list of MC MAC keys (max key_cnt) starting with first key of the internal database and matching the filter if present. The input MC MAC key is ignored in this case. A non-NULL key_list pointer must be provided in this case.</p>
 <p>6) cmd = SX_ACCESS_CMD_GETNEXT, swid = valid, key = valid/invalid, filter = valid/invalid, key_list = valid, key_cnt &gt; 0: In this case, the API will return a list of MC MAC keys (max key_cnt) starting with the next key after the input key and matching the filter, if present. A non-NULL key_list pointer must be provided in this case.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1485,7 +1481,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API adds/deletes FDB MC MAC entries from/to a multicast container (the MC container should have already been created).</p>
 <p>The MC container from the parameter "data" should be one of the following types: SX_MC_CONTAINER_TYPE_BRIDGE_MC or SX_MC_CONTAINER_TYPE_VLAN_UNAWARE. An FDB MC MAC entry can be created only if the FID from the parameter "group_key" is equal to the FID from the attributes of the MC container. For MC containers of the type SX_MC_CONTAINER_TYPE_VLAN_UNAWARE, the FID parity validation is skipped.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1549,7 +1545,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets FDB MC MAC entries from a multicast container.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1642,7 +1638,7 @@ SX_STATUS_ERROR General error </dd></dl>
 <p class="startli">Note: return count may be less than or equal to the requested count. If no valid next MAC exists in the database (key = end of list, or invalid key specified, or key too large), an empty list will be returned.</p>
 </li>
 </ul>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_FIRST/GET_NEXT </td></tr>
@@ -1695,7 +1691,7 @@ SX_STATUS_NO_MEMORY Memory allocation failure </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API deletes all learned (dynamic) FDB table entries on a switch partition.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1737,7 +1733,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API deletes the FDB table entries that were learned on a port.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1786,7 +1782,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API deletes all FDB table entries that were learned on a FID.</p>
 <p>Note: In 802.1D mode, instead of providing a FID (filtering ID), provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1840,7 +1836,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API deletes all FDB table entries that were learned on the flushed FID and port.</p>
 <p>Note: When in 802.1D mode, instead of providing a FID (filtering ID), provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1887,7 +1883,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API deletes all FDB MC tables on a switch partition.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1938,7 +1934,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API deletes all FDB MC table entries that were learned on the flushed FID on a switch partition.</p>
 <p>Note: When in 802.1D mode, instead of providing a FID (filtering ID), provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1985,7 +1981,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API deletes dynamic FDB table entries according to the provided flush type and parameters.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2110,7 +2106,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the SWID's learning parameters into the system's database.</p>
 <p>Note: Only independent learning is supported in the current release.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2165,7 +2161,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the SWID's learning parameters from the system's database.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2220,7 +2216,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the FDB learning mode per SWID affecting all ports and VLANs in the SWID.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2275,7 +2271,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the FDB learning mode per SWID.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2336,7 +2332,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets a FID's learn mode.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2394,7 +2390,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets a FID's learn mode.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2445,7 +2441,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets a port's learn mode.</p>
 <p>Note: The learn mode on the NVE port can be configured only when there is a connected NVE tunnel in the system. Note: The learning of decapsulated MACs from NVE IPv6 tunnels is not supported, thus setting anything except the SX_FDB_LEARN_MODE_DONT_LEARN mode on the NVE port when there is a connected NVE IPv6 tunnel will return an error.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2497,7 +2493,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API gets a port's learn mode.</p>
 <p>Note: The API can retrieve the learn mode on the NVE port only when there is a connected NVE tunnel in the system.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2547,7 +2543,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets FDB notify parameters.</p>
 <p>Note: This API only takes effect when controlled learn mode is set.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2600,7 +2596,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets FDB notify parameters.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2677,7 +2673,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to block ports from flooding a selected FID.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2754,7 +2750,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to retrieve the list of ports on which flood control has been enabled. ports_count will be updated with the number of blocked ports. If ports_count is non-zero, user is responsible for memory management of ports_list. Passing ports_count as 0 and ports_list NULL, will return a count of the number of ports.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2823,7 +2819,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to manage flood control for tunnels. Configuration from this API extends configuration from sx_api_fdb_flood_control_set for tunnel support. For each tunnel, flooding for specified bridge can be added or removed.</p>
 <p>The MC container that is pointed by the parameter "flood_vector" should be one of the following types: SX_MC_CONTAINER_TYPE_NVE_FLOOD, SX_MC_CONTAINER_TYPE_BRIDGE_MC, or SX_MC_CONTAINER_TYPE_VLAN_UNAWARE. An MC container of the type SX_MC_CONTAINER_TYPE_NVE_FLOOD or SX_MC_CONTAINER_TYPE_BRIDGE_MC container can be bound to a given FID only if the FID is equal to a FID from the attributes of the MC container. On Spectrum, an MC container of the SX_MC_CONTAINER_TYPE_BRIDGE_MC type cannot be used as a tunnel flood vector if sx_tunnel_nve_general_params_t.mc_ecmp_enabled != sx_tunnel_nve_general_params_t.flood_ecmp_enabled. For MC containers of the type SX_MC_CONTAINER_TYPE_VLAN_UNAWARE, the FID parity validation is skipped.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2884,7 +2880,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to get flood control settings for a tunnel.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2901,108 +2897,6 @@ SX_STATUS_ENTRY_NOT_FOUND Flooding vector not set </dd>
 SX_STATUS_UNSUPPORTED API is not supported for this device </dd>
 <dd>
 SX_STATUS_ERROR General error </dd></dl>
-
-</div>
-</div>
-<a id="a2e4a16b9c750215270a1ffceb7d6e150"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e4a16b9c750215270a1ffceb7d6e150">&#9670;&nbsp;</a></span>sx_api_fdb_flood_counter_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_fdb_flood_counter_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_access_cmd_t&#160;</td>
-          <td class="paramname"><em>cmd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_swid_t&#160;</td>
-          <td class="paramname"><em>swid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_flood_counters_t *const&#160;</td>
-          <td class="paramname"><em>counters</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future.</dd></dl>
-<p>This API is used to retrieve flooding counters of the switch.</p>
-<p>Supported devices: N/A</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ/READ_CLEAR </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Virtual switch partition ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">counters</td><td>- Counters struct to store retrieved information</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
-<dd>
-SX_STATUS_UNSUPPORTED Flooding counters are not supported on the switch </dd>
-<dd>
-SX_STATUS_CMD_UNSUPPORTED Unsupported command </dd>
-<dd>
-SX_STATUS_PARAM_NULL Counters are null </dd>
-<dd>
-SX_STATUS_ERROR General error </dd></dl>
-
-</div>
-</div>
-<a id="a61db615ac875ccce214e8600b86102c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61db615ac875ccce214e8600b86102c8">&#9670;&nbsp;</a></span>sx_api_fdb_flood_counter_clear()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_fdb_flood_counter_clear </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_swid_t&#160;</td>
-          <td class="paramname"><em>swid</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000006">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future.</dd></dl>
-<p>This API is used to clear flooding counters of the switch.</p>
-<p>Supported devices: N/A</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Virtual switch partition ID</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
-<dd>
-SX_STATUS_UNSUPPORTED Flooding counters are not supported on the switch </dd></dl>
 
 </div>
 </div>
@@ -3039,7 +2933,7 @@ SX_STATUS_UNSUPPORTED Flooding counters are not supported on the switch </dd></d
 </div><div class="memdoc">
 <p>This API sets a port's FDB miss protect mode. When enabled, the source MAC (SMAC) will not be learned and will be used for security lookup on the packet.</p>
 <p>Note: This API is not supported in 802.1D mode.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3091,7 +2985,7 @@ SX_STATUS_PARAM_ERROR Input parameter is invalid </dd></dl>
 </div><div class="memdoc">
 <p>This API gets ports' FDB SMAC miss protect mode status.</p>
 <p>Note: This API is not supported in 802.1D mode.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3137,7 +3031,7 @@ SX_STATUS_PARAM_ERROR Input parameter is invalid </dd></dl>
 </div><div class="memdoc">
 <p>This API sets up FDB source miss protection drop counter.</p>
 <p>Note: This API is not supported in 802.1D mode</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3186,7 +3080,7 @@ SX_STATUS_PARAM_ERROR Input parameter is invalid </dd></dl>
 </div><div class="memdoc">
 <p>This API gets the FDB source miss protection drop counters.</p>
 <p>Note: This API is not supported in 802.1D mode</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3243,7 +3137,7 @@ SX_STATUS_PARAM_ERROR Input parameter is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the IGMPv3 state.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3311,7 +3205,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the IGMPv3 state.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3377,7 +3271,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets MC IP entries using a multicast container as the destination.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3441,7 +3335,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets MC IP entries using a multicast container as destination.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3506,7 +3400,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API binds a flow counter to a MC IP Entry.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3570,7 +3464,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the flow counter bound to a MC IP entry.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3636,7 +3530,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the unregistered MC flood mode.</p>
 <p>Note: When in 802.1D mode, instead of providing a VID (VLAN ID), provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3695,7 +3589,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the unregistered MC flood mode.</p>
 <p>Note: When in 802.1D mode, instead of providing a VID (VLAN ID), provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3762,7 +3656,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API sets unregistered MC flood ports.</p>
 <p>Note: When in 802.1D mode, instead of providing a VID (VLAN ID), provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3830,7 +3724,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves unregistered MC flood ports.</p>
 <p>Note: When in 802.1D mode, instead of providing a VID (VLAN ID), provide a bridge_id.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3895,7 +3789,7 @@ SX_STATUS_ERROR General error </dd></dl>
 <p>SET configures URMC according flood_attr. UNSET configures URMC mode to be FLOOD to release MC container.</p>
 <p>Note: In order to have a separate vector for unregistered IPv6 MC traffic, the following flag should be enabled sdk_init_params.fdb_params.unreg_mc_ipv6_flood_en as part of SDK init. If it is not enabled, the broadcast vector will apply for unregistered IPv6 MC traffic.</p>
 <p>Note: This API is mutually exclusive and supersedes the following APIs below which will be deprecated: -sx_api_fdb_unreg_mc_flood_mode_set(..) -sx_api_fdb_unreg_mc_flood_ports_set(..)</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3951,7 +3845,7 @@ SX_STATUS_ERROR General error </dd></dl>
 <li>sx_api_fdb_unreg_mc_flood_mode_get(..)</li>
 <li>sx_api_fdb_unreg_mc_flood_ports_get(..)</li>
 </ul>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4010,7 +3904,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API reads and/or clears activity on a specified multicast IP Entry.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -4066,7 +3960,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API initiates a notification regarding active MC FDB entries in the system.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4130,7 +4024,7 @@ SX_STATUS_ERROR General error </dd></dl>
 <li>From a logical port to a tunnel using an ECMP NVE container - this is the recommended way.</li>
 <li>From an ECMP NVE container to a logical port.</li>
 </ul>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4155,7 +4049,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jul 24 2022 07:59:51 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 15 2022 16:51:08 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

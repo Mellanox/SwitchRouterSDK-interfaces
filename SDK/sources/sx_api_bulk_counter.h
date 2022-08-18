@@ -25,7 +25,7 @@
 /**
  * This function sets the log verbosity level of BULK COUNTER module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API/MODULE/BOTH
@@ -44,7 +44,7 @@ sx_status_t sx_api_bulk_counter_log_verbosity_level_set(const sx_api_handle_t   
 /**
  * This function gets the log verbosity level of BULK COUNTER module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API/MODULE/BOTH
@@ -125,10 +125,8 @@ sx_status_t sx_api_bulk_counter_buffer_set(const sx_api_handle_t            hand
  *           c. The refresh transaction (consumed by calling sx_api_bulk_counter_refresh_set) and any of the bulk counter types.
  *           d. 2 x SX_BULK_CNTR_KEY_TYPE_FLOW_E only if one of transactions is started for
  *              accumulated (SX_FLOW_COUNTER_TYPE_ACCUMULATED) counters and the second one for any other type of flow counters.
- * Note: When port bulk counter transaction is in progress, it is not allowed to call any synchronous port counter API
- * (sx_api_port_counter_xxx).
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] cmd         - READ/READ_CLEAR/READ_FLUSH/READ_CLEAR_FLUSH/DISABLE
@@ -149,7 +147,7 @@ sx_status_t sx_api_bulk_counter_transaction_set(const sx_api_handle_t        han
 /**
  *  This API reads a single counter from a bulk-counter-read buffer.
  *
- *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] key_p           - For port counter: Logical port ID, counter group, TC (optional), priority (optional),
@@ -190,7 +188,7 @@ sx_status_t sx_api_bulk_counter_transaction_get(const sx_api_handle_t          h
  *  The refresh also requires a free bulk counter transaction.
  *  For more details about transactions, please see the description of sx_api_bulk_counter_transaction_set.
  *
- * Supported devices: Spectrum2, Spectrum3.
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - SET

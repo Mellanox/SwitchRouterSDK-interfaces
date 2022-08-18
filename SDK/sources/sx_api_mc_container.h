@@ -29,7 +29,7 @@
 /**
  * This API sets the log verbosity level of MC_CONTAINER module.
  *
- * Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - Sets verbosity of API/MODULE/BOTH
@@ -48,7 +48,7 @@ sx_status_t sx_api_mc_container_log_verbosity_level_set(const sx_api_handle_t   
 /**
  * Gets the log verbosity level of MC_CONTAINER module.
  *
- * Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - Gets verbosity of API/MODULE/BOTH
@@ -89,7 +89,7 @@ sx_status_t sx_api_mc_container_log_verbosity_level_get(const sx_api_handle_t   
  *   A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the following types:
  *   SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle              - SX-API handle
  * @param[in] cmd                 - CREATE/ADD/DELETE/SET/DESTROY/DELETE_ALL
@@ -125,7 +125,7 @@ sx_status_t sx_api_mc_container_set(const sx_api_handle_t               handle,
  *        If *next_hop_cnt is 0, or if next_hop_list_p is NULL, then the amount of next hops is returned in *next_hop_cnt.
  *       If container_attr is NULL, then attributes are not retrieved.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle              - SX-API handle
  * @param[in] cmd                 - GET/GET_FIRST/GET_NEXT/COUNT
@@ -149,7 +149,7 @@ sx_status_t sx_api_mc_container_get(const sx_api_handle_t         handle,
 /**
  * This API retrieves a list of multicast Containers.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                 - SX-API handle
  * @param[in] cmd                    - GET/GET_NEXT/GET_FIRST

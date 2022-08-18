@@ -63,7 +63,7 @@
 /**
  * This function sets the log verbosity level of VLAN module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - Sets verbosity of API/MODULE/BOTH
@@ -82,7 +82,7 @@ sx_status_t sx_api_vlan_log_verbosity_level_set(const sx_api_handle_t           
 /**
  * This function gets the log verbosity level of VLAN module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - Gets verbosity of API/MODULE/BOTH
@@ -107,7 +107,7 @@ sx_status_t sx_api_vlan_log_verbosity_level_get(const sx_api_handle_t           
  *
  * Note: This function is only valid when in 802.1Q bridge mode.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  *
  * @param[in] handle            - SX-API handle
@@ -140,7 +140,7 @@ sx_status_t sx_api_vlan_ports_set(const sx_api_handle_t  handle,
  *   are returned as the output.
  * Note: This function is only valid when in 802.1Q bridge mode.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle               - SX-API handle
  * @param[in] swid                 - Virtual switch partition ID
@@ -171,7 +171,7 @@ sx_status_t sx_api_vlan_ports_get(const sx_api_handle_t handle,
  *
  * Note: This function is only valid when in 802.1Q bridge mode.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] cmd            - ADD/DELETE
@@ -199,7 +199,7 @@ sx_status_t sx_api_vlan_port_multi_vlan_set(const sx_api_handle_t  handle,
  *
  * Note: This API supports port profile.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] log_port              - Logical port
@@ -223,7 +223,7 @@ sx_status_t sx_api_vlan_port_prio_tagged_set(const sx_api_handle_t          hand
  *
  * Note: This API supports port profile.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                    - SX-API handle
  * @param[in] log_port                  - Logical port
@@ -246,7 +246,7 @@ sx_status_t sx_api_vlan_port_prio_tagged_get(const sx_api_handle_t     handle,
  *
  * Note: This API supports port profile.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  *  @param[in] handle              - SX-API handle
  *  @param[in] log_port            - Logical port number
@@ -270,7 +270,7 @@ sx_status_t sx_api_vlan_port_ingr_filter_set(const sx_api_handle_t       handle,
  * Note: This function is only valid when in 802.1Q bridge mode.
  * Note: This API supports port profile.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  *  @param[in] handle                  - SX-API handle
  *  @param[in] log_port                - Logical port number
@@ -293,7 +293,7 @@ sx_status_t sx_api_vlan_port_ingr_filter_get(const sx_api_handle_t  handle,
  * Note: When the PVID is deleted from the port, it is assigned with the default VLAN ID.
  * Note: This API supports port profile.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] cmd      - ADD/DELETE
@@ -314,7 +314,7 @@ sx_status_t sx_api_vlan_port_pvid_set(const sx_api_handle_t  handle,
  *
  * Note: This API supports port profile.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] log_port - Logical port number
@@ -337,7 +337,7 @@ sx_status_t sx_api_vlan_port_pvid_get(const sx_api_handle_t  handle,
  * Note: Priority tagged packets are considered as untagged packets.
  * Note: This API supports port profile.
  *
- *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle             - SX-API handle
  * @param[in] log_port           - Logical port number
@@ -357,7 +357,7 @@ sx_status_t sx_api_vlan_port_accptd_frm_types_set(const sx_api_handle_t        h
  *
  * Note: This API supports port profile.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle              - SX-API handle
  * @param[in] log_port            - Logical port number
@@ -379,7 +379,7 @@ sx_status_t sx_api_vlan_port_accptd_frm_types_get(const sx_api_handle_t  handle,
  * This API sets the virtual switch's default VLAN ID. This VID is set by default as the PVID of all switch ports. If not
  * called, the default VID for all virtual switches is 1.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] swid   - Virtual switch partition ID
@@ -401,7 +401,7 @@ sx_status_t sx_api_vlan_default_vid_set(const sx_api_handle_t handle,
  * This API gets the virtual switch's default VLAN ID. This VID is set by default as the PVID of all switch ports. If not
  * called, the default VID for all virtual switches is 1.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] swid   - Virtual switch partition ID
@@ -426,7 +426,7 @@ sx_status_t sx_api_vlan_default_vid_get(const sx_api_handle_t handle,
  *
  * Note: This function is only valid when in 802.1Q bridge mode.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] log_port  - Logical port ID
@@ -450,7 +450,7 @@ sx_status_t sx_api_vlan_port_qinq_mode_set(const sx_api_handle_t  handle,
  *
  * Note: This function is only valid when in 802.1Q bridge mode.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] log_port      - Logical port ID
@@ -473,7 +473,7 @@ sx_status_t sx_api_vlan_port_qinq_mode_get(const sx_api_handle_t  handle,
  *
  * Note: This function is only valid when in 802.1Q bridge mode.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] log_port  - Logical port ID
@@ -497,7 +497,7 @@ sx_status_t sx_api_vlan_port_qinq_outer_prio_mode_set(const sx_api_handle_t     
  *
  * Note: This function is only valid when in 802.1Q bridge mode.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle       - SX-API handle
  * @param[in] log_port     - Logical port ID
@@ -518,7 +518,7 @@ sx_status_t sx_api_vlan_port_qinq_outer_prio_mode_get(const sx_api_handle_t     
  * This API creates .1Q VLANs. If NO_RESOURCES status is returned then the vlan_list_p will contain the VLANs which were not
  * added (number of which is donated by vlan_cnt_p).
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] cmd           - ADD/DELETE
@@ -540,7 +540,7 @@ sx_status_t sx_api_vlan_set(const sx_api_handle_t handle,
 /**
  * This API returns the list of .1Q VLANs added to the SWID.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] swid            - switch partition ID
@@ -559,7 +559,7 @@ sx_status_t sx_api_vlan_get(const sx_api_handle_t handle,
 /**
  * This API sets FID attributes.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] vid             - VLAN/FID to set
@@ -577,7 +577,7 @@ sx_status_t sx_api_vlan_attrib_set(const sx_api_handle_t   handle,
 /**
  * This API returns FID attributes.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] vid            - VLAN/FID to get
