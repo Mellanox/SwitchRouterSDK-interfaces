@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.3146</span>
+   &#160;<span id="projectnumber">4.5.2320</span>
    </div>
   </td>
  </tr>
@@ -159,7 +159,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API sets the log verbosity level of TUNNEL module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -217,7 +217,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the log verbosity level of TUNNEL module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -287,7 +287,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range </dd></dl>
 <li>Each ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_TUNNEL_ENCAP.</li>
 </ol>
 <p>When a tunnel is deleted, SDK also flushes (deletes) all non-static tunnel FDB entries.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -345,7 +345,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the tunnel configuration.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -404,7 +404,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets/clears tunnel counters.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -464,7 +464,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to manage rules in the tunnel decap table. The decap table is used to terminate encapsulated packets. The decap key provides packet matching mechanism and each key is mapped to one tunnel.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -524,7 +524,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to get decap rules from the decap table.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -572,7 +572,7 @@ SX_STATUS_ERROR general error </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to initialize tunneling module.</p>
 <p>Note: Correct parsing depth should be set using sx_api_port_parsing_depth_set API for tunneling usage scenarios.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -604,7 +604,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to de-initialize the tunneling module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle</td></tr>
@@ -672,7 +672,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <p>When a tunnel mapping is deleted, SDK also flushes (deletes) all relevant non-static tunnel FDB entries.</p>
 <p>The map_entries_cnt parameter is limited by TUNNEL_MAP_ENTRIES_SET_MAX_NUM.</p>
 <p>Note: Flex tunnels are not supported.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -756,7 +756,7 @@ SX_STATUS_ERROR general error </dd></dl>
 </div><div class="memdoc">
 <p>This API gets the mapping information between tunnel and bridge/VLAN. This function supports the below commands in the order mentioned below.</p>
 <p>GET_FIRST gets a list of first n&lt;=1000 map entries of specified tunnel ID. GETNEXT gets a list of n&lt;=1000 next map entries whose value larger than the given map_entry_key of specified tunnel ID.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -830,7 +830,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <li>If TTL_CMD_COPY is used in Encap direction for a packet with no TTL, then the value passed in the ttl data structure will be used if non-zero (default 255 if zero).</li>
 </ol>
 <p>Note: Flex tunnels are not supported.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -884,7 +884,7 @@ SX_STATUS_ERROR general error </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to get the tunnel TTL parameters.</p>
 <p>Note: Flex tunnels are not supported.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -943,7 +943,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <li>NVE tunnels support setting a UDP_SPORT (default value is 0).</li>
 </ol>
 <p>Note: Flex tunnels are not supported.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -997,7 +997,7 @@ SX_STATUS_ERROR general error </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to get the tunnel hash parameters.</p>
 <p>Note: Flex tunnels are not supported.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1058,7 +1058,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <li>ECN mapping on encapsulation or decapsulation.</li>
 </ol>
 <p>Note: Flex tunnels are not supported.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1114,7 +1114,7 @@ SX_STATUS_ERROR general error </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to retrieve CoS data. CoS data retrieval for ENCAP or DECAP direction can be controlled by cos_data_p-&gt;param_type.</p>
 <p>Note: Flex tunnels are not supported.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1193,7 +1193,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <p>5) cmd = SX_ACCESS_CMD_GET_FIRST, tunnel_id = X, tunnel_id_list = valid, filter = valid/invalid, tunnel_id_cnt &gt; 0: In this case, the API will return the first tunnel_id_cnt tunnel IDs starting from the head of the database AND match the filter, if present. The total number of elements fetched will be returned as tunnel_id_cnt. The input tunnel ID is ignored, in this case. A non-NULL tunnel_id_list pointer must be provided, in this case.</p>
 <p>6) cmd = SX_ACCESS_CMD_GETNEXT, tunnel_id = valid/invalid, filter = valid/invalid, tunnel_id_list = valid, tunnel_id_cnt &gt; 0: In this case, the API will return the next set of tunnel IDs which matches the filter if present starting from the next tunnel ID after the specified tunnel ID. The total number of elements fetched will be returned as the tunnel_id_cnt. If no valid next tunnel ID exists in the database, an empty list will be returned. A non-NULL tunnel_id_list pointer must be provided, in this case.</p>
 <p>Two type of filter can be used: 1) sx_tunnel_type_e: It must exactly match the type defined for the tunnels. 2) sx_tunnel_direction_e: If tunnel direction is SX_TUNNEL_DIRECTION_SYMMETRIC, it will match any direction (ENCAP/DECAP/SYMMETRIC) of the filter, otherwise, it will only match the same direction of the filter.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1282,7 +1282,7 @@ SX_STATUS_MODULE_UNINITIALIZED for tunnel module uninitialized </dd></dl>
 <p class="startli">Note: Return count may be less than or equal to the requested count. If no valid next decap key entry exists in the database (key = end of list, or invalid key specified, or key too large), an empty list will be returned.</p>
 </li>
 </ul>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1352,7 +1352,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <p>This API is used to create/edit/destroy a FLEX tunnel header that can be used when creating a flex tunnel.</p>
 <p>CREATE creates a new flex tunnel header and returns the newly allocated sx_tunnel_flex_header_id_t. EDIT/DESTROY edits/destroys the previously created flex tunnel header (tunnel_flex_header_id_p should be provided as input).</p>
 <p>No need to provide the sx_tunnel_flex_header_cfg_t for DESTROY operation.</p>
-<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1416,7 +1416,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the FLEX tunnel header configuration.</p>
-<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1442,7 +1442,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 18 2022 18:17:26 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 22 2022 18:21:57 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

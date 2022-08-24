@@ -29,7 +29,7 @@
 /**
  * This API sets the log verbosity level of BFD module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - Sets verbosity of API/MODULE/BOTH
@@ -49,7 +49,7 @@ sx_status_t sx_api_bfd_log_verbosity_level_set(const sx_api_handle_t           h
 /**
  * This API gets the log verbosity level of BFD module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - Gets verbosity of API/MODULE/BOTH
@@ -68,7 +68,7 @@ sx_status_t sx_api_bfd_log_verbosity_level_get(const sx_api_handle_t           h
 /**
  * This API is used to initialize BFD module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] params_p  - Pointer to init params structure
@@ -83,7 +83,7 @@ sx_status_t sx_api_bfd_init_set(const sx_api_handle_t handle,
 /**
  * This API is used to deinit BFD module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                - SX-API handle
  *
@@ -95,7 +95,7 @@ sx_status_t sx_api_bfd_deinit_set(const sx_api_handle_t handle);
 /**
  * This API is used to create/edit/destroy BFD offload for a session.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] cmd                      - Command (CREATE/EDIT/DESTROY)
@@ -115,7 +115,7 @@ sx_status_t sx_api_bfd_offload_set(const sx_api_handle_t          handle,
 /**
  *  This function retrieves a list of BFD session IDs.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] cmd                   - GET/GET_NEXT/GET_FIRST
@@ -172,7 +172,7 @@ sx_status_t sx_api_bfd_session_iter_get(const sx_api_handle_t       handle,
 /**
  * This API is used to read/clear BFD offload statistics for a session.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] cmd                      - Command (READ/READ_CLEAR)

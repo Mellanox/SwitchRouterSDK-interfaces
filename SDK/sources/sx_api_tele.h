@@ -29,7 +29,7 @@
 /**
  * This API sets the log verbosity level of TELEMETRY module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - Sets verbosity of API/MODULE/BOTH
@@ -48,7 +48,7 @@ sx_status_t sx_api_tele_log_verbosity_level_set(const sx_api_handle_t           
 /**
  * Gets the log verbosity level of TELEMETRY module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - Gets verbosity of API/MODULE/BOTH
@@ -67,7 +67,7 @@ sx_status_t sx_api_tele_log_verbosity_level_get(const sx_api_handle_t           
 /**
  * This API is used to initialize the TELEMETRY module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] params_p - Pointer to initialization parameters structure
@@ -82,7 +82,7 @@ sx_status_t sx_api_tele_init_set(const sx_api_handle_t  handle,
 /**
  * This API is used to deinitialize the TELEMETRY module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle   - SX-API handle
  *
@@ -97,7 +97,7 @@ sx_status_t sx_api_tele_deinit_set(const sx_api_handle_t handle);
  * SET sets the histogram attributes described on key to attributes_data.
  *
  * Note: On Spectrum devices, sample time is global. The last configured sample time is applied to all histograms.
- * Note: For latency histograms (supported on Spectrum-2 and above) the following is true:
+ * Note: For latency histograms (supported on Spectrum-2 and Spectrum-3) the following is true:
  *      1. Histogram attributes must be identical for all TCs of the same port.
  *      2. Edit command is not supported (To edit, destroy all latency histograms on a port and then set a new configuration).
  *      3. The behavior of Latency-Histograms will be undefined, if CRC parameters on at least one port are configured in
@@ -106,7 +106,7 @@ sx_status_t sx_api_tele_deinit_set(const sx_api_handle_t handle);
  *                 AND
  *             - Ingress as SX_TS_OVER_CRC_INGRESS_MODE_ENABLE_E (using sx_api_tele_attributes_set API)
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - SET/EDIT/DESTROY
@@ -126,7 +126,7 @@ sx_status_t sx_api_tele_histogram_set(const sx_api_handle_t                     
 /**
  * This API retrieves the histogram attributes data that match the key.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - GET
@@ -181,7 +181,7 @@ sx_status_t sx_api_tele_histogram_get(const sx_api_handle_t                handl
  *        (key = end of list, or invalid key specified, or key too large), an empty list will be returned.
  *
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param [in] handle           - SX API handle
  * @param [in] cmd              - GET/GET_FIRST/GET_NEXT
@@ -214,7 +214,7 @@ sx_status_t sx_api_tele_histogram_iter_get(const sx_api_handle_t            hand
  * Note: On Spectrum devices, bin sampling stops when one of the bins reaches max value by bits according to resource manager
  *   variable tele_histogram_data_bin_bits_max.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - READ/CLEAR
@@ -239,7 +239,7 @@ sx_status_t sx_api_tele_histogram_data_get(const sx_api_handle_t         handle,
  * Note: SET cannot be called on an existing entry. To modify, use EDIT.
  * Note: Number of latency thresholds is limited to rm_resource_global.tele_threshold_latency_table_size.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - SET/EDIT/DESTROY
@@ -260,7 +260,7 @@ sx_status_t sx_api_tele_threshold_set(const sx_api_handle_t          handle,
  * This API retrieves the congestion threshold for a specific port and the TC's the threshold is configured to.
  * For port-related threshold types, network and LAG ports are supported.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - GET
@@ -281,7 +281,7 @@ sx_status_t sx_api_tele_threshold_get(const sx_api_handle_t         handle,
  * This API retrieves the current threshold congestion state (below/above threshold) for a list of keys.
  * For port related threshold types, only network ports are supported.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in]  handle - SX-API handle
  * @param[in]  cmd - GET
@@ -302,7 +302,7 @@ sx_status_t sx_api_tele_threshold_crossed_data_get(const sx_api_handle_t        
 
 /**
  * This API sets the attributes of TELEMETRY module.
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in] handle  - SX-API handle
  * @param[in] attributes - Telemetry module attributes
@@ -317,7 +317,7 @@ sx_status_t sx_api_tele_attributes_set(const sx_api_handle_t  handle,
 /**
  * This API retrieves the attributes of TELEMETRY module.
  *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle
  * @param[out] attributes_p - Telemetry module attributes pointer

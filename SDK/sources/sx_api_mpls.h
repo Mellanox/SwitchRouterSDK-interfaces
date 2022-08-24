@@ -95,7 +95,6 @@ sx_status_t sx_api_mpls_deinit_set(const sx_api_handle_t handle);
  *       MPLS label space is a router VRID.
  *       Only a single VRID is supported.
  *       This VRID contains all MPLS RIFs.
- *       The VRID needs to be created before calling this API.
  *
  * Supported devices: Spectrum.
  *
@@ -117,7 +116,6 @@ sx_status_t sx_api_mpls_ilm_init_set(const sx_api_handle_t        handle,
  *       MPLS label space is a router VRID.
  *       Only a single VRID is supported.
  *       This VRID contains all MPLS RIFs.
- *       The VRID needs to be created before calling this API.
  *
  * Supported devices: Spectrum.
  *

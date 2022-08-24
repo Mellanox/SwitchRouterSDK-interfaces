@@ -28,7 +28,7 @@
 /**
  * This API sets the log verbosity level of FLEX_MODIFIER module.
  *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - Set verbosity of API/MODULE/BOTH
@@ -50,7 +50,7 @@ sx_status_t sx_api_flex_modifier_log_verbosity_level_set(const sx_api_handle_t  
 /**
  * This API gets the log verbosity level of FLEX_MODIFIER module.
  *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - Get verbosity of API/MODULE/BOTH
@@ -72,7 +72,7 @@ sx_status_t sx_api_flex_modifier_log_verbosity_level_get(const sx_api_handle_t  
  * An EMT is used to modify packets using ACL actions.
  * An EMT needs to be allocated first (CREATE cmd) before its parameters are set (SET cmd).
  * Note: an EMT used in an ACL action cannot be destroyed.
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  * Parameters:
  * @param[in] handle    - SX-API handle
  * @param[in] cmd       - CREATE / SET / DESTROY
@@ -94,7 +94,7 @@ sx_status_t sx_api_flex_modifier_set(const sx_api_handle_t             handle,
 
 /**
  * This API retrieves the configuration of an egress modifier template (EMT).
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  * Parameters:
  * @param[in]  handle    - SX-API handle
  * @param[in]  cmd       - GET
@@ -138,7 +138,7 @@ sx_status_t sx_api_flex_modifier_get(const sx_api_handle_t            handle,
  *      - The default configuration of the payload_offset_shift is - 0 (the payload starts at the end of the actual parsing).
  *      - payload_offset_shift configuration is per port (physical ports only), split ports will not inherit the configuration from the original split port.
  *      - in case of LAG membership, all port members should be configured with the same payload_offset_shift.
- *      - Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ *      - Supported devices: Spectrum2, Spectrum3.
  *
  * Parameters:
  * @param[in] handle                     - SX-API handle.
@@ -168,7 +168,7 @@ sx_status_t sx_api_flex_modifier_attr_set(const sx_api_handle_t                h
 /**
  * This API retrieves the egress modifier attributes from the requested data base.
  * The retrieved attributes depends on the requested attr_type of the provided list objects (attr_cfg_list_p).
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  * ts
  * Parameters:
  * @param[in]  handle                    - SX-API handle

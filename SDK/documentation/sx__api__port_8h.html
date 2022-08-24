@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.3146</span>
+   &#160;<span id="projectnumber">4.5.2320</span>
    </div>
   </td>
  </tr>
@@ -297,8 +297,6 @@ Functions</h2></td></tr>
 <tr class="separator:a2f0103f24442b33d50a8f0f1d89ee041"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46fa9a17c45d9b70f6073f4a4134e478"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a46fa9a17c45d9b70f6073f4a4134e478">sx_api_port_state_ext_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_ext_port_state_t *port_state_p)</td></tr>
 <tr class="separator:a46fa9a17c45d9b70f6073f4a4134e478"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e408c302d642bf5d95bf80caae390ec"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a0e408c302d642bf5d95bf80caae390ec">sx_api_port_group_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_port_group_cfg_t *port_group_cfg_list_p, uint32_t *port_group_cfg_cnt_p, sx_port_group_attr_t *group_attr_p)</td></tr>
-<tr class="separator:a0e408c302d642bf5d95bf80caae390ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ac3457a41837c6780bbf94b56dd2a0cd4"></a>
@@ -339,7 +337,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API sets the log verbosity level of PORT module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -395,7 +393,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the log verbosity level of PORT module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -463,10 +461,10 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API adds or deletes a device in the SDK. port_attributes_list_p defines mapping of local ports to module identifier as and allows each port to be assigned with a different width representing the number of lanes it is using, thus controlling port available rates.</p>
-<p>Device base MAC address given is used by ASIC to assign MAC addresses to all physical ports incrementally from the given address.</p>
+<p>Device base MAC address given is used by hardware to assign MAC addresses to all physical ports incrementally from the given address.</p>
 <p>On Spectrum-based devices, a given base MAC address should be aligned to 64 and in Spectrum-2 and Spectrum-3 devices, the given base MAC address should be aligned to 128, according to the number of physical ports in the device.</p>
 <p>The SDK will map the device's local ports to unique logical ports (returned within port_attributes_list_p). The logical ports represent SDK ports and used further in port APIs.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4, SwitchIB-2, Quantum, Quantum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, SwitchIB-2, Quantum, Quantum2.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -532,7 +530,7 @@ SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves a device information (port lists) from the SDK. If all optional output buffers are NULL, this API retrieves the number of ports.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -638,7 +636,7 @@ SX_STAUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets ports mapping.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -793,7 +791,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceed its range </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API adds/deletes a SWID to/from the SDK. A SWID which has ports bound to it cannot be deleted.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4, SwitchIB-2, Quantum, Quantum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, SwitchIB-2, Quantum, Quantum2.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -846,7 +844,7 @@ SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves all SWIDs from the SDK. If optional output buffer is NULL, this API retrieves the number of SWIDs.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -900,7 +898,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if SWIDs list length is 0 (zero) </dd></dl>
 </div><div class="memdoc">
 <p>This API binds/unbinds a logical port to/from a SWID in the SDK. To unbind a port from a SWID, the SWID field should be SX_SWID_ID_DISABLED. Port attributes reset during an unbind operation (e.g., VLAN membership and QinQ).</p>
 <p>Note: This API supports port profile for bind operation. Un-binding a port profile is done during destroy of port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4, SwitchIB-2, Quantum, Quantum2.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, SwitchIB-2, Quantum, Quantum2.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -951,7 +949,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if SWID is out of range </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves a logical port's bound SWID.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1166,7 +1164,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the port MTU size in the SDK.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1222,7 +1220,7 @@ SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the port MTU size from the SDK.</p>
 <p>Note: For Ethernet devices, maximum MTU and operational MTU are the same.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1287,7 +1285,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 <li>The ingress MTU size will be minimum of [MTU, truncation size].</li>
 <li>In case MTU size &lt; truncation size, SDK will round up MTU value to a valid truncation size and will return the MTU to it's original value once truncation is disabled.</li>
 </ul>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1345,7 +1343,7 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the given port's ingress truncation mode state. When enabled, the API will return the size to which ingress packets will be truncated to. When disabled, the truncation size will be returned as 0. Note: The packets are truncated to truncation size -4B for the CRC.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1579,7 +1577,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port's supported FEC capabilities from the SDK.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1633,7 +1631,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port's physical address (MAC) from the SDK.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1686,7 +1684,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the port's physical address (MAC).</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1739,8 +1737,8 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the port's physical loopback. LAG port cannot be loopback.</p>
-<p>NOTE: Configuration can be changed only when port is in ADMIN DOWN state, otherwise configuration will fail. NOTE: LOGICAL loopback mode (1.) Can't be enabled when: SX_PORT_CRC_EGRESS_RECALC_MODE_ALLOW , SX_PORT_BAD_CRC_INGRESS_MODE_DROP and SX_TS_OVER_CRC_INGRESS_MODE_ENABLE_E. (2.) When enabled, packet switch latency will reflect all passes that the packet does in the switch: (a.)Latency histograms will be affected. (b.)PTP should not be used. Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Note: This API supports port profile.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1794,7 +1792,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the port's physical loopback (LAG port cannot be loopback).</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1848,7 +1846,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the port administrative state in the SDK.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1914,7 +1912,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the port's administrative, operational, and module state from the SDK.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1972,7 +1970,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the port flow control pause configuration. fc_mode sets the mode of both Rx and Tx with one of 4 possible EN/DIS combinations.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2024,7 +2022,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the port flow control pause configuration from the SDK. fc_mode_p gets the mode of both Rx and Tx with one of 4 possible EN/DIS combinations.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2081,7 +2079,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the port priority flow control (PFC) configuration. fc_mode sets the mode of both Rx and Tx with one of 4 possible EN/DIS combinations.</p>
-<p>Note: This API supports port profile. Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Note: This API supports port profile. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2140,7 +2138,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 </div><div class="memdoc">
 <p>This API retrieves the port priority flow control (PFC) configuration from the SDK. fc_mode_p gets the mode of both Rx and Tx with one of 4 possible EN/DIS combinations.</p>
 <p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2198,7 +2196,8 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port IEEE 802.3 counters from the SDK.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>It is not allowed to call this API when port bulk counter transaction (initiated by sx_api_bulk_counter_transaction_set API) is in progress.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2216,7 +2215,9 @@ SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd>
 <dd>
 SX_STATUS_COMM_ERROR if client communication fails </dd>
 <dd>
-SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED if port bulk counter transaction is in progress </dd></dl>
 
 </div>
 </div>
@@ -2258,7 +2259,8 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port RFC 2863 counters from the SDK.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>It is not allowed to call this API when port bulk counter transaction (initiated by sx_api_bulk_counter_transaction_set API) is in progress.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2278,7 +2280,9 @@ SX_STATUS_COMM_ERROR if client communication fails </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
-SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED if port bulk counter transaction is in progress </dd></dl>
 
 </div>
 </div>
@@ -2320,7 +2324,8 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port RFC 2819 counters from the SDK.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>It is not allowed to call this API when port bulk counter transaction (initiated by sx_api_bulk_counter_transaction_set API) is in progress.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2340,7 +2345,9 @@ SX_STATUS_COMM_ERROR if client communication fails </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
-SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED if port bulk counter transaction is in progress </dd></dl>
 
 </div>
 </div>
@@ -2382,7 +2389,8 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port RFC 3635 counters from the SDK.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>It is not allowed to call this API when port bulk counter transaction (initiated by sx_api_bulk_counter_transaction_set API) is in progress.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2402,7 +2410,9 @@ SX_STATUS_COMM_ERROR if client communication fails </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
-SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED if port bulk counter transaction is in progress </dd></dl>
 
 </div>
 </div>
@@ -2444,7 +2454,8 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port CLI counters from the SDK.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>It is not allowed to call this API when port bulk counter transaction (initiated by sx_api_bulk_counter_transaction_set API) is in progress.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2464,7 +2475,9 @@ SX_STATUS_COMM_ERROR if client communication fails </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
-SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED if port bulk counter transaction is in progress </dd></dl>
 
 </div>
 </div>
@@ -2512,7 +2525,8 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port priority counters from the SDK. When a LAG port is given, the result is the sum of all the LAG ports counters.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>It is not allowed to call this API when port bulk counter transaction (initiated by sx_api_bulk_counter_transaction_set API) is in progress.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2529,7 +2543,9 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED if port bulk counter transaction is in progress </dd></dl>
 
 </div>
 </div>
@@ -2577,8 +2593,9 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port's traffic class counters.</p>
+<p>It is not allowed to call this API when port bulk counter transaction (initiated by sx_api_bulk_counter_transaction_set API) is in progress.</p>
 <p>Note: The API does not support LAG and VPort. Note: For Spectrum devices, if a switch priority is mapped to any higher TC X [where 8 &lt;= X &lt;= 15], then tx_octet and tx_frames will be counted against TC [X - 8]. Note: For Spectrum devices, if the port is in MC Aware Mode, valid values of tc_id are [0-7].</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2595,7 +2612,9 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED if port bulk counter transaction is in progress </dd></dl>
 
 </div>
 </div>
@@ -2643,8 +2662,9 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port buffer counters from the SDK. When a LAG port is given, the result is the sum of all the LAG ports counters.</p>
+<p>It is not allowed to call this API when port bulk counter transaction (initiated by sx_api_bulk_counter_transaction_set API) is in progress.</p>
 <p>Note: In UC mode, Rx UC octets, Rx UC frames, and Rx discard counters are available only for buffer ID 0-7. Note: On Spectrum devices, shared buffer discard counter is not supported.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2661,7 +2681,9 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED if port bulk counter transaction is in progress </dd></dl>
 
 </div>
 </div>
@@ -2709,8 +2731,9 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the extended port counters from the SDK.</p>
+<p>It is not allowed to call this API when port bulk counter transaction (initiated by sx_api_bulk_counter_transaction_set API) is in progress.</p>
 <p>Note: This API does not support LAG.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2735,7 +2758,9 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
 SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED if port bulk counter transaction is in progress </dd></dl>
 
 </div>
 </div>
@@ -2780,7 +2805,8 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
 <li>Read the discard counters (set the cmd to SX_ACCESS_CMD_READ).</li>
 <li>Read and clear the discard counters (set the cmd to SX_ACCESS_CMD_READ_CLEAR).</li>
 </ol>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>It is not allowed to call this API when port bulk counter transaction (initiated by sx_api_bulk_counter_transaction_set API) is in progress.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2800,7 +2826,9 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if a parameter is NULL or not supported </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd></dl>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED if port bulk counter transaction is in progress </dd></dl>
 
 </div>
 </div>
@@ -2845,7 +2873,8 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd></dl>
 <li>Clear a specific port (set log_port field with the log port ID &amp;&amp; all_ports = FALSE): Option a: Clear specific counter group (set the group in cntr_grp) Option b: Clear all counter groups (set cntr_grp = SX_PORT_CNTR_GRP_ALL)</li>
 <li>Clear all ports (set all_ports = TRUE): Option a: Clear specific counter group (set the group in cntr_grp) Option b: Clear all counter groups (set cntr_grp = SX_PORT_CNTR_GRP_ALL)</li>
 </ol>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>It is not allowed to call this API when port bulk counter transaction (initiated by sx_api_bulk_counter_transaction_set API) is in progress.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2863,7 +2892,9 @@ SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd>
 <dd>
 SX_STATUS_COMM_ERROR if client communication fails </dd>
 <dd>
-SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED if port bulk counter transaction is in progress </dd></dl>
 
 </div>
 </div>
@@ -2905,7 +2936,8 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port physical Layer counters from the SDK.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>It is not allowed to call this API when port bulk counter transaction (initiated by sx_api_bulk_counter_transaction_set API) is in progress.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2925,7 +2957,9 @@ SX_STATUS_COMM_ERROR if client communication fails </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
-SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED if port bulk counter transaction is in progress </dd></dl>
 
 </div>
 </div>
@@ -2973,8 +3007,8 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port Physical Layer Statistic counters.</p>
-<p>Note:This API is capable of returning counters for 400GbE (8x lanes) ports. For non 400GbE ports (not 8x lanes), counters will be returned only for used lanes. Note: When link_side is external, retrieved data will depend on the current FEC mode and the API's phy_raw_errors counters may represent counters for NO FEC, FC FEC, or RS FEC modes: NO FEC - edpl_bip_errors FC FEC - fc_fec_corrected_blocks RS FEc - rs_fec_corrected_symbols When link_side is Near or Far, retrieved data will represent corrected symbols for USR ZL FEC mode.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Note:This API is capable of returning counters for 400GbE (8x lanes) ports. For non 400GbE ports (not 8x lanes), counters will be returned only for used lanes. Note: When link_side is external, retrieved data will depend on the current FEC mode and the API's phy_raw_errors counters may represent counters for NO FEC, FC FEC, or RS FEC modes: NO FEC - edpl_bip_errors FC FEC - fc_fec_corrected_blocks RS FEc - rs_fec_corrected_symbols When link_side is Near or Far, retrieved data will represent corrected symbols for USR ZL FEC mode. Note: It is not allowed to call this API when port bulk counter transaction (initiated by sx_api_bulk_counter_transaction_set API) is in progress.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2991,7 +3025,9 @@ SX_STATUS_COMM_ERROR if client communication fails </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
-SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED if port bulk counter transaction is in progress </dd></dl>
 
 </div>
 </div>
@@ -3039,7 +3075,8 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port Physical Internal Link Layer counters.</p>
-<p>Supported devices: Spectrum3, Spectrum4.</p>
+<p>It is not allowed to call this API when port bulk counter transaction (initiated by sx_api_bulk_counter_transaction_set API) is in progress.</p>
+<p>Supported devices: Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3058,7 +3095,9 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
 <dd>
 SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
 <dd>
-SX_STATUS_ERROR if operation completes with failure </dd></dl>
+SX_STATUS_ERROR if operation completes with failure </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED if port bulk counter transaction is in progress </dd></dl>
 
 </div>
 </div>
@@ -3089,7 +3128,7 @@ SX_STATUS_ERROR if operation completes with failure </dd></dl>
 </div><div class="memdoc">
 <p>This API initializes the port in the SDK.</p>
 <p>Note: This API supports port profile. Deinit of port profile is done as part of destruction of port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3135,7 +3174,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API de-initializes the port in the SDK.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3199,7 +3238,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets storm control parameters of the given port.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3260,7 +3299,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves storm control parameters of the given port.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3318,7 +3357,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API clears storm control counter values of the given port.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3376,7 +3415,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves storm control counters values of the given port.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3434,7 +3473,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API controls sFlow configuration. Using the access command ADD, an sFlow sampling is defined on port. After the sFlow configuration is set, the user can EDIT the sFlow parameters of a configured port. To remove sFlow sampling from the port, access command DELETE can be used. The API returns the sFlow params configured in practice. Deviation is returned in percentage.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3496,7 +3535,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the ports sFlow configuration.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3557,7 +3596,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <li>Packets dropped by host CPU policers The following events are not counted:</li>
 <li>Packets dropped due to lack of shared buffer resources on duplication</li>
 </ul>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3615,7 +3654,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <p>This API controls loopback filter state of the port.</p>
 <p>Notes relevant to NVE port: On Spectrum systems, changing of the state of the loopback filter is not supported on Spectrum. Changing of the state affects only UC traffic (MC and flooding are always filtered). The state of the filter can be changed only when there is a connected NVE/Flex tunnel in the system.</p>
 <p>Note: This API supports port profile. Note: Flex tunnels are supported from Spectrum2 and above.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3666,7 +3705,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <p>This API retrieves the loopback filter state of the port.</p>
 <p>Note: On Spectrum-2 systems, the API can retrieve the state of the loopback filter on the NVE port. The API can retrieve the state of the loopback filter on the NVE/Flex port only when there is connected NVE/Flex tunnel in the system.</p>
 <p>Note: This API supports port profile. Note: Flex tunnels are supported from Spectrum2 and above.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4051,7 +4090,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API returns the SWID type as it was configured in the profile at the time of SDK initialization.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4111,7 +4150,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range </dd></dl>
 </div><div class="memdoc">
 <p>This API creates a virtual port for port log_port and VLAN ID.</p>
 <p>ADD creates a VPort for the given logical port and VLAN. DELETE deletes the given VPort. DELETE_ALL deletes all VPorts from the given logical port.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4174,7 +4213,7 @@ SX_STATUS_NO_RESOURCES if there is no more room for VPorts to be added </dd></dl
       </table>
 </div><div class="memdoc">
 <p>This API returns the VPort VLANs created over the port.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4230,7 +4269,7 @@ SX_STATUS_PARAM_ERROR if vlan_list_p is NULL </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API returns the base port and VLAN properties for a given VPort.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4286,7 +4325,7 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API binds a flow counter to a virtual port.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4338,7 +4377,7 @@ SX_STATUS_ENTRY_ALREADY_BOUND if virtual port already has a counter </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the flow counter bound to the virtual port.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4395,7 +4434,7 @@ SX_STATUS_ENTRY_NOT_FOUND if VPort or flow counter do not exist </dd></dl>
 <li>When changing FEC mode, the new setting will only apply after link training has succeeded. This can be achieved by toggling the port admin state (down-up).</li>
 <li>It is recommended to query the supported FEC capabilities before attempting to set a new mode. Attempting to set an unsupported FEC mode will be ignored, and the API will return a success.</li>
 </ol>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4459,7 +4498,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port's phy mode from the SDK.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4520,7 +4559,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
 <p>This API enables to read/clear discard reason.</p>
 <p>Note: This release does not support the following causes. ip_discard: sx_port_cause_t packet_to_router_is_not_ip sx_port_cause_t dip_is_loopback sx_port_cause_t sip_is_in_class sx_port_cause_t sip is loopback sx_port_cause_t ip header not okay sx_port_cause_t ipv4 sip is limited broadcast sx_port_cause_t lpm ipv6 miss sx_port_cause_t IPv4 dip is limited broadcast sx_port_cause_t IPv4 dip is local sx_port_cause_t NVE packet to overlay router</p>
 <p>MPLS_discard: sx_port_cause_t outer_label_is_not_valid sx_port_cause_t no_IP_after_decap sx_port_cause_t expected_Bos_but_pop_did_not_expose_BoS; sx_port_cause_t php_decap_and_no_ip_header_or_ip_header_is_not_okay</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4573,7 +4612,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received O/W, the appropriate error
 </div><div class="memdoc">
 <p>This API sets the port's forwarding mode (cut-through vs. store-and-forward) in the SDK.</p>
 <p>Note: Port operational forwarding mode will be updated only after port toggling. Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4624,7 +4663,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port's forwarding mode (cut-through vs. store-and-forward) from the SDK.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <p>Note: This API supports port profile.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -4670,7 +4709,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API set the chip parsing depth in bytes.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4712,7 +4751,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the chip parsing depth.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4769,7 +4808,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to set Ethertypes globally. This API allows the user to configure additional Ethertypes per function.</p>
 <p>Note: Ethertype 0x8100 will always be configured by default.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4826,7 +4865,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div><div class="memdoc">
 <p>This API gets a list of user configured Ethertypes.</p>
 <p>Note that 0x8100 is always configured and will not be retrieved.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4882,7 +4921,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to set values to the different Bit Error Rate (BER) profiles.</p>
 <p>Min/max values: |-----------------------------&mdash;| | Monitor | Min | Max | |-----------------------------&mdash;| |RS-FEC Pre-FEC | 1e-9 | 1e-4 | |-----------------------------&mdash;| |FC-FEC PRE-FEC | 1e-11 | 1e-4 | |-----------------------------&mdash;| |NO-FEC/Post-FEC | 1e-14 | 1e-8 | |-----------------------------&mdash;|</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4938,7 +4977,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to retrieve values of the different Bit Error Rate (BER) profiles.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4988,7 +5027,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to configure the Bit Error Rate (BER) Monitor. It is recommended to use sx_api_port_ber_monitor_operational_get after configuring this API to retrieve the FEC status that is configured. This API is orthogonal to the port FEC configuration. It is recommended to first register to SX_TRAP_ID_BER_MONITOR and to then set the monitor data so the first event will be the current status.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5037,7 +5076,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to retrieve values configured to the Bit Error Rate (BER) Monitor.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5086,7 +5125,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to retrieve the current state of the Bit Error Rate (BER) Monitor.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5130,16 +5169,15 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API SETs the sll_max_time in microseconds. SLL is the max lifetime of a frame within the switch. The packet will be discarded if it spends more than SLL time in the pipeline.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>This API SETs the sll_max_time in microseconds. SLL is the max lifetime of a frame within the switch. The packet is discarded after SLL time.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">sll_max_time</td><td>- The SLL duration in micro-seconds SLL duration is computed as ( (2^X) * 4.096) usec where [3 &lt;= X &lt;= 30]. Therefore the sll_max_time Min value = 32usec and Max value = 4398046511 usec (or 4398sec) Any value greater than max implies NO SLL (i.e. packets are never aged &amp; discarded)</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sll_max_time</td><td>- The SLL duration in micro seconds Min value = 32usec and Max value = 4398046511 usec (or 4398sec) Any value greater than max implies NO SLL (i.e., packets are never aged &amp; discarded) SDK will round the SLL duration to (the lowest power of 2 &gt;= sll) * 4.096 (e.g., 500000 is rounded up to 536871)</td></tr>
   </table>
   </dd>
 </dl>
-<p>Note: Given the user's SLL duration in usec, the SDK will find the nearest value of X such that the resulting duration is greater than or equal to the user's value. For example: for a max time of 500000 the closest valid rounded up time is 536871 which is (2 ^ 17) * 4.096 and therefore the SDK will choose X as 17.</p>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
@@ -5177,7 +5215,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 </div><div class="memdoc">
 <p>This API GETs the system sll_max_time in microseconds.</p>
 <p>SLL is the max lifetime of a frame within the switch. The packet is discarded after SLL time.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5234,17 +5272,12 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 </div><div class="memdoc">
 <p>This API SETs hll_max_time and the hll_stall_cnt for a given port</p>
 <p>HLL is a mechanism that discards packets that are awaiting transmission at the head of a scheduling group queue. The max duration that a packet can wait in the queue is configurable after a certain number of packets are discarded. This scheduling group may enter the STALL state if enabled.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Local port (only physical ports and LAG Ports are allowed) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">hll_max_time</td><td>- The HLL duration in micro seconds. HLL duration is computed as ( (2 ^ X) * 4.096 ) usec where [ 0 &lt;= X &lt;= 19] Therefore the hll_max)time Min val = 4usec. Max val = 2147483usec (or 2sec) Any value greater than max implies infinite HLL (or No HLL)</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Note: Given the user's HLL duration in usec, the SDK will find the nearest value of X such that the resulting duration is greater than or equal to the user's value. For e.g. 10000 will be rounded up to 16777 which is ( 2 ^ 12 ) * 4.096 and therefore the SDK will choose X as 12. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">hll_max_time</td><td>- The HLL duration in micro seconds. Min val = 4usec. Max val = 2147483usec (or 2sec) Any value greater than max implies infinite HLL (or No HLL) SDK will round the HLL time to (the lowest power of 2 &gt;= hll) * 4.096 (e.g. 10000 will be rounded up to 16777) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">hll_stall_cnt</td><td>- Number of packets that need to be discarded after which the queue enters stall state. Valid range [0-7]; Default = 7; 0 = Stall Disabled</td></tr>
   </table>
   </dd>
@@ -5298,7 +5331,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 </div><div class="memdoc">
 <p>This API GETs hll_max_time and the hll_stall_cnt for a given port.</p>
 <p>HLL is a mechanism that discards packets that are awaiting transmission at the head of a scheduling group queue. The max duration that a packet can wait in the queue is configurable. After a certain number of packets are discarded. This scheduling group may enter the STALL state if enabled.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5350,7 +5383,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the options for how the port handles CRCs in the SDK.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5401,7 +5434,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the current options for how the port handles CRCs in the SDK.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5568,7 +5601,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <p>This API sets the port rate values bitmask only (speed value and not physical connector type).</p>
 <p>This API is mutually exclusive with sx_api_port_speed_admin_set, so, per single SDK life cycle, only one of them can be used.</p>
 <p>Note: Disabling auto-negotiation also disables Auto FEC. Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5623,7 +5656,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the port operation rate value only.</p>
-<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5690,7 +5723,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets bitmask of configured port rates values and is supported by ASIC bitmasks of rates and module types.</p>
-<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5734,8 +5767,8 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the Physical Medium Depended (PMD) port type. By default, all types are enabled. As such, this API allows to reduce the set of allowed port types.</p>
-<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_admin_type_set in its place.</dd></dl>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000007">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_admin_type_set in its place.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5790,8 +5823,8 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the operational Physical Medium Dependent port type.</p>
-<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000006">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_oper_type_get in its place.</dd></dl>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000008">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_oper_type_get in its place.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5858,8 +5891,8 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the electrical interface types which are supported by module.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000007">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_capability_get in its place.</dd></dl>
-<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000009">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_capability_get in its place.</dd></dl>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5922,7 +5955,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets port physical information. It returns the port's current operational state and states how many times the operational state has changed. It also returns the possible reasons a port is down. READ_CLEAR, clears the port state change count after reading the count, but does not clear the port down reason.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5982,7 +6015,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 <p>This API sets a port's user memory to any (8-bit) value specified by the user. This API supports Network and CPU ports only.</p>
 <p>SET sets the ports in the list provided. SET_ALL sets all ports to the parameters specified in the first list entry.</p>
 <p>Note: The value of the port user memory might be changed via ACLs asynchronously with this API call.</p>
-<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -6036,7 +6069,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves port's user memory value from the SDK. This API supports Network and CPU ports only. The value of the port user memory might be changed via ACLs asynchronously with this API call.</p>
-<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -6095,9 +6128,9 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the power Mode of a module. This API internally disables and then enables the module with desired power mode setting. This disable and enable will result in additional PMAOS events.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000008">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_set in its place.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000010">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_set in its place.</dd></dl>
 <p>Note: By default, modules are initialized in low power mode and the module power mode is set as per EEPROM data in the initialization process. SX_MGT_PHY_MOD_PWR_MODE_AUTO_E mode is used to reset power mode to default value. Changing module power mode to SX_MGT_PHY_MOD_PWR_MODE_HIGH_E is not allowed. Note: This API supports only power attribute SX_MGMT_PHY_MOD_PWR_ATTR_PWR_MODE_E. Note: This API does not support changing the power attributes of backplane module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -6151,8 +6184,8 @@ SX_STATUS_CMD_UNSUPPORTED if command is not SET </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the module power status.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000009">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_get in its place. Note: This API returns the operational power mode and admin power mode as SX_MGMT_PHY_MOD_PWR_MODE_INVALID_E when the module is not plugged in.</dd></dl>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000011">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_get in its place. Note: This API returns the operational power mode and admin power mode as SX_MGMT_PHY_MOD_PWR_MODE_INVALID_E when the module is not plugged in.</dd></dl>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -6199,9 +6232,9 @@ SX_STATUS_PARAM_ERROR if a module parameter is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API resets the phy module.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000010">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_reset in its place.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000012">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_reset in its place.</dd></dl>
 <p>Note: Resetting the module might result in link flaps. Note: PMAOS events are generated during reset functionality.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -6256,7 +6289,7 @@ SX_STATUS_PARAM_ERROR if a module parameter is invalid </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves the mapping attributes of all ports that have a valid lane mapping between local port to module in a device. Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4. Note - when port_attributes_list_p is NULL, port_cnt returns the count of ports with valid mapping.</p>
+<p>This API retrieves the mapping attributes of all ports that have a valid lane mapping between local port to module in a device. Supported devices: Spectrum, Spectrum2, Spectrum3. Note - when port_attributes_list_p is NULL, port_cnt returns the count of ports with valid mapping.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -6320,7 +6353,7 @@ SX_STATUS_ERROR if the port mapping attribute retrieval failed. </dd></dl>
 </div><div class="memdoc">
 <p>Allocates/destroys port profile. Port profile is used as logical port in configuration APIs.</p>
 <p>CREATE - allocated port profile DESTROY- clears port profile</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3 </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/DESTROY </td></tr>
@@ -6370,7 +6403,7 @@ SX_STATUS_NO_RESOURCES If all port_profile ids are already used </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>Applies the chosen port profile parameters to a given list of logical ports. This is asynchronous API and the user should wait for event SX_TRAP_ID_PORT_PROFILE_APPLY_DONE for return status.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -6420,7 +6453,7 @@ SX_STATUS_ERROR If operation failed </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves port connector type.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -6469,7 +6502,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves remote port capability.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -6518,7 +6551,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port's enhanced state from the SDK. This API replaces sx_api_port_state_get.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -6541,75 +6574,11 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 
 </div>
 </div>
-<a id="a0e408c302d642bf5d95bf80caae390ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e408c302d642bf5d95bf80caae390ec">&#9670;&nbsp;</a></span>sx_api_port_group_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_port_group_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_access_cmd_t&#160;</td>
-          <td class="paramname"><em>cmd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_port_group_cfg_t *&#160;</td>
-          <td class="paramname"><em>port_group_cfg_list_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t *&#160;</td>
-          <td class="paramname"><em>port_group_cfg_cnt_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_port_group_attr_t *&#160;</td>
-          <td class="paramname"><em>group_attr_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API gets egress port group list for the specified logical ports. In addition, the API gets the egress port groups global attributes. If no ports specified, i.e. port_group_cfg_cnt is 0, only global attributes will be returned. Supported devices: Spectrum2, Spectrum3, Spectrum4</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_GET </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">port_group_cfg_list_p</td><td>- [in] List of ports for which to retrieve egress group configuration [out] List of group configuration per specified port </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">port_group_cfg_cnt_p</td><td>- [in] Number of ports given in the list [out] Number of port groups retrieved in the list </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">group_attr_p</td><td>- Global port group attributes</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if parameter is invalid </dd>
-<dd>
-SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
-<dd>
-SX_STATUS_ERROR general error </dd></dl>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 18 2022 18:17:25 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 22 2022 18:21:57 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

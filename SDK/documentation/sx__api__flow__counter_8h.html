@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.3146</span>
+   &#160;<span id="projectnumber">4.5.2320</span>
    </div>
   </td>
  </tr>
@@ -152,7 +152,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API sets the log verbosity level of FLOW COUNTER module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -204,7 +204,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API gets the log verbosity level of FLOW COUNTER module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -256,7 +256,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API is used to create packets/bytes counter. For creation, use CREATE and supply counter_type. flow_counter_id is returned upon successful creation. To destroy a flow counter, the flow counter must not be bound to an ACL and the flow_counter_id should be provided.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -319,7 +319,7 @@ SX_STATUS_ENTRY_NOT_FOUND if called with DESTROY command and the counter does no
 </div><div class="memdoc">
 <p>This API is used to create a group of flow counters with consecutive counter IDs. Counters can be of type packet, byte, or both. CREATE creates a group of N counters of the given type using counter type and N=count. If the API is unable to create the given count of counters, then the API will return SX_STATUS_NO_RESOURCES error. DESTROY destroys a counter's group using a base counter ID. When destroying counters, all counters must no longer be bound/in-use, otherwise the API will return SX_STATUS_RESOURCE_IN_USE error.</p>
 <p>Note: Using this API may cause fragmentation in flow counter resource.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -383,7 +383,7 @@ SX_STATUS_ENTRY_NOT_FOUND if called with DESTROY command and counter does not ex
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the Flow Counter.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -457,7 +457,7 @@ SX_STATUS_INVALID_HANDLE if called Invalid Handle </dd></dl>
 </div><div class="memdoc">
 <p>This API gets a list of flow counters.</p>
 <p>Note: The API can return up to SX_FLOW_COUNTER_ITER_GET_MAX counters. To get all the counters in the system, the API can be called first with the SX_ACCESS_CMD_GET_FIRST command, and then, if needed, it can be called with the SX_ACCESS_CMD_GETNEXT command multiple times until an empty list is returned.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -515,7 +515,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API clears a specific flow counter.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -543,7 +543,7 @@ SX_STATUS_ENTRY_NOT_FOUND if an invalid counter was cleared </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Aug 18 2022 18:17:25 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 22 2022 18:21:56 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

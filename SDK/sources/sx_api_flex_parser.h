@@ -28,7 +28,7 @@
 /**
  * This API sets the log verbosity level of FLEX_PARSER module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - Set verbosity of API/MODULE/BOTH
@@ -50,7 +50,7 @@ sx_status_t sx_api_flex_parser_log_verbosity_level_set(const sx_api_handle_t    
 /**
  * This API gets the log verbosity level of FLEX_PARSER module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - Get verbosity of API/MODULE/BOTH
@@ -71,7 +71,7 @@ sx_status_t sx_api_flex_parser_log_verbosity_level_get(const sx_api_handle_t    
 /**
  * This API initializes the flex parser module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * Parameters:
  * @param[in]    handle     - SX-API handle
@@ -92,7 +92,7 @@ sx_status_t sx_api_flex_parser_init_set(const sx_api_handle_t         handle,
 /**
  * This API de-initializes the flex parser module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * Parameters:
  * @param[in]    handle     - SX-API handle
@@ -116,7 +116,7 @@ sx_status_t sx_api_flex_parser_deinit_set(const sx_api_handle_t handle);
  *  - Transition from UDP to VxLAN with outer encapsulation level
  * Note: The API may impact the ISSU for Flex transition. To enable ISSU support user should use the new API (sx_api_flex_parser_flex_transition_set)
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * Parameters:
  * @param[in]    handle            - SX-API handle
@@ -145,7 +145,7 @@ sx_status_t sx_api_flex_parser_transition_set(const sx_api_handle_t             
  *
  * Note: Spectrum systems only support UDP as current header.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * Parameters:
  * @param [in]  handle         - SX-API handle
@@ -178,7 +178,7 @@ sx_status_t sx_api_flex_parser_transition_get(const sx_api_handle_t         hand
  * Note that some combinations of parser headers may be unsupported and will return SX_STATUS_UNSUPPORTED.
  * Note that the API may impact the ISSU for Flex transition. To enable ISSU support user should use the new API (sx_api_flex_parser_flex_transition_set)
  *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  * Parameters:
  * @param[in]    handle             - SX-API handle
  * @param[in]    cmd                - SX_ACCESS_CMD_ADD / SX_ACCESS_CMD_DELETE / SX_ACCESS_CMD_DELETE_ALL
@@ -203,7 +203,7 @@ sx_status_t sx_api_flex_parser_flex_graph_set(const sx_api_handle_t             
  * the transition between "From" and "To" nodes.
  * Note that this API supports transitions that involve hard headers only (such as MAC, IP, TCP etc).
  * Note that some combinations of parser headers may be unsupported and will return SX_STATUS_UNSUPPORTED.
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  * Parameters:
  * @param[in]    handle             - SX-API handle
  * @param[in]    cmd                - SX_ACCESS_CMD_SET / SX_ACCESS_CMD_UNSET / SX_ACCESS_CMD_DELETE_ALL
@@ -238,7 +238,7 @@ sx_status_t sx_api_flex_parser_hard_graph_set(const sx_api_handle_t             
  * This API supports ISSU.
  * For flex transitions, user should not mix this API with the other APIs (sx_api_flex_parser_flex_graph_set or sx_api_flex_parser_transition_set)
  *
- * Supported devices:  Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices:  Spectrum2, Spectrum3.
  *
  * Parameters:
  * @param[in] handle - SX-API handle
@@ -265,7 +265,7 @@ sx_status_t sx_api_flex_parser_flex_transition_set(const sx_api_handle_t        
  * Note:
  * If the transition index passed to the API has not been configured in the system, then the transition_en field in transition_cfg_p will be 0.
  *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * Parameters:
  * @param[in] handle - SX-API handle
@@ -287,7 +287,7 @@ sx_status_t sx_api_flex_parser_flex_transition_get(const sx_api_handle_t        
  * This API can configure a flex parsing header (FPH), an empty FPH or a TLV options parsing (FTLV).
  * An FPP needs to be allocated first (CREATE cmd) before its parameters are set (SET cmd).
  * Note: an FPP used in a transition cannot be modified or destroyed.
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  * Parameters:
  * @param[in] handle    - SX-API handle
  * @param[in] cmd       - SX_ACCESS_CMD_CREATE / SX_ACCESS_CMD_SET / SX_ACCESS_CMD_DESTROY
@@ -309,7 +309,7 @@ sx_status_t sx_api_flex_parser_fpp_set(const sx_api_handle_t       handle,
 
 /**
  * This API retrieves the configuration of a flexible parsing program (FPP).
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  * Parameters:
  * @param[in]  handle    - SX-API handle
  * @param[in]  cmd       - SX_ACCESS_CMD_GET
@@ -331,7 +331,7 @@ sx_status_t sx_api_flex_parser_fpp_get(const sx_api_handle_t         handle,
  * By default, each port is configured with start of parsing (SOP) from the MAC header.
  * This API can change the root parsing header to be a specified FPP.
  * Note: FTLV cannot be set as a root parsing header.
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  * Parameters:
  * @param[in]  handle          - SX-API handle
  * @param[in]  cmd             - SX_ACCESS_CMD_SET / SX_ACCESS_CMD_UNSET
@@ -356,7 +356,7 @@ sx_status_t sx_api_flex_parser_root_set(const sx_api_handle_t                han
  * For GET command, the parsing header associated with the logical port will be returned.
  * For GET_FIRST command, the first logical port in the DB with an associated parsing header will be retrieved.
  * For GETNEXT command, the next port after logical port in the DB with an associated parsing header will be retrieved.
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  * Parameters:
  * @param[in]     handle              - SX-API handle
  * @param[in]     cmd                 - SX_ACCESS_CMD_GET / SX_ACCESS_CMD_GET_FIRST / SX_ACCESS_CMD_GETNEXT
@@ -382,7 +382,7 @@ sx_status_t sx_api_flex_parser_root_get(const sx_api_handle_t          handle,
  * This API sets the configuration for the specified hard parser header (HPH).
  * Currently this supports setting a FTLV options parsing only.
  * Note: not all HPH supports FTLV configuration, SX_STATUS_UNSUPPORTED will be returned in such a case.
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  * Parameters:
  * @param[in]  handle    - SX-API handle
  * @param[in]  cmd       - SX_ACCESS_CMD_SET / SX_ACCESS_CMD_UNSET
@@ -403,7 +403,7 @@ sx_status_t sx_api_flex_parser_hph_set(const sx_api_handle_t         handle,
 
 /**
  * This API retrieves the configuration of a hard parsing header (HPH).
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  * Parameters:
  * @param[in]  handle    - SX-API handle
  * @param[in]  cmd       - SX_ACCESS_CMD_GET
@@ -425,7 +425,7 @@ sx_status_t sx_api_flex_parser_hph_get(const sx_api_handle_t         handle,
 /**
  * This API is used to create / destroy flexible extraction points (FEXP)
  * to be used as part of FPPs.
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.*
  * Parameters:
  * @param[in]  handle    - SX-API handle
  * @param[in]  cmd       - SX_ACCESS_CMD_CREATE / SX_ACCESS_CMD_DESTROY
@@ -446,7 +446,7 @@ sx_status_t sx_api_flex_parser_fexp_set(const sx_api_handle_t     handle,
 
 /**
  * This API retrieves the current resources use of the flex parser.
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  * Parameters:
  * @param[in]  handle                  - SX-API handle
  * @param[in]  cmd                     - SX_ACCESS_CMD_GET
@@ -472,7 +472,7 @@ sx_status_t sx_api_flex_parser_resources_get(const sx_api_handle_t       handle,
  * Note: This API, together with sx_api_register_set, is mutually exclusive with sx_api_acl_custom_bytes_set.
  * As such, in a single SDK life cycle, only one of them can be used.
  *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param [in] handle           - SX-API handle
  * @param [in] cmd              - SET/UNSET
@@ -497,7 +497,7 @@ sx_status_t sx_api_flex_parser_reg_ext_point_set(const sx_api_handle_t        ha
  * Returned ext_point_cnt_p may be less than or equal to the requested ext_point_cnt_p.
  * When ext_point_list_p is NULL, ext_point_cnt_p will be set with a number of extraction points.
  *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param [in] handle               - SX-API handle
  * @param [in] reg_key              - Register key

@@ -30,7 +30,7 @@
 /**
  * This API sets the log verbosity level of TOPOLOGY module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - Sets verbosity of API/MODULE/BOTH
@@ -49,7 +49,7 @@ sx_status_t sx_api_topo_log_verbosity_level_set(const sx_api_handle_t           
 /**
  * This API gets the log verbosity level of TOPOLOGY module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - Gets verbosity of API/MODULE/BOTH
@@ -76,7 +76,7 @@ sx_status_t sx_api_topo_log_verbosity_level_get(const sx_api_handle_t           
  * READY device is declared ready when traffic can be routed from/to /via this device.
  *      Note:Trees (unicast/multicast/flood) must be configured with the new device.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - ADD/DELETE/READY
@@ -96,7 +96,7 @@ sx_status_t sx_api_topo_device_set(IN sx_api_handle_t         handle,
  *
  * GET_ALL dumps the topology tree.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - GET_ALL
@@ -116,7 +116,7 @@ sx_status_t sx_api_topo_device_dump(sx_api_handle_t              handle,
  *
  * GET_ALL dumps the topology tree.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - GET_ALL
@@ -138,7 +138,7 @@ sx_status_t sx_api_topo_tree_dump(sx_api_handle_t             handle,
  * EDIT adds leaf to an existing tree.
  * DELETE removes a tree.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle -  SX-API handle
  * @param[in] cmd - ADD/EDIT/DELETE
@@ -157,7 +157,7 @@ sx_status_t sx_api_topo_tree_set(IN sx_api_handle_t         handle,
 /**
  * This API triggers load balance for unicast traffic.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] tree     - Specific tree handle/ALL_TREE
@@ -179,7 +179,7 @@ sx_status_t sx_api_topo_unicast_reload_balance(IN sx_api_handle_t  handle,
  * CREATE creates a new multicast tree group
  * DELETE deletes a multicast tree group (the tree group should be empty before deletion).
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle -   SX-API handle
  * @param[in] cmd - CREATE/DELETE
@@ -199,7 +199,7 @@ sx_status_t sx_api_topo_mc_tree_group_set(IN sx_api_handle_t            handle,
  * This API adds/removes devices from a tree group. A tree group is a group of devices whose tag ingress packet
  * has the same MID (multicast ID).
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - ADD/DELETE
@@ -221,7 +221,7 @@ sx_status_t sx_api_topo_mc_tree_group_dev_set(IN sx_api_handle_t         handle,
 /**
  * This API add/remove forwarding tree form a multicast tree group.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - CREATE/DELETE
@@ -241,7 +241,7 @@ sx_status_t sx_api_topo_mc_tree_group_tree_set(IN sx_api_handle_t         handle
 /**
  * This API conducts a reload balance of multicast traffic.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle ([in] tree reload balances all multicast that forward traffic via mc_tree_group_id value)
  *
