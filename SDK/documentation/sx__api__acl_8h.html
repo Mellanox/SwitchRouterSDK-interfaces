@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.4.3388</span>
+   &#160;<span id="projectnumber">4.4.3182</span>
    </div>
   </td>
  </tr>
@@ -113,8 +113,6 @@ Functions</h2></td></tr>
 <tr class="separator:af7f1841f9e865b353f5dc6742212b4a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d3627a7131f363300617de31f7edc3b"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a1d3627a7131f363300617de31f7edc3b">sx_api_acl_policy_based_switching_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_acl_pbs_id_t pbs_id, sx_acl_pbs_entry_t *pbs_entry_p)</td></tr>
 <tr class="separator:a1d3627a7131f363300617de31f7edc3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a229bbefb5716f2c4cda12238503236"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a9a229bbefb5716f2c4cda12238503236">sx_api_acl_policy_based_switching_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_acl_pbs_id_t pbs_id_key, const sx_acl_pbs_filter_t *pbs_id_filter_p, sx_acl_pbs_id_t *pbs_id_list_p, uint32_t *pbs_id_cnt_p)</td></tr>
-<tr class="separator:a9a229bbefb5716f2c4cda12238503236"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1395c6e1613b712e9854f4e982ff8a62"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a1395c6e1613b712e9854f4e982ff8a62">sx_api_acl_l4_port_range_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_port_range_entry_t *l4_port_range_p, sx_acl_port_range_id_t *range_id_p)</td></tr>
 <tr class="separator:a1395c6e1613b712e9854f4e982ff8a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1c17eb4b9b274fddb09c13f1514c289"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#ad1c17eb4b9b274fddb09c13f1514c289">sx_api_acl_l4_port_range_get</a> (const sx_api_handle_t handle, const sx_acl_port_range_id_t range_id, sx_acl_port_range_entry_t *l4_port_range_p)</td></tr>
@@ -1321,93 +1319,6 @@ SX_STATUS_INVALID_HANDLE Invalid handle error </dd></dl>
 
 </div>
 </div>
-<a id="a9a229bbefb5716f2c4cda12238503236"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a229bbefb5716f2c4cda12238503236">&#9670;&nbsp;</a></span>sx_api_acl_policy_based_switching_iter_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_acl_policy_based_switching_iter_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_access_cmd_t&#160;</td>
-          <td class="paramname"><em>cmd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_swid_t&#160;</td>
-          <td class="paramname"><em>swid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_acl_pbs_id_t&#160;</td>
-          <td class="paramname"><em>pbs_id_key</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_acl_pbs_filter_t *&#160;</td>
-          <td class="paramname"><em>pbs_id_filter_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_acl_pbs_id_t *&#160;</td>
-          <td class="paramname"><em>pbs_id_list_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t *&#160;</td>
-          <td class="paramname"><em>pbs_id_cnt_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API gets a list of one or more PBS set object IDs.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_NEXT/GET_FIRST </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- SWID of the PBS entry </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">pbs_id_key</td><td>- PBS entry ID to use as pbs_id_key for GET and GET_NEXT commands </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">pbs_id_filter_p</td><td>- Filter the entries retrieved based on entry type. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">pbs_id_list_p</td><td>- Pointer to the list of PBS IDs returned </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">pbs_id_cnt_p</td><td>- [in] number of entries to retrieve /[out] number of entries retrieved.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Input/Output Types</p><ul>
-<li>Get first - Gets a list of first N entries. The command should be SX_ACCESS_CMD_GET_FIRST and count should be equal to N (pbs_id_key is irrelevant in this case). Returns the number of entries retrieved via pbs_id_cnt_p.</li>
-<li>Get next - Gets N entries after a specified pbs_id_key (it does not have to exist). The command should be SX_ACCESS_CMD_GETNEXT. The value of pbs_id_cnt_p should be equal to N. Returns the number of entries retrieved via pbs_id_cnt_p.</li>
-<li>Get - Gets a specific entry. The command should be SX_ACCESS_CMD_GET and the value of pbs_id_cnt_p should be 1 Setting the input value of pbs_id_cnt_p is 0 returns the total count of the PBS IDs available.</li>
-<li>filter – If a valid filter value is provided, the above commands will return PBS IDs that match the filter only. If none match, the API will succeed with a return count of 0 and an empty list.</li>
-</ul>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR Any parameter is in error </dd>
-<dd>
-SX_STATUS_CMD_UNSUPPORTED Command is not supported </dd>
-<dd>
-SX_STATUS_INVALID_HANDLE Handle in invalid </dd>
-<dd>
-SX_STATUS_ERROR General error </dd></dl>
-
-</div>
-</div>
 <a id="a1395c6e1613b712e9854f4e982ff8a62"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1395c6e1613b712e9854f4e982ff8a62">&#9670;&nbsp;</a></span>sx_api_acl_l4_port_range_set()</h2>
 
@@ -1445,6 +1356,34 @@ SX_STATUS_ERROR General error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>This API adds/edits/deletes a Layer 4 port range comparison set (up to SX_ACL_MAX_PORT_RANGES).</p>
+<p>ADD command is used to create a new range ID from the supplied port range. EDIT command is used to update the port range of the supplied range ID. DELETE command is used to clear the range configuration. This will fail if the range is being used by an ACL.</p>
+<p>Note: SX_ACL_PORT_RANGE_IP_HEADER_BOTH option for IP header type is not supported in Spectrum2 and Spectrum3 systems.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/EDIT/DELETE </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">l4_port_range</td><td>- Layer 4 port range comparison </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">range_id</td><td>- Port range comparison ID</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
+<dd>
+SX_STATUS_MESSAGE_SIZE_ZERO Message size error </dd>
+<dd>
+SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT Message size error </dd>
+<dd>
+SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE Any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND ACL element is not found in database </dd>
+<dd>
+SX_STATUS_SXD_RETURNED_NON_ZERO Hardware failure </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED Command is unsupported </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE Invalid handle error </dd></dl>
 
 </div>
 </div>
@@ -3582,7 +3521,7 @@ SX_STATUS_ENTRY_NOT_FOUND ACL element is not found in database </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 24 2022 15:17:02 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 22 2022 07:15:43 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

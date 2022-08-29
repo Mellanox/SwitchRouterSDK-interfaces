@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.4.3388</span>
+   &#160;<span id="projectnumber">4.4.3182</span>
    </div>
   </td>
  </tr>
@@ -81,47 +81,43 @@ $(function() {
 <dd><a class="anchor" id="_deprecated000006"></a>This API is deprecated and will be removed in the future. This API sets the rate based configuration for RED/ECN. </dd>
 <dt>Global <a class="el" href="sx__api__cos_8h.html#acfbee50596107f7b6c5d8f25f1432cf7">sx_api_cos_redecn_verbosity_level_set</a>  (const sx_api_handle_t handle, const sx_log_verbosity_target_t verbosity_target, const sx_verbosity_level_t module_verbosity_level, const sx_verbosity_level_t api_verbosity_level)</dt>
 <dd><a class="anchor" id="_deprecated000005"></a>This API is deprecated and will be removed in the future. Use sx_api_cos_redecn_log_verbosity_level_set in its place. This API sets the log verbosity level of REDECN module. </dd>
-<dt>Global <a class="el" href="sx__api__fdb_8h.html#a61db615ac875ccce214e8600b86102c8">sx_api_fdb_flood_counter_clear</a>  (const sx_api_handle_t handle, const sx_swid_t swid)</dt>
-<dd><a class="anchor" id="_deprecated000009"></a>This API is deprecated and will be removed in the future. </dd>
-<dt>Global <a class="el" href="sx__api__fdb_8h.html#a2e4a16b9c750215270a1ffceb7d6e150">sx_api_fdb_flood_counter_get</a>  (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, sx_flood_counters_t *const counters)</dt>
-<dd><a class="anchor" id="_deprecated000008"></a>This API is deprecated and will be removed in the future. </dd>
 <dt>Global <a class="el" href="sx__api__host__ifc_8h.html#a3b99edc2800fa0eb9f5da2084f34673f">sx_api_host_ifc_trap_id_set</a>  (const sx_api_handle_t handle, const sx_swid_t swid, const sx_trap_id_t trap_id, const sx_trap_group_t trap_group, const sx_trap_action_t trap_action)</dt>
-<dd><a class="anchor" id="_deprecated000010"></a>This API is deprecated and will be removed in the future. Please use sx_api_host_ifc_trap_id_ext_set in its place. </dd>
+<dd><a class="anchor" id="_deprecated000008"></a>This API is deprecated and will be removed in the future. Please use sx_api_host_ifc_trap_id_ext_set in its place. </dd>
 <dt>Global <a class="el" href="sx__api__port_8h.html#a05778ea8b7fbb076b1a4df37ac78e549">sx_api_port_phy_module_capability_get</a>  (const sx_api_handle_t handle, const sx_port_mod_id_t module_id, sx_port_rate_bitmask_t *capab_port_rate_p, sx_port_phy_module_type_bitmask_t *admin_types_p, sx_port_phy_module_type_bitmask_t *capab_types_p)</dt>
-<dd><a class="anchor" id="_deprecated000015"></a>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_capability_get in its place. </dd>
+<dd><a class="anchor" id="_deprecated000013"></a>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_capability_get in its place. </dd>
 <dt>Global <a class="el" href="sx__api__port_8h.html#a17980b0e1c0b2b46e569ef3810bafdc0">sx_api_port_phy_module_type_get</a>  (const sx_api_handle_t handle, const sx_port_mod_id_t module_id, sx_port_phy_module_type_e *oper_type_p)</dt>
-<dd><a class="anchor" id="_deprecated000014"></a>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_oper_type_get in its place. </dd>
+<dd><a class="anchor" id="_deprecated000012"></a>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_oper_type_get in its place. </dd>
 <dt>Global <a class="el" href="sx__api__port_8h.html#abaec84cf187507e8c3c9385ddf0d992c">sx_api_port_phy_module_type_set</a>  (const sx_api_handle_t handle, const sx_port_mod_id_t module_id, const sx_port_phy_module_type_bitmask_t *types_p)</dt>
-<dd><a class="anchor" id="_deprecated000013"></a>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_admin_type_set in its place. </dd>
+<dd><a class="anchor" id="_deprecated000011"></a>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_admin_type_set in its place. </dd>
 <dt>Global <a class="el" href="sx__api__port_8h.html#afb429aafa04ed85e5067e1c260330cf8">sx_api_port_vport_mirror_get</a>  (const sx_api_handle_t handle, const sx_port_log_id_t virtual_port, const sx_mirror_direction_t mirror_direction, sx_mirror_mode_t *mirror_mode_p)</dt>
-<dd><a class="anchor" id="_deprecated000012"></a>This API is deprecated and will be removed in the future. </dd>
+<dd><a class="anchor" id="_deprecated000010"></a>This API is deprecated and will be removed in the future. </dd>
 <dt>Global <a class="el" href="sx__api__port_8h.html#a6e385909330b1a91c195bdfcfccf2ce5">sx_api_port_vport_mirror_set</a>  (const sx_api_handle_t handle, const sx_port_log_id_t virtual_port, const sx_mirror_direction_t mirror_direction, const sx_mirror_mode_t mirror_mode)</dt>
-<dd><a class="anchor" id="_deprecated000011"></a>This API is deprecated and will be removed in the future. </dd>
+<dd><a class="anchor" id="_deprecated000009"></a>This API is deprecated and will be removed in the future. </dd>
 <dt>Global <a class="el" href="sx__api__rm_8h.html#a1bbfcc767404c7722960500730ebd21c">sx_api_rm_hw_table_thresholds_get</a>  (const sx_api_handle_t handle, const rm_hw_table_type_e resource, sx_notification_threshold_t *threshold_full, sx_notification_threshold_t *threshold_empty)</dt>
-<dd><a class="anchor" id="_deprecated000022"></a>This API is deprecated and will be removed in the future. This API is not supported in the current release. </dd>
-<dt>Global <a class="el" href="sx__api__rm_8h.html#a85f5b90d97590fd51a73d5fa097ece1b">sx_api_rm_hw_table_thresholds_set</a>  (const sx_api_handle_t handle, const sx_access_cmd_t access_cmd, const rm_hw_table_type_e resource, const sx_notification_threshold_t threshold_full, const sx_notification_threshold_t threshold_empty)</dt>
-<dd><a class="anchor" id="_deprecated000021"></a>This API is deprecated and will be removed in the future. This API is not supported in the current release. </dd>
-<dt>Global <a class="el" href="sx__api__rm_8h.html#acf9fe889bc8f745acb2100f20a569e57">sx_api_rm_sdk_table_thresholds_get</a>  (const sx_api_handle_t handle, const rm_sdk_table_type_e resource, sx_notification_threshold_t *threshold_full, sx_notification_threshold_t *threshold_empty)</dt>
 <dd><a class="anchor" id="_deprecated000020"></a>This API is deprecated and will be removed in the future. This API is not supported in the current release. </dd>
+<dt>Global <a class="el" href="sx__api__rm_8h.html#a85f5b90d97590fd51a73d5fa097ece1b">sx_api_rm_hw_table_thresholds_set</a>  (const sx_api_handle_t handle, const sx_access_cmd_t access_cmd, const rm_hw_table_type_e resource, const sx_notification_threshold_t threshold_full, const sx_notification_threshold_t threshold_empty)</dt>
+<dd><a class="anchor" id="_deprecated000019"></a>This API is deprecated and will be removed in the future. This API is not supported in the current release. </dd>
+<dt>Global <a class="el" href="sx__api__rm_8h.html#acf9fe889bc8f745acb2100f20a569e57">sx_api_rm_sdk_table_thresholds_get</a>  (const sx_api_handle_t handle, const rm_sdk_table_type_e resource, sx_notification_threshold_t *threshold_full, sx_notification_threshold_t *threshold_empty)</dt>
+<dd><a class="anchor" id="_deprecated000018"></a>This API is deprecated and will be removed in the future. This API is not supported in the current release. </dd>
 <dt>Global <a class="el" href="sx__api__rm_8h.html#a27d7249b270364c6690993f60621641b">sx_api_rm_sdk_table_thresholds_set</a>  (const sx_api_handle_t handle, const sx_access_cmd_t access_cmd, const rm_sdk_table_type_e resource, const sx_notification_threshold_t threshold_full, const sx_notification_threshold_t threshold_empty)</dt>
-<dd><a class="anchor" id="_deprecated000019"></a>This API is deprecated and will be removed in the future. This API is not supported in the current release. This API set the lower and upper thresholds of an sdk resource. </dd>
+<dd><a class="anchor" id="_deprecated000017"></a>This API is deprecated and will be removed in the future. This API is not supported in the current release. This API set the lower and upper thresholds of an sdk resource. </dd>
 <dt>Global <a class="el" href="sx__api__router_8h.html#a717aefbc20f4378e82b1114943384025">sx_api_router_neigh_set</a>  (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_interface_t rif, const sx_ip_addr_t *ip_addr_p, const sx_neigh_data_t *neigh_data_p)</dt>
-<dd><a class="anchor" id="_deprecated000023"></a>In neigh_data_p, RIF is deprecated and will be removed in the future. </dd>
+<dd><a class="anchor" id="_deprecated000021"></a>In neigh_data_p, RIF is deprecated and will be removed in the future. </dd>
 <dt>Global <a class="el" href="sx__api__router_8h.html#a059c220b2a25fb94729c83688e7f8ff0">sx_api_router_uc_route_operational_ecmp_get</a>  (const sx_api_handle_t handle, const sx_router_id_t vrid, const sx_ip_prefix_t *network_addr_p, sx_uc_route_get_entry_t *oper_uc_route_entries_p)</dt>
-<dd><a class="anchor" id="_deprecated000024"></a>This API is deprecated and will be removed in the future. Use ECMP containers. This API retrieves active unicast ECMP route information from the routing table. When using oper_uc_route_entries_p-&gt;route_data.next_hop_cnt=0 only the number of next hops will be returned. </dd>
+<dd><a class="anchor" id="_deprecated000022"></a>This API is deprecated and will be removed in the future. Use ECMP containers. This API retrieves active unicast ECMP route information from the routing table. When using oper_uc_route_entries_p-&gt;route_data.next_hop_cnt=0 only the number of next hops will be returned. </dd>
 <dt>Global <a class="el" href="sx__api__port_8h.html#ab9448e990378cb5a7abfc2b0b32f8ecb">sx_mgmt_phy_mod_pwr_attr_get</a>  (const sx_api_handle_t handle, const sx_port_mod_id_t module_id, sx_mgmt_phy_mod_pwr_attr_t *pwr_attr_p)</dt>
-<dd><a class="anchor" id="_deprecated000017"></a>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_get in its place. Note: This API returns the operational power mode and admin power mode as SX_MGMT_PHY_MOD_PWR_MODE_INVALID_E when the module is not plugged in. </dd>
+<dd><a class="anchor" id="_deprecated000015"></a>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_get in its place. Note: This API returns the operational power mode and admin power mode as SX_MGMT_PHY_MOD_PWR_MODE_INVALID_E when the module is not plugged in. </dd>
 <dt>Global <a class="el" href="sx__api__port_8h.html#a710cdd8568453ebe96db46e665ce47cb">sx_mgmt_phy_mod_pwr_attr_set</a>  (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_mod_id_t module_id, const sx_mgmt_phy_mod_pwr_attr_t *pwr_attr_p)</dt>
-<dd><a class="anchor" id="_deprecated000016"></a>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_set in its place. </dd>
+<dd><a class="anchor" id="_deprecated000014"></a>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_set in its place. </dd>
 <dt>Global <a class="el" href="sx__api__port_8h.html#a3c705e0cd6c1c038837097104f926844">sx_mgmt_phy_mod_reset</a>  (const sx_api_handle_t handle, const sx_port_mod_id_t module_id)</dt>
-<dd><a class="anchor" id="_deprecated000018"></a>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_reset in its place.</dd>
+<dd><a class="anchor" id="_deprecated000016"></a>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_reset in its place.</dd>
 </dl>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Aug 24 2022 15:17:02 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Aug 22 2022 07:15:43 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
