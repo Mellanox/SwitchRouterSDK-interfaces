@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.2320</span>
+   &#160;<span id="projectnumber">4.4.3388</span>
    </div>
   </td>
  </tr>
@@ -153,10 +153,6 @@ Functions</h2></td></tr>
 <tr class="separator:aaad072ecc0d2169f36b059601e4137b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae45e37087f653ac9109f2e92aa856dac"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#ae45e37087f653ac9109f2e92aa856dac">sx_api_span_port_attr_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_span_port_attr_type_e attr_type, sx_span_port_attr_t *span_port_attr_p)</td></tr>
 <tr class="separator:ae45e37087f653ac9109f2e92aa856dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ec918edd8a566f6ab511e56ffbebf77"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#a1ec918edd8a566f6ab511e56ffbebf77">sx_api_span_mirror_enable_port_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_span_mirror_enable_port_set_t *mirror_enable_cfg_list_p, const uint32_t mirror_enable_cnt)</td></tr>
-<tr class="separator:a1ec918edd8a566f6ab511e56ffbebf77"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb9c6331869572be22fc272163303525"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#afb9c6331869572be22fc272163303525">sx_api_span_mirror_enable_port_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_span_mirror_enable_port_iter_filter_t *filter_p, sx_span_mirror_enable_port_set_t *mirror_enable_cfg_list_p, uint32_t *mirror_enable_cnt_p)</td></tr>
-<tr class="separator:afb9c6331869572be22fc272163303525"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a220ee2ca173c3b462d7ff6fc7a1a341f"></a>
@@ -2261,159 +2257,11 @@ SX_STATUS_PARAM_NULL if any input/output parameter is NULL. Note - currently, on
 
 </div>
 </div>
-<a id="a1ec918edd8a566f6ab511e56ffbebf77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ec918edd8a566f6ab511e56ffbebf77">&#9670;&nbsp;</a></span>sx_api_span_mirror_enable_port_set()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_span_mirror_enable_port_set </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_access_cmd_t&#160;</td>
-          <td class="paramname"><em>cmd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_span_mirror_enable_port_set_t *&#160;</td>
-          <td class="paramname"><em>mirror_enable_cfg_list_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint32_t&#160;</td>
-          <td class="paramname"><em>mirror_enable_cnt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API configures conditional mirroring on a number of ports. This configuration is supported on a per mirror trigger on either elephant or none-elephant flow, per port basis.</p>
-<p>Supported devices: Spectrum4.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET/UNSET: per mirror trigger on either elephant or non-elephant flow, UNSET would remove the previous user settings. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mirror_enable_cfg_list_p</td><td>- conditional mirroring configurations of the specific port(s) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mirror_enable_cnt_p</td><td>- number of specific ports to be configured</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
-<dd>
-SX_STATUS_ERROR if unexpected behavior occurs </dd>
-<dd>
-SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
-
-</div>
-</div>
-<a id="afb9c6331869572be22fc272163303525"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb9c6331869572be22fc272163303525">&#9670;&nbsp;</a></span>sx_api_span_mirror_enable_port_iter_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_span_mirror_enable_port_iter_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_access_cmd_t&#160;</td>
-          <td class="paramname"><em>cmd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_port_log_id_t&#160;</td>
-          <td class="paramname"><em>log_port</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_span_mirror_enable_port_iter_filter_t *&#160;</td>
-          <td class="paramname"><em>filter_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_span_mirror_enable_port_set_t *&#160;</td>
-          <td class="paramname"><em>mirror_enable_cfg_list_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t *&#160;</td>
-          <td class="paramname"><em>mirror_enable_cnt_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API returns the a list of configurations of mirror triggers on either elephant or non-elephant flow, on specific or serials of ports configured by users.</p>
-<p>Supported devices: Spectrum4.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- supported commands:GET/GET_FIRST/GETNEXT </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- the specific logical port to be fetched as a key </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- reserved </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">mirror_enable_cfg_list_p</td><td>- return list of objects </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">mirror_enable_cnt_p</td><td>- [in] number of objects to get (when object_cnt_p=0 will get number of all valid objects per type) [out] number of objects retrieved</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
-<dd>
-SX_STATUS_PARAM_NULL if any input parameter is NULL </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in database </dd>
-<dd>
-SX_STATUS_ERROR if unexpected behavior occurs </dd>
-<dd>
-SX_STATUS_CMD_UNSUPPORTED if invalid cmd is passed </dd>
-<dd>
-SX_STATUS_DB_NOT_INITIALIZED if internal database is not initialized</dd></dl>
-<p>The following use case scenarios apply with different input parameters. X = don't-care.</p><ul>
-<li>1) cmd = SX_ACCESS_CMD_GET, key = log_port, filter = X, list = X, count = 0: In this case, the API will return the total number of mirror enabled object count from internal database.</li>
-<li>2) cmd = SX_ACCESS_CMD_GET, key = log_port, filter = X, list = Valid, count = 1: In this case, the API will check if the specified key exists. If it does, the key will be returned in the list along with a count of 1. If the key does not exist, an empty list will be returned with count = 0.</li>
-<li>3) cmd = SX_ACCESS_CMD_GET, key = log_port, filter = X, list = valid, count &gt; 1: A count &gt; 1 will be treated as a count of 1 and the behaviour will be the same as earlier GET use cases.</li>
-<li>4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = log_port, filter = X, list = NULL, count = 0: For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT,a zero count will return an empty list.</li>
-<li><p class="startli">5) cmd = SX_ACCESS_CMD_GET_FIRST, key = log_port, filter = X, list = valid, count &gt; 0: In this case, the API will return the first mirror enabled object starting from the head of the database. The total elements fetched will be returned as the return count.</p>
-<p class="startli">Note: Return count may be less than or equal to the requested count. The key must have type the rest is dont-care but a non-NULL return list pointer must be provided.</p>
-</li>
-<li><p class="startli">6) cmd = SX_ACCESS_CMD_GETNEXT, key = log_port, filter = X, list = valid, count &gt; 0: In this case, the API will return the next set of conditional mirror configurations starting from the next valid log port after the specified key. The total elements fetched will be returned as the return count.</p>
-<p class="startli">Note: Return count may be less than or equal to the requested count. If no valid next counter exists in the database (key = end of list, or invalid key specified, or key too large), an empty list will be returned (returned count is zero). </p>
-</li>
-</ul>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 22 2022 18:21:57 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 24 2022 15:17:02 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

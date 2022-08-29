@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.2320</span>
+   &#160;<span id="projectnumber">4.4.3388</span>
    </div>
   </td>
  </tr>
@@ -488,7 +488,6 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the priority tagged attribute per port.</p>
-<p>Note: This API supports port profile.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -548,7 +547,6 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the priority tagged attribute per port.</p>
-<p>Note: This API supports port profile.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -603,7 +601,6 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div><div class="memdoc">
 <p>This API enables/disables ingress VLAN filtering on a port. The VLAN membership is defined in sx_vlan_ports_set API.</p>
 <p>This function is only valid when in 802.1Q bridge mode.</p>
-<p>Note: This API supports port profile.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -661,7 +658,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves ingress VLAN filtering on a port.</p>
-<p>Note: This function is only valid when in 802.1Q bridge mode. Note: This API supports port profile.</p>
+<p>Note: This function is only valid when in 802.1Q bridge mode.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -723,7 +720,7 @@ SX_STATUS_CMD_UNSUPPORTED if 802.1D mode is enabled </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets a port's default VLAN ID. The PVID is set to untagged packets that ingress on the port.</p>
-<p>Note: When the PVID is deleted from the port, it is assigned with the default VLAN ID. Note: This API supports port profile.</p>
+<p>Note: When the PVID is deleted from the port, it is assigned with the default VLAN ID.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -774,7 +771,6 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves a port's default VLAN ID.</p>
-<p>Note: This API supports port profile.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -828,7 +824,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets a port's accepted frame types.</p>
-<p>Note: By default, all ports are configured to accept all frame types. Note: Priority tagged packets are considered as untagged packets. Note: This API supports port profile.</p>
+<p>Note: By default, all ports are configured to accept all frame types. Note: Priority tagged packets are considered as untagged packets.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -880,7 +876,6 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves a port's accepted frame types.</p>
-<p>Note: This API supports port profile.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1475,7 +1470,7 @@ SX_STATUS_ENTRY_NOT_FOUND if VLAN does not exist </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 22 2022 18:21:57 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 24 2022 15:17:02 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

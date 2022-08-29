@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.2320</span>
+   &#160;<span id="projectnumber">4.4.3388</span>
    </div>
   </td>
  </tr>
@@ -205,8 +205,6 @@ Functions</h2></td></tr>
 <tr class="separator:a185b512df6fbfcf6cee03d1b537ccc41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad8949be8bc72ed8b23ae1e32e5bba39c"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#ad8949be8bc72ed8b23ae1e32e5bba39c">sx_api_router_user_defined_lpm_tree_get</a> (const sx_api_handle_t handle, const sx_lpm_tree_id_t tree_id, sx_lpm_tree_node_t *nodes_list_p, uint8_t *nodes_cnt_p)</td></tr>
 <tr class="separator:ad8949be8bc72ed8b23ae1e32e5bba39c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0e4ff9c1aa925c43d378c348055f3e8"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#ae0e4ff9c1aa925c43d378c348055f3e8">sx_api_router_ecmp_update_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_ecmp_id_t ecmp_id, sx_ecmp_update_entry_t *next_hop_update_list_p, uint32_t next_hop_update_list_cnt)</td></tr>
-<tr class="separator:ae0e4ff9c1aa925c43d378c348055f3e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a34f17bf4bcc4feeac94a3dad937ac9ef"></a>
@@ -425,7 +423,6 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the ECMP hash function configuration parameters on a per port basis. Each element in hash_field_enable_list_p enables a specific layer field to be included in the hash calculation according to the de facto fields of the parsed packet. Each element in hash_field_list_p represents a different field to be included in the hash calculation which is subject to the enables which are given in hash_field_enable_list_p.</p>
-<p>Note: This API supports port profile.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -474,7 +471,6 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the ECMP hash function configuration parameters. Once sx_api_router_ecmp_port_hash_params_set is called, this API is disabled.</p>
-<p>Note: This API supports port profile.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -927,8 +923,6 @@ SX_STATUS_ENTRY_NOT_FOUND if router interface was not added </dd>
 SX_STATUS_NO_RESOURCES if no interface is available to create </dd>
 <dd>
 SX_STATUS_RESOURCE_IN_USE if router interface has routes </dd>
-<dd>
-SX_STATUS_ENTRY_ALREADY_BOUND adaptive RIF is bound to bridge/VPORT. </dd>
 <dd>
 SX_STATUS_ERROR general error </dd></dl>
 
@@ -1387,7 +1381,7 @@ SX_STATUS_ERROR general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000017">Deprecated:</a></b></dt><dd>In neigh_data_p, RIF is deprecated and will be removed in the future.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000023">Deprecated:</a></b></dt><dd>In neigh_data_p, RIF is deprecated and will be removed in the future.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if access command is not supported </dd>
@@ -1752,7 +1746,7 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000018">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Use ECMP containers. This API retrieves active unicast ECMP route information from the routing table. When using oper_uc_route_entries_p-&gt;route_data.next_hop_cnt=0 only the number of next hops will be returned.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000024">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Use ECMP containers. This API retrieves active unicast ECMP route information from the routing table. When using oper_uc_route_entries_p-&gt;route_data.next_hop_cnt=0 only the number of next hops will be returned.</dd></dl>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2000,7 +1994,7 @@ SX_STATUS_ERROR general error </dd></dl>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/DESTROY </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cntr_attributes</td><td>- counter attributes </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>- Router counter type </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">counter_p</td><td>- Router counter ID</td></tr>
   </table>
   </dd>
@@ -3078,7 +3072,6 @@ SX_STATUS_PARAM_NULL if parameter is NULL </dd></dl>
 <li>Next hop #B with weight of 2 In the hardware, this ECMP container will have three next hops with total weight of four: nh #A, nh #B, nh #A.</li>
 </ul>
 </li>
-<li>On Spectrum-2 and above these ECMP containers can contain flex tunnels along with nve tunnels. If an ECMP contains a flex tunnel it cannot be used as the destination of a FDB entry.</li>
 </ol>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -3985,7 +3978,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API creates/destroys redirection between an ECMP (ecmp) and a destination ECMP (redirect_ecmp).</p>
-<p>Note: Only ECMP NVE containers can be redirected. ECMP container ("ecmp") can be redirected to an ECMP container (redirect_ecmp) only if the following is true:</p><ol type="1">
+<p>Note: Only ECMP NVE containers can be redirected. ECMP container ("ecmp") can be redirected to an ECMP container (redirect_ecmp) only if the following wi true:</p><ol type="1">
 <li>ECMP container redirect_ecmp is not in use (the reference counter of ECMP container is equal 0) (e.g., there are no FDB entries that point to redirect_ecmp)</li>
 <li>redirect_ecmp is not redirected to any other ECMP and no other container is already redirected to redirect_ecmp. Once ECMP container redirect_ecmp becomes the master, the user cannot create objects that point to the container redirect_ecmp directly. ECMP container ecmp and redirect_ecmp cannot be destroyed until redirection stops. Only 1:1 redirection is supported. Redirection chains are not supported ("A" -&gt; "B" -&gt; "C") and N:1 redirection is not supported ("A" -&gt; "C" | "B" -&gt; "C").</li>
 </ol>
@@ -4256,82 +4249,11 @@ SX_STATUS_MODULE_UNINITIALIZED if router module is uninitialized </dd></dl>
 
 </div>
 </div>
-<a id="ae0e4ff9c1aa925c43d378c348055f3e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0e4ff9c1aa925c43d378c348055f3e8">&#9670;&nbsp;</a></span>sx_api_router_ecmp_update_set()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_router_ecmp_update_set </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_access_cmd_t&#160;</td>
-          <td class="paramname"><em>cmd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_ecmp_id_t&#160;</td>
-          <td class="paramname"><em>ecmp_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_ecmp_update_entry_t *&#160;</td>
-          <td class="paramname"><em>next_hop_update_list_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>next_hop_update_list_cnt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This function updates the given ECMP next-hops on the offsets list with the corresponding next-hop in the configured next-hop list for the given ECMP ID. Note: - Update applies only for type SX_ECMP_CONTAINER_TYPE_IP</p><ul>
-<li>Updated next-hop weight matches the corresponding previous next-hop weight (weight can't be updated)</li>
-<li>Updating a non-resolved next-hop can cause configuration time overhead. Supported devices: Spectrum, Spectrum2, Spectrum3.</li>
-</ul>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- Supported CMD - SX_ACCESS_CMD_SET </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">ecmp_id</td><td>- ECMP container ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">next_hop_update_list_p</td><td>- List of next-hop to update </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">next_hop_update_list_cnt</td><td>- Number of next-hops to update</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR for invalid parameter </dd>
-<dd>
-SX_STATUS_ERROR for general error </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested index is not found in DB </dd>
-<dd>
-SX_STATUS_PARAM_NULL if parameter is NULL </dd>
-<dd>
-SX_STATUS_MODULE_UNINITIALIZED if router module is uninitialized </dd></dl>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 22 2022 18:21:57 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 24 2022 15:17:02 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

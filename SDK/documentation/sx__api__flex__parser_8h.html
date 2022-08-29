@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.2320</span>
+   &#160;<span id="projectnumber">4.4.3388</span>
    </div>
   </td>
  </tr>
@@ -93,10 +93,6 @@ Functions</h2></td></tr>
 <tr class="separator:a0986d55a99389bddd5052f06cf0d9893"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9f0012f3c7e0dc352a257abbb52f180"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__parser_8h.html#ad9f0012f3c7e0dc352a257abbb52f180">sx_api_flex_parser_hard_graph_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flex_parser_graph_action_t *actions_list_p, const uint32_t actions_list_cnt)</td></tr>
 <tr class="separator:ad9f0012f3c7e0dc352a257abbb52f180"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8c7a2ad3e6c440f13a6544189aafcc1"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__parser_8h.html#ac8c7a2ad3e6c440f13a6544189aafcc1">sx_api_flex_parser_flex_transition_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_flex_parser_transition_index_t *transition_index_p, sx_flex_parser_transition_action_t *transition_cfg_p)</td></tr>
-<tr class="separator:ac8c7a2ad3e6c440f13a6544189aafcc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad416c4a2631a3ec47807109685efb449"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__parser_8h.html#ad416c4a2631a3ec47807109685efb449">sx_api_flex_parser_flex_transition_get</a> (const sx_api_handle_t handle, const sx_flex_parser_transition_index_t transition_index, sx_flex_parser_transition_action_t *transition_cfg_p)</td></tr>
-<tr class="separator:ad416c4a2631a3ec47807109685efb449"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae15a39287f2e9779d8b682bedd4bd847"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__parser_8h.html#ae15a39287f2e9779d8b682bedd4bd847">sx_api_flex_parser_fpp_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_flex_parser_fpp_id_t *fpp_id_p, const sx_flex_parser_fpp_t *fpp_cfg_p)</td></tr>
 <tr class="separator:ae15a39287f2e9779d8b682bedd4bd847"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad9fed6c9aa86a6a8b5f403366c0c1315"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__parser_8h.html#ad9fed6c9aa86a6a8b5f403366c0c1315">sx_api_flex_parser_fpp_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flex_parser_fpp_id_t fpp_id, sx_flex_parser_fpp_t *fpp_cfg_p)</td></tr>
@@ -350,9 +346,8 @@ SX_STATUS_UNSUPPORTED if module is not supported by the platform </dd></dl>
 <p>This API enables/disables transition between two existing flex parser headers in the parse graph. Caller must specify the header to enable the transition between "From" and "To" nodes. Depending on the "To" (next protocol field) definition, the actual size of the value used may be less than 32 bits.</p>
 <p>Note: Some combination of flex parser headers may be unsupported and will return SX_STATUS_UNSUPPORTED. Note: Spectrum systems only support the following:</p><ul>
 <li>Fixed header types</li>
-<li>Transition from UDP to VxLAN with outer encapsulation level Note: The API may impact the ISSU for Flex transition. To enable ISSU support user should use the new API (sx_api_flex_parser_flex_transition_set)</li>
+<li>Transition from UDP to VxLAN with outer encapsulation level Supported devices: Spectrum, Spectrum2, Spectrum3.</li>
 </ul>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <p>Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -478,8 +473,7 @@ SX_STATUS_PARAM_NULL if next_trans_cnt parameter is NULL </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API configures (ADD/DELETE/DELETE_ALL) multiple transitions between existing parser headers in the parse graph. For each transition the caller must specify the headers to enable the transition between "From" and "To" nodes. Note that this API only supports transitions that involve at least one flex header (FPP). For setting a transition involving only hard headers please refer to sx_api_flex_parser_hard_graph_set. Note that some combinations of parser headers may be unsupported and will return SX_STATUS_UNSUPPORTED. Note that the API may impact the ISSU for Flex transition. To enable ISSU support user should use the new API (sx_api_flex_parser_flex_transition_set)</p>
-<p>Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This API configures (ADD/DELETE/DELETE_ALL) multiple transitions between existing parser headers in the parse graph. For each transition the caller must specify the headers to enable the transition between "From" and "To" nodes. Note that this API only supports transitions that involve at least one flex header (FPP). For setting a transition involving only hard headers please refer to sx_api_flex_parser_hard_graph_set. Note that some combinations of parser headers may be unsupported and will return SX_STATUS_UNSUPPORTED. Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_ADD / SX_ACCESS_CMD_DELETE / SX_ACCESS_CMD_DELETE_ALL </td></tr>
@@ -561,123 +555,6 @@ SX_STATUS_UNSUPPORTED if configuration is not supported by the platform. </dd>
 SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED - if invalid cmd is passed </dd></dl>
-
-</div>
-</div>
-<a id="ac8c7a2ad3e6c440f13a6544189aafcc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8c7a2ad3e6c440f13a6544189aafcc1">&#9670;&nbsp;</a></span>sx_api_flex_parser_flex_transition_set()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_flex_parser_flex_transition_set </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_access_cmd_t&#160;</td>
-          <td class="paramname"><em>cmd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_flex_parser_transition_index_t *&#160;</td>
-          <td class="paramname"><em>transition_index_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_flex_parser_transition_action_t *&#160;</td>
-          <td class="paramname"><em>transition_cfg_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API configures the transition between two flex transition headers in the parse graph. The API supports ISSU. User should invoke the API first to create the requested transition index and later to set the transition. User must specify the transition index to be created.</p>
-<p>Notes transition_cfg is not used if cmd is CREATE, DESTROY, and UNSET. An entry with a given pair of {from_hdr, transition_value} must not exist more than once in the flex table. On-the-fly change allowed only for fields: to_hdr. Some combinations of flex parser headers may be unsupported and will return SX_STATUS_UNSUPPORTED. This API is for flex transitions only. For hard transitions, use <a class="el" href="sx__api__flex__parser_8h.html#a0606e9d45b8e331dabd2882cdd34f594">sx_api_flex_parser_transition_set()</a>. This API supports ISSU. For flex transitions, user should not mix this API with the other APIs (sx_api_flex_parser_flex_graph_set or sx_api_flex_parser_transition_set)</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
-<p>Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_CREATE/SX_ACCESS_CMD_DESTROY/SX_ACCESS_CMD_SET/SX_ACCESS_CMD_UNSET </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">transition_index</td><td>- Flex parser transition index (0-15) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">transition_cfg_p</td><td>- Flex transition between headers information</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
-<dd>
-SX_STATUS_ERROR general error </dd>
-<dd>
-SX_STATUS_UNSUPPORTED if the configuration is not supported by the platform </dd>
-<dd>
-SX_STATUS_NO_RESOURCES if configuration fails due to a lack of hardware resources </dd>
-<dd>
-SX_STATUS_MODULE_UNINITIALIZED if an API is called without initialization </dd>
-<dd>
-SX_STATUS_CMD_UNSUPPORTED if an invalid command is passed </dd></dl>
-
-</div>
-</div>
-<a id="ad416c4a2631a3ec47807109685efb449"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad416c4a2631a3ec47807109685efb449">&#9670;&nbsp;</a></span>sx_api_flex_parser_flex_transition_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_flex_parser_flex_transition_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_flex_parser_transition_index_t&#160;</td>
-          <td class="paramname"><em>transition_index</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_flex_parser_transition_action_t *&#160;</td>
-          <td class="paramname"><em>transition_cfg_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API retrieves the configured transition information between two flex transition headers in the parse graph given the transition index.</p>
-<p>Note: If the transition index passed to the API has not been configured in the system, then the transition_en field in transition_cfg_p will be 0.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
-<p>Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">transition_index</td><td>- Flex parser transition index (0-15) </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">transition_cfg_p</td><td>- Flex transition between headers information</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
-<dd>
-SX_STATUS_ERROR general error </dd>
-<dd>
-SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization</dd>
-<dd>
-SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd></dl>
 
 </div>
 </div>
@@ -906,7 +783,7 @@ SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd></d
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_GET / SX_ACCESS_CMD_GET_FIRST / SX_ACCESS_CMD_GETNEXT </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">logical_port</td><td>- The logical port for which to retrieve the root SOP - relevant only for SX_ACCESS_CMD_GET &amp; SX_ACCESS_CMD_GETNEXT cmd. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">logical_port</td><td>- The logical port for which to retrieve the root SOP (relevant only for GET cmd). </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>root_sop_cfg_list_p - Pointer to a list SOP entries to be retrieved. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>root_sop_cfg_cnt_p - IN - Specifies the size of the list to be retrieved. OUT - The number of entries that were actually retrieved.</td></tr>
   </table>
@@ -964,9 +841,9 @@ SX_STATUS_MODULE_UNINITIALIZED if API is called without initialization. </dd></d
 <p>This API sets the configuration for the specified hard parser header (HPH). Currently this supports setting a FTLV options parsing only. Note: not all HPH supports FTLV configuration, SX_STATUS_UNSUPPORTED will be returned in such a case. Supported devices: Spectrum2, Spectrum3. Parameters: </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_SET / SX_ACCESS_CMD_UNSET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SX_ACCESS_CMD_SET </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">hph_id</td><td>- The hard parsing header to configure. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">hph_cfg_p</td><td>- Pointer to the configuration to apply to this header (relevant only for SX_ACCESS_CMD_SET cmd).</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hph_cfg_p</td><td>- Pointer to the configuration to apply to this header.</td></tr>
   </table>
   </dd>
 </dl>
@@ -1278,7 +1155,7 @@ SX_STATUS_PARAM_NULL if extraction_point_cnt_p parameter is NULL </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 22 2022 18:21:56 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Aug 24 2022 15:17:02 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
