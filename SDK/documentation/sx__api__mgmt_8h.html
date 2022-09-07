@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.4.3182</span>
+   &#160;<span id="projectnumber">4.5.3160</span>
    </div>
   </td>
  </tr>
@@ -323,7 +323,7 @@ SX_STATUS_ERROR if the slot attribute retrieval fails. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API performs the provisioning operation for a given slot. Note - Currently, this API supports applying and deleting the initialization config file for a slot. Deleting(RESET) the initialization file can only be executed after all the port associated with slot are deleted. If RESET is executed on a non initialized slot, then list of ports that underwent mapping changes will be empty.</p>
+<p>This API performs the provisioning operation for a given slot. Note - Currently, this API supports applying and deleting the initialization config file for a slot. Deleting(RESET) the initialization file can only be executed after all the port associated with slot are deleted. If RESET is executed on a non initialized slot, then list of ports that underwent mapping changes will be empty. APPLY operation is an asynchronous operation. Once the INI APPLY is finished, BCTOE trap id would be sent with the current state(valid/non-valid) of INI and the INI operational status.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1212,7 +1212,7 @@ SX_STATUS_PARAM_NULL if a module info parameter is NULL. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 22 2022 07:15:43 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 5 2022 05:50:03 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

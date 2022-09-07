@@ -1,17 +1,17 @@
 /*
- *  Copyright (C) 2014-2021. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
- *    Licensed under the Apache License, Version 2.0 (the "License"); you may
- *    not use this file except in compliance with the License. You may obtain
- *    a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may
+ * not use this file except in compliance with the License. You may obtain
+ * a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
- *    THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
- *    CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
- *    LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
- *    FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+ * THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ * CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ * LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ * FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
  *
- *    See the Apache Version 2.0 License for specific language governing
- *    permissions and limitations under the License.
+ * See the Apache Version 2.0 License for specific language governing
+ * permissions and limitations under the License.
  *
  */
 
@@ -27,7 +27,7 @@
 /**
  * This API sets the log verbosity level of the ISSU module.
  *
- * Supported devices: Spectrum, Spectrum 2, Spectrum 3
+ * Supported devices: Spectrum, Spectrum 2, Spectrum 3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - Sets verbosity of API/MODULE/BOTH
@@ -47,7 +47,7 @@ sx_status_t sx_api_issu_log_verbosity_level_set(const sx_api_handle_t           
 /**
  * This API gets the log verbosity level of the ISSU module.
  *
- * Supported devices: Spectrum, Spectrum 2, Spectrum 3.
+ * Supported devices: Spectrum, Spectrum 2, Spectrum 3, Spectrum4.
  *
  * @param[in] handle                    - SX-API handle
  * @param[in] verbosity_target          - Sets verbosity of API/MODULE/BOTH
@@ -68,7 +68,7 @@ sx_status_t sx_api_issu_log_verbosity_level_get(const sx_api_handle_t           
  * It triggers ISSU (In Service Software Upgrade) of the SDK and firmware by shutting down the SDK, resetting the ASIC, and
  * switching to a new SDK/firmware, if available.
  *
- * Supported devices: Spectrum, Spectrum 2, Spectrum 3.
+ * Supported devices: Spectrum, Spectrum 2, Spectrum 3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle
  *
@@ -81,7 +81,7 @@ sx_status_t sx_api_issu_start_set(const sx_api_handle_t handle);
  * This API is used to notify the newly-upgraded SDK in "FAST-FAST Boot Mode" that the configuration stage of the ISSU
  * (In Service Software Upgrade) process has finished and to resume normal operations.
  *
- * Supported devices: Spectrum, Spectrum 2, Spectrum 3.
+ * Supported devices: Spectrum, Spectrum 2, Spectrum 3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle
  *
@@ -94,7 +94,7 @@ sx_status_t sx_api_issu_end_set(const sx_api_handle_t handle);
  * This API prepares the SDK for CRIU (checkpoint/restore in userspace) Hibernation. The SDK configuration is written to
  * persistent storage from where it can be restored. This is also referred to as SDK "Warm Boot" mode.
  *
- * Supported devices: Spectrum, Spectrum 2, Spectrum 3.
+ * Supported devices: Spectrum, Spectrum 2, Spectrum 3, Spectrum4.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] pause_params_p - Pause params
@@ -113,7 +113,7 @@ sx_status_t sx_api_issu_pause_set(const sx_api_handle_t  handle,
 /**
  * This API restores the SDK from CRIU (checkpoint/restore in userspace) Hibernation. It is used in "Warm Boot" mode.
  *
- * Supported devices: Spectrum, Spectrum 2, Spectrum 3.
+ * Supported devices: Spectrum, Spectrum 2, Spectrum 3, Spectrum4.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] resume_params_p - Resume params

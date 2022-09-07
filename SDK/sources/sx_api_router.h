@@ -1,17 +1,17 @@
 /*
- *  Copyright (C) 2014-2021. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
- *    Licensed under the Apache License, Version 2.0 (the "License"); you may
- *    not use this file except in compliance with the License. You may obtain
- *    a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may
+ * not use this file except in compliance with the License. You may obtain
+ * a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
- *    THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
- *    CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
- *    LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
- *    FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+ * THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ * CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ * LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ * FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
  *
- *    See the Apache Version 2.0 License for specific language governing
- *    permissions and limitations under the License.
+ * See the Apache Version 2.0 License for specific language governing
+ * permissions and limitations under the License.
  *
  */
 
@@ -29,7 +29,7 @@
 /**
  * This API sets the log verbosity level of ROUTER module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - Sets verbosity of API/MODULE/BOTH
@@ -46,7 +46,7 @@ sx_status_t sx_api_router_log_verbosity_level_set(const sx_api_handle_t         
                                                   const sx_verbosity_level_t      api_verbosity_level);
 
 /**
- * This API gets the log verbosity level of ROUTER module.
+ * This API gets the log verbosity level of ROUTER module, Spectrum4.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
@@ -69,7 +69,7 @@ sx_status_t sx_api_router_log_verbosity_level_get(const sx_api_handle_t         
  * This API will return error once the per port API sx_api_router_ecmp_port_hash_params_set has been called. This API cannot be
  * used along with sx_api_router_ecmp_port_hash_params_set.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] ecmp_hash_param_p - ECMP hash configuration parameters
@@ -87,7 +87,9 @@ sx_status_t sx_api_router_ecmp_hash_params_set(const sx_api_handle_t            
  * Each element in hash_field_list_p represents a different field to be included in the hash calculation which is subject to the
  * enables which are given in hash_field_enable_list_p.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Note: This API supports port profile.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                     - SX-API handle
  * @param[in] cmd                        - SET/ADD/DELETE
@@ -115,7 +117,9 @@ sx_status_t sx_api_router_ecmp_port_hash_params_set(const sx_api_handle_t       
  * This API gets the ECMP hash function configuration parameters. Once sx_api_router_ecmp_port_hash_params_set is called,
  * this API is disabled.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Note: This API supports port profile.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle              - SX-API handle
  * @param[out] ecmp_hash_params_p - ECMP hash configuration parameters
@@ -131,7 +135,7 @@ sx_status_t sx_api_router_ecmp_hash_params_get(const sx_api_handle_t         han
  * This API gets the ECMP hash function configuration parameters. If the given number of fields/fields enables is 0, the API
  * will only return number of fields/enables.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                           - SX-API handle
  * @param[in] log_port                         - Local port
@@ -157,7 +161,7 @@ sx_status_t sx_api_router_ecmp_port_hash_params_get(const sx_api_handle_t       
  * This API Initiates the router module in SDK. The parameter uc_params->ipv4_num requires a value larger than 30.
  * The parameter mc_params->mc_routes->ipv4_num requires a value larger than 30 when the mc_router is enabled.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] general_params_p  - General router parameters
@@ -175,7 +179,7 @@ sx_status_t sx_api_router_init_set(const sx_api_handle_t              handle,
 /**
  * This API deinitializes the router block in the SDK.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  *
@@ -189,7 +193,7 @@ sx_status_t sx_api_router_deinit_set(const sx_api_handle_t handle);
  * otherwise it is given by the caller. All interfaces and routes associated with a router must be  deleted before the router can
  * be deleted as well.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] cmd         - ADD/DELETE/EDIT
@@ -214,7 +218,7 @@ sx_status_t sx_api_router_set(const sx_api_handle_t         handle,
 /**
  * This API gets a virtual router information.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle       - SX-API handle
  * @param[in] vrid         - Virtual Router ID
@@ -241,7 +245,7 @@ sx_status_t sx_api_router_get(const sx_api_handle_t   handle,
  *      - Get - Gets a specific entry. The command should be SX_ACCESS_CMD_GET and vrid_cnt_p should be 1.
  *          If the input vrid_cnt_p is 0, then this API returns a count of valid VRIDs as output.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] cmd            - GET/GET_NEXT/GET_FIRST
@@ -284,7 +288,7 @@ sx_status_t sx_api_router_vrid_iter_get(const sx_api_handle_t   handle,
  * Note: In 802.1D mode, if ifc_p needs to be configured as type=SX_L2_INTERFACE_TYPE_VLAN, then bridge_id needs to be provided
  *   instead of ifc.vlan.vlan.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] cmd         - ADD/EDIT/DELETE/DELETE ALL
@@ -301,6 +305,7 @@ sx_status_t sx_api_router_vrid_iter_get(const sx_api_handle_t   handle,
  * @return SX_STATUS_ENTRY_NOT_FOUND if router interface was not added
  * @return SX_STATUS_NO_RESOURCES if no interface is available to create
  * @return SX_STATUS_RESOURCE_IN_USE if router interface has routes
+ * @return SX_STATUS_ENTRY_ALREADY_BOUND adaptive RIF is bound to bridge/VPORT.
  * @return SX_STATUS_ERROR general error
  */
 sx_status_t sx_api_router_interface_set(const sx_api_handle_t              handle,
@@ -316,7 +321,7 @@ sx_status_t sx_api_router_interface_set(const sx_api_handle_t              handl
  * Note: When in 802.1D mode, if ifc_p has type SX_L2_INTERFACE_TYPE_VLAN, then a bridge ID is returned instead of a VLAN ID
  *   in ifc.vlan.vlan.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] rif         - Router Interface ID
@@ -372,7 +377,7 @@ sx_status_t sx_api_router_interface_get(const sx_api_handle_t        handle,
  *        Note: Teh return count may be less than or equal to the requested count. If no valid next RIF exists in the database
  *        (key = end of list, or invalid key specified, or key too large), an empty list will be returned.
  *
- *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param [in] handle           - SX API handle
  * @param [in] cmd              - GET/GET_FIRST/GET_NEXT
@@ -400,7 +405,7 @@ sx_status_t sx_api_router_interface_iter_get(const sx_api_handle_t        handle
 /**
  * This API sets admin state of a router interface. Admin state is set per IP protocol.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] rif         - Router Interface ID
@@ -419,7 +424,7 @@ sx_status_t sx_api_router_interface_state_set(const sx_api_handle_t             
 /**
  * This API gets admin state of a router interface.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] rif         - Router Interface ID
@@ -438,7 +443,7 @@ sx_status_t sx_api_router_interface_state_get(const sx_api_handle_t        handl
 /**
  * This API adds/deletes a MAC address from a router interface.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] cmd             - ADD/DELETE/DELETE_ALL
@@ -462,7 +467,7 @@ sx_status_t sx_api_router_interface_mac_set(const sx_api_handle_t       handle,
 /**
  * This API gets MAC address of a router interface.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle             - SX-API handle
  * @param[in] rif                - Router Interface ID
@@ -493,7 +498,7 @@ sx_status_t sx_api_router_interface_mac_get(const sx_api_handle_t       handle,
  * Note: In case the action is SX_ROUTER_ACTION_TRAP_FORWARD/SX_ROUTER_ACTION_TRAP, then the trap ID will be set to SXD_TRAP_ID_RTR_EGRESS0
  *  if trap priority is BEST EFFORT, LOW, or MED and will be set to SXD_TRAP_ID_RTR_EGRESS1 for other priorities.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle       - SX-API handle
  * @param[in] cmd          - ADD/DELETE/DELETE_ALL
@@ -527,7 +532,7 @@ sx_status_t sx_api_router_neigh_set(const sx_api_handle_t       handle,
  *   have to exist. Entries can be filtered by the RIF given in filter_p. If neigh_key_p->ip_addr.version == SX_IP_VERSION_NONE,
  *   only IPv4 neighbors will be returned.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - GET/GET_FIRST/GET_NEXT
@@ -555,7 +560,7 @@ sx_status_t sx_api_router_neigh_get(const sx_api_handle_t       handle,
 /**
  * This API reads and cleans the neighbor's activity information.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - READ/READ_CLEAR
@@ -595,7 +600,7 @@ sx_status_t sx_api_router_neigh_activity_get(const sx_api_handle_t       handle,
  *
  * Note: This API supports Async Mode operation if the router is initialized with Async support.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - ADD/SET/SOFT_ADD/DELETE/DELETE_ALL
@@ -635,7 +640,7 @@ sx_status_t sx_api_router_uc_route_set(const sx_api_handle_t handle,
  *      Set IP prefix address in the network_addr parameter. uc_route_get_entries_cnt_p should be set to n,
  *      filter_p is the filter type(s) to filter the results by. Command should be SX_ACCESS_CMD_GETNEXT.
  *
- *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - GET/GET_FIRST/GETNEXT
@@ -664,7 +669,7 @@ sx_status_t sx_api_router_uc_route_get(const sx_api_handle_t     handle,
  * This API retrieves active unicast ECMP route information from the routing table.
  * When using oper_uc_route_entries_p->route_data.next_hop_cnt=0 only the number of next hops will be returned.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] vrid - Virtual Router ID
@@ -688,7 +693,7 @@ sx_status_t sx_api_router_uc_route_operational_ecmp_get(const sx_api_handle_t   
  * Note: A route may be created via a call to sx_api_router_uc_route_set(). A flow counter may be created via a call to
  * sx_api_flow_counter_set().
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - BIND/UNBIND
@@ -714,7 +719,7 @@ sx_status_t sx_api_router_uc_route_counter_bind_set(const sx_api_handle_t      h
  * Notes: A flow counter may be bound to a route via a call to sx_api_router_uc_route_counter_bind_set(). If no counter if
  *    bound to the specified route, this API returns SUCCESS, and sets *counter_id_p to SX_FLOW_COUNTER_ID_INVALID.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] vrid - Virtual Router ID
@@ -735,7 +740,7 @@ sx_status_t sx_api_router_uc_route_counter_bind_get(const sx_api_handle_t handle
 /**
  * This API creates/destroys a router counter. A router counter should be bound later to a router interface.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - CREATE/DESTROY
@@ -754,11 +759,11 @@ sx_status_t sx_api_router_counter_set(const sx_api_handle_t   handle,
 /**
  * This API creates/destroys a router counter by given type. A router counter should be bound later to a router interface.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - CREATE/DESTROY
- * @param[in] type - Router counter type
+ * @param[in] cntr_attributes - counter attributes
  * @param[in,out] counter_p - Router counter ID
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
@@ -774,7 +779,7 @@ sx_status_t sx_api_router_counter_extended_set(const sx_api_handle_t            
 /**
  * This API binds/unbinds a router counter to a router interface.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - BIND/UNBIND
@@ -797,7 +802,7 @@ sx_status_t sx_api_router_interface_counter_bind_set(const sx_api_handle_t      
 /**
  * This API gets a router counter bind of a router interface.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] counter - Router counter ID
@@ -819,7 +824,7 @@ sx_status_t sx_api_router_interface_counter_bind_get(const sx_api_handle_t      
  *
  * READ_CLEAR returns and clears the counters.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - READ/READ_CLEAR
@@ -843,7 +848,7 @@ sx_status_t sx_api_router_counter_get(const sx_api_handle_t        handle,
  *
  * READ_CLEAR returns and clears the counters.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - READ/READ_CLEAR
@@ -864,7 +869,7 @@ sx_status_t sx_api_router_counter_extended_get(const sx_api_handle_t            
 /**
  * This API clears router counter set of a router counter.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] counter - Router counter ID
@@ -898,7 +903,7 @@ sx_status_t sx_api_router_counter_clear_set(const sx_api_handle_t        handle,
  * Note: Router action SX_ROUTER_ACTION_SPAN is not supported on any device. In case RPF actions is SX_ROUTER_RPF_ACTION_TRAP_LIST
  *   and SX_ROUTER_RPF_ACTION_DROP_LIST, then a valid RPF Group ID must be given (that was previously created).
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - ADD/EDIT/DELETE/DELETE_ALL
@@ -940,7 +945,7 @@ sx_status_t sx_api_router_mc_route_set(const sx_api_handle_t            handle,
  *   GET_FIRST or GET_NEXT. The last route returned will be in mc_route_key_p, and all routes returned will be in
  *   mc_route_get_entries_list_p.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - GET/COUNT/GET_FIRST/GET_NEXT
@@ -967,7 +972,7 @@ sx_status_t sx_api_router_mc_route_get(const sx_api_handle_t     handle,
 /**
  * This API reads and clears multicast route activity.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - READ/READ_CLEAR
@@ -989,7 +994,7 @@ sx_status_t sx_api_router_mc_route_activity_get(const sx_api_handle_t    handle,
 /**
  * This API initiates a notification regarding active multicast routes in the system.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] cmd       - READ/READ_CLEAR
@@ -1011,7 +1016,7 @@ sx_status_t sx_api_router_mc_route_activity_notify(const sx_api_handle_t        
  * SET replaces the entire list of existing egress RIFs with the given list.
  * DELETE_ALL deletes all egress router interfaces associated with multicast group.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - ADD/DELETE/DELETE_ALL/SET
@@ -1040,7 +1045,7 @@ sx_status_t sx_api_router_mc_egress_rif_set(const sx_api_handle_t        handle,
  * Only routes configured with egress_rif_cnt and egress_rif_list_p are supported by this function. Routes configured with
  * egress_container_id are not.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] vrid - Virtual Router ID
@@ -1064,7 +1069,7 @@ sx_status_t sx_api_router_mc_egress_rif_get(const sx_api_handle_t    handle,
 /**
  * This API enables in-router rewriting of PCP, DEI rewriting bits. The configuration is per IP router.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                 - SX-API handle
  * @param[in] rewrite_pcp_dei        - Enables the option to rewrite PCP and DEI fields at the egress port (preserve from the
@@ -1080,7 +1085,7 @@ sx_status_t sx_api_router_cos_rewrite_pcpdei_enable_set(const sx_api_handle_t   
 /**
  * This API retrieves in-router rewriting of PCP, DEI rewriting bits. The configuration is per IP router.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                  - SX-API handle
  * @param[out] rewrite_pcp_dei        - Enables the option to rewrite PCP and DEI fields at the egress port (preserve from the
@@ -1097,7 +1102,7 @@ sx_status_t sx_api_router_cos_rewrite_pcpdei_enable_get(const sx_api_handle_t   
  * This API enables in-router updating of switch-priority and color. The updated mapping is defined using
  * sx_api_router_cos_dscp_to_prio_set. The configuration is per IP router.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] update_priority_color - Enables updates the switch priority and color by the DSCP map defined using
@@ -1114,7 +1119,7 @@ sx_status_t sx_api_router_cos_prio_update_enable_set(const sx_api_handle_t handl
  * This API retrieves in-router updating of switch-priority and color. The updated mapping is defined using
  * sx_api_router_cos_dscp_to_prio_set. The configuration is per IP router.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle
  * @param[out] update_priority_color_p - Enables updates the switch priority and color by the DSCP map defined using
@@ -1132,7 +1137,7 @@ sx_status_t sx_api_router_cos_prio_update_enable_get(const sx_api_handle_t handl
  * This API sets the mapping from DSCP to switch-priority and color for in-router rewrite.
  * The mapping is used only if enabled in sx_api_router_cos_prio_update_enable_set.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] dscp                  - List of DSCPs
@@ -1152,7 +1157,7 @@ sx_status_t sx_api_router_cos_dscp_to_prio_set(const sx_api_handle_t          ha
 /**
  * This API retrieves the mapping from DSCP to switch-priority and color for in-router rewrite.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                  - SX-API handle
  * @param[in] dscp                    - List of DSCP's
@@ -1212,8 +1217,10 @@ sx_status_t sx_api_router_cos_dscp_to_prio_get(const sx_api_handle_t    handle,
  *        - Next hop #A with weight of 1
  *        - Next hop #B with weight of 2
  *      In the hardware, this ECMP container will have three next hops with total weight of four: nh #A, nh #B, nh #A.
+ *   5. On Spectrum-2 and above these ECMP containers can contain flex tunnels along with nve tunnels.
+ *      If an ECMP contains a flex tunnel it cannot be used as the destination of a FDB entry.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                 - SX-API handle
  * @param[in] cmd                    - CREATE/DESTROY/SET
@@ -1240,7 +1247,7 @@ sx_status_t sx_api_router_ecmp_set(const sx_api_handle_t handle,
  *
  * Note:This API returns next hops for a given ECMP ID even if this ECMP is redirected.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle             - SX-API handle
  * @param[in] ecmp_id            - ID of an ECMP container
@@ -1290,7 +1297,7 @@ sx_status_t sx_api_router_ecmp_get(const sx_api_handle_t handle,
  *        If no valid next ECMP container ID exists in the database, an empty list will be returned.
  *        A non-NULL ecmp_list pointer must be provided in this case.
  *
- *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param [in] handle           - SX API handle
  * @param [in] cmd              - GET/GET_FIRST/GET_NEXT
@@ -1323,7 +1330,7 @@ sx_status_t sx_api_router_ecmp_iter_get(const sx_api_handle_t   handle,
  * Note: This API will return next hops for a given ECMP ID if this ECMP is not redirected. If the ECMP is redirected,
  *  it will return next hops from the destination ECMP.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle             - SX-API handle
  * @param[in] ecmp_id            - ID of an ECMP container
@@ -1345,7 +1352,7 @@ sx_status_t sx_api_router_operational_ecmp_get(const sx_api_handle_t handle,
  * This API binds/unbinds a router counter to a list of next hops for a given container.
  * In case of INVALID_NEXT_HOP_OFFSET counter will be bound to all next hops in given ECMP container.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] cmd               - BIND/UNBIND
@@ -1373,7 +1380,7 @@ sx_status_t sx_api_router_ecmp_counter_bind_set(const sx_api_handle_t       hand
  * This API binds/unbinds a router counter to a list of indices in a container active set.
  * This API should be used for containers that are not static containers.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] cmd               - BIND/UNBIND
@@ -1401,7 +1408,7 @@ sx_status_t sx_api_router_ecmp_fine_grain_counter_bind_set(const sx_api_handle_t
 /**
  * This API initiates a notification regarding active neighbors in the system.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] cmd       - READ/READ_CLEAR
@@ -1421,7 +1428,7 @@ sx_status_t sx_api_router_neigh_activity_notify(const sx_api_handle_t           
  * Using this API is not mandatory for ECMP hashing (default value is SX_ECMP_TYPE_STATIC_E).
  * To use this API, create an empty ECMP container, set the container attributes, and add next hops.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] ecmp_id     - ID of an ECMP container
@@ -1439,7 +1446,7 @@ sx_status_t sx_api_router_ecmp_attributes_set(const sx_api_handle_t       handle
 /**
  * This API retrieves an ECMP container's attributes.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] ecmp_id     - ID of ECMP container
@@ -1460,7 +1467,7 @@ sx_status_t sx_api_router_ecmp_attributes_get(const sx_api_handle_t handle,
  * Note: ECMP redirect does not affect the cloning process. Newly cloned container will not be redirected, even if the
  *   original one is redirected.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] old_ecmp_id     - Old ID of ECMP container
@@ -1490,7 +1497,7 @@ sx_status_t sx_api_router_ecmp_clone_set(const sx_api_handle_t handle,
  *        An RPF group may contain only ingress RIFs which belong to the same virtual router.
  *        An RPF group must contain at least one ingress RIF.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - CREATE/SET/DESTROY/DELETE_ALL
@@ -1521,7 +1528,7 @@ sx_status_t sx_api_router_mc_rpf_group_set(const sx_api_handle_t   handle,
  *   and then repeatedly call GETNEXT until all groups are retrieved.
  * Note: If *rpf_rif_cnt_p is 0, then rpf_rif_list_p may be NULL and only the amount of RIFs is returned without the list of RIFs.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - GET/GETFIRST/GETNEXT
@@ -1547,7 +1554,7 @@ sx_status_t sx_api_router_mc_rpf_group_get(const sx_api_handle_t   handle,
  * Note: A route may be created via a call to sx_api_router_mc_route_set().
  * Note: A flow counter may be created via a call to sx_api_flow_counter_set()
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] cmd            - BIND/UNBIND
@@ -1576,7 +1583,7 @@ sx_status_t sx_api_router_mc_route_counter_bind_set(const sx_api_handle_t      h
  * Notes: A flow counter may be bound to a route via a call to sx_api_router_mc_route_counter_bind_set(). If no counter is bound
  *   to the specified route, this API returns SUCCESS and sets *counter_id_p to SX_FLOW_COUNTER_ID_INVALID.
  *
- *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] vrid           - Virtual Router ID
@@ -1598,7 +1605,7 @@ sx_status_t sx_api_router_mc_route_counter_bind_get(const sx_api_handle_t    han
  * This API creates/destroys redirection between an ECMP (ecmp) and a destination ECMP (redirect_ecmp).
  *
  * Note: Only ECMP NVE containers can be redirected.
- * ECMP container ("ecmp") can be redirected to an ECMP container (redirect_ecmp) only if the following wi true:
+ * ECMP container ("ecmp") can be redirected to an ECMP container (redirect_ecmp) only if the following is true:
  *      1. ECMP container redirect_ecmp is not in use (the reference counter of ECMP container is equal 0) (e.g., there are no
  *          FDB entries that point to redirect_ecmp)
  *      2. redirect_ecmp is not redirected to any other ECMP and no other container is already redirected to redirect_ecmp.
@@ -1608,7 +1615,7 @@ sx_status_t sx_api_router_mc_route_counter_bind_get(const sx_api_handle_t    han
  * Only 1:1 redirection is supported. Redirection chains are not supported ("A" -> "B" -> "C") and N:1 redirection is not
  * supported ("A" -> "C" | "B" -> "C").
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] cmd                   - CREATE/DESTROY
@@ -1629,7 +1636,7 @@ sx_status_t sx_api_router_ecmp_redirect_set(const sx_api_handle_t handle,
 /**
  * This API returns information whether given ECMP is redirected. If given ECMP is redirected, the redirected ECMP ID is returned.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                     - SX-API handle
  * @param[in] ecmp                       - ECMP ID
@@ -1654,7 +1661,7 @@ sx_status_t sx_api_router_ecmp_redirect_get(const sx_api_handle_t handle,
  *
  * Note: This API is relevant if the Router has been initialized in Async mode only.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[out] completion_info_p – Completion Info Parameters
@@ -1668,7 +1675,7 @@ sx_status_t sx_api_router_req_completion_info_get(const sx_api_handle_t         
 
 /**
  * This function creates a predefined LPM tree for the router.
- * Supported devices: Spectrum, Spectrum2, Spectrum3
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - SX_ACCESS_CMD_CREATE: create a new predefined LPM tree and returns a tree_id in sx_tree_id_p
@@ -1699,7 +1706,7 @@ sx_status_t sx_api_router_user_defined_lpm_tree_set(const sx_api_handle_t       
  * This function gets a list of nodes of the given tree ID.
  * User is responsible for memory management of retrieved list. If the nodes_list_p is NULL or nodes_cnt_p is 0,
  * the API retrieves the count of nodes in the tree.
- * Supported devices: Spectrum, Spectrum2, Spectrum3
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] tree_id - tree ID
@@ -1718,5 +1725,89 @@ sx_status_t sx_api_router_user_defined_lpm_tree_get(const sx_api_handle_t  handl
                                                     const sx_lpm_tree_id_t tree_id,
                                                     sx_lpm_tree_node_t   * nodes_list_p,
                                                     uint8_t              * nodes_cnt_p);
+
+
+/**
+ * This function updates the given ECMP next-hops on the offsets list with the corresponding next-hop
+ * in the configured next-hop list for the given ECMP ID.
+ * Note: - Update applies only for type SX_ECMP_CONTAINER_TYPE_IP
+ *       - Updated next-hop weight matches the corresponding previous next-hop weight (weight can't be updated)
+ *       - Updating a non-resolved next-hop can cause configuration time overhead.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ *
+ * @param[in] handle                   - SX-API handle
+ * @param[in] cmd                      - Supported CMD - SX_ACCESS_CMD_SET
+ * @param[in] ecmp_id                  - ECMP container ID
+ * @param[in] next_hop_update_list_p   - List of next-hop to update
+ * @param[in] next_hop_update_list_cnt - Number of next-hops to update
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR for invalid parameter
+ * @return SX_STATUS_ERROR for general error
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested index is not found in DB
+ * @return SX_STATUS_PARAM_NULL if parameter is NULL
+ * @return SX_STATUS_MODULE_UNINITIALIZED if router module is uninitialized
+ */
+sx_status_t sx_api_router_ecmp_update_set(const sx_api_handle_t   handle,
+                                          const sx_access_cmd_t   cmd,
+                                          const sx_ecmp_id_t      ecmp_id,
+                                          sx_ecmp_update_entry_t *next_hop_update_list_p,
+                                          uint32_t                next_hop_update_list_cnt);
+
+
+/**
+ * This API creates/destroys a NAT object used to convert
+ * both IPv4 packets to IPv6 packets and IPv6 packets to IPv4 packets.
+ * This NAT object can be used in an ACL action (SX_FLEX_ACL_ACTION_NAT)
+ * to perform the actual address conversion.
+ *
+ * Note: IPv4-to-IPv4 and IPv6-to-IPv6 conversion is not supported using this object.
+ * However, IPv4-to-IPv4 and IPv6-to-IPv6 conversion can be done using the SET_SIP_ADDR/SET_DIP_ADDR ACL actions.
+ * Only a single NAT is allowed in a packet flow.
+ * Tunnel encapsulation/decapsulation is not allowed after a NAT operation.
+ * NAT operation is not allowed after tunnel encapsulation.
+ * NAT operation is not allowed when parsing flex header between layers 3-4.
+ *
+ * Supported devices: Spectrum4.
+ *
+ * @param[in]     handle            - SX-API handle
+ * @param[in]     cmd               - CREATE / DESTROY
+ * @param[in]     nat_cfg_p         - Pointer to the configuration of the NAT (irrelevant for DESTROY command)
+ * @param[in/out] nat_id_p          - Pointer to the newly created NAT object's ID (for CREATE) / pointer to NAT ID to be destroyed (for DESTROY)
+ *
+ * @return SX_STATUS_SUCCESS             if operation completes successfully
+ * @return SX_STATUS_CMD_UNSUPPORTED     if access command is not supported
+ * @return SX_STATUS_PARAM_NULL          if one of the nat_cfg_p/nat_id_p parameters is null
+ * @return SX_STATUS_PARAM_ERROR         if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_ALREADY_BOUND if the provided RIF is already in use
+ * @return SX_STATUS_ENTRY_NOT_FOUND     if NAT/RIF doesn't exist
+ * @return SX_STATUS_RESOURCE_IN_USE     if the NAT object is in use or RIF is enabled (in DESTROY command)
+ * @return SX_STATUS_ERROR               general error
+ */
+sx_status_t sx_api_router_nat_set(const sx_api_handle_t handle,
+                                  const sx_access_cmd_t cmd,
+                                  sx_router_nat_cfg_t * nat_cfg_p,
+                                  sx_nat_id_t         * nat_id_p);
+
+/**
+ * This API retrieves the configuration of a previously created NAT object.
+ *
+ * Supported devices: Spectrum4.
+ *
+ * @param[in]  handle            - SX-API handle
+ * @param[in]  cmd               - GET
+ * @param[in]  nat_id            - NAT ID for which to get the configuration
+ * @param[out] nat_cfg_p         - Pointer to store the NAT's configuration
+ *
+ * @return SX_STATUS_SUCCESS             if operation completes successfully
+ * @return SX_STATUS_CMD_UNSUPPORTED     if access command is not supported
+ * @return SX_STATUS_PARAM_NULL          if the nat_cfg_p parameters is null
+ * @return SX_STATUS_ENTRY_NOT_FOUND     if nat doesn't exist
+ * @return SX_STATUS_ERROR               general error
+ */
+sx_status_t sx_api_router_nat_get(const sx_api_handle_t handle,
+                                  const sx_access_cmd_t cmd,
+                                  const sx_nat_id_t     nat_id,
+                                  sx_router_nat_cfg_t * nat_cfg_p);
 
 #endif /* __SX_API_ROUTER_H__ */

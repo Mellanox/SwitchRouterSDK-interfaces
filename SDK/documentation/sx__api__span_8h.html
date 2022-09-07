@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.4.3182</span>
+   &#160;<span id="projectnumber">4.5.3160</span>
    </div>
   </td>
  </tr>
@@ -153,6 +153,10 @@ Functions</h2></td></tr>
 <tr class="separator:aaad072ecc0d2169f36b059601e4137b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae45e37087f653ac9109f2e92aa856dac"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#ae45e37087f653ac9109f2e92aa856dac">sx_api_span_port_attr_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_span_port_attr_type_e attr_type, sx_span_port_attr_t *span_port_attr_p)</td></tr>
 <tr class="separator:ae45e37087f653ac9109f2e92aa856dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ec918edd8a566f6ab511e56ffbebf77"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#a1ec918edd8a566f6ab511e56ffbebf77">sx_api_span_mirror_enable_port_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_span_mirror_enable_port_set_t *mirror_enable_cfg_list_p, const uint32_t mirror_enable_cnt)</td></tr>
+<tr class="separator:a1ec918edd8a566f6ab511e56ffbebf77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb9c6331869572be22fc272163303525"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#afb9c6331869572be22fc272163303525">sx_api_span_mirror_enable_port_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_span_mirror_enable_port_iter_filter_t *filter_p, sx_span_mirror_enable_port_set_t *mirror_enable_cfg_list_p, uint32_t *mirror_enable_cnt_p)</td></tr>
+<tr class="separator:afb9c6331869572be22fc272163303525"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a220ee2ca173c3b462d7ff6fc7a1a341f"></a>
@@ -208,7 +212,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API sets the log verbosity level of SPAN module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -260,7 +264,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API gets the log verbosity level of SPAN module</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -314,7 +318,7 @@ Functions</h2></td></tr>
 <p>This API creates a SPAN session and allocates the session ID.</p>
 <p>EDIT modifies the SPAN session's attributes. DESTROY deletes a SPAN session.</p>
 <p>Note: In Spectrum systems, the EDIT operation needs another session resource as interim session. As such, if all other session resources are already allocated, EDIT will fail due to resource unavailability. Note: In case a packet with encapsulation header is mirrored to an analyzer port with size larger than analyzer port's MTU, truncation should be enabled to avoid packets being discarded. Set truncate size = MTU (encapsulation or smaller).</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -378,7 +382,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets SPAN session information.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -510,7 +514,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 <p>Note: Return count may be less than or equal to the requested count. The key is dont-care but a non-Null return list pointer must be provided.</p>
 <p>6) cmd = SX_ACCESS_CMD_GETNEXT, key = valid/invalid, Filter = X, list = Valid, Count &gt; 0: In this case, the API will return the next set of IDs starting from the next valid SPAN session ID after the specified key. The total elements fetched will be returned as the return count.</p>
 <p>Note: return count may be less than or equal to the requested count. If no valid next counter exists in the database (key = end of list, or invalid key specified, or key too large), an empty list will be returned.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -568,7 +572,7 @@ SX_STATUS_DB_NOT_INITIALIZED if internal database is not initialized </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets SPAN session admin state.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -621,7 +625,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the SPAN session admin state.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -674,7 +678,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the analyzer port assigned to the SPAN session.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -733,7 +737,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the mirror ports assigned to the SPAN session.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -799,7 +803,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the SPAN session ID using mirror port and direction as key.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -864,7 +868,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the SPAN session ID using mirror port and direction as key.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -924,7 +928,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the SPAN mirror admin state using mirror_port and direction as key.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -988,7 +992,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the SPAN mirroring admin state using mirror port and direction as key.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1055,7 +1059,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the SPAN session analyzer ports.</p>
 <p>Spectrum-2 and Spectrum-3 systems support CPU port as analyzer port.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1122,7 +1126,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the SPAN session using analyzer ports as key.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1172,7 +1176,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 </div><div class="memdoc">
 <p>This API initializes certain aspects of SPAN module behavior. Currently, the only data item controlled by this API is the version of SPAN header attached to mirrored packets. Mirroring resources may be allocated without calling this function using default settings. The API may be called repeatedly to change configuration, but only if a call to sx_api_span_deinit_set intervenes. The function fails if mirroring sessions are already allocated.</p>
 <p>Note: In Spectrum, calling this API is optional. If not called, the default module configuration is used.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -1210,7 +1214,7 @@ SX_STATUS_ALREADY_INITIALIZED if called twice without intervening a call to sx_a
       </table>
 </div><div class="memdoc">
 <p>This API resets the SPAN init parameters to the default setting. Calls to this API require a prior call to sx_api_span_init_set. The API fails if any mirroring sessions are already allocated when it is called.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle</td></tr>
@@ -1267,7 +1271,7 @@ SX_STATUS_DB_NOT_INITIALIZED if called without prior call to sx_api_span_init_se
       </table>
 </div><div class="memdoc">
 <p>This API retrieves or clears dropped packet counters for a mirroring session.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1325,7 +1329,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API enables or disables mirroring for modules whose own API does not refer to an explicit mirroring session. When enabled, it associates the predefined trap group associated with MIRROR trap ID with the given mirroring session. When disabled, the association between the trap group and the mirroring session is removed. It is possible to call the API repeatedly to replace one mirroring session with another.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1374,7 +1378,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the mirroring session that was configured using the trap group associated with the MIRROR trap ID for modules whose own API does not refer to an explicit mirroring session.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1445,7 +1449,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 </div><div class="memdoc">
 <p>This API configures mirroring to a SPAN session of dropped packets.</p>
 <p>SET sets the SPAN session to the new settings, overriding the current configuration. ADD adds more Drop Reasons to the existing configuration. DELETE removes Drop Reasons from existing configuration. DELETE_ALL removes all Drop Reasons from existing configuration.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1515,7 +1519,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the mirroring session drop reasons configured for router-drop mirroring via the trap IDs for router drops. If drop_reason_list is NULL, the number of drop reasons will be returned in drop_reason_cnt.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1580,7 +1584,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 <li>Egress as SX_PORT_CRC_EGRESS_RECALC_MODE_PREVENT (using sx_api_port_crc_params_set API) AND</li>
 <li>Ingress as SX_TS_OVER_CRC_INGRESS_MODE_ENABLE_E (using sx_api_tele_attributes_set API)</li>
 </ul>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1638,7 +1642,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the mirror binding attribute.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1701,7 +1705,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the mirror type bound to the SPAN session.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1763,7 +1767,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API enables mirroring on a mirror object. This configuration is supported on a per port TC, port PG, or a port basis depending on the mirror enable type.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1815,7 +1819,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the enable attribute for mirror object</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1888,7 +1892,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API returns the a list of span objects as per object type.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1961,7 +1965,7 @@ SX_STATUS_DB_NOT_INITIALIZED if internal database is not initialized</dd></dl>
 </div><div class="memdoc">
 <p>This API sets the current UTC time in the device that is used to update timestamp in SPAN headers.</p>
 <p>Note: This API should not be used when PTP protocol is active and running. Note: UTC is also used for updating time stamp for ingress/egress packets to/from CPU.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2016,7 +2020,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API binds a policer to a SPAN session. The policer must be defined as a SPAN session policer.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2072,7 +2076,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API returns the policer ID bound to the provided SPAN session ID. When no policer is bound, the API will return SX_STATUS_ENTRY_NOT_FOUND and policer_id_p will be set to SX_POLICER_ID_INVALID.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2119,7 +2123,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the SPAN attributes.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2176,7 +2180,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the port label that appears in mirror header for a port. Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>This API sets the port label that appears in mirror header for a port. Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2235,7 +2239,7 @@ SX_STATUS_PARAM_NULL if any input parameter is NULL. Note - currently, only mirr
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the port label that appears in mirror header for a port. Supported devices: Spectrum, Spectrum2, Spectrum3. Note - Only GET access command is supported.</p>
+<p>This API gets the port label that appears in mirror header for a port. Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4. Note - Only GET access command is supported.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2257,11 +2261,159 @@ SX_STATUS_PARAM_NULL if any input/output parameter is NULL. Note - currently, on
 
 </div>
 </div>
+<a id="a1ec918edd8a566f6ab511e56ffbebf77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ec918edd8a566f6ab511e56ffbebf77">&#9670;&nbsp;</a></span>sx_api_span_mirror_enable_port_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_span_mirror_enable_port_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_span_mirror_enable_port_set_t *&#160;</td>
+          <td class="paramname"><em>mirror_enable_cfg_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>mirror_enable_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API configures conditional mirroring on a number of ports. This configuration is supported on a per mirror trigger on either elephant or none-elephant flow, per port basis.</p>
+<p>Supported devices: Spectrum4.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET/UNSET: per mirror trigger on either elephant or non-elephant flow, UNSET would remove the previous user settings. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mirror_enable_cfg_list_p</td><td>- conditional mirroring configurations of the specific port(s) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">mirror_enable_cnt_p</td><td>- number of specific ports to be configured</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR if unexpected behavior occurs </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
+
+</div>
+</div>
+<a id="afb9c6331869572be22fc272163303525"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb9c6331869572be22fc272163303525">&#9670;&nbsp;</a></span>sx_api_span_mirror_enable_port_iter_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_span_mirror_enable_port_iter_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_span_mirror_enable_port_iter_filter_t *&#160;</td>
+          <td class="paramname"><em>filter_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_span_mirror_enable_port_set_t *&#160;</td>
+          <td class="paramname"><em>mirror_enable_cfg_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>mirror_enable_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API returns the a list of configurations of mirror triggers on either elephant or non-elephant flow, on specific or serials of ports configured by users.</p>
+<p>Supported devices: Spectrum4.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- supported commands:GET/GET_FIRST/GETNEXT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- the specific logical port to be fetched as a key </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- reserved </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">mirror_enable_cfg_list_p</td><td>- return list of objects </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">mirror_enable_cnt_p</td><td>- [in] number of objects to get (when object_cnt_p=0 will get number of all valid objects per type) [out] number of objects retrieved</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if any input parameter is NULL </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in database </dd>
+<dd>
+SX_STATUS_ERROR if unexpected behavior occurs </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if invalid cmd is passed </dd>
+<dd>
+SX_STATUS_DB_NOT_INITIALIZED if internal database is not initialized</dd></dl>
+<p>The following use case scenarios apply with different input parameters. X = don't-care.</p><ul>
+<li>1) cmd = SX_ACCESS_CMD_GET, key = log_port, filter = X, list = X, count = 0: In this case, the API will return the total number of mirror enabled object count from internal database.</li>
+<li>2) cmd = SX_ACCESS_CMD_GET, key = log_port, filter = X, list = Valid, count = 1: In this case, the API will check if the specified key exists. If it does, the key will be returned in the list along with a count of 1. If the key does not exist, an empty list will be returned with count = 0.</li>
+<li>3) cmd = SX_ACCESS_CMD_GET, key = log_port, filter = X, list = valid, count &gt; 1: A count &gt; 1 will be treated as a count of 1 and the behaviour will be the same as earlier GET use cases.</li>
+<li>4) cmd = SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT, key = log_port, filter = X, list = NULL, count = 0: For either SX_ACCESS_CMD_GET_FIRST/SX_ACCESS_CMD_GETNEXT,a zero count will return an empty list.</li>
+<li><p class="startli">5) cmd = SX_ACCESS_CMD_GET_FIRST, key = log_port, filter = X, list = valid, count &gt; 0: In this case, the API will return the first mirror enabled object starting from the head of the database. The total elements fetched will be returned as the return count.</p>
+<p class="startli">Note: Return count may be less than or equal to the requested count. The key must have type the rest is dont-care but a non-NULL return list pointer must be provided.</p>
+</li>
+<li><p class="startli">6) cmd = SX_ACCESS_CMD_GETNEXT, key = log_port, filter = X, list = valid, count &gt; 0: In this case, the API will return the next set of conditional mirror configurations starting from the next valid log port after the specified key. The total elements fetched will be returned as the return count.</p>
+<p class="startli">Note: Return count may be less than or equal to the requested count. If no valid next counter exists in the database (key = end of list, or invalid key specified, or key too large), an empty list will be returned (returned count is zero). </p>
+</li>
+</ul>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 22 2022 07:15:43 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 5 2022 05:50:04 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

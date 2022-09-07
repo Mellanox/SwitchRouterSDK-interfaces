@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.4.3182</span>
+   &#160;<span id="projectnumber">4.5.3160</span>
    </div>
   </td>
  </tr>
@@ -113,6 +113,8 @@ Functions</h2></td></tr>
 <tr class="separator:af7f1841f9e865b353f5dc6742212b4a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d3627a7131f363300617de31f7edc3b"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a1d3627a7131f363300617de31f7edc3b">sx_api_acl_policy_based_switching_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_acl_pbs_id_t pbs_id, sx_acl_pbs_entry_t *pbs_entry_p)</td></tr>
 <tr class="separator:a1d3627a7131f363300617de31f7edc3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a229bbefb5716f2c4cda12238503236"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a9a229bbefb5716f2c4cda12238503236">sx_api_acl_policy_based_switching_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_swid_t swid, const sx_acl_pbs_id_t pbs_id_key, const sx_acl_pbs_filter_t *pbs_id_filter_p, sx_acl_pbs_id_t *pbs_id_list_p, uint32_t *pbs_id_cnt_p)</td></tr>
+<tr class="separator:a9a229bbefb5716f2c4cda12238503236"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1395c6e1613b712e9854f4e982ff8a62"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a1395c6e1613b712e9854f4e982ff8a62">sx_api_acl_l4_port_range_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_port_range_entry_t *l4_port_range_p, sx_acl_port_range_id_t *range_id_p)</td></tr>
 <tr class="separator:a1395c6e1613b712e9854f4e982ff8a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad1c17eb4b9b274fddb09c13f1514c289"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#ad1c17eb4b9b274fddb09c13f1514c289">sx_api_acl_l4_port_range_get</a> (const sx_api_handle_t handle, const sx_acl_port_range_id_t range_id, sx_acl_port_range_entry_t *l4_port_range_p)</td></tr>
@@ -123,10 +125,6 @@ Functions</h2></td></tr>
 <tr class="separator:a2700b896f2d6045890fd567e2ddf5fa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ef4198e307f8593b7d693f363297678"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a4ef4198e307f8593b7d693f363297678">sx_api_acl_range_get</a> (const sx_api_handle_t handle, const sx_acl_port_range_id_t range_id, sx_acl_range_entry_t *range_entry_p)</td></tr>
 <tr class="separator:a4ef4198e307f8593b7d693f363297678"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85de9c7f09f1494b0af588835ba5febb"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a85de9c7f09f1494b0af588835ba5febb">sx_api_acl_rules_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_region_id_t region_id, const sx_acl_rule_t *rules_list_p, const uint32_t rules_cnt)</td></tr>
-<tr class="separator:a85de9c7f09f1494b0af588835ba5febb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8a71f177218829d87debe98d4c399238"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a8a71f177218829d87debe98d4c399238">sx_api_acl_rules_get</a> (const sx_api_handle_t handle, const sx_acl_region_id_t region_id, const sx_acl_rule_offset_t start_offset, sx_acl_rule_t *rules_list_p, uint32_t *rules_cnt_p)</td></tr>
-<tr class="separator:a8a71f177218829d87debe98d4c399238"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae2d4dde1a42506c57445dedaa2934d7"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#aae2d4dde1a42506c57445dedaa2934d7">sx_api_acl_rule_activity_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_acl_region_id_t region_id, const sx_acl_rule_offset_t rule_offset, boolean_t *activity_p)</td></tr>
 <tr class="separator:aae2d4dde1a42506c57445dedaa2934d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a022e95843912425808dcbb26058e6c5f"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a022e95843912425808dcbb26058e6c5f">sx_api_acl_rule_block_move_set</a> (const sx_api_handle_t handle, const sx_acl_region_id_t region_id, const sx_acl_rule_offset_t block_start, const sx_acl_size_t block_size, const sx_acl_rule_offset_t new_block_start)</td></tr>
@@ -183,6 +181,8 @@ Functions</h2></td></tr>
 <tr class="separator:adfb5216bf594357e8c6067bebd65d511"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa14ff3de7ade2aa6f5af206fda62fa26"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#aa14ff3de7ade2aa6f5af206fda62fa26">sx_api_acl_flex_rules_priority_set</a> (const sx_api_handle_t handle, const sx_acl_region_id_t region_id, const sx_flex_acl_rule_priority_t min_priority, const sx_flex_acl_rule_priority_t max_priority, const int32_t priority_change)</td></tr>
 <tr class="separator:aa14ff3de7ade2aa6f5af206fda62fa26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c96c801de30c35d6dabeefb4e163479"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__acl_8h.html#a5c96c801de30c35d6dabeefb4e163479">sx_api_acl_activity_notify</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flex_acl_activity_notify_attr_t *activity_attr_p)</td></tr>
+<tr class="separator:a5c96c801de30c35d6dabeefb4e163479"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="aadfc89bd1ed719720aef093a6d27aef0"></a>
@@ -223,7 +223,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API sets the log verbosity level of the ACL module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -277,7 +277,7 @@ SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE Any
       </table>
 </div><div class="memdoc">
 <p>This API gets the log verbosity level of the ACL module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -346,7 +346,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to create an ACL region (rules list).</p>
 <p>CREATE is used to create a new region and takes the key_type and region size as input. Region ID is returned upon successful creation. DESTORY is used to destroy an existing region. The ACL region must not be bound to any ACL rules. EDIT is used for resizing an existing ACL region. acl_region_id and new size should be provided.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -414,7 +414,7 @@ SX_STATUS_CMD_UNSUPPORTED Command is unsupported </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to get an ACL region's properties.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -484,13 +484,14 @@ SX_STATUS_ENTRY_NOT_FOUND Entry is not found in database </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to create a single region ACL.</p>
 <p>CREATE is used for creating a new ACL. It will return an ACL ID upon successful creation. DESTROY may be used to destroy the ACL when it is not bound to the hardware.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Note: If an ACL is created with the SX_ACL_DIRECTION_MULTI_POINTS_E direction, the user must set the ACL direction bitmap (acl_attributes.multi_direction.acl_direction_bitmap) of the desired directions using the sx_api_acl_attributes_set API prior to any other API operations (for example, setting it to an ACL group, adding rules to the bound ACL region).</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/DESTROY </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">acl_type</td><td>- ACL type of this ACL (only AGNOSTIC type is currently supported) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">acl_direction</td><td>- ACL direction (ingress or egress port or ingress or egress RIF ACL) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acl_direction</td><td>- ACL direction </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">acl_region_group_p</td><td>- ACL region group matching ACL type </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">acl_id_p</td><td>- ACL ID, as described above</td></tr>
   </table>
@@ -552,7 +553,7 @@ SX_STATUS_CMD_UNSUPPORTED Command provided is unsupported </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to get an ACL's attributes. It takes an input of an ACL ID and returns the attributes of that ACL (i.e., the ACL type and a list of attached regions). The length of the regions list depends on the ACL type.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -621,7 +622,7 @@ SX_STATUS_ENTRY_NOT_FOUND Entry is not found in database </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets a list of valid ACL IDs.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -690,7 +691,8 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to set the attributes of an ACL.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Note: The ACL direction bitmap of an ACL can be set only once and cannot be changed. To change other attributes, the user can pass an empty bitmap (bitmap = 0) or exactly the same that has been set already. Note: The ACL direction bitmap can contain any combinations of ACL directions as long as each one of the used ACL keys is supported in all selected directions.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -740,7 +742,7 @@ SX_STATUS_CMD_UNSUPPORTED Command is unsupported </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to retrieve the attributes of an ACL.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -788,7 +790,7 @@ SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_NULL Any input parameter is invalid </d
 </div><div class="memdoc">
 <p>This API is used to set certain global attributes of the ACL module.</p>
 <p>Note: Enabling certain functionality may require enabling both the global and individual attributes. Use sx_api_acl_attributes_set to set individual attributes.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -831,7 +833,7 @@ SX_STATUS_CMD_UNSUPPORTED Command is unsupported </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to retrieve the global attributes of the ACL module.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -896,12 +898,13 @@ SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_NULL Any input parameter is invalid </d
 </div><div class="memdoc">
 <p>This API is used for controlling ACL groups. Allows to create a liked list of ACL blocks up to the size of SX_ACL_MAX_ACL_GROUP_SIZE.</p>
 <p>CREATE is used to create a new group with a specified group direction and returns new group ID. SET is used to add a list of ACLs to the group. The ACLs need to be in the same direction as the group. DESTROY is used to destroy the ACL group. This can be done only if the ACL group is not bound to the hardware.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Note: SX_ACL_DIRECTION_MULTI_POINTS_E ACL groups are not supported. Note: An ACL that has the SX_ACL_DIRECTION_MULTI_POINTS_E direction cannot be added to an ACL group until the ACL direction bitmap is set. Note: Every ACL that is being set to the group should either have the same direction as the group or if the ACL has MULTI-POINTS direction, then ACL's direction bitmap should include the group's direction.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/SET/DESTROY </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">acl_direction</td><td>- ACL group direction (all ACLs in this group must have the same direction) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">acl_direction</td><td>- ACL group direction </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">acl_id_list_p</td><td>- Ordered list of ACL IDs (ignored when using the command CREATE or DESTROY) </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">acl_id_cnt</td><td>- Number of elements in the list of ACL IDs (ignored when using the command CREATE or DESTROY) </td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">group_id</td><td>- ACL group ID</td></tr>
@@ -965,7 +968,7 @@ SX_STATUS_CMD_UNSUPPORTED Command is unsupported </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to get the properties of a provided group ID.</p>
 <p>Note: If the supplied acl_id_count is 0, the command only retrieves a count of the ACLs.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1034,7 +1037,7 @@ SX_STATUS_ENTRY_NOT_FOUND Entry is not found in database </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets a list of valid ACL group IDs.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1104,7 +1107,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to set the attributes of an ACL group. After the ACL group is created by sx_api_acl_group_set API, it is possible to set a priority to the ACL group. The default group priority is FLEX_ACL_GROUP_PRIORITY_DEFAULT. When binding multiple ACL groups to a port, the groups will be ordered according to their priority. Setting priority of a group that is already bound does not take effect on previously bound groups.</p>
 <p>Note: Priority values range is FLEX_ACL_GROUP_PRIORITY_MIN to FLEX_ACL_GROUP_PRIORITY_MAX.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1156,7 +1159,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to get the attributes of a given ACL group.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1219,7 +1222,7 @@ SX_STATUS_ERROR General error </dd></dl>
 <p>This API adds/edits/deletes a policy based switching (PBS) set. A PBS entry can be later bound to an ACL rule in order to specify destination port/port group (multicast) or send the frame to the router block.</p>
 <p>ADD creates a PBS entry.</p>
 <p>Note: this operation may fail if no hardware resources are available. PBS entry can be created without ports in order to ensure future hardware resource availability. Use the commands ADD_PORTS and DELETE_PORTS to edit an existing PBS entry and to add or delete ports. Note: A unicast entry can have only 1 port. Use the DELETE command to clear a PBS record (not allowed when this record is in use by ACL rules).</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1294,7 +1297,7 @@ SX_STATUS_INVALID_HANDLE Invalid handle error </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to get a PBS set or to get the number of ports in a PBS set.</p>
 <p>Note: For the GET command, the pbs_entry.log_ports should be pre-allocated and the pbs_entry.port_num should be set to the maximum number of ports to be retrieved.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1316,6 +1319,93 @@ SX_STATUS_SXD_RETURNED_NON_ZERO Hardware failure </dd>
 SX_STATUS_CMD_UNSUPPORTED Unsupported command </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE Invalid handle error </dd></dl>
+
+</div>
+</div>
+<a id="a9a229bbefb5716f2c4cda12238503236"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a229bbefb5716f2c4cda12238503236">&#9670;&nbsp;</a></span>sx_api_acl_policy_based_switching_iter_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_policy_based_switching_iter_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_swid_t&#160;</td>
+          <td class="paramname"><em>swid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_pbs_id_t&#160;</td>
+          <td class="paramname"><em>pbs_id_key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_acl_pbs_filter_t *&#160;</td>
+          <td class="paramname"><em>pbs_id_filter_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_acl_pbs_id_t *&#160;</td>
+          <td class="paramname"><em>pbs_id_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>pbs_id_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API gets a list of one or more PBS set object IDs.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_NEXT/GET_FIRST </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- SWID of the PBS entry </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pbs_id_key</td><td>- PBS entry ID to use as pbs_id_key for GET and GET_NEXT commands </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pbs_id_filter_p</td><td>- Filter the entries retrieved based on entry type. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">pbs_id_list_p</td><td>- Pointer to the list of PBS IDs returned </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">pbs_id_cnt_p</td><td>- [in] number of entries to retrieve /[out] number of entries retrieved.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Input/Output Types</p><ul>
+<li>GET_FIRST - Gets a list of first N entries. The command should be SX_ACCESS_CMD_GET_FIRST and count should be equal to N (pbs_id_key is irrelevant in this case). Returns the number of entries retrieved via pbs_id_cnt_p.</li>
+<li>GET_NEXT - Gets N entries after a specified pbs_id_key (it does not have to exist). The command should be SX_ACCESS_CMD_GETNEXT. The value of pbs_id_cnt_p should be equal to N. Returns the number of entries retrieved via pbs_id_cnt_p.</li>
+<li>GET - Gets a specific entry. The command should be SX_ACCESS_CMD_GET and the value of pbs_id_cnt_p should be 1. Setting the input value of pbs_id_cnt_p is 0 returns the total count of the PBS IDs available.</li>
+<li>filter - If a valid filter value is provided, the above commands will return PBS IDs that match the filter only. If none match, the API will succeed with a return count of 0 and an empty list.</li>
+</ul>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR Any parameter is in error </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED Command is not supported </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE Handle is invalid </dd>
+<dd>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1356,34 +1446,6 @@ SX_STATUS_INVALID_HANDLE Invalid handle error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API adds/edits/deletes a Layer 4 port range comparison set (up to SX_ACL_MAX_PORT_RANGES).</p>
-<p>ADD command is used to create a new range ID from the supplied port range. EDIT command is used to update the port range of the supplied range ID. DELETE command is used to clear the range configuration. This will fail if the range is being used by an ACL.</p>
-<p>Note: SX_ACL_PORT_RANGE_IP_HEADER_BOTH option for IP header type is not supported in Spectrum2 and Spectrum3 systems.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- ADD/EDIT/DELETE </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">l4_port_range</td><td>- Layer 4 port range comparison </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">range_id</td><td>- Port range comparison ID</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
-<dd>
-SX_STATUS_MESSAGE_SIZE_ZERO Message size error </dd>
-<dd>
-SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT Message size error </dd>
-<dd>
-SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE Any input parameter is invalid </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND ACL element is not found in database </dd>
-<dd>
-SX_STATUS_SXD_RETURNED_NON_ZERO Hardware failure </dd>
-<dd>
-SX_STATUS_CMD_UNSUPPORTED Command is unsupported </dd>
-<dd>
-SX_STATUS_INVALID_HANDLE Invalid handle error </dd></dl>
 
 </div>
 </div>
@@ -1419,7 +1481,7 @@ SX_STATUS_INVALID_HANDLE Invalid handle error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to get the properties of a L4 port range comparison set.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1494,7 +1556,7 @@ SX_STATUS_INVALID_HANDLE Invalid handle error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets a list of ACL L4 port range IDs.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -1565,7 +1627,7 @@ SX_STATUS_ERROR General error </dd></dl>
 <p>This API adds/edits/deletes a range comparison set (up to SX_ACL_MAX_PORT_RANGES). Supported range comparisons: L4 Port, IP length, TTL, Custom Bytes, and UTC.</p>
 <p>ADD command is used to write given range into a group and have their IDs returned. EDIT command is used to set the given range into a given range ID. DELETE command is used to clear the configuration of a given range ID.</p>
 <p>Note: SX_ACL_PORT_RANGE_IP_HEADER_BOTH option for IP header type is not supported on Spectrum2 and Spectrum3 systems. Note: At a given time, no more than 2 Custom Bytes ranges can be used.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1629,7 +1691,7 @@ SX_STATUS_INVALID_HANDLE Invalid handle error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to get a range comparison set.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1651,144 +1713,6 @@ SX_STATUS_ENTRY_NOT_FOUND ACL element is not found in database </dd>
 SX_STATUS_SXD_RETURNED_NON_ZERO Hardware failure </dd>
 <dd>
 SX_STATUS_INVALID_HANDLE Invalid handle error </dd></dl>
-
-</div>
-</div>
-<a id="a85de9c7f09f1494b0af588835ba5febb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85de9c7f09f1494b0af588835ba5febb">&#9670;&nbsp;</a></span>sx_api_acl_rules_set()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_acl_rules_set </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_access_cmd_t&#160;</td>
-          <td class="paramname"><em>cmd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_acl_region_id_t&#160;</td>
-          <td class="paramname"><em>region_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_acl_rule_t *&#160;</td>
-          <td class="paramname"><em>rules_list_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint32_t&#160;</td>
-          <td class="paramname"><em>rules_cnt</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_api_acl_flex_rules_set in its place.</dd></dl>
-<p>This API is used for inserting rules into an ACL region. Inserting rules is allowed before and after bind operation. Rule is inserted to an explicit offset, overriding existing rule on that offset. Rules must have the same key type as the ACL region.</p>
-<p>Note: When in 802.1D mode, provide a bridge_id instead of providing a vid(Vlan ID) in rules[].key.fields.key_type.vid (if present in the key_type) and rules[].mask.fields.key_type.vid (if present) and rules[].action.basic_action.vid (if present).</p>
-<p>Supported devices: SwitchX, SwitchX2.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET/DELETE </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">region_id</td><td>- ACL region ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">rules_p</td><td>- Representation of rule content (should be in size of num_of_rules) </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">num_of_rules</td><td>- Number of rules to configure (number of elements in the array)</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
-<dd>
-SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE Any input parameter is invalid </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND ACL element is not found in database </dd>
-<dd>
-SX_STATUS_NO_RESOURCES No more space for rules </dd>
-<dd>
-SX_STATUS_SXD_RETURNED_NON_ZERO Hardware failure </dd>
-<dd>
-SX_STATUS_CMD_UNSUPPORTED Command is unsupported </dd></dl>
-
-</div>
-</div>
-<a id="a8a71f177218829d87debe98d4c399238"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a71f177218829d87debe98d4c399238">&#9670;&nbsp;</a></span>sx_api_acl_rules_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_acl_rules_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_acl_region_id_t&#160;</td>
-          <td class="paramname"><em>region_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_acl_rule_offset_t&#160;</td>
-          <td class="paramname"><em>start_offset</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_acl_rule_t *&#160;</td>
-          <td class="paramname"><em>rules_list_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t *&#160;</td>
-          <td class="paramname"><em>rules_cnt_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000002">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_api_acl_flex_rules_get in its place.</dd></dl>
-<p>This API is used for getting rules of an ACL block.</p>
-<p>Note: When in 802.1D mode, bridge_id's are provided instead of receiving a vid (VLAN ID) on rules[].key.fields.key_type.vid, rules[].mask.fields.key_type.vid, and rules[].action.basic_action.vid.</p>
-<p>Supported devices: SwitchX, SwitchX2.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">region_id</td><td>- ACL region ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">start_offset</td><td>- Start offset within the region </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">rules_p</td><td>- Pointer to representation of rule content (should be in size of num_of_rules) </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">num_of_rules</td><td>- [IN] number of rules to get (number of elements in the array)/ [OUT] number of rules that were actually read from ACL table</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
-<dd>
-SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE Any input parameter is invalid </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND ACL element is not found in database </dd>
-<dd>
-SX_STATUS_SXD_RETURNED_NON_ZERO Hardware failure requested </dd></dl>
 
 </div>
 </div>
@@ -1837,7 +1761,7 @@ SX_STATUS_SXD_RETURNED_NON_ZERO Hardware failure requested </dd></dl>
 </div><div class="memdoc">
 <p>This API is used for getting and/or clearing the activity of a specific rule.</p>
 <p>Note: If the region is not bound, activity_p is invalid.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1902,7 +1826,7 @@ SX_STATUS_SXD_RETURNED_NON_ZERO Hardware failure </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used for moving a block of rules within an ACL region. Moving is allowed before and after ACL bind. Moving a block does not affect search hits, but may override existing rules if such exist on the new block location. Non-valid rules within the block are moved as well.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1963,8 +1887,8 @@ SX_STATUS_SXD_RETURNED_NON_ZERO Hardware failure </dd></dl>
 <p>This API is used to bind/unbind an ACL or an ACL group to a port (or LAG). Binding more than one ACL to port may be achieved by using ACL groups.</p>
 <p>BIND command is used for binding a single ACL or a single ACL group to a port. UNBIND command will clear port binding, even if there are multiple ACL groups which are bound to the port. ADD command can be used to bind additional ACL groups (not ACLs) to the port. In this case, the order of group execution is determined by the group priority, set by sx_api_acl_group_attributes_set API. DELETE command can be used to remove an ACL group from multiple ACL groups bound to the port/LAG.</p>
 <p>Binding to L2 tunnel ports is supported in this API as well. Spectrum systems support NVE port binding by providing the NVE logical port. Spectrum support is a virtual binding to the NVE decap table, where ADD and DELETE commands are not supported. Spectrum2 support for L2 tunnel port binding has API support like any other port binding. In order to bind L2 tunnel port, the appropriate logical port and an ACL group with one of the directions SX_ACL_DIRECTION_TPORT_INGRESS or SX_ACL_DIRECTION_TPORT_EGRESS should be provided.</p>
-<p>Note: ADD and DELETE commands support binding of ACL groups only. Note: Binding or adding groups may fail if there are insufficient resources in hardware.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Note: ADD and DELETE commands support binding of ACL groups only. Note: Binding or adding groups may fail if there are insufficient resources in hardware. Note: An ACL that has the SX_ACL_DIRECTION_MULTI_POINTS_E direction cannot be bound to a port directly, instead the user has to create an ACL group, add the ACL into it, and then bind this ACL group to a port.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2026,7 +1950,8 @@ SX_STATUS_CMD_UNSUPPORTED Command is unsupported </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to get the ACL ID of an ACL table or ACL group which is bound to a specific port. When multiple groups are bound to a port, this API will return the highest priority group. To retrieve multiple bindings, it is recommended to use the sx_api_acl_port_bindings_get API.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Note: The acl_direction cannot be set to the SX_ACL_DIRECTION_MULTI_POINTS_E direction.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2089,7 +2014,8 @@ SX_STATUS_ENTRY_NOT_FOUND Port is not bound </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to retrieve the ACL IDs/groups bound to a specific port. Since multiple groups may be bound to a port, the caller of this API is responsible of providing an allocated array for getting the ACL IDs.</p>
 <p>If the API is called with acl_id_p parameter set to NULL or *acl_cnt_p set to 0, it will return the actual number of ACL IDs bound to this port.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Note: The acl_direction cannot be set to the SX_ACL_DIRECTION_MULTI_POINTS_E direction.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2160,7 +2086,7 @@ SX_STATUS_ENTRY_NOT_FOUND Port is not bound </dd></dl>
 <p>This API is used for controlling mapping of VLANs into VLAN groups for ACL binding.</p>
 <p>CREATE command is used for creating a new group, will return a free group ID ADD/DELETE commands are used to control mapping of SWID and VID to an existing VLAN group DESTROY command is used to free a VLAN group resource</p>
 <p>Note: This API is only valid when in 802.1Q mode.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -2229,7 +2155,7 @@ SX_STATUS_CMD_UNSUPPORTED Command is unsupported </dd></dl>
 </div><div class="memdoc">
 <p>This API is used for getting the current mapping of VLANs into VLAN groups for ACL binding. The vlan_list parameter are arrays at the size of vlan_num which is filled by this. The actual size is then returned as output.</p>
 <p>Note: This API is only valid when in 802.1Q mode.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2289,8 +2215,8 @@ SX_STATUS_CMD_UNSUPPORTED 802.1D mode is enabled </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to bind/unbind an ACL or an ACL group to a VLAN group. Binding more than one ACL to the VLAN group may be achieved by using ACL groups.</p>
 <p>BIND command is used for binding a single ACL or a single ACL group to a VLAN group. UNBIND command will clear the VLAN group binding, even if there are multiple ACL groups which are bound to the VLAN group. ADD command can be used to bind multiple ACL groups to the VLAN group. In this case, the order of group execution is determined by the group priority, set by sx_api_acl_group_attributes_set API. DELETE command can similarly be used to remove an ACL group from multiple ACL groups bound to a VLAN group.</p>
-<p>Note: ADD and DELETE commands support binding of ACL groups only. Note: Binding or adding groups may fail if there are insufficient resources in hardware. Note: When in 802.1D mode instead of providing a VLAN group, a bridge_id should be used.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Note: ADD and DELETE commands support binding of ACL groups only. Note: Binding or adding groups may fail if there are insufficient resources in hardware. Note: When in 802.1D mode instead of providing a VLAN group, a bridge_id should be used. Note: An ACL that has the SX_ACL_DIRECTION_MULTI_POINTS_E direction cannot be bound to a VLAN group directly, instead the user has to create an ACL group, add the ACL into it, and then bind this ACL group to a VLAN group.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2352,8 +2278,8 @@ SX_STATUS_CMD_UNSUPPORTED Command is unsupported </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to get the ACL ID of an ACL table or an ACL group which is bound to a specific VLAN group. When multiple ACLs are bound to the VLAN group, this API will only return the one carrying the highest priority. To retrieve multiple bindings, use sx_api_acl_vlan_group_bindings_get.</p>
-<p>Note: When in 802.1D mode, instead of providing a VLAN group, a bridge_id should be used.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Note: When in 802.1D mode, instead of providing a VLAN group, a bridge_id should be used. Note: The acl_direction cannot be set to the SX_ACL_DIRECTION_MULTI_POINTS_E direction.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2416,7 +2342,8 @@ SX_STATUS_ENTRY_NOT_FOUND VLAN group is not bound </dd></dl>
 </div><div class="memdoc">
 <p>This API allows getting ACL IDs bound to a specific VLAN group. Since multiple groups may be bound to a VLAN group, the caller of this API is responsible of providing an allocated array for getting the ACL IDs.</p>
 <p>If this API is called with acl_id_p parameter set to NULL or *acl_cnt_p set to 0, it will return the actual number of ACL IDs bound to this VLAN group.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Note: The acl_direction cannot be set to the SX_ACL_DIRECTION_MULTI_POINTS_E direction.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2467,7 +2394,7 @@ SX_STATUS_ENTRY_NOT_FOUND Port is not bound </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API returns attributes of the flexible ACL key.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2528,7 +2455,7 @@ SX_STATUS_ENTRY_NOT_FOUND Key handle is wrong </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to create/delete a flexible ACL key. A flexible ACL key is a combination of hardware predefined key blocks. The key blocks themselves are composed of several filters and the smallest possible set of key blocks will be chosen by the SCP algorithm that encompasses all the keys specified by the API. Key creation is a pure database operation. The maximum number of keys is equal to the maximum number of regions.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2587,7 +2514,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API returns the list of filters included in the flexible key. The user is responsible for a memory management of the filters list.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2659,7 +2586,8 @@ SX_STATUS_ENTRY_NOT_FOUND Key handle is not found in the database </dd></dl>
 <li>SX_FLEX_ACL_ACTION_EGRESS_MIRROR or SX_FLEX_ACL_ACTION_MIRROR</li>
 <li>SX_FLEX_ACL_ACTION_TRAP or SX_FLEX_ACL_ACTION_TRAP_W_USER_ID Using multiple FORWARD or multiple MIRROR commands, or a combination where there is more than one of any of the above will return PARAM_ERROR.</li>
 </ul>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Note: Rules cannot be added to an ACL region, if the ACL region is bound to an ACL that has the SX_ACL_DIRECTION_MULTI_POINTS_E direction and the the ACL direction bitmap is not set.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2732,7 +2660,7 @@ SX_STATUS_NO_RESOURCES No more space for rules; cannot allocate space for all ac
 <p>If the API is called with key_desc_list_p and action_list_p parameter of each of the rules in rules_list_p set to NULL, but offset_list_p array is filled with non-zero values, it will return the actual number of keys and actions for each valid rule according to the offset, which is defined in offset_list_p. In this case the offset list should be filled with offsets of the rules which are valid.</p>
 <p>If the API is called with key_desc_list_p and action_list_p parameter of each of the rules in rules_list_p set to non-NULL, it is assumed that rule structs are allocated for all rules in the list. It is also assumed that offset_list_p is filled with real offsets of the rules in the same order as in the rules list.</p>
 <p>When calling the API, the key_desc_count and action_count of each sx_flex_acl_flex_rule_t should contain number of allocated items. Upon API return, these parameters will contain actual number of items. The offset list should contain offsets of valid rules only.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2790,8 +2718,8 @@ SX_STATUS_PARAM_ERROR Invalid parameter </dd></dl>
 </div><div class="memdoc">
 <p>This API is used to bind/unbind an ACL or an ACL group to a RIF. Binding more than one ACL to a RIF may be achieved by using ACL groups.</p>
 <p>BIND command is used for binding a single ACL or a single ACL group to a RIF. UNBIND command clears RIF binding, even if there are multiple ACL groups bound to the RIF. ADD command can be used to bind additional groups to the RIF. In this case, the order of group execution is determined by the group priority, as set by sx_api_acl_group_attributes_set API. DELETE command can be used to remove an ACL group from multiple ACL groups bound RIF.</p>
-<p>Note: ADD and DELETE commands support binding of ACL groups only. Note: Binding or adding groups may fail if there are insufficient resources in hardware.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Note: ADD and DELETE commands support binding of ACL groups only. Note: Binding or adding groups may fail if there are insufficient resources in hardware. Note: An ACL that has the SX_ACL_DIRECTION_MULTI_POINTS_E direction cannot be bound to a RIF directly, instead the user has to create an ACL group, add the ACL into it, and then bind this ACL group to a RIF.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2851,7 +2779,8 @@ SX_STATUS_ERROR Operation cannot be completed </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to get the ACL or ACL group ID that is bound to the RIF. When multiple ACLs are bound to the RIF, this API will only return the one carrying the highest priority. To retrieve multiple bindings, it is recommended to use the sx_api_acl_rif_bindings_get API instead.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Note: The acl_direction cannot be set to the SX_ACL_DIRECTION_MULTI_POINTS_E direction.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2913,7 +2842,8 @@ SX_STATUS_PARAM_ERROR Invalid parameter </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API allows getting ACL IDs bound to a specific RIF. Since multiple groups may be bound to a RIF, the caller of this API is responsible of providing a pre-allocated array for getting the ACL IDs and priority group. If the API is called with acl_id_p parameter set to NULL or *acl_cnt_p set to 0, it will return the actual number of ACL IDs bound to this RIF.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Note: The acl_direction cannot be set to the SX_ACL_DIRECTION_MULTI_POINTS_E direction.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -2970,7 +2900,7 @@ SX_STATUS_ENTRY_NOT_FOUND RIF is not bound </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>Upon ACL module initialization, the parallel ACL search type can be chosen. This API is used to support this feature by linking one ACL group to another. Their relation could be described as "one directional linked list" where the second group is next to the first one. Only the head of the list of groups is allowed to be bound to port/VLAN/RIF. The other linked groups will be bound automatically. An attempt to bind explicitly any group besides the head will cause an error. In parallel operation, the actions of the ACL are not applied immediately, so each ACL rule will act upon the original packet.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3020,7 +2950,7 @@ SX_STATUS_PARAM_ERROR Invalid parameter </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API returns the next ACL group bound to the given group. This API is usually to be used when the ACL module was initialized to work in parallel mode.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3081,9 +3011,9 @@ SX_STATUS_PARAM_ERROR Invalid parameter </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>The API is used to manipulate a port list container.</p>
-<p>CREATE creates a new container with the specified list of logical ports and returns its new container ID in port_list_id_p. SET replaces the contents of an existing container specified by port_list_id_p with the specified list of logical ports in port_list_p. DESTROY deletes an existing container specified by port_list_id_p.</p>
-<p>Note: A port list in use (e.g., by an ACL key) cannot be destroyed or modified. Note: A container may contain, at most, RM_API_ACL_PORT_LIST_MAX logical ports. Note: A container may contain only Ethernet logical ports and not LAG ports.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>CREATE creates a new container with the specified list of logical/tunnel ports and returns its new container ID in port_list_id_p. SET replaces the contents of an existing container specified by port_list_id_p with the specified list of logical/tunnel ports in port_list_p. DESTROY deletes an existing container specified by port_list_id_p.</p>
+<p>Note: A port list in use (e.g., by an ACL key) cannot be destroyed or modified. Note: A container may contain, at most, RM_API_ACL_PORT_LIST_MAX logical ports. Note: A container may contain either Ethernet logical ports or Tunnel logical ports but not both. LAG ports are not supported.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3145,7 +3075,7 @@ SX_STATUS_RESOURCE_IN_USE Group is in use and cannot be destroyed </dd></dl>
 </div><div class="memdoc">
 <p>Retrieve information about a port list container specified by port_list_id.</p>
 <p>Note: *port_list_cnt should contain the maximum amount of logical ports to retrieve. Note: If port_list_p is NULL, then port_list_p are not retrieved at all. In this case, port_list_cnt will contain the actual number if ports in the port list.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3197,7 +3127,7 @@ SX_STATUS_ENTRY_NOT_FOUND Specified container does not exist or there are no mor
       </table>
 </div><div class="memdoc">
 <p>This API is used to get ACL region hardware size.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3259,7 +3189,7 @@ SX_STATUS_PARAM_NULL, SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE Any
 </div><div class="memdoc">
 <p>This API creates and deletes a Custom Bytes Set. Currently only 4-bytes sets are supported. Returned value is a set of key IDs from sx_acl_key_t space. Each byte in the custom bytes set is accessed as a separate ACL key in the FLEX_ACL_CUSTOM_BYTES_START to FLEX_ACL_CYSTOM_BYTE_LAST range. The custom bytes extraction points are a predefined set of extraction points based on the protocol of interest. The key IDs returned by this API can then be used to create a Flex ACL key.</p>
 <p>CREATE should have an array of SDK key IDs provided. If the first key ID in the list is zero (FLEX_ACL_KEY_INVALID) or any other value not in the range FLEX_ACL_KEY_CUSTOM_BYTES_START to FLEX_ACL_KEY_CUSTOM_BYTES_LAST, the custom bytes set is allocated by the software as the first free one. If the first key ID in the list belongs to the range FLEX_ACL_KEY_CUSTOM_BYTES_START to FLEX_ACL_KEY_CUSTOM_BYTES_LAST, it identifies the custom bytes that were set to be allocated. If the custom bytes set is already allocated, the software allocates the first free set. For example, key IDs which were allocated once and destroyed afterwards may be submitted to the CREATE operation in order to get the same key IDs in case they are still free. DESTROY only uses the first key to identify the destroyed set.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3314,7 +3244,7 @@ SX_STATUS_RESOURCE_IN_USE Group is in use and cannot be destroyed </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API returns extraction point parameters of the existing custom bytes set.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3372,7 +3302,7 @@ SX_STATUS_ENTRY_NOT_FOUND Specified container does not exist or there are no mor
 </div><div class="memdoc">
 <p>This API adds/edits/deletes a policy based ILM (PBILM). PBILM entry can be later bound to an ACL rule in order to specify an MPLS ECMP that will encapsulate the packet with MPLS labels and send it to RIF. It can also send the frame to IP or ILM lookup.</p>
 <p>CREATE is used to create a PBILM entry which can be changed when needed by SET (operation may fail if no hardware resources are available). DESTROY is used to remove the PBILM.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3432,7 +3362,7 @@ SX_STATUS_INVALID_HANDLE Invalid handle error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API is used to get a PBILM set or to count ports of a PBILM set. Ensure that the pbilm_entry is preallocated with the maximum number of ports to be retrieved.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3498,7 +3428,7 @@ SX_STATUS_INVALID_HANDLE Invalid handle error </dd></dl>
 </div><div class="memdoc">
 <p>This API is used for updating a set of priorities in the range (min_priority to max_priority) to priority + priority_change.</p>
 <p>Note:The priority can be changed only if there is no other rules between min priority + change to max priority + change (and the opposite if the priority_change &lt; 0 ).</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3517,11 +3447,61 @@ SX_STATUS_ENTRY_NOT_FOUND ACL element is not found in database </dd></dl>
 
 </div>
 </div>
+<a id="a5c96c801de30c35d6dabeefb4e163479"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c96c801de30c35d6dabeefb4e163479">&#9670;&nbsp;</a></span>sx_api_acl_activity_notify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_acl_activity_notify </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_flex_acl_activity_notify_attr_t *&#160;</td>
+          <td class="paramname"><em>activity_attr_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API triggers a notification of ACL rules activity. The application can listen for the SX_TRAP_ID_ACL_ACTIVITY Trap to get the data. The application can get multiple trap events per a notification procedure. If entry_cnt in trap event is 0, means it's the end of this notification procedure. If DDD is enabled, region id filtering is not allowed. In this case, will return SX_STATUS_PARAM_ERROR if filter_by_region_id is valid in activity_attr_p. Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ/READ_CLEAR </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">activity_attr</td><td>- Activity notifier attribute</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if parameter is invalid </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE if a notification procedure is already running. </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 22 2022 07:15:43 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 5 2022 05:50:03 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

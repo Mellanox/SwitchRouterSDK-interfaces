@@ -1,17 +1,17 @@
 /*
- *  Copyright (C) 2014-2021. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
- *    Licensed under the Apache License, Version 2.0 (the "License"); you may
- *    not use this file except in compliance with the License. You may obtain
- *    a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may
+ * not use this file except in compliance with the License. You may obtain
+ * a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
- *    THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
- *    CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
- *    LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
- *    FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+ * THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ * CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ * LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ * FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
  *
- *    See the Apache Version 2.0 License for specific language governing
- *    permissions and limitations under the License.
+ * See the Apache Version 2.0 License for specific language governing
+ * permissions and limitations under the License.
  *
  */
 
@@ -29,7 +29,7 @@
 /**
  * This API sets the log verbosity level of a LAG module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - Sets verbosity of API/MODULE/BOTH
@@ -48,7 +48,7 @@ sx_status_t sx_api_lag_log_verbosity_level_set(const sx_api_handle_t           h
 /**
  * This API gets the log verbosity level of a LAG module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - Gets verbosity of API/MODULE/BOTH
@@ -71,7 +71,7 @@ sx_status_t sx_api_lag_log_verbosity_level_get(const sx_api_handle_t           h
  * Note: All ports must be deleted from a LAG port groups before the group is destroyed.
  * Note: Creating a LAG group and adding ports to it in the same API call is not supported.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle             - SX-API handle
  * @param[in] cmd                - CREATE/DESTROY/ADD/DELETE
@@ -101,7 +101,7 @@ sx_status_t sx_api_lag_port_group_set(const sx_api_handle_t   handle,
  *
  * Note: If the output ports list is NULL, only the number of ports in the LAG is retrieved.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] swid                  - Switch (virtual partition) ID
@@ -155,7 +155,7 @@ sx_status_t sx_api_lag_port_group_get(const sx_api_handle_t  handle,
  *        Note: returned lag_id_cnt may be less than or equal to the requested lag_id_cnt. If no valid next LAG ID exists in
  *        the database, an empty list will be returned and a non-NULL lag_id_list pointer must be provided.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                  - SX-API handle
  * @param [in] cmd                    - GET/GET_FIRST/GET_NEXT
@@ -185,7 +185,7 @@ sx_status_t sx_api_lag_port_group_iter_get(const sx_api_handle_t  handle,
 /**
  * This API enables/disables collection on a specific LAG port.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] lag_log_port   - Logical port number representing the LAG's port group
@@ -208,7 +208,7 @@ sx_status_t sx_api_lag_port_collector_set(const sx_api_handle_t     handle,
 /**
  * This API returns information whether collection is enabled or disabled on a specific port in a LAG port.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] lag_log_port      - Logical port number representing the LAG's port group
@@ -230,7 +230,7 @@ sx_status_t sx_api_lag_port_collector_get(const sx_api_handle_t  handle,
 /**
  * This API enables/disables distribution on a specific LAG port.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] lag_log_port     - Logical port number representing the LAG's port group
@@ -252,7 +252,7 @@ sx_status_t sx_api_lag_port_distributor_set(const sx_api_handle_t       handle,
 /**
  * This API returns information whether distribution is enabled or disabled on a specific port in a LAG port.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle              - SX-API handle
  * @param[in] lag_log_port        - Logical port number representing the LAG's port group
@@ -274,7 +274,7 @@ sx_status_t sx_api_lag_port_distributor_get(const sx_api_handle_t  handle,
 /**
  * This API configures the flow indicators that impact the LAG hash distribution function.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  *  @param[in] handle               - SX-API handle
  *  @param[in] lag_hash_param_p     - Hash parameters
@@ -304,7 +304,7 @@ sx_status_t sx_api_lag_hash_flow_params_set(const sx_api_handle_t      handle,
  * Note: LAG hash parameters are configured per ingress port and impact egress LAG.
  * Note: In hash parameters, seed is global (i.e., the last configured seed will be used).
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                     - SX-API handle
  * @param[in] cmd                        - SET/ADD/DELETE
@@ -335,7 +335,7 @@ sx_status_t sx_api_lag_port_hash_flow_params_set(const sx_api_handle_t          
 /**
  * This API retrieves the flow indicators that impact the LAG hash distribution function.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle               - SX-API handle
  * @param[out] lag_hash_param_p    - Hash parameters retrieved
@@ -353,7 +353,9 @@ sx_status_t sx_api_lag_hash_flow_params_get(const sx_api_handle_t handle,
  * the number of fields / field enables.
  * Once this API is called sx_api_lag_hash_flow_params_get is disabled
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Note: This API supports port profile.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]     handle                       - SX-API handle
  * @param[in]     log_port                     - Local port
@@ -384,7 +386,7 @@ sx_status_t sx_api_lag_port_hash_flow_params_get(const sx_api_handle_t       han
  * Note: Redirect operation is valid only between 2 LAGs. A chain of redirected LAGs cannot be created.
  * Note: Redirect is a L2 action and is not valid for router ports.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] cmd                   - CREATE/DESTROY
@@ -407,7 +409,7 @@ sx_status_t sx_api_lag_redirect_set(const sx_api_handle_t  handle,
  * This API returns information stating whether a given LAG is redirected. For a LAG that was redirected, the LAG logical ID
  * is returned.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                     - SX-API handle
  * @param[in] lag_log_port               - LAG logical ID
@@ -429,7 +431,7 @@ sx_status_t sx_api_lag_redirect_get(const sx_api_handle_t  handle,
  * This API returns all the LAGs that are redirected to the given LAG.
  * Calling this API with lag_log_port_list_p=NULL will return the  number of LAGs redirected to lag_port.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                    - SX-API handle
  * @param[in] lag_log_port              - LAG logical ID
@@ -460,7 +462,7 @@ sx_status_t sx_api_lag_redirected_lags_get(const sx_api_handle_t  handle,
  * Note: In case the distribution list is not set, the hash will be done according to the LAG member ports.
  * Note: A port does not have to be a LAG member.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle       - SX-API handle
  * @param[in] access_cmd   - SET/ADD/DELETE/DELETE_ALL
@@ -489,7 +491,7 @@ sx_status_t sx_api_lag_distributer_list_set(const sx_api_handle_t             ha
 /**
  * This API retrieves a fine grained LAG distribution list and the fine grain LAG parameters.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle             - SX-API handle
  * @param[in] lag_log_port       - logical port number representing the LAG

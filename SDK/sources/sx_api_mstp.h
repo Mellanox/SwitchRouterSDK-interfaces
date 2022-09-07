@@ -1,17 +1,17 @@
 /*
- *  Copyright (C) 2014-2021. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
- *    Licensed under the Apache License, Version 2.0 (the "License"); you may
- *    not use this file except in compliance with the License. You may obtain
- *    a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may
+ * not use this file except in compliance with the License. You may obtain
+ * a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
- *    THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
- *    CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
- *    LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
- *    FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+ * THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ * CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ * LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ * FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
  *
- *    See the Apache Version 2.0 License for specific language governing
- *    permissions and limitations under the License.
+ * See the Apache Version 2.0 License for specific language governing
+ * permissions and limitations under the License.
  *
  */
 
@@ -29,7 +29,7 @@
 /**
  * This API sets the log verbosity level of MSTP module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of API/MODULE/BOTH
@@ -48,7 +48,7 @@ sx_status_t sx_api_mstp_log_verbosity_level_set(const sx_api_handle_t           
 /**
  *  This API gets the log verbosity level of MSTP module.
  *
- *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                    - SX-API handle
  * @param[in] verbosity_target          - Get verbosity of API/MODULE/BOTH
@@ -68,7 +68,7 @@ sx_status_t sx_api_mstp_log_verbosity_level_get(const sx_api_handle_t           
  * This API sets the switch STP activation mode (RSTP/MSTP/PVRST) on the SDK. As a result, the mapping between
  * instance(s) to VLAN(s) is deleted.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle  - SX-API handle
  * @param[in] swid    - Switch ID
@@ -92,7 +92,7 @@ sx_status_t sx_api_mstp_mode_set(const sx_api_handle_t handle,
 /**
  * This API retrieves the switch STP activation state (RSTP/MSTP/PVRST) from the SDK.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle  - SX-API handle
  * @param[in] swid    - Switch ID
@@ -113,7 +113,7 @@ sx_status_t sx_api_mstp_mode_get(const sx_api_handle_t handle,
 /**
  * This API adds/deletes an MSTP instance to/from the switch in the SDK.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle  - SX-API handle
  * @param[in] cmd     - ADD/DELETE
@@ -137,7 +137,7 @@ sx_status_t sx_api_mstp_inst_set(const sx_api_handle_t   handle,
 /**
  * This API gets a list of MSTP instances. If the command is GET and inst_list_p is NULL, this API will only return the count.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] cmd            - GET/GET_FIRST/GET_NEXT
@@ -169,7 +169,7 @@ sx_status_t sx_api_mstp_inst_iter_get(const sx_api_handle_t        handle,
 /**
  * This API adds/deletes a mapping between a list of VLANs to/from the MSTP instance in the SDK.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] cmd         - ADD/DELETE
@@ -199,7 +199,7 @@ sx_status_t sx_api_mstp_inst_vlan_list_set(const sx_api_handle_t   handle,
  * This API retrieves a list of VLANs in the MSTP instance from the SDK.
  * If the output list (array) is NULL, only the number of VLANs is retrieved.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] swid           - Switch ID
@@ -227,7 +227,7 @@ sx_status_t sx_api_mstp_inst_vlan_list_get(const sx_api_handle_t   handle,
  * This API sets the MSTP port state for a given instance in the SDK.
  * In PVRST mode, instance ID equals to VLAN ID. (In .1D mode instance ID equals to bridge ID.)
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle     - SX-API handle
  * @param[in] swid       - Switch ID
@@ -257,7 +257,7 @@ sx_status_t sx_api_mstp_inst_port_state_set(const sx_api_handle_t           hand
  * This API retrieves the MSTP port state for a given instance from the SDK.
  * In PVRST mode, instance ID equals to VLAN ID. (In .1D mode instance ID equals to bridge ID.)
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] swid          - Switch ID
@@ -282,7 +282,9 @@ sx_status_t sx_api_mstp_inst_port_state_get(const sx_api_handle_t      handle,
 /**
  * This API sets the RSTP port state in the SDK.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Note: This API supports port profile.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle     - SX-API handle
  * @param[in] log_port   - Logical port ID
@@ -306,7 +308,9 @@ sx_status_t sx_api_rstp_port_state_set(const sx_api_handle_t           handle,
 /**
  * This API retrieves the RSTP port state from the SDK.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Note: This APi supports port profile.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] log_port      - Logical Port ID
@@ -325,7 +329,7 @@ sx_status_t sx_api_rstp_port_state_get(const sx_api_handle_t      handle,
 /**
  * This API excludes a port from STP and sets forwarding state to all of its VLANs.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] log_port      - Logical Port ID
@@ -344,7 +348,7 @@ sx_status_t sx_api_mstp_exclude_port_state_set(const sx_api_handle_t            
 /**
  * This API retrieves exclude state for a port.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle        - SX-API handle
  * @param[in] log_port      - Logical Port ID

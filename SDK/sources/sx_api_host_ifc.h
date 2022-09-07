@@ -1,17 +1,17 @@
 /*
- *  Copyright (C) 2014-2021. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
- *    Licensed under the Apache License, Version 2.0 (the "License"); you may
- *    not use this file except in compliance with the License. You may obtain
- *    a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may
+ * not use this file except in compliance with the License. You may obtain
+ * a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
- *    THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
- *    CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
- *    LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
- *    FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+ * THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ * CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ * LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ * FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
  *
- *    See the Apache Version 2.0 License for specific language governing
- *    permissions and limitations under the License.
+ * See the Apache Version 2.0 License for specific language governing
+ * permissions and limitations under the License.
  *
  */
 
@@ -33,7 +33,7 @@
 /**
  * This API sets the log verbosity level of the HOST INTERFACE module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - Set verbosity of API/MODULE/BOTH
@@ -52,7 +52,7 @@ sx_status_t sx_api_host_ifc_log_verbosity_level_set(const sx_api_handle_t       
 /**
  * This API gets the log verbosity level of HOST INTERFACE module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - Get verbosity of API/MODULE/BOTH
@@ -71,7 +71,7 @@ sx_status_t sx_api_host_ifc_log_verbosity_level_get(const sx_api_handle_t       
 /**
  * This API retrieves the file descriptor of the current open channel used for receiving a packet.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]     handle          - SX-API handle
  * @param[out]    fd_p            - File descriptor
@@ -89,7 +89,7 @@ sx_status_t sx_api_host_ifc_open(const sx_api_handle_t handle,
 /**
  * This API closes the file descriptor of the current open channel used for receiving a packet.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]    handle         - SX-API handle
  * @param[in]    fd_p           - File descriptor
@@ -109,7 +109,7 @@ sx_status_t sx_api_host_ifc_close(const sx_api_handle_t handle,
  * Note: When using edit, changing a monitor trap group (attribute is_monitor equals 1) to a regular trap group and vice versa
  *   is not allowed.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]     handle                   - SX-API handle
  * @param[in]     swid                     - Switch ID
@@ -164,7 +164,7 @@ sx_status_t sx_api_host_ifc_trap_group_set(const sx_api_handle_t             han
  * Note: The trap groups set by API sx_api_host_ifc_trap_group_set can be unset by sx_api_host_ifc_trap_group_ext_set.
  *   It is recommended to use sx_api_host_ifc_trap_group_ext_set to set/unset trap groups.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]     handle                   - SX-API handle
  * @param[in]     cmd                      - SET/UNSET, CREATE/EDIT/DESTROY
@@ -190,7 +190,7 @@ sx_status_t sx_api_host_ifc_trap_group_ext_set(const sx_api_handle_t       handl
 /**
  * This API gets the trap group attributes.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]     handle                   - SX-API handle
  * @param[in]     swid                     - Switch ID
@@ -241,7 +241,7 @@ sx_status_t sx_api_host_ifc_trap_group_get(const sx_api_handle_t        handle,
  *        Note: Returned trap_group_id_cnt may be less than or equal to the requested trap_group_id_cnt. If no valid next trap group
  *        ID exists in the database, an empty list will be returned.  A non-NULL trap_group_id_list pointer must be provided in this case.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param [in] handle                  - SX-API handle
  * @param [in] cmd                     - GET/GET_FIRST/GET_NEXT
@@ -265,38 +265,6 @@ sx_status_t sx_api_host_ifc_trap_group_iter_get(const sx_api_handle_t         ha
                                                 sx_trap_group_t              *trap_group_id_list_p,
                                                 uint32_t                     *trap_group_id_cnt_p);
 
-
-/**
- * \deprecated This API is deprecated and will be removed in the future. Please use sx_api_host_ifc_trap_id_ext_set in its place.
- *
- * This API configures traps/event properties for each device in the system:
- *       Map Trap ID/Event ID to Priority group.
- *       Configure trap action (for traps only).
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
- *
- * @param[in]     handle        - SX-API handle
- * @param[in]     swid          - Switch ID
- * @param[in]     trap_id       - Trap ID.
- * @param[in]     trap_group    - Trap group handle.
- * @param[in]     trap_action   - Trap action.
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_ERROR if any input parameters is invalid
- * @return SX_STATUS_ERROR general error
- * @return SX_STATUS_MEMORY_ERROR error handling memory
- * @return SX_STATUS_NO_RESOURCES device was not opened
- *
- * Note: When configuring trap_id of SX_TRAP_ID_ETH_L2_PACKET_SAMPLING /SX_TRAP_ID_GENERAL_FDB /SX_TRAP_ID_ACL/SX_TRAP_ID_IPTRAP,
- *       trap_action field is ignored. Instead, the action should be configured in each module.
- *
- */
-sx_status_t sx_api_host_ifc_trap_id_set(const sx_api_handle_t  handle,
-                                        const sx_swid_t        swid,
-                                        const sx_trap_id_t     trap_id,
-                                        const sx_trap_group_t  trap_group,
-                                        const sx_trap_action_t trap_action);
-
 /**
  * This API configures traps/event properties for each device in the system: Map Trap ID/Event ID to 1 of the 3 Priority groups,
  * HIGH, MEDIUM, LOW. It configures trap action (for traps only).
@@ -307,7 +275,7 @@ sx_status_t sx_api_host_ifc_trap_id_set(const sx_api_handle_t  handle,
  * Note: Use SX_ACCESS_CMD_UNSET to set the trap ID to its default action according to the documentation.
  *   In this case, trap_attr_p->attr.trap_id_attr.trap_action is reserved. The trap ID will not attached to trap group.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]     handle        - SX-API handle
  * @param[in]     cmd           - SX_ACCESS_CMD_SET/SX_ACCESS_CMD_UNSET
@@ -329,7 +297,7 @@ sx_status_t sx_api_host_ifc_trap_id_ext_set(const sx_api_handle_t          handl
  *
  * Note: when trap_attr_p is NULL, only the number of bound trap groups will be returned in trap_cnt_p.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]     handle        - SX-API handle
  * @param[in]     cmd           - SX_ACCESS_CMD_GET
@@ -355,7 +323,7 @@ sx_status_t sx_api_host_ifc_trap_id_ext_get(const sx_api_handle_t         handle
  * Note: This API is capable of getting correct data in cases where the trap for the discarded packets is bound to the regular
  *   trap group and to the monitor trap group simultaneously.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]     handle        - SX-API handle
  * @param[in]     cmd           - SX_ACCESS_CMD_READ/SX_ACCESS_CMD_READ_CLEAR
@@ -377,7 +345,7 @@ sx_status_t sx_api_host_ifc_trap_group_stat_get(const sx_api_handle_t           
  * This API adds/deletes user defined trap IDs. The trap ID created should be in the [SX_TRAP_ID_USER_BASE,SX_TRAP_ID_USER_MAX]
  * range. When using DELETE, trap_attributes_p can be NULL.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]     handle            - SX-API handle
  * @param[in]     cmd               - ADD/DELETE
@@ -403,7 +371,7 @@ sx_status_t sx_api_host_ifc_user_defined_trap_id_set(const sx_api_handle_t      
  * driver. Configure the driver to pass packets matching this trap ID/Event ID, criteria & SWID to the client
  * (according to user_channel). The source_log_port parameter of the received L2 trap always relates to the relevant physical port.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]     handle          - SX-API handle
  * @param[in]     cmd             - REGISTER/DEREGISTER
@@ -441,7 +409,7 @@ sx_status_t sx_api_host_ifc_trap_id_register_set(const sx_api_handle_t    handle
  *    The API will return the next set of user channels starting from the next user channel after the specified user channel.
  *    The returned user_channel_cnt may be less than or equal to the requested user_channel_cnt.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]     handle                 - SX-API handle
  * @param[in]     cmd                    - GET/GET_FIRST/GET_NEXT
@@ -469,7 +437,7 @@ sx_status_t sx_api_host_ifc_trap_id_register_get(const sx_api_handle_t    handle
  * Configure the driver to pass packets matching this trap ID/Event ID, port, or VLAN & SWID to the client (according to
  * user_channel). The source_log_port parameter of the received L2 trap always relates to the relevant physical port.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]     handle          - SX-API handle
  * @param[in]     cmd             - REGISTER/DEREGISTER
@@ -507,7 +475,7 @@ sx_status_t sx_api_host_ifc_port_vlan_trap_id_register_set(const sx_api_handle_t
  *    The API will return the next set of register entries starting from the next register entry after the specified register
  *    entry. The returned register_entry_cnt may be less than or equal to the requested register_entry_cnt.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]     handle                 - SX-API handle
  * @param[in]     cmd                    - GET/GET_FIRST/GET_NEXT
@@ -538,7 +506,7 @@ sx_status_t sx_api_host_ifc_port_vlan_trap_id_register_get(const sx_api_handle_t
  * DELETE_ALL removes all ports and LAGs which were previously added to the filter. In this case log_port_num and log_port_list
  *  parameters are ignored.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] cmd               - ADD/DELETE/DELETE_ALL
@@ -580,7 +548,7 @@ sx_status_t sx_api_host_ifc_trap_filter_set(const sx_api_handle_t handle,
  *    The API will return the next set of logical port IDs starting from the next logical port ID after the specified logical port ID.
  *    The returned log_port_cnt may be less than or equal to the requested log_port_cnt.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] cmd               - GET/GET_FIRST/GET_NEXT
@@ -606,7 +574,7 @@ sx_status_t sx_api_host_ifc_trap_filter_get(const sx_api_handle_t  handle,
 /**
  * This API binds/unbinds a policer to a trap priority. The policer type must be a global slow policer.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] cmd              - BIND/UNBIND
@@ -630,7 +598,7 @@ sx_status_t sx_api_host_ifc_policer_bind_set(const sx_api_handle_t handle,
 /**
  * This API gets policer ID per trap group.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]     handle         - SX-API handle
  * @param[in]     swid           - Switch ID
@@ -651,15 +619,30 @@ sx_status_t sx_api_host_ifc_policer_bind_get(const sx_api_handle_t handle,
 /**
  * This API gets host interface counters.
  *
+ * To fetch all the trap id/trap group counters via range filters, provide start as '0' and
+ * end as max of trap id/trap group
  * Note: Due to hardware limitations, this API may have some counter inconsistency for trap IDs that belong to both the regular
  *   and the monitor trap group simultaneously. Use sx_api_host_ifc_trap_group_stat_get to get accurate values.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]     handle         - SX-API handle
  * @param[in]     cmd            - READ/READ_CLEAR
  * @param[in]     filter_p       - Filter to determine which counters to get
  * @param[out]    host_ifc_cnt_p - Host interface counters
+ *
+ *                Following are allowed filter types (filter_p->counter_type), values(filter_p->u_counter_type)  in request and its corresponding
+ *                host interface counters(host_ifc_cnt_p)
+ *                Filter type                               Filter Value                        Counters
+ *                ==========================================================================================================================
+ *                HOST_IFC_COUNTER_TYPE_TRAP_GROUP_E        u_counter_type.trap_group           trap_group_counters
+ *                                                          array of trap groups                array of counters for valid trap groups
+ *                HOST_IFC_COUNTER_TYPE_TRAP_ID_E           u_counter_type.trap_id              trap_id_counters
+ *                                                          array of trap ids                   array of counters for valid trap ids
+ *                HOST_IFC_COUNTER_TYPE_TRAP_GROUP_RANGE_E  u_counter_type.trap_group_range     trap_group_counters
+ *                                                          trap group range                    array of counters
+ *                HOST_IFC_COUNTER_TYPE_TRAP_ID_RANGE_E     u_counter_type.trap_id              trap_id_counters
+ *                                                          trap id range                       array of counters
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_NULL if any input parameters is null
@@ -681,7 +664,7 @@ sx_status_t sx_api_host_ifc_counters_get(const sx_api_handle_t                ha
  * DELETE deletes a specific filter by specifying filter attributes.
  * DELETE_ALL clears all filters applied per the given trap ID over the provided user channel.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]     handle         - SX-API handle
  * @param[in]     cmd            - ADD/DELETE/DELETE_ALL
@@ -717,7 +700,7 @@ sx_status_t sx_api_host_ifc_trap_id_channel_filter_set(const sx_api_handle_t    
  *    The API will return the next set of filter entries starting from the next filter entry after the specified filter entry.
  *    The returned filter_entry_cnt may be less than or equal to the requested filter_entry_cnt.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]     handle                 - SX-API handle
  * @param[in]     cmd                    - GET/GET_FIRST/GETNEXT

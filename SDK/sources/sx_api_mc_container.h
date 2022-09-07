@@ -1,17 +1,17 @@
 /*
- *  Copyright (C) 2014-2021. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
- *    Licensed under the Apache License, Version 2.0 (the "License"); you may
- *    not use this file except in compliance with the License. You may obtain
- *    a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may
+ * not use this file except in compliance with the License. You may obtain
+ * a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
- *    THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
- *    CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
- *    LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
- *    FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+ * THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ * CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ * LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ * FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
  *
- *    See the Apache Version 2.0 License for specific language governing
- *    permissions and limitations under the License.
+ * See the Apache Version 2.0 License for specific language governing
+ * permissions and limitations under the License.
  *
  */
 
@@ -29,7 +29,7 @@
 /**
  * This API sets the log verbosity level of MC_CONTAINER module.
  *
- * Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - Sets verbosity of API/MODULE/BOTH
@@ -48,7 +48,7 @@ sx_status_t sx_api_mc_container_log_verbosity_level_set(const sx_api_handle_t   
 /**
  * Gets the log verbosity level of MC_CONTAINER module.
  *
- * Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - Gets verbosity of API/MODULE/BOTH
@@ -78,20 +78,18 @@ sx_status_t sx_api_mc_container_log_verbosity_level_get(const sx_api_handle_t   
  *
  * Note: A container in use (e.g. by a multicast route or ACL) cannot be destroyed.
  * Note: A container may contain, at most, RM_API_ROUTER_RIFS_MAX next hops.
- * Note: For MC containers of the SX_MC_CONTAINER_TYPE_BRIDGE_MC type, a MC container of the SX_MC_CONTAINER_TYPE_BRIDGE_MC
- *   type can contain multiple next hops of the SX_MC_NEXT_HOP_TYPE_LOG_PORT type and either multiple next hops of the
- *   SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of  the SX_MC_NEXT_HOP_TYPE_ECMP type.
+ * Note: An MC container of the SX_MC_CONTAINER_TYPE_BRIDGE_MC type can contain multiple next hops of the SX_MC_NEXT_HOP_TYPE_LOG_PORT type
+ *   and either multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type.
  *   A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the SX_ECMP_CONTAINER_TYPE_NVE_MC type only.
- * Note: For MC containers of the SX_MC_CONTAINER_TYPE_NVE_FLOOD type, a MC container of the SX_MC_CONTAINER_TYPE_NVE_FLOOD type can
- *   next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of
- *   contain either multiple of the SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point
- *   to an ECMP container of the SX_ECMP_CONTAINER_TYPE_NVE_FLOOD type only.
- * Note: For ECMP containers of the SX_MC_CONTAINER_TYPE_VLAN_UNAWARE type, a MC container of the SX_MC_CONTAINER_TYPE_VLAN_UNAWARE
- *   type can contain either multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the
- *   SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the following
- *   types: SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC.
+ * Note: An MC container of the SX_MC_CONTAINER_TYPE_NVE_FLOOD type can contain either multiple next hops of
+ *   the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type.
+ *   A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the SX_ECMP_CONTAINER_TYPE_NVE_FLOOD type only.
+ * Note: An MC container of the SX_MC_CONTAINER_TYPE_VLAN_UNAWARE type can contain either multiple next hops of
+ *   the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type.
+ *   A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the following types:
+ *   SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle              - SX-API handle
  * @param[in] cmd                 - CREATE/ADD/DELETE/SET/DESTROY/DELETE_ALL
@@ -127,7 +125,7 @@ sx_status_t sx_api_mc_container_set(const sx_api_handle_t               handle,
  *        If *next_hop_cnt is 0, or if next_hop_list_p is NULL, then the amount of next hops is returned in *next_hop_cnt.
  *       If container_attr is NULL, then attributes are not retrieved.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle              - SX-API handle
  * @param[in] cmd                 - GET/GET_FIRST/GET_NEXT/COUNT
@@ -151,7 +149,7 @@ sx_status_t sx_api_mc_container_get(const sx_api_handle_t         handle,
 /**
  * This API retrieves a list of multicast Containers.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                 - SX-API handle
  * @param[in] cmd                    - GET/GET_NEXT/GET_FIRST

@@ -1,17 +1,17 @@
 /*
- *  Copyright (C) 2014-2021. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
- *    Licensed under the Apache License, Version 2.0 (the "License"); you may
- *    not use this file except in compliance with the License. You may obtain
- *    a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may
+ * not use this file except in compliance with the License. You may obtain
+ * a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
- *    THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
- *    CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
- *    LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
- *    FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+ * THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ * CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ * LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ * FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
  *
- *    See the Apache Version 2.0 License for specific language governing
- *    permissions and limitations under the License.
+ * See the Apache Version 2.0 License for specific language governing
+ * permissions and limitations under the License.
  *
  */
 
@@ -61,7 +61,7 @@
 /**
  * This API sets the log verbosity level of the BRIDGE module.
  *
- * Supported devices: Spectrum , Spectrum2, Spectrum3.
+ * Supported devices: Spectrum , Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - Sets verbosity of API/MODULE/BOTH
@@ -80,7 +80,7 @@ sx_status_t sx_api_bridge_log_verbosity_level_set(const sx_api_handle_t         
 /**
  * This API gets the log verbosity level of the BRIDGE module.
  *
- * Supported devices: Spectrum , Spectrum2, Spectrum3.
+ * Supported devices: Spectrum , Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - Gets verbosity of API/MODULE/BOTH
@@ -101,7 +101,7 @@ sx_status_t sx_api_bridge_log_verbosity_level_get(const sx_api_handle_t         
  *
  * Note: This function is only supported in 802.1D mode.
  *
- * Supported devices: Spectrum , Spectrum2, Spectrum3.
+ * Supported devices: Spectrum , Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] cmd            - CREATE/DESTROY
@@ -144,7 +144,7 @@ sx_status_t sx_api_bridge_set(const sx_api_handle_t handle,
  *        A non-NULL bridge_id_list pointer must be provided in this case.
  *
  *
- * Supported devices: Spectrum , Spectrum2, Spectrum3.
+ * Supported devices: Spectrum , Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle               - SX-API handle
  * @param [in] cmd                 - GET/GET_FIRST/GET_NEXT
@@ -171,7 +171,7 @@ sx_status_t sx_api_bridge_iter_get(const sx_api_handle_t     handle,
  *
  *  This function is used to add/delete a virtual port to/from a bridge.
  *
- *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] cmd         - ADD/DELETE/DELETE_ALL
@@ -192,7 +192,7 @@ sx_status_t sx_api_bridge_vport_set(const sx_api_handle_t  handle,
  *  This function is used to get a list of all virtual ports associated with a bridge.
  *  When bridge_vport_cnt_p == 0, the number of existing entries will be returned.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] bridge_id                - Bridge ID
@@ -213,7 +213,7 @@ sx_status_t sx_api_bridge_vport_get(const sx_api_handle_t handle,
 /**
  * This function is used to add/delete virtual ports from log_port_list list to the corresponding bridge from bridge_id_list.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd - ADD/DELETE/DELETE_ALL
@@ -258,7 +258,7 @@ sx_status_t sx_api_bridge_counter_bind_set(const sx_api_handle_t      handle,
  * This function is used to get the flow counter bound to the bridge. If there is no counter bound to the bridge, the API
  * will return SX_STATUS_ENTRY_NOT_FOUND and  flow_counter_id_p will be set to SX_FLOW_COUNTER_ID_INVALID.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] bridge_id - bridge_id.
@@ -274,59 +274,15 @@ sx_status_t sx_api_bridge_counter_bind_get(const sx_api_handle_t handle,
                                            sx_flow_counter_id_t* flow_counter_id_p);
 
 /**
- * \deprecated This API is deprecated and will be removed in the future.
- *
- * This function sets the mirroring mode for a bridge. Currently, only ingress direction is supported.
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
- *
- * @param[in] handle                 - SX-API handle
- * @param[in] bridge_id              - Mirror bridge
- * @param[in] mirror_direction       - Ingress\egress
- * @param[in] mirror_mode            - Enabled\disabled
- *
- * @return SX_STATUS_SUCCESS          Operation completed successfully
- * @return SX_STATUS_PARAM_ERROR      Any input parameter is invalid
- * @return SX_STATUS_ENTRY_NOT_FOUND  Bridge is not found in DB
- * @return SX_STATUS_ERROR            Unexpected behavior
- **/
-sx_status_t sx_api_bridge_mirror_set(const sx_api_handle_t       handle,
-                                     const sx_bridge_id_t        bridge_id,
-                                     const sx_mirror_direction_t mirror_direction,
-                                     const sx_mirror_mode_t      mirror_mode);
-
-/**
- * \deprecated This API is deprecated and will be removed in the future.
- *
- *  This function gets the mirroring mode of a bridge by direction and bridge ID.
- *  Currently, only ingress direction is supported.
- *
- *  Supported devices: Spectrum, Spectrum2, Spectrum3.
- *
- * @param[in] handle - SX-API handle.
- * @param[in] bridge_id - mirror bridge
- * @param[in] mirror_direction - ingress/egress
- * @param[out] mirror_mode_p - the returned mirroring mode
- *
- * @return SX_STATUS_SUCCESS        Operation completed successfully
- * @return SX_STATUS_PARAM_ERROR      Any input parameter is invalid
- * @return SX_STATUS_ENTRY_NOT_FOUND  Bridge is not found in DB
- * @return SX_STATUS_ERROR            Unexpected behavior
- **/
-sx_status_t sx_api_bridge_mirror_get(const sx_api_handle_t       handle,
-                                     const sx_bridge_id_t        bridge_id,
-                                     const sx_mirror_direction_t mirror_direction,
-                                     sx_mirror_mode_t           *mirror_mode_p);
-
-/**
  * This API binds/un-binds a counter to/from a tunnel mapped to the bridge.
  *
  * For ENCAP_UC and ENCAP_MC counters, this operation can be performed only when FDB does not contain any entries
  * for tunnel in fid.  When Lazy Delete mode is enabled, flow counters will be automatically unbounded once the deletion
  * of the related VNI mapping is completed and VNI mapping delete notification is sent.
  * Counters can be bound only if the bridge/VLAN to tunnel mapping is configured.
+ * Note: Flex tunnels are not supported.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] cmd               - SX_ACCESS_CMD_BIND/SX_ACCESS_CMD_UNBIND
@@ -353,7 +309,7 @@ sx_status_t sx_api_bridge_tunnel_counter_bind_set(const sx_api_handle_t         
  *
  *  This API gets the bound flow counter ID of the tunnel mapped to the bridge.
  *
- *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] bridge_id         - bridge_id/vlan_id on which tunnel is mapped

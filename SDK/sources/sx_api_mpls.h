@@ -1,17 +1,17 @@
 /*
- *  Copyright (C) 2014-2021. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
- *    Licensed under the Apache License, Version 2.0 (the "License"); you may
- *    not use this file except in compliance with the License. You may obtain
- *    a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may
+ * not use this file except in compliance with the License. You may obtain
+ * a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
- *    THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
- *    CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
- *    LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
- *    FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+ * THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ * CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ * LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ * FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
  *
- *    See the Apache Version 2.0 License for specific language governing
- *    permissions and limitations under the License.
+ * See the Apache Version 2.0 License for specific language governing
+ * permissions and limitations under the License.
  *
  */
 #ifndef __SX_API_MPLS_H__
@@ -91,14 +91,17 @@ sx_status_t sx_api_mpls_deinit_set(const sx_api_handle_t handle);
 /**
  * This API creates an ILM table.
  *
- * Note: Only label space 0 is currently supported (ilm_table).
+ * Note: ilm_table can only be an MPLS VRID.
+ *       MPLS label space is a router VRID.
+ *       Only a single VRID is supported.
+ *       This VRID contains all MPLS RIFs.
+ *       The VRID needs to be created before calling this API.
  *
  * Supported devices: Spectrum.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] cmd       - CREATE/ADD/DELETE/DESTROY
  * @param[in] ilm_table - MPLS ILM table ID
- *
  *
  * @return sx_status_t
  */
@@ -110,8 +113,11 @@ sx_status_t sx_api_mpls_ilm_init_set(const sx_api_handle_t        handle,
 /**
  * This API sets an in-segment parameters.
  *
- * Note: Match on one label is currently supported.
- * Note: Only label space 0 is currently supported (ilm_table).
+ * Note: ilm_table can only be an MPLS VRID.
+ *       MPLS label space is a router VRID.
+ *       Only a single VRID is supported.
+ *       This VRID contains all MPLS RIFs.
+ *       The VRID needs to be created before calling this API.
  *
  * Supported devices: Spectrum.
  *

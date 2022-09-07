@@ -1,17 +1,17 @@
 /*
- *  Copyright (C) 2014-2021. Mellanox Technologies, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
- *    Licensed under the Apache License, Version 2.0 (the "License"); you may
- *    not use this file except in compliance with the License. You may obtain
- *    a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may
+ * not use this file except in compliance with the License. You may obtain
+ * a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  *
- *    THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
- *    CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
- *    LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
- *    FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+ * THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ * CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ * LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ * FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
  *
- *    See the Apache Version 2.0 License for specific language governing
- *    permissions and limitations under the License.
+ * See the Apache Version 2.0 License for specific language governing
+ * permissions and limitations under the License.
  *
  */
 
@@ -24,7 +24,7 @@
 /**
  * This API sets the log verbosity level of FLOW COUNTER module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - Set verbosity of API/MODULE/BOTH
@@ -43,7 +43,7 @@ sx_status_t sx_api_flow_counter_log_verbosity_level_set(const sx_api_handle_t   
 /**
  * This API gets the log verbosity level of FLOW COUNTER module.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - Get verbosity of API/MODULE/BOTH
@@ -64,7 +64,7 @@ sx_status_t sx_api_flow_counter_log_verbosity_level_get(const sx_api_handle_t   
  *  flow_counter_id is returned upon successful creation. To destroy a flow counter, the flow counter must not be bound
  *  to an ACL and the flow_counter_id should be provided.
  *
- *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] cmd              - CREATE/DESTROY
@@ -93,7 +93,7 @@ sx_status_t sx_api_flow_counter_set(const sx_api_handle_t        handle,
  *
  * Note: Using this API may cause fragmentation in flow counter resource.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] cmd             - CREATE/DESTROY
@@ -116,7 +116,7 @@ sx_status_t sx_api_flow_counter_bulk_set(const sx_api_handle_t             handl
 /**
  * This API retrieves the Flow Counter.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] counter_id - Flow counter ID
@@ -137,12 +137,18 @@ sx_status_t sx_api_flow_counter_get(const sx_api_handle_t      handle,
 /**
  * This API gets a list of flow counters.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Note:
+ *  The API can return up to SX_FLOW_COUNTER_ITER_GET_MAX counters.
+ *  To get all the counters in the system, the API can be called first with the SX_ACCESS_CMD_GET_FIRST command,
+ *  and then, if needed, it can be called with the SX_ACCESS_CMD_GETNEXT command multiple times until
+ *  an empty list is returned.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] cmd   - GET/GET_NEXT/GET_FIRST
  * @param[in] counter_id_key - Flow counter ID to use and key
- * @param[in] counter_filter_p - Filter to use (not supported yet)
+ * @param[in] counter_filter_p - Filter to use
  * @param[out] counter_id_list_p - Pointer to the list of flow counter IDs returned
  * @param[in,out] counter_id_cnt_p - [in] number of entries to retrieve/[out] retrieved number of entries.
  *
@@ -181,7 +187,6 @@ sx_status_t sx_api_flow_counter_get(const sx_api_handle_t      handle,
  * @return SX_STATUS_INVALID_HANDLE if handle in invalid
  * @return SX_STATUS_ERROR general error
  */
-
 sx_status_t sx_api_flow_counter_iter_get(const sx_api_handle_t      handle,
                                          const sx_access_cmd_t      cmd,
                                          const sx_flow_counter_id_t counter_id_key,
@@ -193,7 +198,7 @@ sx_status_t sx_api_flow_counter_iter_get(const sx_api_handle_t      handle,
 /**
  * This API clears a specific flow counter.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle
  * @param[in] counter_id - Flow counter ID to clear
@@ -209,4 +214,4 @@ sx_status_t sx_api_flow_counter_iter_get(const sx_api_handle_t      handle,
 sx_status_t sx_api_flow_counter_clear_set(const sx_api_handle_t      handle,
                                           const sx_flow_counter_id_t counter_id);
 
-#endif
+#endif /* ifndef __SX_API_FLOW_COUNTER_H__ */

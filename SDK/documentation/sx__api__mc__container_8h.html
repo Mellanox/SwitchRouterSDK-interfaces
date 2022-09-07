@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.4.3182</span>
+   &#160;<span id="projectnumber">4.5.3160</span>
    </div>
   </td>
  </tr>
@@ -127,7 +127,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API sets the log verbosity level of MC_CONTAINER module.</p>
-<p>Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -183,7 +183,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>Gets the log verbosity level of MC_CONTAINER module.</p>
-<p>Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: SwitchX, SwitchX2, Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -252,8 +252,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
 </div><div class="memdoc">
 <p>This API allows to manipulate a multicast container.</p>
 <p>CREATE creates a new container with the specified list of next_hops_cnt, next hops in next_hop_list_p, and returns its new container ID in container_id_p. ADD/DELETE adds or deletes the next hops specified by next_hop_list_p and next_hop_cnt to/from an existing container specified by container_id_p. SET replaces the contents of an existing container specified by container_id_p, with the specified list of next hops in next_hop_list_p. DESTROY deletes an existing container specified by container_id_p. DELETE_ALL deletes all existing containers.</p>
-<p>Note: A container in use (e.g. by a multicast route or ACL) cannot be destroyed. Note: A container may contain, at most, RM_API_ROUTER_RIFS_MAX next hops. Note: For MC containers of the SX_MC_CONTAINER_TYPE_BRIDGE_MC type, a MC container of the SX_MC_CONTAINER_TYPE_BRIDGE_MC type can contain multiple next hops of the SX_MC_NEXT_HOP_TYPE_LOG_PORT type and either multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the SX_ECMP_CONTAINER_TYPE_NVE_MC type only. Note: For MC containers of the SX_MC_CONTAINER_TYPE_NVE_FLOOD type, a MC container of the SX_MC_CONTAINER_TYPE_NVE_FLOOD type can next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of contain either multiple of the SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the SX_ECMP_CONTAINER_TYPE_NVE_FLOOD type only. Note: For ECMP containers of the SX_MC_CONTAINER_TYPE_VLAN_UNAWARE type, a MC container of the SX_MC_CONTAINER_TYPE_VLAN_UNAWARE type can contain either multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the following types: SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Note: A container in use (e.g. by a multicast route or ACL) cannot be destroyed. Note: A container may contain, at most, RM_API_ROUTER_RIFS_MAX next hops. Note: An MC container of the SX_MC_CONTAINER_TYPE_BRIDGE_MC type can contain multiple next hops of the SX_MC_NEXT_HOP_TYPE_LOG_PORT type and either multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the SX_ECMP_CONTAINER_TYPE_NVE_MC type only. Note: An MC container of the SX_MC_CONTAINER_TYPE_NVE_FLOOD type can contain either multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the SX_ECMP_CONTAINER_TYPE_NVE_FLOOD type only. Note: An MC container of the SX_MC_CONTAINER_TYPE_VLAN_UNAWARE type can contain either multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type. A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the following types: SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -331,7 +331,7 @@ SX_STATUS_RESOURCE_IN_USE if group is in use and cannot be destroyed </dd></dl>
 <p>This API retrieves information about a multicast container.</p>
 <p>GET retrieves information about the container specified by container_id_p. GET_FIRST retrieves the first container, its ID, next hops, and attributes. GET_NEXT retrieves the next container after container_id_p, its ID, next hops, and attributes. COUNT returns the number of existing containers in *next_hop_cnt.</p>
 <p>Note: *next_hop_cnt should contain the maximum amount of next hops to retrieve. Note: If next_hop_list_p is NULL, then next hops are not retrieved at all. If *next_hop_cnt is 0, or if next_hop_list_p is NULL, then the amount of next hops is returned in *next_hop_cnt. If container_attr is NULL, then attributes are not retrieved.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -403,7 +403,7 @@ SX_STATUS_ENTRY_NOT_FOUND if specified container does not exist or no more conta
       </table>
 </div><div class="memdoc">
 <p>This API retrieves a list of multicast Containers.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -439,7 +439,7 @@ SX_STATUS_ERROR general error. </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Aug 22 2022 07:15:43 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Sep 5 2022 05:50:03 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
