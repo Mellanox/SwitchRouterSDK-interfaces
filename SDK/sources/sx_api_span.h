@@ -266,6 +266,25 @@ sx_status_t sx_api_span_session_state_get(const sx_api_handle_t      handle,
                                           boolean_t                 *admin_state_p);
 
 /**
+ * This API gets the extended state of the SPAN session.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ *
+ * @param[in]  handle - SX-API handle
+ * @param[in]  span_session_id - SPAN session ID
+ * @param[out] span_session_state_p - SPAN session state
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in database
+ * @return SX_STATUS_ERROR if unexpected behavior occurs
+ * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ */
+sx_status_t sx_api_span_session_state_ext_get(const sx_api_handle_t        handle,
+                                              const sx_span_session_id_t   span_session_id,
+                                              sx_span_session_state_ext_t *span_session_state_p);
+
+/**
  * This API gets the analyzer port assigned to the SPAN session.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
@@ -401,6 +420,22 @@ sx_status_t sx_api_span_mirror_state_get(const sx_api_handle_t       handle,
  * This API sets the SPAN session analyzer ports.
  *
  * Spectrum-2 and Spectrum-3 systems support CPU port as analyzer port.
+ *
+ * This API allows configuring a LAG as a SPAN session analyzer port. In this case the following
+ * conditions apply:
+ *   - If the provided LAG has one or more member ports, the SDK shall select one of the LAG member ports
+ *     to be an analyzer port.
+ *   - If the LAG has no ports then the following caveats apply:
+ *           - The SPAN configuration is stored only in the SDK DB.
+ *           - If the client tries to enable the SPAN session and the LAG has no members, the SDK will set
+ *             the admin state of the SPAN session to true only in the SDK DB.
+ *           - When the first port is added to the LAG, this port will be used as the analyzer port and
+ *             the SDK will propagate the configuration to the firmware.
+ *   - If a LAG member that was chosen by the SDK to be used as the analyzer port is being removed,
+ *     the SDK will choose one of other LAG members and configure it as the new analyzer port.
+ *   - When the last LAG member is removed, the SDK will disable the SPAN session in the firmware.
+ *   - Fine grain LAGs are not supported.
+ *   - Redirect LAGs are not supported.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *

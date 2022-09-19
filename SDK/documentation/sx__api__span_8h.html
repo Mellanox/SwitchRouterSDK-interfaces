@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.3160</span>
+   &#160;<span id="projectnumber">4.5.3166</span>
    </div>
   </td>
  </tr>
@@ -99,6 +99,8 @@ Functions</h2></td></tr>
 <tr class="separator:a877debbf92f6a98e34284845bb47b639"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd257a1cc4df583c16facf79c1e7e96b"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#acd257a1cc4df583c16facf79c1e7e96b">sx_api_span_session_state_get</a> (const sx_api_handle_t handle, const sx_span_session_id_t span_session_id, boolean_t *admin_state_p)</td></tr>
 <tr class="separator:acd257a1cc4df583c16facf79c1e7e96b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78c7313be381318bd801d5d48ab32ef3"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#a78c7313be381318bd801d5d48ab32ef3">sx_api_span_session_state_ext_get</a> (const sx_api_handle_t handle, const sx_span_session_id_t span_session_id, sx_span_session_state_ext_t *span_session_state_p)</td></tr>
+<tr class="separator:a78c7313be381318bd801d5d48ab32ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5a2b536f54f727a03a6c27c65b68341"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#ac5a2b536f54f727a03a6c27c65b68341">sx_api_span_session_analyzer_get</a> (const sx_api_handle_t handle, const sx_span_session_id_t span_session_id, sx_port_log_id_t *analyzer_port_p)</td></tr>
 <tr class="separator:ac5a2b536f54f727a03a6c27c65b68341"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a550968ad2535dafd2c0a3ffb45c42469"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__span_8h.html#a550968ad2535dafd2c0a3ffb45c42469">sx_api_span_session_mirror_get</a> (const sx_api_handle_t handle, const sx_span_session_id_t span_session_id, sx_span_mirror_t *mirror_ports_list_p, uint32_t *mirror_ports_cnt_p)</td></tr>
@@ -646,6 +648,59 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 
 </div>
 </div>
+<a id="a78c7313be381318bd801d5d48ab32ef3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78c7313be381318bd801d5d48ab32ef3">&#9670;&nbsp;</a></span>sx_api_span_session_state_ext_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_span_session_state_ext_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_span_session_id_t&#160;</td>
+          <td class="paramname"><em>span_session_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_span_session_state_ext_t *&#160;</td>
+          <td class="paramname"><em>span_session_state_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API gets the extended state of the SPAN session.</p>
+<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">span_session_id</td><td>- SPAN session ID </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">span_session_state_p</td><td>- SPAN session state</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in database </dd>
+<dd>
+SX_STATUS_ERROR if unexpected behavior occurs </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
+
+</div>
+</div>
 <a id="ac5a2b536f54f727a03a6c27c65b68341"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac5a2b536f54f727a03a6c27c65b68341">&#9670;&nbsp;</a></span>sx_api_span_session_analyzer_get()</h2>
 
@@ -1059,6 +1114,19 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the SPAN session analyzer ports.</p>
 <p>Spectrum-2 and Spectrum-3 systems support CPU port as analyzer port.</p>
+<p>This API allows configuring a LAG as a SPAN session analyzer port. In this case the following conditions apply:</p><ul>
+<li>If the provided LAG has one or more member ports, the SDK shall select one of the LAG member ports to be an analyzer port.</li>
+<li>If the LAG has no ports then the following caveats apply:<ul>
+<li>The SPAN configuration is stored only in the SDK DB.</li>
+<li>If the client tries to enable the SPAN session and the LAG has no members, the SDK will set the admin state of the SPAN session to true only in the SDK DB.</li>
+<li>When the first port is added to the LAG, this port will be used as the analyzer port and the SDK will propagate the configuration to the firmware.</li>
+</ul>
+</li>
+<li>If a LAG member that was chosen by the SDK to be used as the analyzer port is being removed, the SDK will choose one of other LAG members and configure it as the new analyzer port.</li>
+<li>When the last LAG member is removed, the SDK will disable the SPAN session in the firmware.</li>
+<li>Fine grain LAGs are not supported.</li>
+<li>Redirect LAGs are not supported.</li>
+</ul>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2413,7 +2481,7 @@ SX_STATUS_DB_NOT_INITIALIZED if internal database is not initialized</dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 5 2022 05:50:04 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 8 2022 17:49:56 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

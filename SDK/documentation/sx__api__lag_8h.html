@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.3160</span>
+   &#160;<span id="projectnumber">4.5.3166</span>
    </div>
   </td>
  </tr>
@@ -277,7 +277,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API creates/destroys a new/existing LAG's port group in the SDK. This API also adds/deletes ports to/from an existing LAG's port group in the SDK.</p>
-<p>Note: All ports must be deleted from a LAG port groups before the group is destroyed. Note: Creating a LAG group and adding ports to it in the same API call is not supported.</p>
+<p>Note: All ports must be deleted from a LAG port groups before the group is destroyed. Note: Creating a LAG group and adding ports to it in the same API call is not supported. Note: A LAG that is used as SPAN analyzer port cannot be deleted.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -304,7 +304,7 @@ SX_STATUS_CMD_UNSUPPORTED if the provided command is unsupported </dd>
 <dd>
 SX_STATUS_CMD_UNPERMITTED if ISSU is in progress </dd>
 <dd>
-SX_STATUS_RESOURCE_IN_USE when reference count is non-zero during delete operation </dd></dl>
+SX_STATUS_RESOURCE_IN_USE when the reference count is non-zero during delete operation or LAG is used as a SPAN analyzer port </dd></dl>
 
 </div>
 </div>
@@ -1004,7 +1004,7 @@ SX_STATUS_ENTRY_NOT_FOUND if the LAG is not found </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API creates/destroys a redirection between a LAG and a destination LAG. Redirection does not align LAG configuration, only TX traffic.</p>
-<p>Note: Redirect operation is valid only between 2 LAGs. A chain of redirected LAGs cannot be created. Note: Redirect is a L2 action and is not valid for router ports.</p>
+<p>Note: Redirect operation is valid only between 2 LAGs. A chain of redirected LAGs cannot be created. Note: Redirect is a L2 action and is not valid for router ports. Note: A LAG cannot be redirected if it is set as SPAN analyzer port.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1200,7 +1200,7 @@ SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in database </dd></d
 </div><div class="memdoc">
 <p>This API sets/deletes a fine grained LAG distribution list. LAG distribution will be according to the given port list with relative weight.</p>
 <p>SET sets a LAG distribution list according to port list with relative weight. ADD adds ports to the existing LAG distribution list. DELETE deletes ports from distribution list. DELETE ALL returns to the default distribution function.</p>
-<p>Note: Setting the distribution list is optional and only affects unicast traffic. Note: In case the distribution list is not set, the hash will be done according to the LAG member ports. Note: A port does not have to be a LAG member.</p>
+<p>Note: Setting the distribution list is optional and only affects unicast traffic. Note: In case the distribution list is not set, the hash will be done according to the LAG member ports. Note: A port does not have to be a LAG member. Note: A Fine Grained LAG cannot be configured as SPAN analyzer port.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1292,7 +1292,7 @@ SX_STATUS_PARAM_ERROR if a parameter is invalid </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Sep 5 2022 05:50:03 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Sep 8 2022 17:49:56 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

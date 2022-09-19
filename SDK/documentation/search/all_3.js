@@ -658,6 +658,7 @@ var searchData=
   ['sx_5fapi_5fspan_5fsession_5fpolicer_5fbind_5fget',['sx_api_span_session_policer_bind_get',['../sx__api__span_8h.html#af329f85d3601dae8894027b2345bbdd7',1,'sx_api_span.h']]],
   ['sx_5fapi_5fspan_5fsession_5fpolicer_5fbind_5fset',['sx_api_span_session_policer_bind_set',['../sx__api__span_8h.html#af773d8d323fe4a3e289adeee9c50c6cc',1,'sx_api_span.h']]],
   ['sx_5fapi_5fspan_5fsession_5fset',['sx_api_span_session_set',['../sx__api__span_8h.html#ae8f1b3e42c839f00a6e9e49d91d99eff',1,'sx_api_span.h']]],
+  ['sx_5fapi_5fspan_5fsession_5fstate_5fext_5fget',['sx_api_span_session_state_ext_get',['../sx__api__span_8h.html#a78c7313be381318bd801d5d48ab32ef3',1,'sx_api_span.h']]],
   ['sx_5fapi_5fspan_5fsession_5fstate_5fget',['sx_api_span_session_state_get',['../sx__api__span_8h.html#acd257a1cc4df583c16facf79c1e7e96b',1,'sx_api_span.h']]],
   ['sx_5fapi_5fspan_5fsession_5fstate_5fset',['sx_api_span_session_state_set',['../sx__api__span_8h.html#a877debbf92f6a98e34284845bb47b639',1,'sx_api_span.h']]],
   ['sx_5fapi_5fspan_5fsession_5ftrap_5fid_5fget',['sx_api_span_session_trap_id_get',['../sx__api__span_8h.html#ab5fbfeef9a11a68731f9c8023e803f3d',1,'sx_api_span.h']]],

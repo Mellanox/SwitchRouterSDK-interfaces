@@ -70,6 +70,7 @@ sx_status_t sx_api_lag_log_verbosity_level_get(const sx_api_handle_t           h
  *
  * Note: All ports must be deleted from a LAG port groups before the group is destroyed.
  * Note: Creating a LAG group and adding ports to it in the same API call is not supported.
+ * Note: A LAG that is used as SPAN analyzer port cannot be deleted.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -87,7 +88,8 @@ sx_status_t sx_api_lag_log_verbosity_level_get(const sx_api_handle_t           h
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
  * @return SX_STATUS_CMD_UNSUPPORTED if the provided command is unsupported
  * @return SX_STATUS_CMD_UNPERMITTED if ISSU is in progress
- * @return SX_STATUS_RESOURCE_IN_USE when reference count is non-zero during delete operation
+ * @return SX_STATUS_RESOURCE_IN_USE when the reference count is non-zero during delete operation or
+ *                                   LAG is used as a SPAN analyzer port
  */
 sx_status_t sx_api_lag_port_group_set(const sx_api_handle_t   handle,
                                       const sx_access_cmd_t   cmd,
@@ -385,6 +387,7 @@ sx_status_t sx_api_lag_port_hash_flow_params_get(const sx_api_handle_t       han
  *
  * Note: Redirect operation is valid only between 2 LAGs. A chain of redirected LAGs cannot be created.
  * Note: Redirect is a L2 action and is not valid for router ports.
+ * Note: A LAG cannot be redirected if it is set as SPAN analyzer port.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -461,6 +464,7 @@ sx_status_t sx_api_lag_redirected_lags_get(const sx_api_handle_t  handle,
  * Note: Setting the distribution list is optional and only affects unicast traffic.
  * Note: In case the distribution list is not set, the hash will be done according to the LAG member ports.
  * Note: A port does not have to be a LAG member.
+ * Note: A Fine Grained LAG cannot be configured as SPAN analyzer port.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
