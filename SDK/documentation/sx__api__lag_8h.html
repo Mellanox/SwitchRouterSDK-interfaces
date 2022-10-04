@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.3168</span>
+   &#160;<span id="projectnumber">4.5.4008</span>
    </div>
   </td>
  </tr>
@@ -817,7 +817,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the ingress port configuration parameters of LAG hash. Once this API is called, sx_api_lag_hash_flow_params_set is disabled.</p>
 <p>SET replaces existing hash parameters, enables field, and sets fields with new values. ADD adds new fields and enables fields on top of the existing fields (hash parameters are ignored). DELETE deletes specific fields and disable fields from the existing fields (hash parameters are ignored). Each element in hash_field_enable_list_p enables a specific layer field to be included in the hash calculation according to the de-facto fields of the parsed packet. Each element in hash_field_list_p represents a different field to be included in the hash calculation, subject to the enables which are given in hash_field_enable_list_p.</p>
-<p>Note: LAG hash parameters are configured per ingress port and impact egress LAG. Note: In hash parameters, seed is global (i.e., the last configured seed will be used).</p>
+<p>Note: LAG hash parameters are configured per ingress port and impact egress LAG. Note: In hash parameters, seed is global (i.e., the last configured seed will be used). Note: Symmetric hash on inner header is not supported.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1292,7 +1292,7 @@ SX_STATUS_PARAM_ERROR if a parameter is invalid </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 20 2022 21:19:52 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Oct 3 2022 16:29:45 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

@@ -1288,15 +1288,12 @@ sx_status_t sx_api_port_sflow_statistics_get(const sx_api_handle_t       handle,
 /**
  * This API controls loopback filter state of the port.
  *
- * Notes relevant to NVE port:
- *  On Spectrum systems, changing of the state of the loopback filter is not supported on Spectrum.
- *  Changing of the state affects only UC traffic (MC and flooding are always filtered).
- *  The state of the filter can be changed only when there is a connected NVE/Flex tunnel in the system.
+ * Notes relevant to tunnel ports:
+ *       On Spectrum systems, changing of the state of the loopback filter is not supported.
+ *       Changing of the state affects only UC traffic (MC and flooding are always filtered).
+ *       The state of the filter can be changed only when there is a connected tunnel in the system.
  *
  * Note: This API supports port profile.
- * Note: Flex tunnels are supported from Spectrum2 and above.
- *
- *
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -1315,11 +1312,10 @@ sx_status_t sx_api_port_loopback_filter_set(const sx_api_handle_t               
 /**
  * This API retrieves the loopback filter state of the port.
  *
- * Note: On Spectrum-2 systems, the API can retrieve the state of the loopback filter on the NVE port. The API can retrieve
- *  the state of the loopback filter on the NVE/Flex port only when there is connected NVE/Flex tunnel in the system.
+ * Note: On Spectrum-2 systems, the API can retrieve the state of the loopback filter on a tunnel port. The API can retrieve
+ *       The state of the loopback filter on a tunnel port only when there is a connected tunnel in the system.
  *
  * Note: This API supports port profile.
- * Note: Flex tunnels are supported from Spectrum2 and above.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
