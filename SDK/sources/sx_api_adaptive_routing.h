@@ -271,7 +271,7 @@ sx_status_t sx_api_ar_link_utilization_threshold_get(const sx_api_handle_t      
                                                      const sx_port_log_id_t         log_port,
                                                      sx_ar_link_utilization_attr_t *link_util_attr_p);
 
-/**
+/*
  * This API sets the AR shaper rate configuration parameters.
  * To prevent moving a large amount of flows moving from one output
  * to another output in a short period of time
@@ -298,7 +298,7 @@ sx_status_t sx_api_ar_shaper_rate_set(const sx_api_handle_t      handle,
                                       const sx_access_cmd_t      cmd,
                                       const sx_ar_shaper_attr_t *shaper_attr_p);
 
-/**
+/*
  *  This API gets AR shaper rate configuration parameters.
  *
  * Supported devices: Spectrum2, Spectrum3.
@@ -315,7 +315,7 @@ sx_status_t sx_api_ar_shaper_rate_set(const sx_api_handle_t      handle,
 sx_status_t sx_api_ar_shaper_rate_get(const sx_api_handle_t handle,
                                       sx_ar_shaper_attr_t  *shaper_attr_p);
 
-/**
+/*
  * This API retrieves adaptive routing global counters values.
  *
  * Supported devices: Spectrum2, Spectrum3

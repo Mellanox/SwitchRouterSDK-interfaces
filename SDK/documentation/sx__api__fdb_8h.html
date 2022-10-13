@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.4008</span>
+   &#160;<span id="projectnumber">4.5.3174</span>
    </div>
   </td>
  </tr>
@@ -624,6 +624,7 @@ SX_STATUS_PARAM_NULL Parameter is NULL </dd></dl>
 <p>Note: If sx_fdb_uc_mac_addr_params_t.dest_type is SX_FDB_UC_MAC_ADDR_DEST_TYPE_ECMP_NEXT_HOP_CONTAINER</p><ul>
 <li>sx_fdb_uc_mac_addr_params_t.entry_type cannot be SX_FDB_UC_AGEABLE</li>
 <li>sx_fdb_uc_mac_addr_params_t.dest.ecmp should point to the ECMP that is one of the following types: SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC</li>
+<li>ECMP pointed by sx_fdb_uc_mac_addr_params_t.dest.ecmp cannot contain flex tunnel next hops.</li>
 </ul>
 <p>Note: In Spectrum systems, when FDB learning is enabled, a packet with the SMAC=MAC1 triggers flushing of remote UC tunnel-ECMP FDB MAC1 entry from the FDB and a roaming MAC1 event is sent to the CPU, the next packets that have DMAC=MAC1 will be flooded. Note: In 802.1D mode, instead of providing a VID (VLAN ID) or FID (filtering ID) in mac_list_p-&gt;fid_vid, provide a bridge_id.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
@@ -637,21 +638,21 @@ SX_STATUS_PARAM_NULL Parameter is NULL </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_INVALID_HANDLE if NULL handle is received </dd>
+SX_STATUS_INVALID_HANDLE NULL handle received </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED if command is unsupported </dd>
+SX_STATUS_CMD_UNSUPPORTED Unsupported command </dd>
 <dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if parameter exceeds the range </dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE Parameter exceeds the range </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the database </dd>
+SX_STATUS_ENTRY_NOT_FOUND Requested element is not found in the database </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if FDB hash bin is full </dd>
+SX_STATUS_NO_RESOURCES FDB hash bin is full </dd>
 <dd>
-SX_STATUS_PARAM_NULL if any of the parameters is NULL </dd>
+SX_STATUS_PARAM_NULL Any of the parameters is NULL </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -1979,8 +1980,7 @@ SX_STATUS_ERROR General error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API deletes FDB table entries according to the provided flush type and parameters.</p>
-<p>Note for tunnel ports: When a tunnel port is given, the flush types SX_FDB_NOTIFY_TYPE_FLUSH_PORT and SX_FDB_NOTIFY_TYPE_FLUSH_PORT_FID will cause the SDK to delete FDB entries that points only to the tunnel that is associated with the given tunnel port either directly or through an ECMP container. To flush FDB entries that point to an ECMP that points to multiple tunnels, the flush types SX_FDB_NOTIFY_TYPE_FLUSH_TUNNEL_PORT and SX_FDB_NOTIFY_TYPE_FLUSH_TUNNEL_PORT_FID with exact set of tunnel ports should be used. Regardless of the given tunnel port(s), SDK will also delete tunnel FDB entries that point to empty ECMP containers.</p>
+<p>This API deletes dynamic FDB table entries according to the provided flush type and parameters.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1989,15 +1989,15 @@ SX_STATUS_ERROR General error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_INVALID_HANDLE if NULL handle is received </dd>
+SX_STATUS_INVALID_HANDLE NULL handle received </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Parameter is invalid </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the database </dd>
+SX_STATUS_ENTRY_NOT_FOUND Requested element is not found in the database </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -2440,7 +2440,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets a port's learn mode.</p>
-<p>Note: The learn mode on the NVE port can be configured only when there is a connected NVE tunnel in the system. Note: The learning of decapsulated MACs from NVE IPv6 tunnels is not supported, thus setting anything except the SX_FDB_LEARN_MODE_DONT_LEARN mode on the NVE port when there is a connected NVE IPv6 tunnel will return an error. Note: The learning of decapsulated MACs from Flex tunnels is not supported.</p>
+<p>Note: The learn mode on the NVE port can be configured only when there is a connected NVE tunnel in the system. Note: The learning of decapsulated MACs from NVE IPv6 tunnels is not supported, thus setting anything except the SX_FDB_LEARN_MODE_DONT_LEARN mode on the NVE port when there is a connected NVE IPv6 tunnel will return an error.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2450,13 +2450,13 @@ SX_STATUS_ERROR General error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the database </dd>
+SX_STATUS_ENTRY_NOT_FOUND Requested element is not found in the database </dd>
 <dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if parameter exceeds the range </dd>
+SX_STATUS_PARAM_EXCEEDS_RANGE Parameter exceeds the range </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -2492,7 +2492,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets a port's learn mode.</p>
-<p>Note: The API can retrieve the learn mode on a tunnel port only when there is a connected tunnel in the system.</p>
+<p>Note: The API can retrieve the learn mode on the NVE port only when there is a connected NVE tunnel in the system.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2502,11 +2502,11 @@ SX_STATUS_ERROR for a general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the database </dd>
+SX_STATUS_ENTRY_NOT_FOUND Requested element is not found in the database </dd>
 <dd>
-SX_STATUS_ERROR for general error </dd></dl>
+SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
@@ -4049,7 +4049,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Oct 3 2022 16:29:45 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Oct 12 2022 08:26:11 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

@@ -76,21 +76,18 @@ sx_status_t sx_api_mc_container_log_verbosity_level_get(const sx_api_handle_t   
  * DESTROY deletes an existing container specified by container_id_p.
  * DELETE_ALL deletes all existing containers.
  *
- * Note: A container in use (e.g., by a multicast route or ACL) cannot be destroyed.
+ * Note: A container in use (e.g. by a multicast route or ACL) cannot be destroyed.
  * Note: A container may contain, at most, RM_API_ROUTER_RIFS_MAX next hops.
  * Note: An MC container of the SX_MC_CONTAINER_TYPE_BRIDGE_MC type can contain multiple next hops of the SX_MC_NEXT_HOP_TYPE_LOG_PORT type
- *       and either multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type.
- *       A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the SX_ECMP_CONTAINER_TYPE_NVE_MC type only.
+ *   and either multiple next hops of the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type.
+ *   A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the SX_ECMP_CONTAINER_TYPE_NVE_MC type only.
  * Note: An MC container of the SX_MC_CONTAINER_TYPE_NVE_FLOOD type can contain either multiple next hops of
- *       the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type.
- *       A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the SX_ECMP_CONTAINER_TYPE_NVE_FLOOD type only.
+ *   the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type.
+ *   A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the SX_ECMP_CONTAINER_TYPE_NVE_FLOOD type only.
  * Note: An MC container of the SX_MC_CONTAINER_TYPE_VLAN_UNAWARE type can contain either multiple next hops of
- *       the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type.
- *       A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the following types:
- *       SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC.
- * Note: An MC container of the SX_MC_CONTAINER_TYPE_ERIF type can contain only one next hop of the SX_MC_NEXT_HOP_TYPE_VIF type
- *       that points to the data of the SX_ROUTER_VINTERFACE_TYPE_NVE type.
- *       The data of such next hop can point to either an NVE tunnel or a Flex tunnel.
+ *   the SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP type or one next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type.
+ *   A next hop of the SX_MC_NEXT_HOP_TYPE_ECMP type can point to an ECMP container of the following types:
+ *   SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *

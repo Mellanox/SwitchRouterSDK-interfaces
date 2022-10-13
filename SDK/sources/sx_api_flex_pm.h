@@ -133,7 +133,7 @@ sx_status_t sx_api_flex_pm_app_get(const sx_api_handle_t      handle,
  *
  * @param[in] handle       - SX-API handle
  * @param[in] cmd          - SET
- * @param[in] key_p        - The key to the application to set its state
+ * @param[in] key          - The key to the application to set its state
  * @param[in] attr_p       - The state's attributes to set to the application
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
@@ -145,7 +145,7 @@ sx_status_t sx_api_flex_pm_app_get(const sx_api_handle_t      handle,
  */
 sx_status_t sx_api_flex_pm_app_state_set(const sx_api_handle_t              handle,
                                          const sx_access_cmd_t              cmd,
-                                         const sx_flex_pm_app_key_t        *key_p,
+                                         const sx_flex_pm_app_key_t         key,
                                          const sx_flex_pm_app_state_attr_t *attr_p);
 
 /**
