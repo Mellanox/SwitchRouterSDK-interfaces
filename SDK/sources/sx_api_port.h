@@ -835,10 +835,16 @@ sx_status_t sx_api_port_counter_rfc_3635_get(const sx_api_handle_t    handle,
 /**
  * This API retrieves the port CLI counters from the SDK.
  *
+ * Note:
+ * READ_CLEAR command will clear all the counters of the CLI counter group
+ * and all the counters of the following counters groups :
+ * RFC_2863, IEEE_802_3, RFC_2819, Performance
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
+ *
  * @param[in] handle      - SX-API handle
- * @param[in] cmd         - READ/CLEAR
+ * @param[in] cmd         - READ/READ_CLEAR
  * @param[in] log_port    - Logical Port ID
  * @param[out] cntr_cli_p - CLI counters entry
  *
@@ -1394,10 +1400,10 @@ sx_status_t sx_api_port_isolate_get(const sx_api_handle_t  handle,
  * If pass_routed_frames is True, frame performance penalty is possible for Spectrum and Spectrum2.
  * Note that for Spectrum pass_routed_frames=True relates to the physical ports and not to the internal tunnel ports.
  * Possible filtering modes are allowed for Bridge and Routed (L2/L3) or Bridge-only (L2):
- * - pass_routed_frames=True – Isolation will be done on Bridge-only (L2) – only L2 frames will be isolated
- * - pass_router_frames=False – Isolation will be done for Routed (L2/L3) and Bridge (L2) frames.
- * - isolate_bridged_and_routed=True – SDK users may intermix L2/L3 and L2 isolation for different ports. Supported by Spectrum3 and above.
- * - isolate_bridged_and_routed=False – SDK users can use only isolation mode defined by ‘pass_routed_frames’ parameter. Supported by Spectrum3 and above.
+ * - pass_routed_frames=True Isolation will be done on Bridge-only (L2) only L2 frames will be isolated
+ * - pass_router_frames=False Isolation will be done for Routed (L2/L3) and Bridge (L2) frames.
+ * - isolate_bridged_and_routed=True SDK users may intermix L2/L3 and L2 isolation for different ports. Supported by Spectrum3 and above.
+ * - isolate_bridged_and_routed=False SDK users can use only isolation mode defined by pass_routed_frames parameter. Supported by Spectrum3 and above.
  * Note that both pass_routed_frames and isolate_bridge_and_routed can not be set to True since they will interfere with each other.
  * Note that changing the isolation mode on Spectrum3 and above clears the isolation table and port isolation configuration should be restored by user.
  *
@@ -1436,7 +1442,7 @@ sx_status_t sx_api_port_isolate_mode_get(const sx_api_handle_t   handle,
 
 /**
  * This API sets the isolation group of the port (a list of ports from which L2 traffic should
- * not be transmitted to log_port – Bridge filtering only).
+ * not be transmitted to log_port Bridge filtering only).
  * Isolation is supported only between ports that are on the same device and on the same SWID.
  *
  * Note that this API can be used only for L2 port isolation mode configured using

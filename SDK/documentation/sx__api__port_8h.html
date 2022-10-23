@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.3174</span>
+   &#160;<span id="projectnumber">4.5.3180</span>
    </div>
   </td>
  </tr>
@@ -2444,11 +2444,12 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the port CLI counters from the SDK.</p>
+<p>Note: READ_CLEAR command will clear all the counters of the CLI counter group and all the counters of the following counters groups : RFC_2863, IEEE_802_3, RFC_2819, Performance</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ/CLEAR </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ/READ_CLEAR </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical Port ID </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">cntr_cli_p</td><td>- CLI counters entry</td></tr>
   </table>
@@ -3839,10 +3840,10 @@ SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API defines port isolation mode: whether to pass or filter frames, which went through the router and/or bridge. This API is added for backward compatibility and for performance considerations. If pass_routed_frames is True, frame performance penalty is possible for Spectrum and Spectrum2. Note that for Spectrum pass_routed_frames=True relates to the physical ports and not to the internal tunnel ports. Possible filtering modes are allowed for Bridge and Routed (L2/L3) or Bridge-only (L2):</p><ul>
-<li>pass_routed_frames=True – Isolation will be done on Bridge-only (L2) – only L2 frames will be isolated</li>
-<li>pass_router_frames=False – Isolation will be done for Routed (L2/L3) and Bridge (L2) frames.</li>
-<li>isolate_bridged_and_routed=True – SDK users may intermix L2/L3 and L2 isolation for different ports. Supported by Spectrum3 and above.</li>
-<li>isolate_bridged_and_routed=False – SDK users can use only isolation mode defined by ‘pass_routed_frames’ parameter. Supported by Spectrum3 and above. Note that both pass_routed_frames and isolate_bridge_and_routed can not be set to True since they will interfere with each other. Note that changing the isolation mode on Spectrum3 and above clears the isolation table and port isolation configuration should be restored by user.</li>
+<li>pass_routed_frames=True Isolation will be done on Bridge-only (L2) only L2 frames will be isolated</li>
+<li>pass_router_frames=False Isolation will be done for Routed (L2/L3) and Bridge (L2) frames.</li>
+<li>isolate_bridged_and_routed=True SDK users may intermix L2/L3 and L2 isolation for different ports. Supported by Spectrum3 and above.</li>
+<li>isolate_bridged_and_routed=False SDK users can use only isolation mode defined by pass_routed_frames parameter. Supported by Spectrum3 and above. Note that both pass_routed_frames and isolate_bridge_and_routed can not be set to True since they will interfere with each other. Note that changing the isolation mode on Spectrum3 and above clears the isolation table and port isolation configuration should be restored by user.</li>
 </ul>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -3941,7 +3942,7 @@ SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the isolation group of the port (a list of ports from which L2 traffic should not be transmitted to log_port – Bridge filtering only). Isolation is supported only between ports that are on the same device and on the same SWID.</p>
+<p>This API sets the isolation group of the port (a list of ports from which L2 traffic should not be transmitted to log_port Bridge filtering only). Isolation is supported only between ports that are on the same device and on the same SWID.</p>
 <p>Note that this API can be used only for L2 port isolation mode configured using isolate_bridge_and_routed=True from the sx_api_port_isolate_mode_set API.</p>
 <p>SET adds ports to isolation group (overwrites previous configuration). ADD adds ports to isolation group (in addition to previous configuration). DELETE removes ports from isolation group. DELETE_ALL empties isolation group.</p>
 <p>Supported devices: Spectrum3, Spectrum4.</p>
@@ -6609,7 +6610,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 12 2022 08:26:11 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 23 2022 04:17:31 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
