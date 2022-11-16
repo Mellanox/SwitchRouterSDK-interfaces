@@ -169,11 +169,10 @@ sx_status_t sx_api_fdb_polling_interval_get(const sx_api_handle_t      handle,
  *       - sx_fdb_uc_mac_addr_params_t.entry_type cannot be SX_FDB_UC_AGEABLE
  *       - sx_fdb_uc_mac_addr_params_t.dest.ecmp should point to the ECMP that is one of the following types:
  *         SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC
- *       - ECMP pointed by sx_fdb_uc_mac_addr_params_t.dest.ecmp cannot contain flex tunnel next hops.
  *
  * Note: In Spectrum systems, when FDB learning is enabled, a packet with the SMAC=MAC1 triggers flushing of remote UC
- *  tunnel-ECMP FDB MAC1 entry from the FDB and a roaming MAC1 event is sent to the CPU, the next packets that have
- *  DMAC=MAC1 will be flooded.
+ *       tunnel-ECMP FDB MAC1 entry from the FDB and a roaming MAC1 event is sent to the CPU, the next packets that have
+ *       DMAC=MAC1 will be flooded.
  * Note: In 802.1D mode, instead of providing a VID (VLAN ID) or FID (filtering ID) in mac_list_p->fid_vid, provide a bridge_id.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
@@ -184,14 +183,14 @@ sx_status_t sx_api_fdb_polling_interval_get(const sx_api_handle_t      handle,
  * @param[in,out] mac_list_p    - List of MAC record parameters (for deletion, entry_type is ignored)
  * @param[in,out] data_cnt_p    - Number of MAC records to ADD/DELETE
  *
- * @return SX_STATUS_SUCCESS              Operation completed successfully
- * @return SX_STATUS_INVALID_HANDLE       NULL handle received
- * @return SX_STATUS_CMD_UNSUPPORTED      Unsupported command
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE  Parameter exceeds the range
- * @return SX_STATUS_ENTRY_NOT_FOUND      Requested element is not found in the database
- * @return SX_STATUS_NO_RESOURCES         FDB hash bin is full
- * @return SX_STATUS_PARAM_NULL           Any of the parameters is NULL
- * @return SX_STATUS_ERROR                General error
+ * @return SX_STATUS_SUCCESS              if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE       if NULL handle is received
+ * @return SX_STATUS_CMD_UNSUPPORTED      if command is unsupported
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE  if parameter exceeds the range
+ * @return SX_STATUS_ENTRY_NOT_FOUND      if requested element is not found in the database
+ * @return SX_STATUS_NO_RESOURCES         if FDB hash bin is full
+ * @return SX_STATUS_PARAM_NULL           if any of the parameters is NULL
+ * @return SX_STATUS_ERROR                for a general error
  */
 sx_status_t sx_api_fdb_uc_mac_addr_set(const sx_api_handle_t        handle,
                                        const sx_access_cmd_t        cmd,
@@ -772,18 +771,26 @@ sx_status_t sx_api_fdb_mc_flush_fid_set(const sx_api_handle_t handle,
                                         const sx_fid_t        fid);
 
 /**
- * This API deletes dynamic FDB table entries according to the provided flush type and parameters.
+ * This API deletes FDB table entries according to the provided flush type and parameters.
+ *
+ * Note for tunnel ports:
+ *      When a tunnel port is given, the flush types SX_FDB_NOTIFY_TYPE_FLUSH_PORT and SX_FDB_NOTIFY_TYPE_FLUSH_PORT_FID
+ *      will cause the SDK to delete FDB entries that points only to the tunnel that is associated with the given tunnel port either directly
+ *      or through an ECMP container.
+ *      To flush FDB entries that point to an ECMP that points to multiple tunnels, the flush types SX_FDB_NOTIFY_TYPE_FLUSH_TUNNEL_PORT
+ *      and SX_FDB_NOTIFY_TYPE_FLUSH_TUNNEL_PORT_FID with exact set of tunnel ports should be used.
+ *      Regardless of the given tunnel port(s), SDK will also delete tunnel FDB entries that point to empty ECMP containers.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle         - SX-API handle
  * @param[in] flush_data     - Struct including the type and parameters
  *
- * @return SX_STATUS_SUCCESS              Operation completed successfully
- * @return SX_STATUS_INVALID_HANDLE       NULL handle received
- * @return SX_STATUS_PARAM_ERROR          Parameter is invalid
- * @return SX_STATUS_ENTRY_NOT_FOUND      Requested element is not found in the database
- * @return SX_STATUS_ERROR                General error
+ * @return SX_STATUS_SUCCESS              if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE       if NULL handle is received
+ * @return SX_STATUS_PARAM_ERROR          if parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND      if requested element is not found in the database
+ * @return SX_STATUS_ERROR                for a general error
  */
 sx_status_t sx_api_fdb_flush_by_type_set(const sx_api_handle_t  handle,
                                          const sx_flush_data_t *flush_data_p);
@@ -951,7 +958,8 @@ sx_status_t sx_api_fdb_fid_learn_mode_get(const sx_api_handle_t handle,
  *
  * Note: The learn mode on the NVE port can be configured only when there is a connected NVE tunnel in the system.
  * Note: The learning of decapsulated MACs from NVE IPv6 tunnels is not supported, thus setting anything except
- * the SX_FDB_LEARN_MODE_DONT_LEARN mode on the NVE port when there is a connected NVE IPv6 tunnel will return an error.
+ *       the SX_FDB_LEARN_MODE_DONT_LEARN mode on the NVE port when there is a connected NVE IPv6 tunnel will return an error.
+ * Note: The learning of decapsulated MACs from Flex tunnels is not supported.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -959,10 +967,10 @@ sx_status_t sx_api_fdb_fid_learn_mode_get(const sx_api_handle_t handle,
  * @param[in] log_port    - Logical port number
  * @param[in] learn_mode  - Port's learn mode
  *
- * @return SX_STATUS_SUCCESS              Operation completed successfully
- * @return SX_STATUS_ENTRY_NOT_FOUND      Requested element is not found in the database
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE  Parameter exceeds the range
- * @return SX_STATUS_ERROR                General error
+ * @return SX_STATUS_SUCCESS              if operation completes successfully
+ * @return SX_STATUS_ENTRY_NOT_FOUND      if requested element is not found in the database
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE  if parameter exceeds the range
+ * @return SX_STATUS_ERROR                for a general error
  */
 sx_status_t sx_api_fdb_port_learn_mode_set(const sx_api_handle_t     handle,
                                            const sx_port_log_id_t    log_port,
@@ -971,7 +979,7 @@ sx_status_t sx_api_fdb_port_learn_mode_set(const sx_api_handle_t     handle,
 /**
  * This API gets a port's learn mode.
  *
- * Note: The API can retrieve the learn mode on the NVE port only when there is a connected NVE tunnel in the system.
+ * Note: The API can retrieve the learn mode on a tunnel port only when there is a connected tunnel in the system.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -979,9 +987,9 @@ sx_status_t sx_api_fdb_port_learn_mode_set(const sx_api_handle_t     handle,
  * @param[in] log_port      - Logical port number
  * @param[out] learn_mode_p - Port's learn mode
  *
- * @return SX_STATUS_SUCCESS              Operation completed successfully
- * @return SX_STATUS_ENTRY_NOT_FOUND      Requested element is not found in the database
- * @return SX_STATUS_ERROR                General error
+ * @return SX_STATUS_SUCCESS              if operation completes successfully
+ * @return SX_STATUS_ENTRY_NOT_FOUND      if requested element is not found in the database
+ * @return SX_STATUS_ERROR                for general error
  */
 sx_status_t sx_api_fdb_port_learn_mode_get(const sx_api_handle_t  handle,
                                            const sx_port_log_id_t log_port,

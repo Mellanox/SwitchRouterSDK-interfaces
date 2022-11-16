@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.3186</span>
+   &#160;<span id="projectnumber">4.5.4026</span>
    </div>
   </td>
  </tr>
@@ -429,7 +429,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the ECMP hash function configuration parameters on a per port basis. Each element in hash_field_enable_list_p enables a specific layer field to be included in the hash calculation according to the de facto fields of the parsed packet. Each element in hash_field_list_p represents a different field to be included in the hash calculation which is subject to the enables which are given in hash_field_enable_list_p.</p>
-<p>Note: This API supports port profile.</p>
+<p>Note: This API supports port profile. Note: Symmetric hash on inner header is not supported.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3076,8 +3076,8 @@ SX_STATUS_PARAM_NULL if parameter is NULL </dd></dl>
 </ul>
 </li>
 <li>ECMP NVE containers can contain next hops only of the type SX_NEXT_HOP_TYPE_TUNNEL_ENCAP.</li>
-<li>To create an ECMP container of the type SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC, do the following steps: A. Create an empty ECMP container using sx_api_router_ecmp_set. B. Change the type of this ECMP container using sx_api_router_ecmp_attributes_set. C. Set next hopes to this ECMP container using sx_api_router_ecmp_set.</li>
-<li>On Spectrum, all ECMP NVE containers have the same size in hardware. If an ECMP NVE container has next hops with the total weight less than the configured global size (sx_tunnel_nve_general_params_t.ecmp_max_size), then next hops will be configured to hardware using weighted round robin algorithm. For example, if the size is configured to be four and an ECMP NVE container has two following next hops, the ECMP container will be unbalanced:<ul>
+<li>To create an ECMP container of the type SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC, follow the steps below: A. Create an empty ECMP container using sx_api_router_ecmp_set. B. Change the type of this ECMP container using sx_api_router_ecmp_attributes_set. C. Set next hopes to this ECMP container using sx_api_router_ecmp_set.</li>
+<li>On Spectrum systems, all ECMP NVE containers have the same size in hardware. If an ECMP NVE container has next hops with the total weight less than the configured global size (sx_tunnel_nve_general_params_t.ecmp_max_size), then next hops will be configured to hardware using weighted round robin algorithm. For example, if the size is configured to be four and an ECMP NVE container has two following next hops, the ECMP container will be unbalanced:<ul>
 <li>Next hop #A with weight of 1</li>
 <li>Next hop #B with weight of 2 In the hardware, this ECMP container will have three next hops with total weight of four: nh #A, nh #B, nh #A.</li>
 </ul>
@@ -3107,7 +3107,7 @@ SX_STATUS_RESOURCE_IN_USE if trying to destroy ECMP an container in use </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if ecmp_id is not found </dd>
 <dd>
-SX_STATUS_ERROR general error </dd></dl>
+SX_STATUS_ERROR for general error </dd></dl>
 
 </div>
 </div>
@@ -3377,7 +3377,7 @@ SX_STATUS_ERROR general error </dd></dl>
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- BIND/UNBIND </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ecmp_id</td><td>- ID of an ECMP container </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">counter_id_list_p</td><td>- List of counter IDs to bind to matching offsets </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">counter_id_list_p</td><td>- List of counter IDs to bind to matching offsets; ignored when cmd is unbind </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">offset_list_p</td><td>- List of next hop entries offset in configured next hop's list </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">elements_cnt</td><td>- Amount of next hops offsets</td></tr>
   </table>
@@ -4462,7 +4462,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 26 2022 07:14:00 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Oct 30 2022 15:08:18 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

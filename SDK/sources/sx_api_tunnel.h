@@ -67,13 +67,16 @@ sx_status_t sx_api_tunnel_log_verbosity_level_get(const sx_api_handle_t         
 /**
  * This API is used to create/edit/destroy tunnels.
  *
+ * Note: Flex tunnels are supported from Spectrum-2 and above.
+ *
  * When destroying a tunnel, tunnel_attr_p is ignored. By default, tunnel is created with TTL 255.
+ * Tunnel attributes cannot be modified for flex tunnels.
  *
  * QinVxLAN: After decapsulation, the configured ethertype is pushed, the desired ethertype can be set with the tunnel's attributes.
  *   For example, attributes.vxlan.decap.ethertype = 0x8100. attributes.vxlan.decap.ethertype = 0 means the default ethertype.
  *   Non-default ethertype should be previously configured with sx_api_port_vlan_ethertype_set.
  *
- * Lazy Delete feature is supported for VxLAN tunnels. If the Lazy Delete feature is disabled and the reference counter of
+ * Lazy Delete feature is supported for NVE and L2 Flex tunnels. If the Lazy Delete feature is disabled and the reference counter of
  * tunnel is 0, then the API call with DELETE command deletes the tunnel, otherwise the SDK returns SX_STATUS_RESOURCE_IN_USE.
  * If the Lazy Delete feature is enabled and the reference counter of a tunnel is not 0, the API call with command DELETE marks
  * a tunnel as deleted, and the SDK returns SX_STATUS_SUCCESS.
@@ -82,10 +85,10 @@ sx_status_t sx_api_tunnel_log_verbosity_level_get(const sx_api_handle_t         
  *
  * Below is the list of objects that increase the reference counter of a NVE/Flex tunnel:
  * 1. Each tunnel map entry (NVE only).
- * 2. Each MC RPF VIF of type SX_ROUTER_VINTERFACE_TYPE_VXLAN (NVE only).
+ * 2. Each MC RPF VIF of type SX_ROUTER_VINTERFACE_TYPE_NVE.
  * 3. Each ECMP next hop of the type SX_NEXT_HOP_TYPE_TUNNEL_ENCAP.
- * 4. Each MC next hop of the type SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP (NVE only).
- * 5. Each ACL rule with an action of the type SX_FLEX_ACL_ACTION_TUNNEL_DECAP.
+ * 4. Each MC next hop of the type SX_MC_NEXT_HOP_TYPE_TUNNEL_ENCAP_IP.
+ * 5. Each ACL rule with an action f the type SX_FLEX_ACL_ACTION_TUNNEL_DECAP.
  * 6. Each ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_TUNNEL_ENCAP.
  *
  * When a tunnel is deleted, SDK also flushes (deletes) all non-static tunnel FDB entries.
@@ -132,6 +135,19 @@ sx_status_t sx_api_tunnel_get(const sx_api_handle_t  handle,
 
 /**
  * This API gets/clears tunnel counters.
+ *
+ * IPinIP tunnels are not supported.
+ *
+ * Note for NVE tunnels:
+ *   In Spectrum-2 systems and above, an NVE tunnel can be created with the SX_TUNNEL_UNDERLAY_DOMAIN_TYPE_RIF domain type, and
+ *   to create such a tunnel, the user provides underlay RIFs.
+ *   If the given tunnel ID points to a tunnel with the SX_TUNNEL_UNDERLAY_DOMAIN_TYPE_RIF domain type, the API gets/clears only
+ *   encap and decap discard counters on a tunnel port that is connected to this tunnel.
+ *   Other counters can be retrieved from a RIF counter that the user can bind to the tunnel's underlay RIFs.
+ *
+ * Note for Flex tunnels:
+ *   The API gets/clears only encap and decap discard counters on a tunnel port that is connected to the given tunnel ID.
+ *   Other counters can be retrieved from a RIF counter that the user can bind to the tunnel's underlay RIFs.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -240,10 +256,12 @@ sx_status_t sx_api_tunnel_deinit_set(const sx_api_handle_t handle);
  * tunnel map entry before a notification is received, the SDK returns error SX_STATUS_RESOURCE_IN_USE.
  *
  * Given below is the list of objects that increases the reference counter of a tunnel map entry:
- * 1. A static tunnel UC FDB entry.
- * 2. A MC FDB entry (if MC container has a tunnel next hop).
- * 3. Each tunnel flood vector that was bound to a FID with sx_api_fdb_flood_set.
- * 4. Each ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_MC_TUNNEL_ENCAP (if MC container has a tunnel next hop).
+ * 1. A static tunnel UC FDB entry if the entry points to an NVE tunnel either directly or through an ECMP container.
+ * 2. An MC FDB entry if an MC container has a tunnel next hop that points to an NVE tunnel.
+ * 3. A tunnel flood vector that was bound to a FID with sx_api_fdb_flood_set if an MC container that is used as a flood vector
+ *    has a tunnel next hop that points to an NVE tunnel.
+ * 4. An ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_MC_TUNNEL_ENCAP if an MC container is not SX_MC_CONTAINER_TYPE_VLAN_UNAWARE and
+ *    has a tunnel next hop that points to an NVE tunnel.
  *
  * When a tunnel mapping is deleted, SDK also flushes (deletes) all relevant non-static tunnel FDB entries.
  *

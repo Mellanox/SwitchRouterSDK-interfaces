@@ -88,6 +88,7 @@ sx_status_t sx_api_router_ecmp_hash_params_set(const sx_api_handle_t            
  * enables which are given in hash_field_enable_list_p.
  *
  * Note: This API supports port profile.
+ * Note: Symmetric hash on inner header is not supported.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -1175,27 +1176,27 @@ sx_status_t sx_api_router_cos_dscp_to_prio_get(const sx_api_handle_t    handle,
                                                sx_cos_priority_color_t *priority_color_p,
                                                uint32_t                *element_cnt_p);
 
+
 /**
  * This API creates/modifies/destroys an ECMP container, according to the command.
  *
- * CREATE creates an ECMP container by providing a next hops list. Container content is formed as a subset of the resolved next
- *   hops. Returned Next hops weights are adjusted to the proper weights as written on hardware.
- *   This command returns the containers next hops as written on hardware, list count
- *   and new container ID.
+ * CREATE creates an ECMP container by providing a next hops list. Container content is formed as a subset of the resolved next hops.
+ *    Returned Next hops weights are adjusted to the proper weights as written on hardware.
+ *    This command returns the containers next hops as written on hardware, list count and new container ID.
  * SET modifies the contents of an existing ECMP container specified by *ecmp_id_p. If *next_hop_cnt_p is zero, SET empties the
- *   container.
+ *     container.
  * DESTROY removes all next hops from the existing given container by providing a container ID. It destroys the container as well.
- *   The container ID is invalid until reassigned on container creation. This command returns list count 0. Weights will be
- *   modified on runtime according to next hops resolution changes. Clearing (set with an empty next hops list), is not allowed in
- *  case container is in use by UC route(s).
+ *    The container ID is invalid until reassigned on container creation. This command returns list count 0. Weights will be
+ *    modified on runtime according to next hops resolution changes. Clearing (set with an empty next hops list), is not allowed in
+ *    case container is in use by UC route(s).
  *
  * Lazy Delete feature is supported for ECMP containers.
- *  If the Lazy Delete feature is DISABLED and the reference counter of ECMP container is 0,
- *  then the API call with DESTROY command destroys the container, otherwise the SDK returns SX_STATUS_RESOURCE_IN_USE.
- *  If the Lazy Delete feature is ENABLED and the reference counter of ECMP container is not 0,
- *  the API call with command DESTROY marks a container as deleted, and the SDK returns SX_STATUS_SUCCESS.
- * Once the reference counter of a container becomes 0, SDK will destroy the container and will generate a notification with the trap
- *  ID SX_TRAP_ID_OBJECT_DELETED_EVENT and the ID of the container that was deleted.
+ *    If the Lazy Delete feature is DISABLED and the reference counter of ECMP container is 0, then the API call with DESTROY command
+ *    destroys the container, otherwise the SDK returns SX_STATUS_RESOURCE_IN_USE.
+ *    If the Lazy Delete feature is ENABLED and the reference counter of ECMP container is not 0, the API call with command DESTROY
+ *    marks a container as deleted, and the SDK returns SX_STATUS_SUCCESS.
+ *    Once the reference counter of a container becomes 0, SDK will destroy the container and will generate a notification with the trap
+ *    ID SX_TRAP_ID_OBJECT_DELETED_EVENT and the ID of the container that was deleted.
  *
  * Note for ECMP containers of types SX_ECMP_CONTAINER_TYPE_NVE_FLOOD and SX_ECMP_CONTAINER_TYPE_NVE_MC:
  *   1. The max size of ECMP NVE container is determined by the following:
@@ -1205,12 +1206,12 @@ sx_status_t sx_api_router_cos_dscp_to_prio_get(const sx_api_handle_t    handle,
  *      - (On Spectrum-2+) min{rm_resources_t.tunnel_nve_group_size_mc_max;sx_router_resources_param_t.max_ecmp_block_size}
  *        for ECMP NVE MC containers
  *   2. ECMP NVE containers can contain next hops only of the type SX_NEXT_HOP_TYPE_TUNNEL_ENCAP.
- *   3. To create an ECMP container of the type SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC, do the
- *      following steps:
+ *   3. To create an ECMP container of the type SX_ECMP_CONTAINER_TYPE_NVE_FLOOD or SX_ECMP_CONTAINER_TYPE_NVE_MC, follow the
+ *      steps below:
  *         A. Create an empty ECMP container using sx_api_router_ecmp_set.
  *         B. Change the type of this ECMP container using sx_api_router_ecmp_attributes_set.
  *         C. Set next hopes to this ECMP container using sx_api_router_ecmp_set.
- *   4. On Spectrum, all ECMP NVE containers have the same size in hardware. If an ECMP NVE container has next hops with the
+ *   4. On Spectrum systems, all ECMP NVE containers have the same size in hardware. If an ECMP NVE container has next hops with the
  *      total weight less than the configured global size (sx_tunnel_nve_general_params_t.ecmp_max_size), then next hops will
  *      be configured to hardware using weighted round robin algorithm. For example, if the size is configured to be four and
  *      an ECMP NVE container has two following next hops, the ECMP container will be unbalanced:
@@ -1234,7 +1235,7 @@ sx_status_t sx_api_router_cos_dscp_to_prio_get(const sx_api_handle_t    handle,
  * @return SX_STATUS_NO_RESOURCES        if no space for ECMP container allocation
  * @return SX_STATUS_RESOURCE_IN_USE     if trying to destroy ECMP an container in use
  * @return SX_STATUS_ENTRY_NOT_FOUND     if ecmp_id is not found
- * @return SX_STATUS_ERROR               general error
+ * @return SX_STATUS_ERROR               for general error
  */
 sx_status_t sx_api_router_ecmp_set(const sx_api_handle_t handle,
                                    const sx_access_cmd_t cmd,
@@ -1357,7 +1358,7 @@ sx_status_t sx_api_router_operational_ecmp_get(const sx_api_handle_t handle,
  * @param[in] handle            - SX-API handle
  * @param[in] cmd               - BIND/UNBIND
  * @param[in] ecmp_id           - ID of an ECMP container
- * @param[in] counter_id_list_p - List of counter IDs to bind to matching offsets
+ * @param[in] counter_id_list_p - List of counter IDs to bind to matching offsets; ignored when cmd is unbind
  * @param[in] offset_list_p     - List of next hop entries offset in configured next hop's list
  * @param[in] elements_cnt      - Amount of next hops offsets
  *
