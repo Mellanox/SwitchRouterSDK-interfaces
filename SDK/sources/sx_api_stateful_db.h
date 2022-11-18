@@ -183,7 +183,7 @@ sx_status_t sx_api_stateful_db_ordering_set(const sx_api_handle_t          handl
 /**
  * This API returns the ordering configuration for a list of ports.
  *
- * Supported device: Spectrum4
+ * Supported devices: Spectrum4
  *
  * @param[in]     handle               - SX-API handle
  * @param[in]     cmd                  - GET

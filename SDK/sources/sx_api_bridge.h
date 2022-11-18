@@ -106,6 +106,10 @@ sx_status_t sx_api_bridge_log_verbosity_level_get(const sx_api_handle_t         
  * @param[in] handle         - SX-API handle
  * @param[in] cmd            - CREATE/DESTROY
  * @param[out] bridge_id_p   - Bridge ID
+ * @return SX_STATUS_SUCCESS           If operation completed successfully
+ * @return SX_STATUS_ENTRY_NOT_FOUND   If bridge is not found in DB
+ * @return SX_STATUS_RESOURCE_IN_USE   If bridge is in use by some resource
+ * @return SX_STATUS_ERROR             If unexpected behavior occurs
  */
 sx_status_t sx_api_bridge_set(const sx_api_handle_t handle,
                               const sx_access_cmd_t cmd,
@@ -169,19 +173,24 @@ sx_status_t sx_api_bridge_iter_get(const sx_api_handle_t     handle,
 
 /**
  *
- *  This function is used to add/delete a virtual port to/from a bridge.
+ * This API is used to add/delete a virtual port to/from a bridge.
  *
- *  Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ *
+ * Note: Before removing a vport from a bridge, all its references must be removed. For e.g the vport must be removed from all
+ * MC containers, and MC Groups. All FDB UC entries that use this vport must be deleted.
+ * Else, removing vport from bridge will fail and return error.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] cmd         - ADD/DELETE/DELETE_ALL
  * @param[in] bridge_id   - Bridge ID
  * @param[in] log_port    - Logical virtual port ID
  *
- * @return SX_STATUS_SUCCESS           Operation completed successfully
- * @return SX_STATUS_PARAM_ERROR       Any input parameter is invalid
- * @return SX_STATUS_ENTRY_NOT_FOUND   Bridge is not found in DB
- * @return SX_STATUS_ERROR             Unexpected behavior
+ * @return SX_STATUS_SUCCESS           If operation completed successfully
+ * @return SX_STATUS_PARAM_ERROR       If any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND   If bridge is not found in DB
+ * @return SX_STATUS_ERROR             If unexpected behavior
+ * @return SX_STATUS_RESOURCE_IN_USE   If vPort is in use by some resource
  */
 sx_status_t sx_api_bridge_vport_set(const sx_api_handle_t  handle,
                                     const sx_access_cmd_t  cmd,

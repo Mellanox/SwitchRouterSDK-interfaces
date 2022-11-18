@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.4026</span>
+   &#160;<span id="projectnumber">4.5.4112</span>
    </div>
   </td>
  </tr>
@@ -255,6 +255,13 @@ SX_STATUS_ERROR General error </dd></dl>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS If operation completed successfully </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND If bridge is not found in DB </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE If bridge is in use by some resource </dd>
+<dd>
+SX_STATUS_ERROR If unexpected behavior occurs </dd></dl>
 
 </div>
 </div>
@@ -378,8 +385,9 @@ SX_STATUS_ERROR General error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This function is used to add/delete a virtual port to/from a bridge.</p>
+<p>This API is used to add/delete a virtual port to/from a bridge.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Note: Before removing a vport from a bridge, all its references must be removed. For e.g the vport must be removed from all MC containers, and MC Groups. All FDB UC entries that use this vport must be deleted. Else, removing vport from bridge will fail and return error.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -389,13 +397,15 @@ SX_STATUS_ERROR General error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS If operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR Any input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR If any input parameter is invalid </dd>
 <dd>
-SX_STATUS_ENTRY_NOT_FOUND Bridge is not found in DB </dd>
+SX_STATUS_ENTRY_NOT_FOUND If bridge is not found in DB </dd>
 <dd>
-SX_STATUS_ERROR Unexpected behavior </dd></dl>
+SX_STATUS_ERROR If unexpected behavior </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE If vPort is in use by some resource </dd></dl>
 
 </div>
 </div>
@@ -765,7 +775,7 @@ SX_STATUS_ENTRY_NOT_BOUND Counter is not bound </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Oct 30 2022 15:08:18 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 18 2022 10:40:44 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
