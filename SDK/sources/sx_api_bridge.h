@@ -106,10 +106,6 @@ sx_status_t sx_api_bridge_log_verbosity_level_get(const sx_api_handle_t         
  * @param[in] handle         - SX-API handle
  * @param[in] cmd            - CREATE/DESTROY
  * @param[out] bridge_id_p   - Bridge ID
- * @return SX_STATUS_SUCCESS           If operation completed successfully
- * @return SX_STATUS_ENTRY_NOT_FOUND   If bridge is not found in DB
- * @return SX_STATUS_RESOURCE_IN_USE   If bridge is in use by some resource
- * @return SX_STATUS_ERROR             If unexpected behavior occurs
  */
 sx_status_t sx_api_bridge_set(const sx_api_handle_t handle,
                               const sx_access_cmd_t cmd,
@@ -173,24 +169,19 @@ sx_status_t sx_api_bridge_iter_get(const sx_api_handle_t     handle,
 
 /**
  *
- * This API is used to add/delete a virtual port to/from a bridge.
+ *  This function is used to add/delete a virtual port to/from a bridge.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
- *
- * Note: Before removing a vport from a bridge, all its references must be removed. For e.g the vport must be removed from all
- * MC containers, and MC Groups. All FDB UC entries that use this vport must be deleted.
- * Else, removing vport from bridge will fail and return error.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] cmd         - ADD/DELETE/DELETE_ALL
  * @param[in] bridge_id   - Bridge ID
  * @param[in] log_port    - Logical virtual port ID
  *
- * @return SX_STATUS_SUCCESS           If operation completed successfully
- * @return SX_STATUS_PARAM_ERROR       If any input parameter is invalid
- * @return SX_STATUS_ENTRY_NOT_FOUND   If bridge is not found in DB
- * @return SX_STATUS_ERROR             If unexpected behavior
- * @return SX_STATUS_RESOURCE_IN_USE   If vPort is in use by some resource
+ * @return SX_STATUS_SUCCESS           Operation completed successfully
+ * @return SX_STATUS_PARAM_ERROR       Any input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND   Bridge is not found in DB
+ * @return SX_STATUS_ERROR             Unexpected behavior
  */
 sx_status_t sx_api_bridge_vport_set(const sx_api_handle_t  handle,
                                     const sx_access_cmd_t  cmd,
@@ -285,17 +276,10 @@ sx_status_t sx_api_bridge_counter_bind_get(const sx_api_handle_t handle,
 /**
  * This API binds/un-binds a counter to/from a tunnel mapped to the bridge.
  *
- * For ENCAP_UC and ENCAP_MC counters, this operation can be performed only when FDB does not contain any
- * entries for tunnel in FID.
- * ENCAP_UC and ENCAP_MC counters count packets that hit FDB entries. An FDB entry can point to an ECMP or MC container
- * that points to one or multiple different tunnels: NVE and Flex.
- * ENCAP_UC and ENCAP_MC counters will count packets if an FDB entry points only to a single tunnel either directly or
- * through an ECMP/MC container.
- * When Lazy Delete mode is enabled, flow counters will be automatically unbounded once the deletion of the related VNI
- * mapping is completed and VNI mapping delete notification is sent.
- *
+ * For ENCAP_UC and ENCAP_MC counters, this operation can be performed only when FDB does not contain any entries
+ * for tunnel in fid.  When Lazy Delete mode is enabled, flow counters will be automatically unbounded once the deletion
+ * of the related VNI mapping is completed and VNI mapping delete notification is sent.
  * Counters can be bound only if the bridge/VLAN to tunnel mapping is configured.
- *
  * Note: Flex tunnels are not supported.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
@@ -307,12 +291,12 @@ sx_status_t sx_api_bridge_counter_bind_get(const sx_api_handle_t handle,
  * @param[in] counter_d         - Flow counter ID to be bound
  *
  *
- * @return SX_STATUS_SUCCESS              if operation completes successfully
- * @return SX_STATUS_PARAM_ERROR          if any input parameters is invalid
- * @return SX_STATUS_CMD_UNSUPPORTED      if command unsupported in this API
- * @return SX_STATUS_ENTRY_NOT_FOUND      if tunnel or tunnel mapping does not exist
- * @return SX_STATUS_ENTRY_ALREADY_BOUND  if counter is already bound
- * @return SX_STATUS_ENTRY_NOT_BOUND      if counter is not bound
+ * @return SX_STATUS_SUCCESS              Operation completed successfully
+ * @return SX_STATUS_PARAM_ERROR          Any input parameters is invalid
+ * @return SX_STATUS_CMD_UNSUPPORTED      Command unsupported in this API
+ * @return SX_STATUS_ENTRY_NOT_FOUND      Tunnel or tunnel mapping does not exist
+ * @return SX_STATUS_ENTRY_ALREADY_BOUND  Counter is already bound
+ * @return SX_STATUS_ENTRY_NOT_BOUND      Counter is not bound
  *
  */
 sx_status_t sx_api_bridge_tunnel_counter_bind_set(const sx_api_handle_t                  handle,

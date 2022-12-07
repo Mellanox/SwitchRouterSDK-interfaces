@@ -305,7 +305,6 @@ sx_status_t sx_api_lag_hash_flow_params_set(const sx_api_handle_t      handle,
  *
  * Note: LAG hash parameters are configured per ingress port and impact egress LAG.
  * Note: In hash parameters, seed is global (i.e., the last configured seed will be used).
- * Note: Symmetric hash on inner header is not supported.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *

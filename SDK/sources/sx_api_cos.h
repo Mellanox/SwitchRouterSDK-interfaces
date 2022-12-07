@@ -1677,7 +1677,7 @@ sx_status_t sx_api_cos_tq_profile_get(const sx_api_handle_t           handle,
  * This API configures snapshot trigger on a snapshot object. This configuration can be applied on a per port TC, port PG, or a port basis
  * depending on the snapshot trigger type.
  *
- * Supported devices: Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle   - SX-API handle
  * @param[in] cmd      - SET/DELETE
@@ -1696,7 +1696,7 @@ sx_status_t sx_api_cos_sb_snapshot_trigger_set(const sx_api_handle_t            
 /**
  * This API returns a list of snapshot objects as per object type.
  *
- * Supported devices: Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] cmd               - supported commands:GET/GET_FIRST/GETNEXT
