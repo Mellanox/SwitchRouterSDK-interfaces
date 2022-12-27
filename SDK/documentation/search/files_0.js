@@ -28,6 +28,7 @@ var searchData=
   ['sx_5fapi_5frm_2eh',['sx_api_rm.h',['../sx__api__rm_8h.html',1,'']]],
   ['sx_5fapi_5frouter_2eh',['sx_api_router.h',['../sx__api__router_8h.html',1,'']]],
   ['sx_5fapi_5fspan_2eh',['sx_api_span.h',['../sx__api__span_8h.html',1,'']]],
+  ['sx_5fapi_5fstateful_5fdb_2eh',['sx_api_stateful_db.h',['../sx__api__stateful__db_8h.html',1,'']]],
   ['sx_5fapi_5ftele_2eh',['sx_api_tele.h',['../sx__api__tele_8h.html',1,'']]],
   ['sx_5fapi_5ftopo_2eh',['sx_api_topo.h',['../sx__api__topo_8h.html',1,'']]],
   ['sx_5fapi_5ftunnel_2eh',['sx_api_tunnel.h',['../sx__api__tunnel_8h.html',1,'']]],

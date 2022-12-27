@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.3196</span>
+   &#160;<span id="projectnumber">4.5.4116</span>
    </div>
   </td>
  </tr>
@@ -3614,8 +3614,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API controls loopback filter state of the port.</p>
-<p>Notes relevant to NVE port: On Spectrum systems, changing of the state of the loopback filter is not supported on Spectrum. Changing of the state affects only UC traffic (MC and flooding are always filtered). The state of the filter can be changed only when there is a connected NVE/Flex tunnel in the system.</p>
-<p>Note: This API supports port profile. Note: Flex tunnels are supported from Spectrum2 and above.</p>
+<p>Notes relevant to tunnel ports: On Spectrum systems, changing of the state of the loopback filter is not supported. Changing of the state affects only UC traffic (MC and flooding are always filtered). The state of the filter can be changed only when there is a connected tunnel in the system.</p>
+<p>Note: This API supports port profile.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3665,8 +3665,8 @@ SX_STATUS_ERROR for a general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the loopback filter state of the port.</p>
-<p>Note: On Spectrum-2 systems, the API can retrieve the state of the loopback filter on the NVE port. The API can retrieve the state of the loopback filter on the NVE/Flex port only when there is connected NVE/Flex tunnel in the system.</p>
-<p>Note: This API supports port profile. Note: Flex tunnels are supported from Spectrum2 and above.</p>
+<p>Note: On Spectrum-2 systems, the API can retrieve the state of the loopback filter on a tunnel port. The API can retrieve The state of the loopback filter on a tunnel port only when there is a connected tunnel in the system.</p>
+<p>Note: This API supports port profile.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -6610,7 +6610,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 28 2022 07:56:31 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 29 2022 06:32:36 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

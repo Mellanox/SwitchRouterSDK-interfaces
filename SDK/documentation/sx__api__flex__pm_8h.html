@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.3196</span>
+   &#160;<span id="projectnumber">4.5.4116</span>
    </div>
   </td>
  </tr>
@@ -85,8 +85,8 @@ Functions</h2></td></tr>
 <tr class="separator:ab7718de07b93503fb3e56e88e13c071b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa45a100892680c23264833f985949f31"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__pm_8h.html#aa45a100892680c23264833f985949f31">sx_api_flex_pm_app_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flex_pm_app_key_t key, sx_flex_pm_app_attr_t *attr_p)</td></tr>
 <tr class="separator:aa45a100892680c23264833f985949f31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1435117e5155d26bd79f19d7b94f0525"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__pm_8h.html#a1435117e5155d26bd79f19d7b94f0525">sx_api_flex_pm_app_state_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flex_pm_app_key_t key, const sx_flex_pm_app_state_attr_t *attr_p)</td></tr>
-<tr class="separator:a1435117e5155d26bd79f19d7b94f0525"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a524551d26a14c3f89f2445db86744d9f"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__pm_8h.html#a524551d26a14c3f89f2445db86744d9f">sx_api_flex_pm_app_state_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flex_pm_app_key_t *key_p, const sx_flex_pm_app_state_attr_t *attr_p)</td></tr>
+<tr class="separator:a524551d26a14c3f89f2445db86744d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e4210cb14b60ca97bcceaa7232f6fd6"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__pm_8h.html#a9e4210cb14b60ca97bcceaa7232f6fd6">sx_api_flex_pm_app_program_context_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flex_pm_app_program_context_key_t *key_list, const sx_flex_pm_app_program_context_config_t *config_list, const uint32_t context_cnt)</td></tr>
 <tr class="separator:a9e4210cb14b60ca97bcceaa7232f6fd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c56d7b36cfe44f68ebb56a8febc7e16"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__flex__pm_8h.html#a3c56d7b36cfe44f68ebb56a8febc7e16">sx_api_flex_pm_app_program_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_flex_pm_app_key_t key, const sx_flex_pm_app_program_attr_t *attr_p)</td></tr>
@@ -341,8 +341,8 @@ SX_STATUS_ERROR on general error </dd></dl>
 
 </div>
 </div>
-<a id="a1435117e5155d26bd79f19d7b94f0525"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1435117e5155d26bd79f19d7b94f0525">&#9670;&nbsp;</a></span>sx_api_flex_pm_app_state_set()</h2>
+<a id="a524551d26a14c3f89f2445db86744d9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a524551d26a14c3f89f2445db86744d9f">&#9670;&nbsp;</a></span>sx_api_flex_pm_app_state_set()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -362,8 +362,8 @@ SX_STATUS_ERROR on general error </dd></dl>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const sx_flex_pm_app_key_t&#160;</td>
-          <td class="paramname"><em>key</em>, </td>
+          <td class="paramtype">const sx_flex_pm_app_key_t *&#160;</td>
+          <td class="paramname"><em>key_p</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -385,7 +385,7 @@ SX_STATUS_ERROR on general error </dd></dl>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>- The key to the application to set its state </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key_p</td><td>- The key to the application to set its state </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">attr_p</td><td>- The state's attributes to set to the application</td></tr>
   </table>
   </dd>
@@ -600,7 +600,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Nov 28 2022 07:56:31 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 29 2022 06:32:36 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
