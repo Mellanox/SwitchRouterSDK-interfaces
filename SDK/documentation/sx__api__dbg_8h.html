@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.4116</span>
+   &#160;<span id="projectnumber">4.5.5008</span>
    </div>
   </td>
  </tr>
@@ -577,10 +577,13 @@ SX_STATUS_ERROR General error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API enable detection of SDK and FW failures. The mechanism will monitor and detect: SDK components health state, user space modules, kernel space modules and HW interfaces that SDK uses to communicate with HW, so if issue was found health event will be sent, in parallel the mechanism inform via SysFs ("kernel_health") on the liveness of the system.</p>
-<p>ENABLE trigger the health checks - it's not allowed to enable it during ISSU, during SDK initialization or during SDK shutdown in such case SDK will postpone automatically the health monitoring. DISABLE will cancel an active operation.</p>
+<p>This API enable detection of SDK and FW failures (SDQ, RDQ, command interface, User space error threads .kernel error threads).</p>
+<p>The mechanism will monitor and detect: SDK components health state, user space modules, kernel space modules and HW interfaces that SDK uses to communicate with HW, so if issue was found health event will be sent, in parallel the mechanism inform via SysFs ("kernel_health") on the liveness of the system.</p>
+<p>Important: User still need to use <a class="el" href="sx__api__dbg_8h.html#a6201d6354c37725e64a547b8d6ffbbcf">sx_api_fw_dbg_control_set()</a> API to detect some H W/FW fatal issues that not monitor via this api (mainly issues that triggered via "MFDE" PRM register configuration).</p>
+<p>IB director systems should not use this API, they should use <a class="el" href="sx__api__dbg_8h.html#a6201d6354c37725e64a547b8d6ffbbcf">sx_api_fw_dbg_control_set()</a> API only!</p>
+<p>ENABLE trigger the health checks - it's not allowed to enable it during ISSU, during SDK Initialization or during SDK shutdown in such case SDK will postpone automatically the health monitoring. DISABLE will cancel an active operation.</p>
 <p>Note: Upon ISSU / SDK deinit, health monitor mechanism will be disabled.</p>
-<p>Note: When cmd is ENABLE and health_sample_params_p is NULL SDK use default values, see sx_dbg_health_sample_params_t description</p>
+<p>Note: When command is ENABLE and health_sample_params_p is NULL SDK use default values, see sx_dbg_health_sample_params_t description</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -754,7 +757,7 @@ SX_STATUS_ERROR General error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 29 2022 06:32:36 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 29 2022 16:15:42 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

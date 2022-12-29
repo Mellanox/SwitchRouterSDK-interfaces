@@ -275,8 +275,7 @@ sx_status_t sx_api_router_vrid_iter_get(const sx_api_handle_t   handle,
  *
  * EDIT edits router interfaces. The only applicable RIF type that can be edited in ifc_p is SX_L2_INTERFACE_TYPE_PORT_VLAN
  *   and the only field that can be edited for the RIF type is the VLAN field.
- *   The only applicable fields in ifc_attr_p are mtu, multicast_ttl_threshold, loopback_enable and mac_addr. Other fields shall
- *   not  be edited.
+ *   In ifc_attr_p qos_mode shall not be edited.  urpf_config can only be edited when the RIF is disabled.
  * DELETE/DELETE_ALL deletes all MACs assigned to a specific interface/interfaces. This includes MACs configured by
  *   sx_api_router_interface_mac_set().
  *

@@ -219,18 +219,22 @@ sx_status_t sx_api_cos_port_trust_get(const sx_api_handle_t  handle,
  *
  * Note: Untagged frames must use a buffer used by one of the priorities.
  * Note: This API supports port profile.
+ *       This API does not support LAG, but may be applied to LAG members explicitly.
+ *       This API settings will not be applied to any lag member port
+ *       using sx_api_port_profile_apply_set of port profile configuration.
+ *
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle          - SX-API handle
- * @param[in] cmd             - access command SX_ACCESS_CMD_SET
+ * @param[in] cmd             - SET
  * @param[in] log_port        - Logical port ID
  * @param[in] prio_to_buff_p  - Mapping of switch priorities to PG buffers
  *
- * @return SX_STATUS_SUCCESS         Operation completed successfully
- * @return SX_STATUS_PARAM_ERROR     Input parameter is invalid
- * @return SX_STATUS_ERROR           General error
- * @return SX_STATUS_CMD_UNSUPPORTED Unsupported command
+ * @return SX_STATUS_SUCCESS         if operation completed successfully
+ * @return SX_STATUS_PARAM_ERROR     if input parameter is invalid
+ * @return SX_STATUS_ERROR           general error
+ * @return SX_STATUS_CMD_UNSUPPORTED unsupported command
  */
 sx_status_t sx_api_cos_port_prio_buff_map_set(const sx_api_handle_t    handle,
                                               const sx_access_cmd_t    cmd,
@@ -241,15 +245,17 @@ sx_status_t sx_api_cos_port_prio_buff_map_set(const sx_api_handle_t    handle,
  * This API retrieves the port's priority to buffer mapping from the SDK.
  *
  * Note: This API supports port profile.
+ *       This API does not support LAG but may be applied to its members explicitly.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle          - SX-API handle
  * @param[in] log_port        - Logical port ID
  * @param[out] prio_to_buff_p - Mapping of switch priorities to PG buffers
  *
- * @return SX_STATUS_SUCCESS        Operation completed successfully
- * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
- * @return SX_STATUS_ERROR          General error
+ * @return SX_STATUS_SUCCESS        if operation completed successfully
+ * @return SX_STATUS_PARAM_ERROR    if input parameter is invalid
+ * @return SX_STATUS_ERROR          general error
  */
 sx_status_t sx_api_cos_port_prio_buff_map_get(const sx_api_handle_t    handle,
                                               const sx_port_log_id_t   log_port,

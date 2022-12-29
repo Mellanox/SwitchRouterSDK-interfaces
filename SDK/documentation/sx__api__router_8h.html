@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.4116</span>
+   &#160;<span id="projectnumber">4.5.5008</span>
    </div>
   </td>
  </tr>
@@ -902,7 +902,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API adds/modifies/deletes/delete_all a router interface. A router interface is associated with L2 interface.</p>
-<p>EDIT edits router interfaces. The only applicable RIF type that can be edited in ifc_p is SX_L2_INTERFACE_TYPE_PORT_VLAN and the only field that can be edited for the RIF type is the VLAN field. The only applicable fields in ifc_attr_p are mtu, multicast_ttl_threshold, loopback_enable and mac_addr. Other fields shall not be edited. DELETE/DELETE_ALL deletes all MACs assigned to a specific interface/interfaces. This includes MACs configured by <a class="el" href="sx__api__router_8h.html#a45fa8aa8bb1a944fc76388b380d32e48">sx_api_router_interface_mac_set()</a>.</p>
+<p>EDIT edits router interfaces. The only applicable RIF type that can be edited in ifc_p is SX_L2_INTERFACE_TYPE_PORT_VLAN and the only field that can be edited for the RIF type is the VLAN field. In ifc_attr_p qos_mode shall not be edited. urpf_config can only be edited when the RIF is disabled. DELETE/DELETE_ALL deletes all MACs assigned to a specific interface/interfaces. This includes MACs configured by <a class="el" href="sx__api__router_8h.html#a45fa8aa8bb1a944fc76388b380d32e48">sx_api_router_interface_mac_set()</a>.</p>
 <p>Note: On Spectrum, the MAC field in ifc_attr_p, is made from 38 bits of common base that is fixed and only the last 10 bits varies from one RIF to another. On Spectrum-2+ the MAC field in ifc_attr_p is made from 36 bits of common base called MAC prefix and only the last 12 bits varies from one RIF to another. The user can configure up to 4 different MAC prefixes. Note: The qos_mode field in ifc_attr_p is redundant. Use the global router QoS configuration instead. The RIF must be aligned with the router global QOS mode, that is configured using sx_api_router_cos_prio_update_enable_set, otherwise SX_ROUTER_QOS_MODE_NOP shall be set to use the router global configured QOS mode. Note: In 802.1D mode, if ifc_p needs to be configured as type=SX_L2_INTERFACE_TYPE_VLAN, then bridge_id needs to be provided instead of ifc.vlan.vlan.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -4462,7 +4462,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 29 2022 06:32:36 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Dec 29 2022 16:15:43 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
