@@ -145,7 +145,7 @@ sx_status_t sx_api_ar_default_classification_get(const sx_api_handle_t      hand
  * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in] handle            - SX-API handle.
- * @param[in] cmd               - SET \ UNSET.
+ * @param[in] cmd               - SET.
  * @param[in] classifier_id     - Classifier ID
  * @param[in] attr_p            - Classifier configuration attributes.
  * @param[in] action_p          - Classifier action.

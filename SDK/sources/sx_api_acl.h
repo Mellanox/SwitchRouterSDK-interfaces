@@ -629,15 +629,13 @@ sx_status_t sx_api_acl_l4_port_range_iter_get(const sx_api_handle_t             
 
 /**
  * This API adds/edits/deletes a range comparison set (up to SX_ACL_MAX_PORT_RANGES).
- * Supported range comparisons: L4 Port, IP length, TTL, Custom Bytes, UTC, PORT_USER_MEM, and PRBS.
- * Supported match types: RANGE and EXACT MATCH.
+ * Supported range comparisons: L4 Port, IP length, TTL, Custom Bytes, and UTC.
  *
  * ADD command is used to write given range into a group and have their IDs returned.
  * EDIT command is used to set the given range into a given range ID.
  * DELETE command is used to clear the configuration of a given range ID.
  *
- * Note: SX_ACL_PORT_RANGE_IP_HEADER_BOTH_E option for IP header type is not supported on Spectrum2 and Spectrum3 systems.
- * Note: SX_ACL_RANGE_MATCH_TYPE_EXACT_E match type is only supported on Spectrum4 and above
+ * Note: SX_ACL_PORT_RANGE_IP_HEADER_BOTH option for IP header type is not supported on Spectrum2 and Spectrum3 systems.
  * Note: At a given time, no more than 2 Custom Bytes ranges can be used.
  *
  * Supported devices: Spectrum2, Spectrum3, Spectrum4.

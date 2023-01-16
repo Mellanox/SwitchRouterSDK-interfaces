@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -275,7 +275,8 @@ sx_status_t sx_api_router_vrid_iter_get(const sx_api_handle_t   handle,
  *
  * EDIT edits router interfaces. The only applicable RIF type that can be edited in ifc_p is SX_L2_INTERFACE_TYPE_PORT_VLAN
  *   and the only field that can be edited for the RIF type is the VLAN field.
- *   In ifc_attr_p qos_mode shall not be edited.  urpf_config can only be edited when the RIF is disabled.
+ *   The only applicable fields in ifc_attr_p are mtu, multicast_ttl_threshold, loopback_enable and mac_addr. Other fields shall
+ *   not  be edited.
  * DELETE/DELETE_ALL deletes all MACs assigned to a specific interface/interfaces. This includes MACs configured by
  *   sx_api_router_interface_mac_set().
  *
@@ -1220,6 +1221,10 @@ sx_status_t sx_api_router_cos_dscp_to_prio_get(const sx_api_handle_t    handle,
  *   5. On Spectrum-2 and above these ECMP containers can contain flex tunnels along with nve tunnels.
  *      If an ECMP contains a flex tunnel it cannot be used as the destination of a FDB entry.
  *
+ * Note only ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E allows to write unresolved next hops to hardware. The unresolved next hop action will be SX_ROUTER_ACTION_DROP.
+ * For ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E, the next hop list size is set according to next_hop_cnt_p value and not by the group_size configured in sx_api_router_ecmp_attributes_set.
+ * ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E supports only container type SX_ECMP_CONTAINER_TYPE_IP and next-hop type SX_NEXT_HOP_TYPE_IP.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                 - SX-API handle
@@ -1325,7 +1330,7 @@ sx_status_t sx_api_router_ecmp_iter_get(const sx_api_handle_t   handle,
                                         uint32_t               *ecmp_cnt_p);
 
 /**
- * This API retrieves the ECMP container content, as written to hardware (only resolved next hops are written to hardware).
+ * This API retrieves the ECMP container content, as written to hardware.
  *
  * Note: This API will return next hops for a given ECMP ID if this ECMP is not redirected. If the ECMP is redirected,
  *  it will return next hops from the destination ECMP.
@@ -1378,7 +1383,7 @@ sx_status_t sx_api_router_ecmp_counter_bind_set(const sx_api_handle_t       hand
 
 /**
  * This API binds/unbinds a router counter to a list of indices in a container active set.
- * This API should be used for containers that are not static containers.
+ * This API should be used for containers that are not static or preserved order containers.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -1427,6 +1432,8 @@ sx_status_t sx_api_router_neigh_activity_notify(const sx_api_handle_t           
  * This API sets an ECMP container's attributes.
  * Using this API is not mandatory for ECMP hashing (default value is SX_ECMP_TYPE_STATIC_E).
  * To use this API, create an empty ECMP container, set the container attributes, and add next hops.
+ *
+ * Note ECMP type "SX_ECMP_TYPE_PRESERVED_ORDER_E" supports only container type SX_ECMP_CONTAINER_TYPE_IP.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -1615,6 +1622,8 @@ sx_status_t sx_api_router_mc_route_counter_bind_get(const sx_api_handle_t    han
  * Only 1:1 redirection is supported. Redirection chains are not supported ("A" -> "B" -> "C") and N:1 redirection is not
  * supported ("A" -> "C" | "B" -> "C").
  *
+ * Note This API doesn't support ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                - SX-API handle
@@ -1732,7 +1741,7 @@ sx_status_t sx_api_router_user_defined_lpm_tree_get(const sx_api_handle_t  handl
  * in the configured next-hop list for the given ECMP ID.
  * Note: - Update applies only for type SX_ECMP_CONTAINER_TYPE_IP
  *       - Updated next-hop weight matches the corresponding previous next-hop weight (weight can't be updated)
- *       - Updating a non-resolved next-hop can cause configuration time overhead.
+ *       - Updating next hop with different resolution status is possible only for ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E.
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle
