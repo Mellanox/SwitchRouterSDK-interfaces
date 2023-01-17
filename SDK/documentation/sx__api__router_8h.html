@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.4206</span>
+   &#160;<span id="projectnumber">4.5.4150</span>
    </div>
   </td>
  </tr>
@@ -3084,7 +3084,6 @@ SX_STATUS_PARAM_NULL if parameter is NULL </dd></dl>
 </li>
 <li>On Spectrum-2 and above these ECMP containers can contain flex tunnels along with nve tunnels. If an ECMP contains a flex tunnel it cannot be used as the destination of a FDB entry.</li>
 </ol>
-<p>Note only ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E allows to write unresolved next hops to hardware. The unresolved next hop action will be SX_ROUTER_ACTION_DROP. For ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E, the next hop list size is set according to next_hop_cnt_p value and not by the group_size configured in sx_api_router_ecmp_attributes_set. ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E supports only container type SX_ECMP_CONTAINER_TYPE_IP and next-hop type SX_NEXT_HOP_TYPE_IP.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3300,7 +3299,7 @@ SX_STATUS_DB_NOT_INITIALIZED if internal ECMP database is not initialized </dd><
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves the ECMP container content, as written to hardware.</p>
+<p>This API retrieves the ECMP container content, as written to hardware (only resolved next hops are written to hardware).</p>
 <p>Note: This API will return next hops for a given ECMP ID if this ECMP is not redirected. If the ECMP is redirected, it will return next hops from the destination ECMP.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -3447,7 +3446,7 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API binds/unbinds a router counter to a list of indices in a container active set. This API should be used for containers that are not static or preserved order containers.</p>
+<p>This API binds/unbinds a router counter to a list of indices in a container active set. This API should be used for containers that are not static containers.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3557,7 +3556,6 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets an ECMP container's attributes. Using this API is not mandatory for ECMP hashing (default value is SX_ECMP_TYPE_STATIC_E). To use this API, create an empty ECMP container, set the container attributes, and add next hops.</p>
-<p>Note ECMP type "SX_ECMP_TYPE_PRESERVED_ORDER_E" supports only container type SX_ECMP_CONTAINER_TYPE_IP.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3995,7 +3993,6 @@ SX_STATUS_ERROR general error </dd></dl>
 <li>ECMP container redirect_ecmp is not in use (the reference counter of ECMP container is equal 0) (e.g., there are no FDB entries that point to redirect_ecmp)</li>
 <li>redirect_ecmp is not redirected to any other ECMP and no other container is already redirected to redirect_ecmp. Once ECMP container redirect_ecmp becomes the master, the user cannot create objects that point to the container redirect_ecmp directly. ECMP container ecmp and redirect_ecmp cannot be destroyed until redirection stops. Only 1:1 redirection is supported. Redirection chains are not supported ("A" -&gt; "B" -&gt; "C") and N:1 redirection is not supported ("A" -&gt; "C" | "B" -&gt; "C").</li>
 </ol>
-<p>Note This API doesn't support ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -4308,7 +4305,7 @@ SX_STATUS_MODULE_UNINITIALIZED if router module is uninitialized </dd></dl>
 </div><div class="memdoc">
 <p>This function updates the given ECMP next-hops on the offsets list with the corresponding next-hop in the configured next-hop list for the given ECMP ID. Note: - Update applies only for type SX_ECMP_CONTAINER_TYPE_IP</p><ul>
 <li>Updated next-hop weight matches the corresponding previous next-hop weight (weight can't be updated)</li>
-<li>Updating next hop with different resolution status is possible only for ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E. Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</li>
+<li>Updating a non-resolved next-hop can cause configuration time overhead. Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -4465,7 +4462,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 15 2023 08:01:38 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Jan 15 2023 13:00:50 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
