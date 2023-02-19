@@ -143,6 +143,11 @@ sx_status_t sx_api_close(sx_api_handle_t *handle);
  * @return SX_STATUS_INVALID_HANDLE if handle is invalid
  * @return SX_STATUS_COMM_ERROR if there is a communication error in channel message send/receive
  * @return SX_STATUS_PARAM_ERROR if no SWID was defined
+ * @return SX_STATUS_FW_INIT_FAILURE if secure firmware boot failure occurs. Need to actively start recovery
+ *                                   flow process (conducting regular initialization will not address the issue).
+ *                                   Contact NVIDIA Support for instructions.
+ * @return SX_STATUS_DEVICE_UNRECOVERABLE if device is in an unrecoverable state.
+ *                                        Contact NVIDIA Support to discuss further options.
  */
 sx_status_t sx_api_sdk_init_set(const sx_api_handle_t       handle,
                                 const sx_api_sx_sdk_init_t *sdk_init_params_p);

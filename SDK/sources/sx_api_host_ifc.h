@@ -304,7 +304,7 @@ sx_status_t sx_api_host_ifc_trap_id_ext_set(const sx_api_handle_t          handl
  *
  * @param[in]     trap_key_p    - Trap key value (e.g., Trap ID)
  * @param[out]    trap_attr_p   - Trap attributes (e.g., trap group and trap action)
- * @param[out]    trap_cnt_p    - Number of the trap groups and relevant parameters bound to the trap_id
+ * @param[out]    attr_cnt_p    - Number of the trap groups and relevant parameters bound to the trap_id
  *
  *    @return SX_STATUS_SUCCESS if operation completes successfully
  *    @return SX_STATUS_PARAM_ERROR if any input parameters is invalid

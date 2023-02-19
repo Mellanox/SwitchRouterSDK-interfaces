@@ -210,20 +210,28 @@ sx_status_t sx_api_fw_dbg_control_get(const sx_api_handle_t handle, sx_dbg_contr
 sx_status_t sx_api_fw_dbg_test(const sx_api_handle_t handle, const sx_dbg_test_params_t *params);
 
 /**
- * This API enable detection of SDK and FW failures.
+ * This API enable detection of SDK and FW failures (SDQ, RDQ, command interface,
+ * User space error threads .kernel error threads).
+ *
  * The mechanism will monitor and detect: SDK components health state, user
  * space modules, kernel space modules and HW interfaces that SDK uses to communicate
  * with HW, so if issue was found health event will be sent,
- * in parallel  the mechanism inform via SysFs ("kernel_health") on the liveness of the system.
+ * in parallel the mechanism inform via SysFs ("kernel_health") on the liveness of the system.
+ *
+ * Important: User still need to use sx_api_fw_dbg_control_set() API to detect some H
+ * W/FW fatal issues that not monitor via this api
+ * (mainly issues that triggered via "MFDE" PRM register configuration).
+ *
+ * IB director systems should not use this API, they should use sx_api_fw_dbg_control_set() API only!
  *
  * ENABLE trigger the health checks - it's not allowed to enable it during ISSU, during SDK
- * initialization or during SDK shutdown in such case SDK will postpone automatically
+ * Initialization or during SDK shutdown in such case SDK will postpone automatically
  * the health monitoring.
  * DISABLE will cancel an active operation.
  *
  * Note:  Upon ISSU / SDK deinit, health monitor mechanism will be disabled.
  *
- * Note:  When cmd is ENABLE and health_sample_params_p is NULL SDK use default values,
+ * Note:  When command is ENABLE and health_sample_params_p is NULL SDK use default values,
  * see sx_dbg_health_sample_params_t description
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
