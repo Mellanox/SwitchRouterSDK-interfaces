@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -218,11 +218,8 @@ sx_status_t sx_api_fw_dbg_test(const sx_api_handle_t handle, const sx_dbg_test_p
  * with HW, so if issue was found health event will be sent,
  * in parallel the mechanism inform via SysFs ("kernel_health") on the liveness of the system.
  *
- * Important: User still need to use sx_api_fw_dbg_control_set() API to detect some H
- * W/FW fatal issues that not monitor via this api
- * (mainly issues that triggered via "MFDE" PRM register configuration).
- *
- * IB director systems should not use this API, they should use sx_api_fw_dbg_control_set() API only!
+ * IMPORTANT: this API and sx_api_fw_dbg_control_set() API are mutually exclusive! Only one can be used
+ * in a single SDK life cycle.
  *
  * ENABLE trigger the health checks - it's not allowed to enable it during ISSU, during SDK
  * Initialization or during SDK shutdown in such case SDK will postpone automatically

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['span_5fport_5fattr_5fmax_5fnum',['SPAN_PORT_ATTR_MAX_NUM',['../sx__api__span_8h.html#a220ee2ca173c3b462d7ff6fc7a1a341f',1,'sx_api_span.h']]]
+  ['posix_5feintr_5fretry',['POSIX_EINTR_RETRY',['../sx__api__host__ifc_8h.html#ae1bbebd5bde7a2e3ecccf74841fff356',1,'sx_api_host_ifc.h']]]
 ];

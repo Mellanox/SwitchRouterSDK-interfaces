@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -130,6 +130,7 @@ sx_status_t sx_api_bulk_counter_buffer_set(const sx_api_handle_t            hand
  *
  * @param[in] handle      - SX-API handle
  * @param[in] cmd         - READ/READ_CLEAR/READ_FLUSH/READ_CLEAR_FLUSH/DISABLE
+ *                           Only READ/READ_CLEAR for flow estimator counters
  * @param[in] buffer_p    - Valid buffer which was allocated by sx_api_bulk_buffer_set().
  *
  * @return SX_STATUS_SUCCESS             Operation completed successfully

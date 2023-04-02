@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.5104</span>
+   &#160;<span id="projectnumber">4.5.6056</span>
    </div>
   </td>
  </tr>
@@ -134,8 +134,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API Initiates the adaptive routing (AR) module in SDK. This function should be called before any use of the library.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>This API Initiates the adaptive routing (AR) module in SDK. This function should be called before any use of the library. The function will configure default AR values: Shapers rate: AR_SHAPER_RATE_DEFAULT us for both shapers Port congestion threshold: Low - AR_CONGESTION_THRESHOLD_DEFAULT_LOW cells Medium - AR_CONGESTION_THRESHOLD_DEFAULT_MEDIUM cells High - AR_CONGESTION_THRESHOLD_DEFAULT_HIGH cells</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -174,7 +174,7 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API deinitializes the AR block in the SDK. Supported devices: Spectrum2, Spectrum3.</p>
+<p>This API deinitializes the AR block in the SDK. Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle.</td></tr>
@@ -226,9 +226,9 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the AR profile configuration parameters. Only one of the profiles or both of the profiles can be configured.</p>
-<p>Note: Only CREATE and DESTROY access commands are supported.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>This API sets the AR profile configuration parameters. Only one of the profiles or both of the profiles can be configured. Only elephant attribute can be configured with free mode profile only.</p>
+<p>Note: Only SET access commands are supported.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -286,7 +286,7 @@ SX_STATUS_PARAM_NULL if any input/output parameter is NULL. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets AR profile configuration parameters.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -336,7 +336,7 @@ SX_STATUS_ERROR general error. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API sets the AR default classifier configuration parameters. Supported devices: Spectrum2, Spectrum3.</p>
+<p>This API sets the AR default classifier configuration parameters. Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -386,7 +386,7 @@ SX_STATUS_ERROR for a general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the AR default classification configuration. Supported devices: Spectrum2, Spectrum3.</p>
+<p>This API gets the AR default classification configuration. Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -450,14 +450,14 @@ SX_STATUS_PARAM_NULL if any input/output parameter is NULL. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the AR classifier configuration parameters. When multi-match then classifier with lower value wins. When no match the default classifier wins.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET \ UNSET. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET / UNSET. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">classifier_id</td><td>- Classifier ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">attr_p</td><td>- Classifier configuration attributes. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">action_p</td><td>- Classifier action.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">attr_p</td><td>- Classifier configuration attributes. Only for SET. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">action_p</td><td>- Classifier action. Only for SET.</td></tr>
   </table>
   </dd>
 </dl>
@@ -511,7 +511,7 @@ SX_STATUS_ERROR general error. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets AR classifier configuration parameters.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -565,14 +565,14 @@ SX_STATUS_ERROR general error. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the AR congestion threshold configuration. This configuration will impact the port grade. The grades are used by the AR engine to select the egress port.</p>
-<p>Buffer &lt; thresh_lo will get grade 0/1 depends on link utilization thresh_lo &lt; Buffer &lt; thresh_med will get grade 2 thresh_med &lt; Buffer &lt; thresh_hi will get grade 3 thresh_hi &lt; Buffer will get grade 4</p>
+<p>Buffer &lt; thresh_lo will get grade 0/1 depends on link utilization thresh_lo &lt;= Buffer &lt; thresh_med will get grade 2 thresh_med &lt;= Buffer &lt; thresh_hi will get grade 3 thresh_hi &lt;= Buffer will get grade 4</p>
 <p>Note: min threshold = 0, max threshold = 2^24</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">threshold_p</td><td>- Congestion threshold.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">threshold_p</td><td>- Congestion threshold in cells.</td></tr>
   </table>
   </dd>
 </dl>
@@ -615,7 +615,7 @@ SX_STATUS_PARAM_NULL if any input/output parameter is NULL. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets the AR congestion threshold configuration. Supported devices: Spectrum2, Spectrum3.</p>
+<p>This API gets the AR congestion threshold configuration. Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -673,7 +673,7 @@ SX_STATUS_PARAM_NULL if any input/output parameter is NULL. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the AR link utilization configuration parameters.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -727,7 +727,7 @@ SX_STATUS_ERROR general error. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the AR link utilization configuration parameters.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -781,7 +781,7 @@ SX_STATUS_ERROR general error. </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the AR shaper rate configuration parameters. To prevent moving a large amount of flows moving from one output to another output in a short period of time two types of shapers per port are used:</p>
 <p>A shaper per output port for the number of flows that changed their destination to the output port A shaper per output port for the number of flows that changed their destination from the output port</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -832,7 +832,7 @@ SX_STATUS_ERROR general error. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets AR shaper rate configuration parameters.</p>
-<p>Supported devices: Spectrum2, Spectrum3.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
@@ -884,7 +884,7 @@ SX_STATUS_ERROR general error. </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves adaptive routing global counters values.</p>
-<p>Supported devices: Spectrum2, Spectrum3</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -905,7 +905,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Feb 14 2023 21:39:17 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Mar 29 2023 03:04:44 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

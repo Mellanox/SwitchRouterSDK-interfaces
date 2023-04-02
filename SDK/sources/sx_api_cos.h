@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -1332,10 +1332,10 @@ sx_status_t sx_api_cos_redecn_profile_tc_bind_get(const sx_api_handle_t         
  * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
  * @return SX_STATUS_ERROR          General error
  */
-sx_status_t sx_api_cos_redecn_rate_based_set(const sx_api_handle_t              handle,
-                                             const boolean_t                    enabled,
-                                             const sx_port_log_id_t             log_port,
-                                             sx_cos_redecn_rate_based_params_t *params_p);
+sx_status_t sx_api_cos_redecn_rate_based_set(const sx_api_handle_t                    handle,
+                                             const boolean_t                          enabled,
+                                             const sx_port_log_id_t                   log_port,
+                                             const sx_cos_redecn_rate_based_params_t *params_p);
 
 /**
  * \deprecated This API is deprecated and will be removed in the future.

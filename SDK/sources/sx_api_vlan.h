@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -424,6 +424,12 @@ sx_status_t sx_api_vlan_default_vid_get(const sx_api_handle_t handle,
 /**
  * This API sets Q-in-Q mode of port.
  *
+ * By default, when a new VLAN tag is pushed, the Ethertype is taken from the ingress port.
+ * On Spectrum2 and on, SDK allows selecting the port (ingress or egress)
+ * that is used to determine the packet's EtherType.
+ * If the packet's EtherType should be set according to the egress port,
+ * please, use the API sx_api_vlan_port_tag_mode_set instead.
+ *
  * Note: This function is only valid when in 802.1Q bridge mode.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
@@ -466,6 +472,63 @@ sx_status_t sx_api_vlan_port_qinq_mode_set(const sx_api_handle_t  handle,
 sx_status_t sx_api_vlan_port_qinq_mode_get(const sx_api_handle_t  handle,
                                            const sx_port_log_id_t log_port,
                                            sx_qinq_mode_t        *qinq_mode_p);
+
+/**
+ * This API sets the VLAN tag mode of port.
+ *
+ * By default, when a new VLAN tag is pushed, the Ethertype is taken from the ingress port.
+ * On Spectrum2 and on, SDK allows selecting the port (ingress or egress)
+ * that is used to determine the packet's EtherType.
+ * A VLAN tag is pushed:
+ *   1. at ingress for untagged packets, packets that are classified as untagged or
+ *      if the ingress port is in the QinQ tag mode;
+ *   2. after routing, the HW builds a new L2 header, and if, according to the configuration of
+ *      the egress port, a packet should go out with a VLAN tag, the Ethertype will be taken from
+ *      the egress port;
+ *   3. after L2 tunnel decapsulation.
+ *
+ * Note:
+ *   1. This API extends and replaces the API sx_api_vlan_port_qinq_mode_set.
+ *   2. This API accepts network ports, LAGs, and tunnel ports.
+ *      This API does not support virtual ports and the CPU port.
+ *   3. This API does not support port profiles.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ *
+ * @param[in] handle    - SX-API handle
+ * @param[in] log_port  - Logical port ID
+ * @param[in] params_p  - Parameters of the VLAN tag mode
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range
+ * @return SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database
+ * @return SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_vlan_port_tag_mode_set(const sx_api_handle_t            handle,
+                                          const sx_port_log_id_t           log_port,
+                                          const sx_vlan_tag_mode_params_t *params_p);
+
+/**
+ * This API retrieves the VLAN tag mode of port.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ *
+ * @param[in] handle        - SX-API handle
+ * @param[in] log_port      - Logical port ID
+ * @param[out] params_p     - Retrieved mode
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
+ * @return SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database
+ * @return SX_STATUS_ERROR for a general error
+ */
+sx_status_t sx_api_vlan_port_tag_mode_get(const sx_api_handle_t      handle,
+                                          const sx_port_log_id_t     log_port,
+                                          sx_vlan_tag_mode_params_t *params_p);
 
 /**
  * The API sets which priority should be taken for the outer tag when Q-in-Q is enabled (the port's default priority or the

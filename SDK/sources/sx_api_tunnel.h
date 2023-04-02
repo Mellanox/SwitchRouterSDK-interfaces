@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -73,8 +73,6 @@ sx_status_t sx_api_tunnel_log_verbosity_level_get(const sx_api_handle_t         
  * Tunnel attributes cannot be modified for flex tunnels.
  *
  * QinVxLAN: After decapsulation, the configured ethertype is pushed, the desired ethertype can be set with the tunnel's attributes.
- *   For example, attributes.vxlan.decap.ethertype = 0x8100. attributes.vxlan.decap.ethertype = 0 means the default ethertype.
- *   Non-default ethertype should be previously configured with sx_api_port_vlan_ethertype_set.
  *
  * Lazy Delete feature is supported for NVE and L2 Flex tunnels. If the Lazy Delete feature is disabled and the reference counter of
  * tunnel is 0, then the API call with DELETE command deletes the tunnel, otherwise the SDK returns SX_STATUS_RESOURCE_IN_USE.
