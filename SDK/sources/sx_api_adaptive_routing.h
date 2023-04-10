@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2001-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -26,14 +26,8 @@
 /**
  * This API Initiates the adaptive routing (AR) module in SDK.
  * This function should be called before any use of the library.
- * The function will configure default AR values:
- *          Shapers rate: AR_SHAPER_RATE_DEFAULT us for both shapers
- *          Port congestion threshold:
- *              Low - AR_CONGESTION_THRESHOLD_DEFAULT_LOW cells
- *              Medium - AR_CONGESTION_THRESHOLD_DEFAULT_MEDIUM cells
- *              High - AR_CONGESTION_THRESHOLD_DEFAULT_HIGH cells
  *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in] handle        - SX-API handle.
  * @param[in] init_params_p - General AR parameters.
@@ -53,7 +47,7 @@ sx_status_t sx_api_ar_init_set(const sx_api_handle_t      handle,
 
 /**
  * This API deinitializes the AR block in the SDK.
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in] handle - SX-API handle.
  *
@@ -66,11 +60,10 @@ sx_status_t sx_api_ar_deinit_set(const sx_api_handle_t handle);
 /**
  * This API sets the AR profile configuration parameters.
  * Only one of the profiles or both of the profiles can be configured.
- * Only elephant attribute can be configured with free mode profile only.
  *
- * Note: Only SET access commands are supported.
+ * Note: Only CREATE and DESTROY access commands are supported.
  *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in]  handle                       - SX-API handle
  * @param[in]  cmd                          - SX access command - SET
@@ -93,7 +86,7 @@ sx_status_t sx_api_ar_profile_set(const sx_api_handle_t       handle,
 /**
  *  This API gets AR profile configuration parameters.
  *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in] handle                         - SX-API handle
  * @param[in] profile_key_p                  - Profile key
@@ -110,7 +103,7 @@ sx_status_t sx_api_ar_profile_get(const sx_api_handle_t      handle,
 
 /**
  * This API sets the AR default classifier configuration parameters.
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in]  handle                       - SX-API handle
  * @param[in]  cmd                          - SET.
@@ -130,7 +123,7 @@ sx_status_t sx_api_ar_default_classification_set(const sx_api_handle_t          
 
 /**
  * This API gets the AR default classification configuration.
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in]  handle                       - SX-API handle
  * @param[in]  action_p                     - default classifier action.
@@ -145,17 +138,17 @@ sx_status_t sx_api_ar_default_classification_get(const sx_api_handle_t      hand
                                                  sx_ar_classifier_action_t *action_p);
 
 /**
- * This API sets the AR classifier configuration parameters.
+ *  This API sets the AR classifier configuration parameters.
  * When multi-match then classifier with lower value wins.
  * When no match the default classifier wins.
  *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in] handle            - SX-API handle.
- * @param[in] cmd               - SET / UNSET.
+ * @param[in] cmd               - SET \ UNSET.
  * @param[in] classifier_id     - Classifier ID
- * @param[in] attr_p            - Classifier configuration attributes. Only for SET.
- * @param[in] action_p          - Classifier action. Only for SET.
+ * @param[in] attr_p            - Classifier configuration attributes.
+ * @param[in] action_p          - Classifier action.
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully.
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received.
@@ -172,7 +165,7 @@ sx_status_t sx_api_ar_classifier_set(const sx_api_handle_t            handle,
 /**
  *  This API gets AR classifier configuration parameters.
  *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in] handle            - SX-API handle.
  * @param[in] classifier_id     - Classifier ID
@@ -196,17 +189,17 @@ sx_status_t sx_api_ar_classifier_get(const sx_api_handle_t       handle,
  * The grades are used by the AR engine to select the egress port.
  *
  * Buffer < thresh_lo  will get grade 0/1 depends on link utilization
- * thresh_lo  <= Buffer < thresh_med will get grade 2
- * thresh_med <= Buffer < thresh_hi  will get grade 3
- * thresh_hi  <= Buffer              will get grade 4
+ * thresh_lo  < Buffer < thresh_med will get grade 2
+ * thresh_med < Buffer < thresh_hi  will get grade 3
+ * thresh_hi  < Buffer              will get grade 4
  *
  * Note: min threshold = 0, max threshold = 2^24
  *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in]  handle                       - SX-API handle
  * @param[in]  cmd                          - SET.
- * @param[in]  threshold_p                  - Congestion threshold in cells.
+ * @param[in]  threshold_p                  - Congestion threshold.
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_CMD_UNSUPPORTED if access command isn't supported.
@@ -221,7 +214,7 @@ sx_status_t sx_api_ar_congestion_threshold_set(const sx_api_handle_t            
 
 /**
  * This API gets the AR congestion threshold configuration.
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in]  handle                       - SX-API handle
  * @param[out]  threshold_p                 - Congestion threshold pointer.
@@ -238,7 +231,7 @@ sx_status_t sx_api_ar_congestion_threshold_get(const sx_api_handle_t            
 /**
  *  This API sets the AR link utilization configuration parameters.
  *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in] handle                     - SX-API handle.
  * @param[in] cmd                        - SET.
@@ -261,7 +254,7 @@ sx_status_t sx_api_ar_link_utilization_threshold_set(const sx_api_handle_t      
 /**
  *  This API gets the AR link utilization configuration parameters.
  *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in] handle                           - SX-API handle.
  * @param[in] log_port                         - SDK logical port
@@ -287,7 +280,7 @@ sx_status_t sx_api_ar_link_utilization_threshold_get(const sx_api_handle_t      
  * A shaper per output port for the number of flows that changed their destination to the output port
  * A shaper per output port for the number of flows that changed their destination from the output port
  *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in] handle            - SX-API handle.
  * @param[in] cmd               - SET.
@@ -308,7 +301,7 @@ sx_status_t sx_api_ar_shaper_rate_set(const sx_api_handle_t      handle,
 /**
  *  This API gets AR shaper rate configuration parameters.
  *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in] handle                    - SX-API handle.
  * @param[out] shaper_attr_p            - Shaper configuration attributes.
@@ -325,7 +318,7 @@ sx_status_t sx_api_ar_shaper_rate_get(const sx_api_handle_t handle,
 /**
  * This API retrieves adaptive routing global counters values.
  *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ * Supported devices: Spectrum2, Spectrum3
  *
  * @param[in] handle            - SX-API handle
  * @param[in] cmd               - READ/READ_CLEAR

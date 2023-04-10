@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.6056</span>
+   &#160;<span id="projectnumber">4.5.5120</span>
    </div>
   </td>
  </tr>
@@ -103,8 +103,6 @@ Functions</h2></td></tr>
 <tr class="separator:a0b4fbd51ebc7bce4001fd347dd1128e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad157db98602e015414c58572fb807ce6"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#ad157db98602e015414c58572fb807ce6">sx_api_port_swid_port_list_get</a> (const sx_api_handle_t handle, const sx_swid_t swid, sx_port_log_id_t *log_port_list_p, uint32_t *port_cnt_p)</td></tr>
 <tr class="separator:ad157db98602e015414c58572fb807ce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7d4bb170a5f81517fb45c98fa51e3ff"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#ab7d4bb170a5f81517fb45c98fa51e3ff">sx_api_port_vlans_get</a> (const sx_api_handle_t handle, const sx_swid_t swid, const sx_port_log_id_t log_port_id, sx_port_vlans_t *port_vlan_list_p, uint16_t *vlan_cnt_p)</td></tr>
-<tr class="separator:ab7d4bb170a5f81517fb45c98fa51e3ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76a1283579d3589c1282db08adf9c15f"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a76a1283579d3589c1282db08adf9c15f">sx_api_port_mode_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_port_mode_t mode)</td></tr>
 <tr class="separator:a76a1283579d3589c1282db08adf9c15f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8915383346dfe6d396c27c2f4b02bb61"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a8915383346dfe6d396c27c2f4b02bb61">sx_api_port_mode_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_mode_t *mode_p)</td></tr>
@@ -301,16 +299,6 @@ Functions</h2></td></tr>
 <tr class="separator:a46fa9a17c45d9b70f6073f4a4134e478"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e408c302d642bf5d95bf80caae390ec"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a0e408c302d642bf5d95bf80caae390ec">sx_api_port_group_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_port_group_cfg_t *port_group_cfg_list_p, uint32_t *port_group_cfg_cnt_p, sx_port_group_attr_t *group_attr_p)</td></tr>
 <tr class="separator:a0e408c302d642bf5d95bf80caae390ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a832d6ef72ca1866305db1cb8a06f9e60"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a832d6ef72ca1866305db1cb8a06f9e60">sx_api_port_state_event_delay_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, const sx_port_state_delay_t *port_state_delay_p)</td></tr>
-<tr class="separator:a832d6ef72ca1866305db1cb8a06f9e60"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2038547b2e36987c7cf73818852b44c"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#af2038547b2e36987c7cf73818852b44c">sx_api_port_state_event_delay_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_state_delay_t *port_state_delay_p)</td></tr>
-<tr class="separator:af2038547b2e36987c7cf73818852b44c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61fd4a718b124d1f590ec98b21f6011a"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a61fd4a718b124d1f590ec98b21f6011a">sx_api_port_state_event_delay_counter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_state_event_delay_counters_t *cntr_delay_state_p)</td></tr>
-<tr class="separator:a61fd4a718b124d1f590ec98b21f6011a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08d04ffab016bad1a3aee68eb239bbdd"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a08d04ffab016bad1a3aee68eb239bbdd">sx_api_port_parser_attr_set</a> (const sx_api_handle_t handle, const sx_parser_attributes_t *parser_attr_p)</td></tr>
-<tr class="separator:a08d04ffab016bad1a3aee68eb239bbdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27b2a28e7ce949ccad80ad7292049665"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a27b2a28e7ce949ccad80ad7292049665">sx_api_port_parser_attr_get</a> (const sx_api_handle_t handle, sx_parser_attributes_t *parser_attr_p)</td></tr>
-<tr class="separator:a27b2a28e7ce949ccad80ad7292049665"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ac3457a41837c6780bbf94b56dd2a0cd4"></a>
@@ -1041,71 +1029,6 @@ SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero </dd>
 SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd>
 <dd>
 SX_STATUS_PARAM_EXCEEDS_RANGE if SWID is out of range </dd></dl>
-
-</div>
-</div>
-<a id="ab7d4bb170a5f81517fb45c98fa51e3ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7d4bb170a5f81517fb45c98fa51e3ff">&#9670;&nbsp;</a></span>sx_api_port_vlans_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_port_vlans_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_swid_t&#160;</td>
-          <td class="paramname"><em>swid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_port_log_id_t&#160;</td>
-          <td class="paramname"><em>log_port_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_port_vlans_t *&#160;</td>
-          <td class="paramname"><em>port_vlan_list_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t *&#160;</td>
-          <td class="paramname"><em>vlan_cnt_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API retrieves the port's VLAN membership list (ID, membership state &amp; pass state). If optional output buffer "port_vlan_list_p" is NULL, this API retrieves the number of VLANs the port is member of in "vlan_cnt_p" parameter. Otherwise, returns an array "port_vlan_list_p" of size "vlan_cnt_p" with the port's VLAN membership list.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">swid</td><td>- Switch ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port_id</td><td>- Logical port number </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">port_vlan_list_p</td><td>- Array of port's VLAN membership list </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">vlan_cnt_p</td><td>- [in] array's length/[out] number of VLANs the port is member of</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_PARAM_NULL if "vlan_cnt_p" parameter is NULL </dd>
-<dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if "vlan_cnt_p" is 0 or cmd_size exceeds MAX_CMD_SIZE </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd></dl>
 
 </div>
 </div>
@@ -4752,11 +4675,10 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">parsing_depth</td><td>- Parsing depth in bytes </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">parsing_depth</td><td>- Parsing depth in bytes</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_api_port_parser_attr_set in its place.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
@@ -4795,11 +4717,10 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">parsing_depth_p</td><td>- Return parsing depth in bytes </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">parsing_depth_p</td><td>- Return parsing depth in bytes</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000006">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_api_port_parser_attr_set in its place.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
 SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
@@ -5815,7 +5736,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the Physical Medium Depended (PMD) port type. By default, all types are enabled. As such, this API allows to reduce the set of allowed port types.</p>
 <p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000007">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_admin_type_set in its place.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_admin_type_set in its place.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5871,7 +5792,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 </div><div class="memdoc">
 <p>This API gets the operational Physical Medium Dependent port type.</p>
 <p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000008">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_oper_type_get in its place.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000006">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_oper_type_get in its place.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -5938,7 +5859,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the electrical interface types which are supported by module.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000009">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_capability_get in its place.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000007">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_capability_get in its place.</dd></dl>
 <p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -6175,7 +6096,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the power Mode of a module. This API internally disables and then enables the module with desired power mode setting. This disable and enable will result in additional PMAOS events.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000010">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_set in its place.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000008">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_set in its place.</dd></dl>
 <p>Note: By default, modules are initialized in low power mode and the module power mode is set as per EEPROM data in the initialization process. SX_MGT_PHY_MOD_PWR_MODE_AUTO_E mode is used to reset power mode to default value. Changing module power mode to SX_MGT_PHY_MOD_PWR_MODE_HIGH_E is not allowed. Note: This API supports only power attribute SX_MGMT_PHY_MOD_PWR_ATTR_PWR_MODE_E. Note: This API does not support changing the power attributes of backplane module.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -6231,7 +6152,7 @@ SX_STATUS_CMD_UNSUPPORTED if command is not SET </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the module power status.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000011">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_get in its place. Note: This API returns the operational power mode and admin power mode as SX_MGMT_PHY_MOD_PWR_MODE_INVALID_E when the module is not plugged in.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000009">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_get in its place. Note: This API returns the operational power mode and admin power mode as SX_MGMT_PHY_MOD_PWR_MODE_INVALID_E when the module is not plugged in.</dd></dl>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -6279,7 +6200,7 @@ SX_STATUS_PARAM_ERROR if a module parameter is invalid </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API resets the phy module.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000012">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_reset in its place.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000010">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_reset in its place.</dd></dl>
 <p>Note: Resetting the module might result in link flaps. Note: PMAOS events are generated during reset functionality.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -6685,263 +6606,11 @@ SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
-<a id="a832d6ef72ca1866305db1cb8a06f9e60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a832d6ef72ca1866305db1cb8a06f9e60">&#9670;&nbsp;</a></span>sx_api_port_state_event_delay_set()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_port_state_event_delay_set </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_access_cmd_t&#160;</td>
-          <td class="paramname"><em>cmd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_port_log_id_t&#160;</td>
-          <td class="paramname"><em>log_port</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_port_state_delay_t *&#160;</td>
-          <td class="paramname"><em>port_state_delay_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API allows the user to set a delay to the port state change notification events for a port. The delay timer can be set in 10 ms granularity. The delay timer range starts from SX_PORT_STATE_EVENT_DELAY_MIN (0) to SX_PORT_STATE_EVENT_DELAY_MAX. A state change notification will be sent only after the port remains in the new state for greater than the delay time. Only logical ports of types SX_PORT_TYPE_NETWORK and SX_PORT_TYPE_PROFILE are supported. The delay timer's default value is set to SX_PORT_STATE_EVENT_DELAY_DEFAULT. UNSET sets the timer's value back to SX_PORT_STATE_EVENT_DELAY_DEFAULT.</p>
-<p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET/UNSET </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical Port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">port_state_delay_p</td><td>- Link state change requested event delay</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_COMM_ERROR if client communication fails </dd>
-<dd>
-SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
-<dd>
-SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
-<dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if timeouts are out of range </dd>
-<dd>
-SX_STATUS_CMD_UNSUPPORTED if access command is not supported. </dd>
-<dd>
-SX_STATUS_ERROR general error. </dd></dl>
-
-</div>
-</div>
-<a id="af2038547b2e36987c7cf73818852b44c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2038547b2e36987c7cf73818852b44c">&#9670;&nbsp;</a></span>sx_api_port_state_event_delay_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_port_state_event_delay_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_port_log_id_t&#160;</td>
-          <td class="paramname"><em>log_port</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_port_state_delay_t *&#160;</td>
-          <td class="paramname"><em>port_state_delay_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API retrieves the port state change notification delay time for a given port. Only logical ports of types SX_PORT_TYPE_NETWORK and SX_PORT_TYPE_PROFILE are supported.</p>
-<p>Note: This API supports port profile.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical Port ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">port_state_delay_p</td><td>- Port state delay</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if the operation completes successfully </dd>
-<dd>
-SX_STATUS_COMM_ERROR if client communication fails </dd>
-<dd>
-SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
-<dd>
-SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if the requested element is not found in the DB </dd>
-<dd>
-SX_STATUS_ERROR general error. </dd></dl>
-
-</div>
-</div>
-<a id="a61fd4a718b124d1f590ec98b21f6011a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61fd4a718b124d1f590ec98b21f6011a">&#9670;&nbsp;</a></span>sx_api_port_state_event_delay_counter_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_port_state_event_delay_counter_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_access_cmd_t&#160;</td>
-          <td class="paramname"><em>cmd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_port_log_id_t&#160;</td>
-          <td class="paramname"><em>log_port</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_port_state_event_delay_counters_t *&#160;</td>
-          <td class="paramname"><em>cntr_delay_state_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API retrieves the port state event delay counters. The following options are available:</p><ol type="1">
-<li>Read the port state event delay counters (using SX_ACCESS_CMD_READ).</li>
-<li>Read and clear the port state event delay counters (using SX_ACCESS_CMD_READ_CLEAR).</li>
-</ol>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ/READ_CLEAR </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical Port ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">cntr_delay_state_p</td><td>- Port state event delay counters entry</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>sx_status_t : </dd>
-<dd>
-SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_COMM_ERROR if client communication fails </dd>
-<dd>
-SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
-<dd>
-SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
-<dd>
-SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
-<dd>
-SX_STATUS_ERROR general error. </dd></dl>
-
-</div>
-</div>
-<a id="a08d04ffab016bad1a3aee68eb239bbdd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08d04ffab016bad1a3aee68eb239bbdd">&#9670;&nbsp;</a></span>sx_api_port_parser_attr_set()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_port_parser_attr_set </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_parser_attributes_t *&#160;</td>
-          <td class="paramname"><em>parser_attr_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a27b2a28e7ce949ccad80ad7292049665"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27b2a28e7ce949ccad80ad7292049665">&#9670;&nbsp;</a></span>sx_api_port_parser_attr_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_port_parser_attr_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_parser_attributes_t *&#160;</td>
-          <td class="paramname"><em>parser_attr_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 29 2023 03:04:44 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Mar 28 2023 04:43:11 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

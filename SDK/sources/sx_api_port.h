@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -296,31 +296,6 @@ sx_status_t sx_api_port_swid_port_list_get(const sx_api_handle_t handle,
                                            const sx_swid_t       swid,
                                            sx_port_log_id_t     *log_port_list_p,
                                            uint32_t             *port_cnt_p);
-
-/**
- * This API retrieves the port's VLAN membership list (ID, membership state & pass state).
- * If optional output buffer "port_vlan_list_p" is NULL,
- * this API retrieves the number of VLANs the port is member of in "vlan_cnt_p" parameter.
- * Otherwise, returns an array "port_vlan_list_p" of size "vlan_cnt_p" with the port's VLAN membership list.
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
- *
- * @param[in] handle            - SX-API handle
- * @param[in] swid              - Switch ID
- * @param[in] log_port_id       - Logical port number
- * @param[out] port_vlan_list_p - Array of port's VLAN membership list
- * @param[in,out] vlan_cnt_p    - [in] array's length/[out] number of VLANs the port is member of
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_NULL if "vlan_cnt_p" parameter is NULL
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE if "vlan_cnt_p" is 0 or cmd_size exceeds MAX_CMD_SIZE
- * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- */
-sx_status_t sx_api_port_vlans_get(const sx_api_handle_t  handle,
-                                  const sx_swid_t        swid,
-                                  const sx_port_log_id_t log_port_id,
-                                  sx_port_vlans_t       *port_vlan_list_p,
-                                  uint16_t              *vlan_cnt_p);
 
 /**
  * This API sets the port's stacking mode in the SDK.
@@ -1777,8 +1752,6 @@ sx_status_t sx_api_port_forwarding_mode_get(const sx_api_handle_t      handle,
  *
  * @param[in] handle            - SX-API handle
  * @param[in] parsing_depth     - Parsing depth in bytes
- * \deprecated This API is deprecated and will be removed in the future.
- * Please use sx_api_port_parser_attr_set in its place.
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
@@ -1794,8 +1767,6 @@ sx_status_t sx_api_port_parsing_depth_set(const sx_api_handle_t handle,
  *
  * @param[in] handle           - SX-API handle
  * @param[out] parsing_depth_p - Return parsing depth in bytes
- * \deprecated This API is deprecated and will be removed in the future.
- * Please use sx_api_port_parser_attr_set in its place.
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_NULL if a parameter is NULL
@@ -2579,114 +2550,5 @@ sx_status_t sx_api_port_group_get(const sx_api_handle_t handle,
                                   sx_port_group_cfg_t  *port_group_cfg_list_p,
                                   uint32_t             *port_group_cfg_cnt_p,
                                   sx_port_group_attr_t *group_attr_p);
-
-/**
- * This API allows the user to set a delay to the port state change notification events for a port. The delay timer can be set in 10 ms granularity.
- * The delay timer range starts from SX_PORT_STATE_EVENT_DELAY_MIN (0) to SX_PORT_STATE_EVENT_DELAY_MAX.
- * A state change notification will be sent only after the port remains in the new state for greater than the delay time.
- * Only logical ports of types SX_PORT_TYPE_NETWORK and SX_PORT_TYPE_PROFILE are supported.
- * The delay timer's default value is set to SX_PORT_STATE_EVENT_DELAY_DEFAULT.
- * UNSET sets the timer's value back to SX_PORT_STATE_EVENT_DELAY_DEFAULT.
- *
- * Note: This API supports port profile.
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
- *
- * @param[in]   handle                - SX-API handle
- * @param[in]   cmd                   - SET/UNSET
- * @param[in]   log_port              - Logical Port ID
- * @param[in]   port_state_delay_p    - Link state change requested event delay
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_COMM_ERROR if client communication fails
- * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
- * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- * @return SX_STATUS_PARAM_NULL if a parameter is NULL
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE if timeouts are out of range
- * @return SX_STATUS_CMD_UNSUPPORTED if access command is not supported.
- * @return SX_STATUS_ERROR general error.
- */
-sx_status_t sx_api_port_state_event_delay_set(const sx_api_handle_t        handle,
-                                              const sx_access_cmd_t        cmd,
-                                              const sx_port_log_id_t       log_port,
-                                              const sx_port_state_delay_t *port_state_delay_p);
-
-/**
- * This API retrieves the port state change notification delay time for a given port.
- * Only logical ports of types SX_PORT_TYPE_NETWORK and SX_PORT_TYPE_PROFILE are supported.
- *
- * Note: This API supports port profile.
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
- *
- * @param[in]   handle                - SX-API handle
- * @param[in]   log_port              - Logical Port ID
- * @param[out]  port_state_delay_p    - Port state delay
- *
- * @return SX_STATUS_SUCCESS if the operation completes successfully
- * @return SX_STATUS_COMM_ERROR if client communication fails
- * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
- * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- * @return SX_STATUS_PARAM_NULL if a parameter is NULL
- * @return SX_STATUS_ENTRY_NOT_FOUND if the requested element is not found in the DB
- * @return SX_STATUS_ERROR general error.
- */
-sx_status_t sx_api_port_state_event_delay_get(const sx_api_handle_t  handle,
-                                              const sx_port_log_id_t log_port,
-                                              sx_port_state_delay_t *port_state_delay_p);
-
-/**
- * This API retrieves the port state event delay counters.
- * The following options are available:
- * 1. Read the port state event delay counters (using SX_ACCESS_CMD_READ).
- * 2. Read and clear the port state event delay counters (using SX_ACCESS_CMD_READ_CLEAR).
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
- *
- * @param[in]   handle              - SX-API handle
- * @param[in]   cmd                 - READ/READ_CLEAR
- * @param[in]   log_port            - Logical Port ID
- * @param[out]  cntr_delay_state_p  - Port state event delay counters entry
- *
- * @return sx_status_t :
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_COMM_ERROR if client communication fails
- * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
- * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- * @return SX_STATUS_PARAM_NULL if a parameter is NULL
- * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
- * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
- * @return SX_STATUS_ERROR general error.
- */
-sx_status_t sx_api_port_state_event_delay_counter_get(const sx_api_handle_t                 handle,
-                                                      const sx_access_cmd_t                 cmd,
-                                                      const sx_port_log_id_t                log_port,
-                                                      sx_port_state_event_delay_counters_t *cntr_delay_state_p);
-
-/* This API sets the ASIC Parser Attributes.
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
- *
- * @param[in] handle          - SX-API handle
- * @param[in] parser_attr_p     - Parser attributes
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received*/
-sx_status_t sx_api_port_parser_attr_set(const sx_api_handle_t         handle,
-                                        const sx_parser_attributes_t *parser_attr_p);
-
-/* This API gets the attributes of the ASIC Parser.
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
- *
- * @param[in] handle            - SX-API handle
- * @param[out] parser_attr_p    - Parser attributes
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received*/
-sx_status_t sx_api_port_parser_attr_get(const sx_api_handle_t   handle,
-                                        sx_parser_attributes_t *parser_attr_p);
 
 #endif /* __SX_API_PORT_H__ */

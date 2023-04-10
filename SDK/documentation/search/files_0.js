@@ -31,9 +31,6 @@ var searchData=
   ['sx_5fapi_5fstateful_5fdb_2eh',['sx_api_stateful_db.h',['../sx__api__stateful__db_8h.html',1,'']]],
   ['sx_5fapi_5ftele_2eh',['sx_api_tele.h',['../sx__api__tele_8h.html',1,'']]],
   ['sx_5fapi_5ftopo_2eh',['sx_api_topo.h',['../sx__api__topo_8h.html',1,'']]],
-  ['sx_5fapi_5ftruncation_5fprofile_2eh',['sx_api_truncation_profile.h',['../sx__api__truncation__profile_8h.html',1,'']]],
   ['sx_5fapi_5ftunnel_2eh',['sx_api_tunnel.h',['../sx__api__tunnel_8h.html',1,'']]],
-  ['sx_5fapi_5fvlan_2eh',['sx_api_vlan.h',['../sx__api__vlan_8h.html',1,'']]],
-  ['sx_5ftruncation_5fprofile_2eh',['sx_truncation_profile.h',['../sx__truncation__profile_8h.html',1,'']]],
-  ['sx_5ftruncation_5fprofile_5fauto_2eh',['sx_truncation_profile_auto.h',['../sx__truncation__profile__auto_8h.html',1,'']]]
+  ['sx_5fapi_5fvlan_2eh',['sx_api_vlan.h',['../sx__api__vlan_8h.html',1,'']]]
 ];
