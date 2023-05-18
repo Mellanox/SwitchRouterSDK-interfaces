@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.5120</span>
+   &#160;<span id="projectnumber">4.5.5142</span>
    </div>
   </td>
  </tr>
@@ -677,9 +677,9 @@ SX_STATUS_PARAM_NULL if any input/output parameter is NULL. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET / UNSET. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- SDK logical port </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">link_util_attr</td><td>- Link utilization configuration attributes. [ND] link_util_attr_p</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">link_util_attr_p</td><td>- Link utilization configuration attributes.</td></tr>
   </table>
   </dd>
 </dl>
@@ -689,7 +689,9 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received. </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if parameter is wrong. </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED if access command isn't supported. [ND] PARAM NULL </dd>
+SX_STATUS_CMD_UNSUPPORTED if access command isn't supported. </dd>
+<dd>
+SX_STATUS_PARAM_NULL if parameter is NULL. </dd>
 <dd>
 SX_STATUS_ERROR general error. </dd></dl>
 
@@ -905,7 +907,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 28 2023 04:43:10 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 14 2023 12:45:15 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

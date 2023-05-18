@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2001-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2001-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -234,16 +234,15 @@ sx_status_t sx_api_ar_congestion_threshold_get(const sx_api_handle_t            
  * Supported devices: Spectrum2, Spectrum3.
  *
  * @param[in] handle                     - SX-API handle.
- * @param[in] cmd                        - SET.
+ * @param[in] cmd                        - SET / UNSET.
  * @param[in] log_port                   - SDK logical port
- * @param[in] link_util_attr             - Link utilization configuration attributes.
- *  [ND] link_util_attr_p
+ * @param[in] link_util_attr_p           - Link utilization configuration attributes.
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully.
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received.
  * @return SX_STATUS_PARAM_ERROR if parameter is wrong.
  * @return SX_STATUS_CMD_UNSUPPORTED if access command isn't supported.
- *  [ND] PARAM NULL
+ * @return SX_STATUS_PARAM_NULL if parameter is NULL.
  * @return SX_STATUS_ERROR general error.
  */
 sx_status_t sx_api_ar_link_utilization_threshold_set(const sx_api_handle_t                handle,
