@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.5142</span>
+   &#160;<span id="projectnumber">4.6.1004</span>
    </div>
   </td>
  </tr>
@@ -191,8 +191,8 @@ Functions</h2></td></tr>
 <tr class="separator:aee038f2d1aeef84ca90d512231019077"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35c28c9b9c5174a6475d0f1422b75333"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a35c28c9b9c5174a6475d0f1422b75333">sx_api_cos_redecn_profile_tc_bind_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_cos_traffic_class_t traffic_class, const sx_cos_redecn_flow_type_e flow_type, sx_cos_redecn_bind_params_t *params_p)</td></tr>
 <tr class="separator:a35c28c9b9c5174a6475d0f1422b75333"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30a9dbfa7d7a792a896d15f2baf1de48"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a30a9dbfa7d7a792a896d15f2baf1de48">sx_api_cos_redecn_rate_based_set</a> (const sx_api_handle_t handle, const boolean_t enabled, const sx_port_log_id_t log_port, sx_cos_redecn_rate_based_params_t *params_p)</td></tr>
-<tr class="separator:a30a9dbfa7d7a792a896d15f2baf1de48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a125bd104c3468325a3a7e5cacb1c430a"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a125bd104c3468325a3a7e5cacb1c430a">sx_api_cos_redecn_rate_based_set</a> (const sx_api_handle_t handle, const boolean_t enabled, const sx_port_log_id_t log_port, const sx_cos_redecn_rate_based_params_t *params_p)</td></tr>
+<tr class="separator:a125bd104c3468325a3a7e5cacb1c430a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e702ba63d432c09bdf9ed74eb0785a5"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a4e702ba63d432c09bdf9ed74eb0785a5">sx_api_cos_redecn_rate_based_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_cos_redecn_rate_based_params_t *params_p, boolean_t *enabled_p)</td></tr>
 <tr class="separator:a4e702ba63d432c09bdf9ed74eb0785a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a879a0fb59e8e59e102094dccb3fbfb6b"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__cos_8h.html#a879a0fb59e8e59e102094dccb3fbfb6b">sx_api_cos_redecn_mirroring_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t ingress_port, const sx_span_session_id_t span_session_id)</td></tr>
@@ -397,6 +397,8 @@ SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
 SX_STATUS_ERROR General error </dd>
 <dd>
+SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory </dd>
+<dd>
 SX_STATUS_MEMORY_ERROR Error handling memory </dd></dl>
 
 </div>
@@ -520,6 +522,8 @@ SX_STATUS_ERROR General error </dd>
 <dd>
 SX_STATUS_MEMORY_ERROR Error handling memory </dd>
 <dd>
+SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory </dd>
+<dd>
 SX_STATUS_CMD_ERROR Unsupported command </dd></dl>
 
 </div>
@@ -629,6 +633,8 @@ SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
 SX_STATUS_ERROR General error </dd>
 <dd>
+SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory </dd>
+<dd>
 SX_STATUS_MEMORY_ERROR Error handling memory </dd></dl>
 
 </div>
@@ -735,6 +741,8 @@ SX_STATUS_ERROR General error </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completed successfully </dd>
 <dd>
 SX_STATUS_PARAM_ERROR if input parameter is invalid </dd>
+<dd>
+SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory </dd>
 <dd>
 SX_STATUS_ERROR general error </dd>
 <dd>
@@ -958,6 +966,8 @@ SX_STATUS_ERROR General error </dd></dl>
 <dd>
 SX_STATUS_PARAM_ERROR Any input parameters is invalid </dd>
 <dd>
+SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory </dd>
+<dd>
 SX_STATUS_ERROR General error </dd></dl>
 
 </div>
@@ -1080,7 +1090,9 @@ SX_STATUS_ERROR General error </dd></dl>
 <dd>
 SX_STATUS_PARAM_ERROR Any input parameters is invalid </dd>
 <dd>
-SX_STATUS_ERROR General error </dd></dl>
+SX_STATUS_ERROR General error </dd>
+<dd>
+SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory </dd></dl>
 
 </div>
 </div>
@@ -1421,6 +1433,8 @@ SX_STATUS_ERROR General error </dd></dl>
 <dd>
 SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
+SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory </dd>
+<dd>
 SX_STATUS_ERROR General error </dd></dl>
 
 </div>
@@ -1519,7 +1533,12 @@ SX_STATUS_ERROR General error </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid<ul>
+<li></li>
+</ul>
+</dd>
+<dd>
+SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory </dd>
 <dd>
 SX_STATUS_ERROR General error </dd></dl>
 
@@ -1634,6 +1653,8 @@ SX_STATUS_ERROR General error </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
 SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
+<dd>
+SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory </dd>
 <dd>
 SX_STATUS_ERROR General error </dd></dl>
 
@@ -1882,6 +1903,8 @@ SX_STATUS_ERROR General error </dd></dl>
 <dd>
 SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
+SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory </dd>
+<dd>
 SX_STATUS_ERROR General error </dd></dl>
 
 </div>
@@ -2015,7 +2038,12 @@ SX_STATUS_ERROR General error </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
-SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
+SX_STATUS_PARAM_ERROR Input parameter is invalid<ul>
+<li></li>
+</ul>
+</dd>
+<dd>
+SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory </dd>
 <dd>
 SX_STATUS_ERROR General error </dd></dl>
 
@@ -2129,6 +2157,8 @@ SX_STATUS_ERROR General error </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
 SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
+<dd>
+SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory </dd>
 <dd>
 SX_STATUS_ERROR General error </dd></dl>
 
@@ -2372,6 +2402,8 @@ SX_STATUS_ERROR General error </dd></dl>
 <dd>
 SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
+SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory </dd>
+<dd>
 SX_STATUS_ERROR General error </dd></dl>
 
 </div>
@@ -2506,6 +2538,8 @@ SX_STATUS_ERROR General error </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
 SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
+<dd>
+SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory </dd>
 <dd>
 SX_STATUS_ERROR General error </dd></dl>
 
@@ -2761,6 +2795,8 @@ SX_STATUS_UNSUPPORTED Unsupported device </dd></dl>
 <dd>
 SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
 <dd>
+SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory </dd>
+<dd>
 SX_STATUS_ERROR General error </dd></dl>
 
 </div>
@@ -2869,6 +2905,8 @@ SX_STATUS_ERROR General error </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
 SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
+<dd>
+SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory </dd>
 <dd>
 SX_STATUS_ERROR General error </dd></dl>
 
@@ -3328,7 +3366,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API enables/disables RED, ECN and ECE for traffic classes.</p>
-<p>Note: This API supports port profile.</p>
+<p>Note: This API supports port profile. In case the port is in MC aware mode, valid values of traffic class id are [0-7]. In case the port is MC unaware, valid values are [0-15].</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3343,6 +3381,8 @@ SX_STATUS_ERROR General error </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
 SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
+<dd>
+SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory </dd>
 <dd>
 SX_STATUS_ERROR General error </dd></dl>
 
@@ -3386,7 +3426,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets RED, ECN and ECE enabled parameters of a traffic class.</p>
-<p>Note: This API supports port profile.</p>
+<p>Note: This API supports port profile. In case the port is in MC aware mode, valid values of traffic class id are [0-7]. In case the port is MC unaware, valid values are [0-15].</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3462,7 +3502,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API binds RED, ECN and ECE profiles to the traffic class and traffic type (TCP/non-TCP, color).</p>
 <p>BIND binds a port+TC+flow to a profile. UNBIND unbinds a port+TC+flow from a profile.</p>
-<p>Note: This API supports port profile.</p>
+<p>Note: This API supports port profile. In case the port is in MC aware mode, valid values of traffic class id are [0-7]. In case the port is MC unaware, valid values are [0-15].</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3479,6 +3519,8 @@ SX_STATUS_ERROR General error </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS Operation completed successfully </dd>
 <dd>
 SX_STATUS_PARAM_ERROR Input parameter is invalid </dd>
+<dd>
+SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory </dd>
 <dd>
 SX_STATUS_ERROR General error </dd></dl>
 
@@ -3528,7 +3570,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the binding of RED/ECN/ECE profiles configuration for a given egress port and traffic class.</p>
-<p>Note: This API supports port profile.</p>
+<p>Note: This API supports port profile. In case the port is in MC aware mode, valid values of traffic class id are [0-7]. In case the port is MC unaware, valid values are [0-15].</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3548,8 +3590,8 @@ SX_STATUS_ERROR General error </dd></dl>
 
 </div>
 </div>
-<a id="a30a9dbfa7d7a792a896d15f2baf1de48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30a9dbfa7d7a792a896d15f2baf1de48">&#9670;&nbsp;</a></span>sx_api_cos_redecn_rate_based_set()</h2>
+<a id="a125bd104c3468325a3a7e5cacb1c430a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a125bd104c3468325a3a7e5cacb1c430a">&#9670;&nbsp;</a></span>sx_api_cos_redecn_rate_based_set()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3575,7 +3617,7 @@ SX_STATUS_ERROR General error </dd></dl>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">sx_cos_redecn_rate_based_params_t *&#160;</td>
+          <td class="paramtype">const sx_cos_redecn_rate_based_params_t *&#160;</td>
           <td class="paramname"><em>params_p</em>&#160;</td>
         </tr>
         <tr>
@@ -3871,7 +3913,7 @@ SX_STATUS_ERROR General error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API reads the RED drop counter for one or more user-provided traffic classes for a specific given egress port.</p>
+<p>This API reads the RED drop counter for one or more user-provided traffic classes for a specific given egress port. Note: In case the port is in MC aware mode, valid values of traffic class id are [0-7]. In case the port is MC unaware, valid values are [0-15].</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -4755,7 +4797,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 14 2023 12:45:15 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 20 2023 13:56:08 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

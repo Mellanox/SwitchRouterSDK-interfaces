@@ -738,7 +738,8 @@ sx_status_t sx_api_router_uc_route_counter_bind_get(const sx_api_handle_t handle
                                                     sx_flow_counter_id_t *counter_id_p);
 
 /**
- * This API creates/destroys a router counter. A router counter should be bound later to a router interface.
+ * This API creates/destroys a router interface counter.
+ * The router interface counter should be bound later to a router interface.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -757,7 +758,8 @@ sx_status_t sx_api_router_counter_set(const sx_api_handle_t   handle,
                                       sx_router_counter_id_t *counter_p);
 
 /**
- * This API creates/destroys a router counter by given type. A router counter should be bound later to a router interface.
+ * This API creates/destroys a router interface counter by given type.
+ * The router interface counter should be bound later to a router interface.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -800,7 +802,7 @@ sx_status_t sx_api_router_interface_counter_bind_set(const sx_api_handle_t      
                                                      const sx_router_interface_t  rif);
 
 /**
- * This API gets a router counter bind of a router interface.
+ * This API returns the Router Interface that a Router interface Counter is bound to.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -820,7 +822,7 @@ sx_status_t sx_api_router_interface_counter_bind_get(const sx_api_handle_t      
                                                      sx_router_interface_t       *rif_p);
 
 /**
- * This API gets a router counter.
+ * This API gets a router interface counter's values.
  *
  * READ_CLEAR returns and clears the counters.
  *
@@ -844,7 +846,7 @@ sx_status_t sx_api_router_counter_get(const sx_api_handle_t        handle,
                                       sx_router_counter_set_t     *counter_set_p);
 
 /**
- * This API gets a router counter by given type.
+ * This API gets a router interface counter data by given type.
  *
  * READ_CLEAR returns and clears the counters.
  *
@@ -867,7 +869,26 @@ sx_status_t sx_api_router_counter_extended_get(const sx_api_handle_t            
                                                const sx_router_counter_id_t      counter_id,
                                                sx_router_counter_set_extended_t *counter_data_p);
 /**
- * This API clears router counter set of a router counter.
+ * This API gets a router interface counter's attributes.
+ * Note: This API only works for RIF Counters and not for Flow Counters
+ * (bound to ECMP containers or UC/MC routes)
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] counter - Router counter ID
+ * @param[out] counter_attr_p - Router counter attributes
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_NULL if parameter is NULL
+ * @return SX_STATUS_ENTRY_NOT_FOUND if counter does not exist
+ * @return SX_STATUS_ERROR general internal error
+ */
+sx_status_t sx_api_router_counter_attr_get(const sx_api_handle_t           handle,
+                                           const sx_router_counter_id_t    counter,
+                                           sx_router_counter_attributes_t *counter_attr_p);
+/**
+ * This API clears the values of all or a specified router interface counter.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -885,6 +906,30 @@ sx_status_t sx_api_router_counter_extended_get(const sx_api_handle_t            
 sx_status_t sx_api_router_counter_clear_set(const sx_api_handle_t        handle,
                                             const sx_router_counter_id_t counter,
                                             const boolean_t              all);
+
+/**
+ * This API returns the router interface counter id bound to a RIF and the counter's values
+ * If no counter is bound to the specified RIF, this API shall return SX_STATUS_SUCCESS,
+ * and set *counter_id_p to SX_ROUTER_COUNTER_ID_INVALID.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ *
+ * @param[in] handle - SX-API handle
+ * @param[in] cmd - READ/READ_CLEAR
+ * @param[in] rif - Router Interface ID
+ * @param[out] counter_id_p - Router counter ID
+ * @param[out] counter_data_p - Router counter data values
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_CMD_UNSUPPORTED if access command is not supported
+ * @return SX_STATUS_PARAM_NULL if parameter is NULL
+ * @return SX_STATUS_ERROR general error
+ */
+sx_status_t sx_api_router_interface_counter_ext_get(const sx_api_handle_t             handle,
+                                                    const sx_access_cmd_t             cmd,
+                                                    const sx_router_interface_t       rif,
+                                                    sx_router_counter_id_t           *counter_id_p,
+                                                    sx_router_counter_set_extended_t *counter_data_p);
 
 /**
  * This API adds/modifies/deletes a multicast route from the MC routing table.
@@ -1218,19 +1263,16 @@ sx_status_t sx_api_router_cos_dscp_to_prio_get(const sx_api_handle_t    handle,
  *        - Next hop #B with weight of 2
  *      In the hardware, this ECMP container will have three next hops with total weight of four: nh #A, nh #B, nh #A.
  *   5. On Spectrum-2 and above these ECMP containers can contain flex tunnels along with nve tunnels.
- *      If an ECMP contains a flex tunnel it cannot be used as the destination of a FDB entry.
  *
  * Note only ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E allows to write unresolved next hops to hardware. The unresolved next hop action will be SX_ROUTER_ACTION_DROP.
  * For ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E, the next hop list size is set according to next_hop_cnt_p value and not by the group_size configured in sx_api_router_ecmp_attributes_set.
  * ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E supports only container type SX_ECMP_CONTAINER_TYPE_IP and next-hop type SX_NEXT_HOP_TYPE_IP.
  *
- * Note - Next hop flow counter will be ignored for SX_ECMP_TYPE_ADAPTIVE_E container type.
- *        User can use UC route counters or sx_api_ar_counters_get API for counting.
+ * Note: Next hop flow counter will be ignored for SX_ECMP_TYPE_ADAPTIVE_E container type.
+ *       User can use UC route counters or sx_api_ar_counters_get API for counting.
  *
- * Note - Next hop trap action will be ignored for SX_ECMP_TYPE_ADAPTIVE_E container type.
- *        User can use ACL AR actions instead.
- *
- * Note - The maximum number AR ECMP containers is AR_ECMP_CONTAINERS_MAX.
+ * Note: Next hop trap action will be ignored for SX_ECMP_TYPE_ADAPTIVE_E container type.
+ *       User can use ACL AR actions instead.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -1255,16 +1297,18 @@ sx_status_t sx_api_router_ecmp_set(const sx_api_handle_t handle,
                                    uint32_t             *next_hop_cnt_p);
 
 /**
- * This API retrieves an ECMP container content, as defined by the user.
+ * This API retrieves the next hops list in the ECMP container, as defined by the user.
  *
- * Note:This API returns next hops for a given ECMP ID even if this ECMP is redirected.
+ * Note: This API returns next hops for a given ECMP ID even if this ECMP is redirected.
+ *
+ * Note: If next_hop_cnt_p == 0 the API will return only the the next hops list size, and next_hop_list_p will be ignored.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle             - SX-API handle
  * @param[in] ecmp_id            - ID of an ECMP container
  * @param[out] next_hop_list_p   - List of next hops
- * @param[out] next_hop_cnt_p    - Amount of next hops
+ * @param[in,out] next_hop_cnt_p - Amount of next hops
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if parameter is NULL or exceeds range
@@ -1337,7 +1381,7 @@ sx_status_t sx_api_router_ecmp_iter_get(const sx_api_handle_t   handle,
                                         uint32_t               *ecmp_cnt_p);
 
 /**
- * This API retrieves the ECMP container content, as written to hardware (only resolved next hops are written to hardware).
+ * This API retrieves the ECMP container content, as written to hardware.
  *
  * Note: This API will return next hops for a given ECMP ID if this ECMP is not redirected. If the ECMP is redirected,
  *  it will return next hops from the destination ECMP.
@@ -1361,7 +1405,7 @@ sx_status_t sx_api_router_operational_ecmp_get(const sx_api_handle_t handle,
 
 
 /**
- * This API binds/unbinds a router counter to a list of next hops for a given container.
+ * This API binds/unbinds a set of flow counters to a list of next hops for a given container.
  * In case of INVALID_NEXT_HOP_OFFSET counter will be bound to all next hops in given ECMP container.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
@@ -1389,8 +1433,8 @@ sx_status_t sx_api_router_ecmp_counter_bind_set(const sx_api_handle_t       hand
                                                 const uint32_t              elements_cnt);
 
 /**
- * This API binds/unbinds a router counter to a list of indices in a container active set.
- * This API should be used for containers that are not static containers.
+ * This API binds/unbinds a flow counter to a list of indices in a container active set.
+ * This API should be used for containers that are not static or preserved order containers.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -1439,6 +1483,10 @@ sx_status_t sx_api_router_neigh_activity_notify(const sx_api_handle_t           
  * This API sets an ECMP container's attributes.
  * Using this API is not mandatory for ECMP hashing (default value is SX_ECMP_TYPE_STATIC_E).
  * To use this API, create an empty ECMP container, set the container attributes, and add next hops.
+ *
+ * Note - ECMP type "SX_ECMP_TYPE_PRESERVED_ORDER_E" supports only container type SX_ECMP_CONTAINER_TYPE_IP.
+ *
+ * Note - On Adaptive routing configuration the user can only change from ECMP SX_ECMP_TYPE_STATIC_E to SX_ECMP_TYPE_ADAPTIVE_E type.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -1627,6 +1675,8 @@ sx_status_t sx_api_router_mc_route_counter_bind_get(const sx_api_handle_t    han
  * Only 1:1 redirection is supported. Redirection chains are not supported ("A" -> "B" -> "C") and N:1 redirection is not
  * supported ("A" -> "C" | "B" -> "C").
  *
+ * Note This API doesn't support ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                - SX-API handle
@@ -1744,7 +1794,7 @@ sx_status_t sx_api_router_user_defined_lpm_tree_get(const sx_api_handle_t  handl
  * in the configured next-hop list for the given ECMP ID.
  * Note: - Update applies only for type SX_ECMP_CONTAINER_TYPE_IP
  *       - Updated next-hop weight matches the corresponding previous next-hop weight (weight can't be updated)
- *       - Updating a non-resolved next-hop can cause configuration time overhead.
+ *       - Updating next hop with different resolution status is possible only for ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E.
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle

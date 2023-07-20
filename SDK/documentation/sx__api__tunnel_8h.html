@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.5142</span>
+   &#160;<span id="projectnumber">4.6.1004</span>
    </div>
   </td>
  </tr>
@@ -277,7 +277,7 @@ SX_STATUS_PARAM_EXCEEDS_RANGE when parameter exceeds range </dd></dl>
 <p>This API is used to create/edit/destroy tunnels.</p>
 <p>Note: Flex tunnels are supported from Spectrum-2 and above.</p>
 <p>When destroying a tunnel, tunnel_attr_p is ignored. By default, tunnel is created with TTL 255. Tunnel attributes cannot be modified for flex tunnels.</p>
-<p>QinVxLAN: After decapsulation, the configured ethertype is pushed, the desired ethertype can be set with the tunnel's attributes. For example, attributes.vxlan.decap.ethertype = 0x8100. attributes.vxlan.decap.ethertype = 0 means the default ethertype. Non-default ethertype should be previously configured with sx_api_port_vlan_ethertype_set.</p>
+<p>QinVxLAN: After decapsulation, the configured ethertype is pushed, the desired ethertype can be set with the tunnel's attributes.</p>
 <p>Lazy Delete feature is supported for NVE and L2 Flex tunnels. If the Lazy Delete feature is disabled and the reference counter of tunnel is 0, then the API call with DELETE command deletes the tunnel, otherwise the SDK returns SX_STATUS_RESOURCE_IN_USE. If the Lazy Delete feature is enabled and the reference counter of a tunnel is not 0, the API call with command DELETE marks a tunnel as deleted, and the SDK returns SX_STATUS_SUCCESS. Once the reference counter of a tunnel becomes 0, SDK will delete the tunnel and will generate a notification with the trap ID SX_TRAP_ID_OBJECT_DELETED_EVENT and the ID of the tunnel that was deleted.</p>
 <p>Below is the list of objects that increase the reference counter of a NVE/Flex tunnel:</p><ol type="1">
 <li>Each tunnel map entry (NVE only).</li>
@@ -668,7 +668,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <p>The Lazy delete feature is supported for VxLAN tunnel mappings. If Lazy Delete feature is disabled and the reference counter of the tunnel mapping is 0, then the API call with command DELETE deletes a tunnel mapping, otherwise the SDK returns SX_STATUS_RESOURCE_IN_USE.</p>
 <p>If the Lazy Delete feature is enabled and the reference counter of the tunnel mapping is not 0, then the API call with command DELETE marks a tunnel mapping as deleted, and SDK returns SX_STATUS_SUCCESS. Once the reference counter of the tunnel mapping becomes 0, SDK will delete the tunnel mapping, unbind DECAP, ENCAP UC and ENCAP MC flow counters if they are bound and will generate a notification with the trap ID (SX_TRAP_ID_OBJECT_DELETED_EVENT) and the copy of tunnel mapping that was deleted. The NOS should monitor delete notification events in order to delete the counter resource. when trying to re-create a tunnel map entry before a notification is received, the SDK returns error SX_STATUS_RESOURCE_IN_USE.</p>
 <p>Given below is the list of objects that increases the reference counter of a tunnel map entry:</p><ol type="1">
-<li>A static tunnel UC FDB entry if the entry points to an NVE tunnel either directly or through an ECMP container.</li>
+<li>A static and dynamic remote tunnel UC FDB entry, whether the entry points to an NVE tunnel directly or through an ECMP container.</li>
 <li>An MC FDB entry if an MC container has a tunnel next hop that points to an NVE tunnel.</li>
 <li>A tunnel flood vector that was bound to a FID with sx_api_fdb_flood_set if an MC container that is used as a flood vector has a tunnel next hop that points to an NVE tunnel.</li>
 <li>An ACL rule with an action of the type SX_FLEX_ACL_ACTION_NVE_MC_TUNNEL_ENCAP if an MC container is not SX_MC_CONTAINER_TYPE_VLAN_UNAWARE and has a tunnel next hop that points to an NVE tunnel.</li>
@@ -1446,7 +1446,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 14 2023 12:45:15 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jul 20 2023 13:56:09 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

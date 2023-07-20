@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -73,8 +73,6 @@ sx_status_t sx_api_tunnel_log_verbosity_level_get(const sx_api_handle_t         
  * Tunnel attributes cannot be modified for flex tunnels.
  *
  * QinVxLAN: After decapsulation, the configured ethertype is pushed, the desired ethertype can be set with the tunnel's attributes.
- *   For example, attributes.vxlan.decap.ethertype = 0x8100. attributes.vxlan.decap.ethertype = 0 means the default ethertype.
- *   Non-default ethertype should be previously configured with sx_api_port_vlan_ethertype_set.
  *
  * Lazy Delete feature is supported for NVE and L2 Flex tunnels. If the Lazy Delete feature is disabled and the reference counter of
  * tunnel is 0, then the API call with DELETE command deletes the tunnel, otherwise the SDK returns SX_STATUS_RESOURCE_IN_USE.
@@ -256,7 +254,7 @@ sx_status_t sx_api_tunnel_deinit_set(const sx_api_handle_t handle);
  * tunnel map entry before a notification is received, the SDK returns error SX_STATUS_RESOURCE_IN_USE.
  *
  * Given below is the list of objects that increases the reference counter of a tunnel map entry:
- * 1. A static tunnel UC FDB entry if the entry points to an NVE tunnel either directly or through an ECMP container.
+ * 1. A static and dynamic remote tunnel UC FDB entry, whether the entry points to an NVE tunnel directly or through an ECMP container.
  * 2. An MC FDB entry if an MC container has a tunnel next hop that points to an NVE tunnel.
  * 3. A tunnel flood vector that was bound to a FID with sx_api_fdb_flood_set if an MC container that is used as a flood vector
  *    has a tunnel next hop that points to an NVE tunnel.

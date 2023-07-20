@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -81,6 +81,7 @@ sx_status_t sx_api_cos_log_verbosity_level_get(const sx_api_handle_t           h
  * @return SX_STATUS_SUCCESS        Operation completed successfully
  * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
  * @return SX_STATUS_ERROR          General error
+ * @return SX_STATUS_NO_RESOURCES   Execution of API for port profile reached end of memory
  * @return SX_STATUS_MEMORY_ERROR   Error handling memory
  */
 sx_status_t sx_api_cos_port_default_prio_set(const sx_api_handle_t   handle,
@@ -133,11 +134,12 @@ sx_status_t sx_api_cos_port_default_prio_get(const sx_api_handle_t  handle,
  * @param[in] priority      - Priority
  * @param[in] traffic_class - Traffic class
  *
- * @return SX_STATUS_SUCCESS        Operation completed successfully
- * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
- * @return SX_STATUS_ERROR          General error
- * @return SX_STATUS_MEMORY_ERROR   Error handling memory
- * @return SX_STATUS_CMD_ERROR      Unsupported command
+ * @return SX_STATUS_SUCCESS                Operation completed successfully
+ * @return SX_STATUS_PARAM_ERROR            Input parameter is invalid
+ * @return SX_STATUS_ERROR                  General error
+ * @return SX_STATUS_MEMORY_ERROR           Error handling memory
+ * @return SX_STATUS_NO_RESOURCES           Execution of API for port profile reached end of memory
+ * @return SX_STATUS_CMD_ERROR              Unsupported command
  */
 sx_status_t sx_api_cos_port_tc_prio_map_set(const sx_api_handle_t        handle,
                                             const sx_access_cmd_t        cmd,
@@ -189,6 +191,7 @@ sx_status_t sx_api_cos_port_tc_prio_map_get(const sx_api_handle_t   handle,
  * @return SX_STATUS_SUCCESS        Operation completed successfully
  * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
  * @return SX_STATUS_ERROR          General error
+ * @return SX_STATUS_NO_RESOURCES   Execution of API for port profile reached end of memory
  * @return SX_STATUS_MEMORY_ERROR   Error handling memory
  */
 sx_status_t sx_api_cos_port_trust_set(const sx_api_handle_t      handle,
@@ -233,6 +236,7 @@ sx_status_t sx_api_cos_port_trust_get(const sx_api_handle_t  handle,
  *
  * @return SX_STATUS_SUCCESS         if operation completed successfully
  * @return SX_STATUS_PARAM_ERROR     if input parameter is invalid
+ * @return SX_STATUS_NO_RESOURCES    Execution of API for port profile reached end of memory
  * @return SX_STATUS_ERROR           general error
  * @return SX_STATUS_CMD_UNSUPPORTED unsupported command
  */
@@ -321,6 +325,7 @@ sx_status_t sx_api_cos_shared_buff_pool_get(const sx_api_handle_t handle,
  *
  * @return SX_STATUS_SUCCESS        Operation completed successfully
  * @return SX_STATUS_PARAM_ERROR    Any input parameters is invalid
+ * @return SX_STATUS_NO_RESOURCES   Execution of API for port profile reached end of memory
  * @return SX_STATUS_ERROR          General error
  */
 sx_status_t sx_api_cos_port_buff_type_set(const sx_api_handle_t            handle,
@@ -375,6 +380,7 @@ sx_status_t sx_api_cos_port_buff_type_get(const sx_api_handle_t      handle,
  * @return SX_STATUS_SUCCESS        Operation completed successfully
  * @return SX_STATUS_PARAM_ERROR    Any input parameters is invalid
  * @return SX_STATUS_ERROR          General error
+ * @return SX_STATUS_NO_RESOURCES   Execution of API for port profile reached end of memory
  */
 sx_status_t sx_api_cos_port_shared_buff_type_set(const sx_api_handle_t                   handle,
                                                  const sx_access_cmd_t                   cmd,
@@ -505,6 +511,7 @@ sx_status_t sx_api_cos_pool_statistic_get(const sx_api_handle_t               ha
  *
  * @return SX_STATUS_SUCCESS        Operation completed successfully
  * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
+ * @return SX_STATUS_NO_RESOURCES   Execution of API for port profile reached end of memory
  * @return SX_STATUS_ERROR          General error
  */
 sx_status_t sx_api_cos_port_default_color_set(const sx_api_handle_t  handle,
@@ -545,6 +552,7 @@ sx_status_t sx_api_cos_port_default_color_get(const sx_api_handle_t  handle,
  *
  * @return SX_STATUS_SUCCESS        Operation completed successfully
  * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
+ * * @return SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory
  * @return SX_STATUS_ERROR          General error
  */
 sx_status_t sx_api_cos_port_default_pcpdei_set(const sx_api_handle_t  handle,
@@ -585,9 +593,10 @@ sx_status_t sx_api_cos_port_default_pcpdei_get(const sx_api_handle_t  handle,
  * @param[in] switch_priority       - List of switch priorities
  * @param[in] element_cnt           - Number of elements in PCP, DEI and Switch Prio lists
  *
- * @return SX_STATUS_SUCCESS        Operation completed successfully
- * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
- * @return SX_STATUS_ERROR          General error
+ * @return SX_STATUS_SUCCESS                Operation completed successfully
+ * @return SX_STATUS_PARAM_ERROR            Input parameter is invalid
+ * @return SX_STATUS_NO_RESOURCES           Execution of API for port profile reached end of memory
+ * @return SX_STATUS_ERROR                  General error
  */
 sx_status_t sx_api_cos_port_pcpdei_to_prio_set(const sx_api_handle_t          handle,
                                                const sx_port_log_id_t         log_port,
@@ -675,6 +684,7 @@ sx_status_t sx_api_cos_prio_to_ieeeprio_get(const sx_api_handle_t handle,
  *
  * @return SX_STATUS_SUCCESS        Operation completed successfully
  * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
+ * @return SX_STATUS_NO_RESOURCES   Execution of API for port profile reached end of memory
  * @return SX_STATUS_ERROR          General error
  */
 sx_status_t sx_api_cos_port_exp_to_prio_set(const sx_api_handle_t          handle,
@@ -726,6 +736,7 @@ sx_status_t sx_api_cos_port_exp_to_prio_get(const sx_api_handle_t    handle,
  *
  * @return SX_STATUS_SUCCESS        Operation completed successfully
  * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
+ * * @return SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory
  * @return SX_STATUS_ERROR          General error
  */
 sx_status_t sx_api_cos_port_dscp_to_prio_set(const sx_api_handle_t          handle,
@@ -770,6 +781,7 @@ sx_status_t sx_api_cos_port_dscp_to_prio_get(const sx_api_handle_t    handle,
  *
  * @return SX_STATUS_SUCCESS        Operation completed successfully
  * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
+ * @return SX_STATUS_NO_RESOURCES   Execution of API for port profile reached end of memory
  * @return SX_STATUS_ERROR          General error
  */
 sx_status_t sx_api_cos_port_rewrite_enable_set(const sx_api_handle_t         handle,
@@ -861,6 +873,7 @@ sx_status_t sx_api_cos_port_prio_to_pcpdei_rewrite_get(const sx_api_handle_t    
  *
  * @return SX_STATUS_SUCCESS        Operation completed successfully
  * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
+ * @return SX_STATUS_NO_RESOURCES   Execution of API for port profile reached end of memory
  * @return SX_STATUS_ERROR          General error
  */
 sx_status_t sx_api_cos_port_prio_to_dscp_rewrite_set(const sx_api_handle_t          handle,
@@ -910,6 +923,7 @@ sx_status_t sx_api_cos_port_prio_to_dscp_rewrite_get(const sx_api_handle_t    ha
  *
  * @return SX_STATUS_SUCCESS        Operation completed successfully
  * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
+ * @return SX_STATUS_NO_RESOURCES   Execution of API for port profile reached end of memory
  * @return SX_STATUS_ERROR          General error
  */
 sx_status_t sx_api_cos_port_prio_to_exp_rewrite_set(const sx_api_handle_t          handle,
@@ -1006,9 +1020,10 @@ sx_status_t sx_api_cos_ets_ptp_shaper_param_get(const sx_api_handle_t           
  * @param[in] ets_element       - ETS element array
  * @param[in] ets_element_cnt   - Number of ETS elements
  *
- * @return SX_STATUS_SUCCESS        Operation completed successfully
- * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
- * @return SX_STATUS_ERROR          General error
+ * @return SX_STATUS_SUCCESS                Operation completed successfully
+ * @return SX_STATUS_PARAM_ERROR            Input parameter is invalid
+ * @return SX_STATUS_NO_RESOURCES           Execution of API for port profile reached end of memory
+ * @return SX_STATUS_ERROR                  General error
  */
 sx_status_t sx_api_cos_port_ets_element_set(const sx_api_handle_t              handle,
                                             const sx_access_cmd_t              cmd,
@@ -1052,6 +1067,7 @@ sx_status_t sx_api_cos_port_ets_element_get(const sx_api_handle_t        handle,
  *
  * @return SX_STATUS_SUCCESS        Operation completed successfully
  * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
+ * @return SX_STATUS_NO_RESOURCES   Execution of API for port profile reached end of memory
  * @return SX_STATUS_ERROR          General error
  */
 sx_status_t sx_api_cos_port_tc_mcaware_set(const sx_api_handle_t  handle,
@@ -1219,6 +1235,8 @@ sx_status_t sx_api_cos_redecn_profile_get(const sx_api_handle_t               ha
  * This API enables/disables RED, ECN and ECE for traffic classes.
  *
  * Note: This API supports port profile.
+ *       In case the port is in MC aware mode, valid values of traffic class id are [0-7].
+ *       In case the port is MC unaware, valid values are [0-15].
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -1230,6 +1248,7 @@ sx_status_t sx_api_cos_redecn_profile_get(const sx_api_handle_t               ha
  *
  * @return SX_STATUS_SUCCESS        Operation completed successfully
  * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
+ * @return SX_STATUS_NO_RESOURCES   Execution of API for port profile reached end of memory
  * @return SX_STATUS_ERROR          General error
  */
 sx_status_t sx_api_cos_redecn_tc_enable_set(const sx_api_handle_t                handle,
@@ -1243,6 +1262,8 @@ sx_status_t sx_api_cos_redecn_tc_enable_set(const sx_api_handle_t               
  * This API gets RED, ECN and ECE enabled parameters of a traffic class.
  *
  * Note: This API supports port profile.
+ *       In case the port is in MC aware mode, valid values of traffic class id are [0-7].
+ *       In case the port is MC unaware, valid values are [0-15].
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -1268,6 +1289,8 @@ sx_status_t sx_api_cos_redecn_tc_enable_get(const sx_api_handle_t          handl
  * UNBIND unbinds a port+TC+flow from a profile.
  *
  * Note: This API supports port profile.
+ *       In case the port is in MC aware mode, valid values of traffic class id are [0-7].
+ *       In case the port is MC unaware, valid values are [0-15].
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -1281,6 +1304,7 @@ sx_status_t sx_api_cos_redecn_tc_enable_get(const sx_api_handle_t          handl
  *
  * @return SX_STATUS_SUCCESS        Operation completed successfully
  * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
+ * @return SX_STATUS_NO_RESOURCES Execution of API for port profile reached end of memory
  * @return SX_STATUS_ERROR          General error
  */
 sx_status_t sx_api_cos_redecn_profile_tc_bind_set(const sx_api_handle_t              handle,
@@ -1296,6 +1320,8 @@ sx_status_t sx_api_cos_redecn_profile_tc_bind_set(const sx_api_handle_t         
  * This API retrieves the binding of RED/ECN/ECE profiles configuration for a given egress port and traffic class.
  *
  * Note: This API supports port profile.
+ *       In case the port is in MC aware mode, valid values of traffic class id are [0-7].
+ *       In case the port is MC unaware, valid values are [0-15].
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -1332,10 +1358,10 @@ sx_status_t sx_api_cos_redecn_profile_tc_bind_get(const sx_api_handle_t         
  * @return SX_STATUS_PARAM_ERROR    Input parameter is invalid
  * @return SX_STATUS_ERROR          General error
  */
-sx_status_t sx_api_cos_redecn_rate_based_set(const sx_api_handle_t              handle,
-                                             const boolean_t                    enabled,
-                                             const sx_port_log_id_t             log_port,
-                                             sx_cos_redecn_rate_based_params_t *params_p);
+sx_status_t sx_api_cos_redecn_rate_based_set(const sx_api_handle_t                    handle,
+                                             const boolean_t                          enabled,
+                                             const sx_port_log_id_t                   log_port,
+                                             const sx_cos_redecn_rate_based_params_t *params_p);
 
 /**
  * \deprecated This API is deprecated and will be removed in the future.
@@ -1419,6 +1445,8 @@ sx_status_t sx_api_cos_redecn_counters_get(const sx_api_handle_t          handle
 
 /**
  * This API reads the RED drop counter for one or more user-provided traffic classes for a specific given egress port.
+ * Note: In case the port is in MC aware mode, valid values of traffic class id are [0-7].
+ *       In case the port is MC unaware, valid values are [0-15].
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
