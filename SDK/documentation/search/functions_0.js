@@ -188,6 +188,7 @@ var searchData=
   ['sx_5fapi_5fdbg_5fgenerate_5fdump_5fextra',['sx_api_dbg_generate_dump_extra',['../sx__api__dbg_8h.html#ab60ba9dc78cac8db84517491614e0d02',1,'sx_api_dbg.h']]],
   ['sx_5fapi_5fdbg_5flog_5fverbosity_5flevel_5fget',['sx_api_dbg_log_verbosity_level_get',['../sx__api__dbg_8h.html#a2414f745dbc3d62270ab035f12db0037',1,'sx_api_dbg.h']]],
   ['sx_5fapi_5fdbg_5flog_5fverbosity_5flevel_5fset',['sx_api_dbg_log_verbosity_level_set',['../sx__api__dbg_8h.html#aaee12d20a870ea4d0f150542aa149814',1,'sx_api_dbg.h']]],
+  ['sx_5fapi_5fdevice_5fhw_5finfo_5fget',['sx_api_device_hw_info_get',['../sx__api__init_8h.html#ad38992e5ec643b1317443c7b2a9a2d72',1,'sx_api_init.h']]],
   ['sx_5fapi_5ffdb_5fage_5ftime_5fget',['sx_api_fdb_age_time_get',['../sx__api__fdb_8h.html#a4396ebb8d79d5757b3f2df8b4ff3dd51',1,'sx_api_fdb.h']]],
   ['sx_5fapi_5ffdb_5fage_5ftime_5fset',['sx_api_fdb_age_time_set',['../sx__api__fdb_8h.html#acac719da53d4e58dc48ffc21dfce3460',1,'sx_api_fdb.h']]],
   ['sx_5fapi_5ffdb_5ffid_5flearn_5fmode_5fget',['sx_api_fdb_fid_learn_mode_get',['../sx__api__fdb_8h.html#a1228d15d780af59066b92bf2efd7d352',1,'sx_api_fdb.h']]],
