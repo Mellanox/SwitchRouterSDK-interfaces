@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -83,23 +83,31 @@ sx_status_t sx_api_dbg_log_verbosity_level_get(const sx_api_handle_t           h
 sx_status_t sx_api_dbg_generate_dump(const sx_api_handle_t handle,
                                      const char           *dump_file_path);
 
+
 /**
- * This API generates debug dump extra information for modules monitored by the SDK
+ * This API should be used only for debug purposes. It is used to access internal commands for the ATcam (SPACE) module.
+ *
+ * Supported devices: Spectrum2, Spectrum3.
+ *
+ * @param[in] handle                    - SX-API handle
+ * @param[in] sx_dbg_atcam_cmd_info_t   - Supported atcam module to execute directly
+ *
+ * @return SX_STATUS_SUCCESS              Operation completed successfully
+ * @return SX_STATUS_PARAM_ERROR          Any input parameters is invalid
+ * @return SX_STATUS_ERROR                General error
+ */
+sx_status_t sx_api_dbg_atcam(const sx_api_handle_t handle, sx_dbg_atcam_cmd_info_t* cmd_p);
+
+/**
+ * This API generates debug dump extra info for modules monitored by the SDK.
+ * The file name is of the following format "sdkdump_ext_cr_<DEVICE_ID> - <timestamp>.udmp".
  * If a path is not provided, dump will be found in path /var/log.
+ * Clear from the path any files with suffix "udmp.*.tmp" before rebooting after information collection.
  *
- * Supported dumps:
- * Name            Mandatory/Optional    File-Name(s)                    Description
- * -------------------------------------------------------------------------------------------------------------
- * CR-Space        Mandatory             'sdkdump_ext_cr_*.udmp'         Device's configuration-space dump
- * Driver          Mandatory             'driver_dump_*.txt'             Driver-internals dump
- * iRISC core      Optional              'ir_core_dump_*.core'           FW core dump
- * FW-Trace        Optional              'fw_trace_dump_*.txt'           FW internal log
- * AMBER           Optional              'amber_dump_*.hex'              PHY layer information
+ * Supported devices:  Spectrum, Spectrum2, Spectrum3, Quantum, Quantum2
  *
- * Supported devices:  Spectrum, Spectrum2, Spectrum3, Spectrum4, Quantum, Quantum2
- *
- * @param[in] handle       - SX-API handle
- * @param[in] dbg_params_p - Parameters of debug dump extraction
+ * @param[in] handle                         - SX-API handle
+ * @param[in] sx_dbg_extra_info_t dbg_params - Parameters of debug dump extraction
  *
  * @return SX_STATUS_SUCCESS              Operation completed successfully
  * @return SX_STATUS_PARAM_ERROR          Any input parameters is invalid
@@ -108,8 +116,9 @@ sx_status_t sx_api_dbg_generate_dump(const sx_api_handle_t handle,
  * @return SX_STATUS_TIMEOUT              Timeout in synchronous mode (if the call was asynchronous, this RC will be in the completion event)
  * @return SX_STATUS_ERROR                General error
  */
+
 sx_status_t sx_api_dbg_generate_dump_extra(const sx_api_handle_t      handle,
-                                           const sx_dbg_extra_info_t *dbg_params_p);
+                                           const sx_dbg_extra_info_t *dbg_params);
 
 
 /**
@@ -209,8 +218,11 @@ sx_status_t sx_api_fw_dbg_test(const sx_api_handle_t handle, const sx_dbg_test_p
  * with HW, so if issue was found health event will be sent,
  * in parallel the mechanism inform via SysFs ("kernel_health") on the liveness of the system.
  *
- * IMPORTANT: this API and sx_api_fw_dbg_control_set() API are mutually exclusive! Only one can be used
- * in a single SDK life cycle.
+ * Important: User still need to use sx_api_fw_dbg_control_set() API to detect some H
+ * W/FW fatal issues that not monitor via this api
+ * (mainly issues that triggered via "MFDE" PRM register configuration).
+ *
+ * IB director systems should not use this API, they should use sx_api_fw_dbg_control_set() API only!
  *
  * ENABLE trigger the health checks - it's not allowed to enable it during ISSU, during SDK
  * Initialization or during SDK shutdown in such case SDK will postpone automatically

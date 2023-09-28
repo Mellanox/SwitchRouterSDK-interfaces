@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.6.1062</span>
+   &#160;<span id="projectnumber">4.5.4318</span>
    </div>
   </td>
  </tr>
@@ -141,12 +141,8 @@ Functions</h2></td></tr>
 <tr class="separator:ab4c18223f082f72efeb16ef6ab4545c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b43b5655884e760afefdfd3f3910ea4"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a1b43b5655884e760afefdfd3f3910ea4">sx_api_router_counter_extended_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_counter_id_t counter_id, sx_router_counter_set_extended_t *counter_data_p)</td></tr>
 <tr class="separator:a1b43b5655884e760afefdfd3f3910ea4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f16a930473e02d4d5fc09d2f917cc8c"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a5f16a930473e02d4d5fc09d2f917cc8c">sx_api_router_counter_attr_get</a> (const sx_api_handle_t handle, const sx_router_counter_id_t counter, sx_router_counter_attributes_t *counter_attr_p)</td></tr>
-<tr class="separator:a5f16a930473e02d4d5fc09d2f917cc8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c3d7ede0cc2b4a383aacf414c9d84a3"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a1c3d7ede0cc2b4a383aacf414c9d84a3">sx_api_router_counter_clear_set</a> (const sx_api_handle_t handle, const sx_router_counter_id_t counter, const boolean_t all)</td></tr>
 <tr class="separator:a1c3d7ede0cc2b4a383aacf414c9d84a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af280ac62002f1523eeec5b76a35c1943"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#af280ac62002f1523eeec5b76a35c1943">sx_api_router_interface_counter_ext_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_interface_t rif, sx_router_counter_id_t *counter_id_p, sx_router_counter_set_extended_t *counter_data_p)</td></tr>
-<tr class="separator:af280ac62002f1523eeec5b76a35c1943"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88d28b1cf1ea8606acaecf5c01c31051"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a88d28b1cf1ea8606acaecf5c01c31051">sx_api_router_mc_route_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, const sx_mc_route_attributes_t *mc_route_attr_p, const sx_mc_route_data_t *mc_route_data_p)</td></tr>
 <tr class="separator:a88d28b1cf1ea8606acaecf5c01c31051"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a24a37e74c648d6bd3de469df8cbd5b8c"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__router_8h.html#a24a37e74c648d6bd3de469df8cbd5b8c">sx_api_router_mc_route_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_router_id_t vrid, const sx_mc_route_key_t *mc_route_key_p, sx_mc_route_key_filter_t *filter_p, sx_mc_route_get_entry_t *mc_route_get_entries_list_p, uint32_t *mc_route_get_entries_cnt_p)</td></tr>
@@ -906,7 +902,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API adds/modifies/deletes/delete_all a router interface. A router interface is associated with L2 interface.</p>
-<p>EDIT edits router interfaces. The only applicable RIF type that can be edited in ifc_p is SX_L2_INTERFACE_TYPE_PORT_VLAN and the only field that can be edited for the RIF type is the VLAN field. In ifc_attr_p qos_mode shall not be edited. urpf_config can only be edited when the RIF is disabled. DELETE/DELETE_ALL deletes all MACs assigned to a specific interface/interfaces. This includes MACs configured by <a class="el" href="sx__api__router_8h.html#a45fa8aa8bb1a944fc76388b380d32e48">sx_api_router_interface_mac_set()</a>.</p>
+<p>EDIT edits router interfaces. The only applicable RIF type that can be edited in ifc_p is SX_L2_INTERFACE_TYPE_PORT_VLAN and the only field that can be edited for the RIF type is the VLAN field. The only applicable fields in ifc_attr_p are mtu, multicast_ttl_threshold, loopback_enable and mac_addr. Other fields shall not be edited. DELETE/DELETE_ALL deletes all MACs assigned to a specific interface/interfaces. This includes MACs configured by <a class="el" href="sx__api__router_8h.html#a45fa8aa8bb1a944fc76388b380d32e48">sx_api_router_interface_mac_set()</a>.</p>
 <p>Note: On Spectrum, the MAC field in ifc_attr_p, is made from 38 bits of common base that is fixed and only the last 10 bits varies from one RIF to another. On Spectrum-2+ the MAC field in ifc_attr_p is made from 36 bits of common base called MAC prefix and only the last 12 bits varies from one RIF to another. The user can configure up to 4 different MAC prefixes. Note: The qos_mode field in ifc_attr_p is redundant. Use the global router QoS configuration instead. The RIF must be aligned with the router global QOS mode, that is configured using sx_api_router_cos_prio_update_enable_set, otherwise SX_ROUTER_QOS_MODE_NOP shall be set to use the router global configured QOS mode. Note: In 802.1D mode, if ifc_p needs to be configured as type=SX_L2_INTERFACE_TYPE_VLAN, then bridge_id needs to be provided instead of ifc.vlan.vlan.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -1395,7 +1391,7 @@ SX_STATUS_ERROR general error </dd></dl>
   </table>
   </dd>
 </dl>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000017">Deprecated:</a></b></dt><dd>In neigh_data_p, RIF is deprecated and will be removed in the future.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000015">Deprecated:</a></b></dt><dd>In neigh_data_p, RIF is deprecated and will be removed in the future.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if access command is not supported </dd>
@@ -1760,7 +1756,7 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000018">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Use ECMP containers. This API retrieves active unicast ECMP route information from the routing table. When using oper_uc_route_entries_p-&gt;route_data.next_hop_cnt=0 only the number of next hops will be returned.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000016">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Use ECMP containers. This API retrieves active unicast ECMP route information from the routing table. When using oper_uc_route_entries_p-&gt;route_data.next_hop_cnt=0 only the number of next hops will be returned.</dd></dl>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1943,7 +1939,7 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API creates/destroys a router interface counter. The router interface counter should be bound later to a router interface.</p>
+<p>This API creates/destroys a router counter. A router counter should be bound later to a router interface.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2002,7 +1998,7 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API creates/destroys a router interface counter by given type. The router interface counter should be bound later to a router interface.</p>
+<p>This API creates/destroys a router counter by given type. A router counter should be bound later to a router interface.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2120,7 +2116,7 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API returns the Router Interface that a Router interface Counter is bound to.</p>
+<p>This API gets a router counter bind of a router interface.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2181,7 +2177,7 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets a router interface counter's values.</p>
+<p>This API gets a router counter.</p>
 <p>READ_CLEAR returns and clears the counters.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -2244,7 +2240,7 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API gets a router interface counter data by given type.</p>
+<p>This API gets a router counter by given type.</p>
 <p>READ_CLEAR returns and clears the counters.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -2267,57 +2263,6 @@ SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 SX_STATUS_ENTRY_NOT_FOUND if counter was not added. </dd>
 <dd>
 SX_STATUS_ERROR general error </dd></dl>
-
-</div>
-</div>
-<a id="a5f16a930473e02d4d5fc09d2f917cc8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f16a930473e02d4d5fc09d2f917cc8c">&#9670;&nbsp;</a></span>sx_api_router_counter_attr_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_router_counter_attr_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_router_counter_id_t&#160;</td>
-          <td class="paramname"><em>counter</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_router_counter_attributes_t *&#160;</td>
-          <td class="paramname"><em>counter_attr_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API gets a router interface counter's attributes. Note: This API only works for RIF Counters and not for Flow Counters (bound to ECMP containers or UC/MC routes)</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">counter</td><td>- Router counter ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">counter_attr_p</td><td>- Router counter attributes</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_PARAM_NULL if parameter is NULL </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if counter does not exist </dd>
-<dd>
-SX_STATUS_ERROR general internal error </dd></dl>
 
 </div>
 </div>
@@ -2352,7 +2297,7 @@ SX_STATUS_ERROR general internal error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API clears the values of all or a specified router interface counter.</p>
+<p>This API clears router counter set of a router counter.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -2371,71 +2316,6 @@ SX_STATUS_PARAM_NULL if parameter is NULL </dd>
 SX_STATUS_PARAM_ERROR if any input parameter is invalid </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if counter was not added </dd>
-<dd>
-SX_STATUS_ERROR general error </dd></dl>
-
-</div>
-</div>
-<a id="af280ac62002f1523eeec5b76a35c1943"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af280ac62002f1523eeec5b76a35c1943">&#9670;&nbsp;</a></span>sx_api_router_interface_counter_ext_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_router_interface_counter_ext_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_access_cmd_t&#160;</td>
-          <td class="paramname"><em>cmd</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_router_interface_t&#160;</td>
-          <td class="paramname"><em>rif</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_router_counter_id_t *&#160;</td>
-          <td class="paramname"><em>counter_id_p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_router_counter_set_extended_t *&#160;</td>
-          <td class="paramname"><em>counter_data_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API returns the router interface counter id bound to a RIF and the counter's values If no counter is bound to the specified RIF, this API shall return SX_STATUS_SUCCESS, and set *counter_id_p to SX_ROUTER_COUNTER_ID_INVALID.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- READ/READ_CLEAR </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">rif</td><td>- Router Interface ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">counter_id_p</td><td>- Router counter ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">counter_data_p</td><td>- Router counter data values</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_CMD_UNSUPPORTED if access command is not supported </dd>
-<dd>
-SX_STATUS_PARAM_NULL if parameter is NULL </dd>
 <dd>
 SX_STATUS_ERROR general error </dd></dl>
 
@@ -3202,11 +3082,12 @@ SX_STATUS_PARAM_NULL if parameter is NULL </dd></dl>
 <li>Next hop #B with weight of 2 In the hardware, this ECMP container will have three next hops with total weight of four: nh #A, nh #B, nh #A.</li>
 </ul>
 </li>
-<li>On Spectrum-2 and above these ECMP containers can contain flex tunnels along with nve tunnels.</li>
+<li>On Spectrum-2 and above these ECMP containers can contain flex tunnels along with nve tunnels. If an ECMP contains a flex tunnel it cannot be used as the destination of a FDB entry.</li>
 </ol>
 <p>Note only ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E allows to write unresolved next hops to hardware. The unresolved next hop action will be SX_ROUTER_ACTION_DROP. For ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E, the next hop list size is set according to next_hop_cnt_p value and not by the group_size configured in sx_api_router_ecmp_attributes_set. ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E supports only container type SX_ECMP_CONTAINER_TYPE_IP and next-hop type SX_NEXT_HOP_TYPE_IP.</p>
-<p>Note: Next hop flow counter will be ignored for SX_ECMP_TYPE_ADAPTIVE_E container type. User can use UC route counters or sx_api_ar_counters_get API for counting.</p>
-<p>Note: Next hop trap action will be ignored for SX_ECMP_TYPE_ADAPTIVE_E container type. User can use ACL AR actions instead.</p>
+<p>Note - Next hop flow counter will be ignored for SX_ECMP_TYPE_ADAPTIVE_E container type. User can use UC route counters or sx_api_ar_counters_get API for counting.</p>
+<p>Note - Next hop trap action will be ignored for SX_ECMP_TYPE_ADAPTIVE_E container type. User can use ACL AR actions instead.</p>
+<p>Note - The maximum number AR ECMP containers is AR_ECMP_CONTAINERS_MAX.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3271,16 +3152,15 @@ SX_STATUS_ERROR for general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves the next hops list in the ECMP container, as defined by the user.</p>
-<p>Note: This API returns next hops for a given ECMP ID even if this ECMP is redirected.</p>
-<p>Note: If next_hop_cnt_p == 0 the API will return only the the next hops list size, and next_hop_list_p will be ignored.</p>
+<p>This API retrieves an ECMP container content, as defined by the user.</p>
+<p>Note:This API returns next hops for a given ECMP ID even if this ECMP is redirected.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ecmp_id</td><td>- ID of an ECMP container </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">next_hop_list_p</td><td>- List of next hops </td></tr>
-    <tr><td class="paramdir">[in,out]</td><td class="paramname">next_hop_cnt_p</td><td>- Amount of next hops</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">next_hop_cnt_p</td><td>- Amount of next hops</td></tr>
   </table>
   </dd>
 </dl>
@@ -3494,7 +3374,7 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API binds/unbinds a set of flow counters to a list of next hops for a given container. In case of INVALID_NEXT_HOP_OFFSET counter will be bound to all next hops in given ECMP container.</p>
+<p>This API binds/unbinds a router counter to a list of next hops for a given container. In case of INVALID_NEXT_HOP_OFFSET counter will be bound to all next hops in given ECMP container.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3570,7 +3450,7 @@ SX_STATUS_ERROR general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API binds/unbinds a flow counter to a list of indices in a container active set. This API should be used for containers that are not static or preserved order containers.</p>
+<p>This API binds/unbinds a router counter to a list of indices in a container active set. This API should be used for containers that are not static or preserved order containers.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -4589,7 +4469,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Sep 3 2023 16:12:20 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Sep 26 2023 17:30:25 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
