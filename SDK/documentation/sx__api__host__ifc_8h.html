@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.4318</span>
+   &#160;<span id="projectnumber">4.6.2034</span>
    </div>
   </td>
  </tr>
@@ -395,6 +395,7 @@ SX_STATUS_SXD_RETURNED_NON_ZERO error closing channel to the sx driver </dd></dl
 </div><div class="memdoc">
 <p>This API creates/edits a trap group. It allows creating a new trap group with certain attributes, and editing an existing trap group with new attributes.</p>
 <p>Note: When using edit, changing a monitor trap group (attribute is_monitor equals 1) to a regular trap group and vice versa is not allowed.</p>
+<p>Note: This API doesn't support TAC capable Trap Groups. TAC capable Trap Groups are supported by sx_api_host_ifc_trap_group_ext_set only.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -686,7 +687,14 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API configures traps/event properties for each device in the system: Map Trap ID/Event ID to 1 of the 3 Priority groups, HIGH, MEDIUM, LOW. It configures trap action (for traps only).</p>
-<p>Note: this API allows to bind the same trap ID to regular and monitor trap groups at the same time. Note: When configuring trap_id of SX_TRAP_ID_ETH_L2_PACKET_SAMPLING/SX_TRAP_ID_GENERAL_FDB/SX_TRAP_ID_ACL/SX_TRAP_ID_IPTRAP, trap_action field is ignored. Instead, the action should be configured in each module. Note: Use SX_ACCESS_CMD_UNSET to set the trap ID to its default action according to the documentation. In this case, trap_attr_p-&gt;attr.trap_id_attr.trap_action is reserved. The trap ID will not attached to trap group.</p>
+<p>Note: this API allows to bind the same trap ID to regular and monitor trap groups at the same time. Note: When configuring trap_id of SX_TRAP_ID_ETH_L2_PACKET_SAMPLING/SX_TRAP_ID_GENERAL_FDB/SX_TRAP_ID_ACL/SX_TRAP_ID_IPTRAP, trap_action field is ignored. Instead, the action should be configured in each module. Note: Use SX_ACCESS_CMD_UNSET to set the trap ID to its default action according to the documentation. In this case, trap_attr_p-&gt;attr.trap_id_attr.trap_action is reserved. The trap ID will not attached to trap group. Note: The following limitations are valid for TAC capable trap groups :</p><ul>
+<li>Trap ID can be assigned to TAC capable trap group only if this trap group is configured with SPAN session ID (<a class="el" href="sx__api__tele_8h.html#aa1b8f979b41c2137910f3f793bc7d99a">sx_api_tele_tac_set()</a> API)</li>
+<li>Events can't be assigned to TAC capable trap group</li>
+<li>SX_TRAP_ID_MIRROR_AGENT_X can't be assigned to TAC capable trap groups if EGRESS, EGRESS_ECN or EGRESS_HIGH_LATENCY triggers are mirrored by corresponding mirror session.</li>
+</ul>
+<p><a class="el" href="sx__api__host__ifc_8h.html#ae4f538188f60a9c06e99f758d7b379f7">sx_api_host_ifc_trap_id_ext_set()</a> support binding Trap ID to one regular and one special (monitor or TAC) trap groups in the same time. The following limitations are valid when user bind a trap to regular and TAC trap groups :</p><ul>
+<li>In this case SDK supports double registration but doesn't support packet duplication This means that SDK will accept this configuration but the packets will arrive to regular trap group only</li>
+</ul>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1707,7 +1715,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 26 2023 17:30:25 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 5 2023 19:57:15 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

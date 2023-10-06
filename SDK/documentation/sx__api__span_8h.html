@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.4318</span>
+   &#160;<span id="projectnumber">4.6.2034</span>
    </div>
   </td>
  </tr>
@@ -318,7 +318,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API creates a SPAN session and allocates the session ID.</p>
-<p>EDIT modifies the SPAN session's attributes. DESTROY deletes a SPAN session.</p>
+<p>EDIT modifies the SPAN session's attributes. If SPAN session is bound to TAC trap group, edit of span_type can be only done to type which is Remote ETH. DESTROY deletes a SPAN session.</p>
 <p>Note: In Spectrum systems, the EDIT operation needs another session resource as interim session. As such, if all other session resources are already allocated, EDIT will fail due to resource unavailability. Note: In case a packet with encapsulation header is mirrored to an analyzer port with size larger than analyzer port's MTU, truncation should be enabled to avoid packets being discarded. Set truncate size = MTU (encapsulation or smaller).</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -348,7 +348,9 @@ SX_STATUS_NO_RESOURCES if pool cannot provide object </dd>
 <dd>
 SX_STATUS_ERROR if unexpected behavior occurs </dd>
 <dd>
-SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
+SX_STATUS_INVALID_HANDLE if handle is invalid </dd>
+<dd>
+SX_STATUS_RESOURCE_IN_USE if SPAN session is used by another resource. (For example SPAN session used by TAC trap group) </dd></dl>
 
 </div>
 </div>
@@ -1115,15 +1117,17 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 <p>This API sets the SPAN session analyzer ports.</p>
 <p>Spectrum-2 and Spectrum-3 systems support CPU port as analyzer port.</p>
 <p>This API allows configuring a LAG as a SPAN session analyzer port. In this case the following conditions apply:</p><ul>
-<li>If the provided LAG has one or more member ports, the SDK shall select one of the LAG member ports to be an analyzer port.</li>
-<li>If the LAG has no ports then the following caveats apply:<ul>
+<li>The SDK selects as analyzer ports only active LAG members that are in the operational state UP and distributor mode enabled.</li>
+<li>If the provided LAG has one or more active member ports, the SDK shall select one, two, or four (three is not supported) LAG member ports to be used as analyzer ports.</li>
+<li>The SDK monitors for LAG members whose operational state is UP and distributor mode is enabled, and when any LAG member ports meet both conditions, the SDK tries to add them as analyzer ports, choosing up to four ports.</li>
+<li>If the LAG has no active ports, then the following caveats apply:<ul>
 <li>The SPAN configuration is stored only in the SDK DB.</li>
-<li>If the client tries to enable the SPAN session and the LAG has no members, the SDK will set the admin state of the SPAN session to true only in the SDK DB.</li>
-<li>When the first port is added to the LAG, this port will be used as the analyzer port and the SDK will propagate the configuration to the firmware.</li>
+<li>If the client tries to enable the SPAN session and the LAG has no active members, the SDK will set the admin state of the SPAN session to true only in the SDK DB.</li>
+<li>When the first active port is added to the LAG, this port will be used as the analyzer port, and the SDK will propagate the configuration to the firmware.</li>
 </ul>
 </li>
-<li>If a LAG member that was chosen by the SDK to be used as the analyzer port is being removed, the SDK will choose one of other LAG members and configure it as the new analyzer port.</li>
-<li>When the last LAG member is removed, the SDK will disable the SPAN session in the firmware.</li>
+<li>If a LAG member that was chosen by the SDK to be used as the analyzer port is being removed or becomes not active, the SDK will choose one of other LAG members and configure it as the new analyzer port.</li>
+<li>When the last LAG member is removed or becomes not active, the SDK will disable the SPAN session in the firmware.</li>
 <li>Fine grain LAGs are not supported.</li>
 <li>Redirect LAGs are not supported.</li>
 </ul>
@@ -2481,7 +2485,7 @@ SX_STATUS_DB_NOT_INITIALIZED if internal database is not initialized</dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 26 2023 17:30:25 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 5 2023 19:57:15 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

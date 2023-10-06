@@ -1,8 +1,8 @@
 var indexSectionsWithContent =
 {
-  0: "_dps",
+  0: "_dgps",
   1: "s",
-  2: "s",
+  2: "gs",
   3: "_ps",
   4: "d"
 };

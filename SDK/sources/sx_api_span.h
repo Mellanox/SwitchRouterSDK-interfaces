@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -101,7 +101,7 @@ sx_status_t sx_api_span_log_verbosity_level_get(const sx_api_handle_t           
 /**
  * This API creates a SPAN session and allocates the session ID.
  *
- * EDIT modifies the SPAN session's attributes.
+ * EDIT modifies the SPAN session's attributes. If SPAN session is bound to TAC trap group, edit of span_type can be only done to type which is Remote ETH.
  * DESTROY deletes a SPAN session.
  *
  * Note: In Spectrum systems, the EDIT operation needs another session resource as interim session. As such, if all other
@@ -126,6 +126,7 @@ sx_status_t sx_api_span_log_verbosity_level_get(const sx_api_handle_t           
  * @return SX_STATUS_NO_RESOURCES if pool cannot provide object
  * @return SX_STATUS_ERROR if unexpected behavior occurs
  * @return SX_STATUS_INVALID_HANDLE if handle is invalid
+ * @return SX_STATUS_RESOURCE_IN_USE if SPAN session is used by another resource. (For example SPAN session used by TAC trap group)
  */
 sx_status_t sx_api_span_session_set(const sx_api_handle_t           handle,
                                     const sx_access_cmd_t           cmd,
@@ -423,17 +424,22 @@ sx_status_t sx_api_span_mirror_state_get(const sx_api_handle_t       handle,
  *
  * This API allows configuring a LAG as a SPAN session analyzer port. In this case the following
  * conditions apply:
- *   - If the provided LAG has one or more member ports, the SDK shall select one of the LAG member ports
- *     to be an analyzer port.
- *   - If the LAG has no ports then the following caveats apply:
+ *   - The SDK selects as analyzer ports only active LAG members that are in the operational state UP
+ *     and distributor mode enabled.
+ *   - If the provided LAG has one or more active member ports, the SDK shall select one, two, or four (three is not supported)
+ *     LAG member ports to be used as analyzer ports.
+ *   - The SDK monitors for LAG members whose operational state is UP and distributor mode is enabled,
+ *     and when any LAG member ports meet both conditions, the SDK tries to add them as analyzer ports,
+ *     choosing up to four ports.
+ *   - If the LAG has no active ports, then the following caveats apply:
  *           - The SPAN configuration is stored only in the SDK DB.
- *           - If the client tries to enable the SPAN session and the LAG has no members, the SDK will set
+ *           - If the client tries to enable the SPAN session and the LAG has no active members, the SDK will set
  *             the admin state of the SPAN session to true only in the SDK DB.
- *           - When the first port is added to the LAG, this port will be used as the analyzer port and
+ *           - When the first active port is added to the LAG, this port will be used as the analyzer port, and
  *             the SDK will propagate the configuration to the firmware.
- *   - If a LAG member that was chosen by the SDK to be used as the analyzer port is being removed,
+ *   - If a LAG member that was chosen by the SDK to be used as the analyzer port is being removed or becomes not active,
  *     the SDK will choose one of other LAG members and configure it as the new analyzer port.
- *   - When the last LAG member is removed, the SDK will disable the SPAN session in the firmware.
+ *   - When the last LAG member is removed or becomes not active, the SDK will disable the SPAN session in the firmware.
  *   - Fine grain LAGs are not supported.
  *   - Redirect LAGs are not supported.
  *

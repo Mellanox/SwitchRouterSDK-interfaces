@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.4318</span>
+   &#160;<span id="projectnumber">4.6.2034</span>
    </div>
   </td>
  </tr>
@@ -101,10 +101,14 @@ Functions</h2></td></tr>
 <tr class="separator:a696af4f240e4ccb796c09fbdddbf73e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a023c88c2627ebb1824c3d239ba39be61"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__stateful__db_8h.html#a023c88c2627ebb1824c3d239ba39be61">sx_api_stateful_db_key_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_stateful_db_key_id_t key_id, sx_stateful_db_key_t *key_desc_p)</td></tr>
 <tr class="separator:a023c88c2627ebb1824c3d239ba39be61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af000045c93498ed3e8830173f56aba94"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__stateful__db_8h.html#af000045c93498ed3e8830173f56aba94">sx_api_stateful_db_key_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_stateful_db_key_id_t key_id, const sx_stateful_db_key_filter_t *filter_p, sx_stateful_db_key_id_t *key_id_list_p, uint32_t *key_id_cnt_p)</td></tr>
+<tr class="separator:af000045c93498ed3e8830173f56aba94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac49552cd1e64cf03a4766da180e11140"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__stateful__db_8h.html#ac49552cd1e64cf03a4766da180e11140">sx_api_stateful_db_partition_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_stateful_db_partition_id_e partition_id, sx_stateful_db_partition_cfg_t *partition_cfg_p)</td></tr>
 <tr class="separator:ac49552cd1e64cf03a4766da180e11140"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52f2c98fb268a611de97ab63c0486a3a"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__stateful__db_8h.html#a52f2c98fb268a611de97ab63c0486a3a">sx_api_stateful_db_partition_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_stateful_db_partition_id_e partition_id, sx_stateful_db_partition_status_t *partition_status_p)</td></tr>
 <tr class="separator:a52f2c98fb268a611de97ab63c0486a3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4840d150127c12084ebd6aeeec20bd86"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__stateful__db_8h.html#a4840d150127c12084ebd6aeeec20bd86">sx_api_stateful_db_partition_iter_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_stateful_db_partition_id_e partition_id, const sx_stateful_db_partition_filter_t *filter_p, sx_stateful_db_partition_id_e *partition_id_list_p, uint32_t *partition_id_cnt_p)</td></tr>
+<tr class="separator:a4840d150127c12084ebd6aeeec20bd86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af751d3c5386ff815f4d549730d494d15"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__stateful__db_8h.html#af751d3c5386ff815f4d549730d494d15">sx_api_stateful_db_entry_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_stateful_db_sw_access_key_t *access_key_p, sx_stateful_db_sw_access_data_t *access_data_p)</td></tr>
 <tr class="separator:af751d3c5386ff815f4d549730d494d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a696cbc0d4afd456c3e37cda7963f7128"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__stateful__db_8h.html#a696cbc0d4afd456c3e37cda7963f7128">sx_api_stateful_db_entry_meta_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, sx_stateful_db_sw_access_key_t *access_key_p, sx_stateful_db_sw_access_data_t *access_data_p, sx_stateful_db_entry_meta_t *access_meta_p)</td></tr>
@@ -293,7 +297,7 @@ SX_STATUS_ALREADY_INITIALIZED if module already initialized </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API de-initiates stateful DB module.</p>
-<p>Note: All partition configurations must be cleared before deinit.</p>
+<p>Note: All partition configurations and stateful DB keys must be cleared before deinit.</p>
 <p>Supported devices: Spectrum4</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -725,7 +729,7 @@ SX_STATUS_MODULE_UNINITIALIZED if stateful DB module was not initialized </dd></
       </table>
 </div><div class="memdoc">
 <p>This API creates a stateful DB key ID that represents the access key description to stateful DB. Use this key ID in ACL action SX_FLEX_ACL_STATEFUL_DB or in sx_api_stateful_db_entry_set or sx_api_stateful_db_entry_meta_get API. The API returns the key ID and number of KVD lines in key_desc_p-&gt;key_size. To set partition with N entries using sx_api_stateful_db_partition_set API, allocate partition size: N*key_size.</p>
-<p>Note: It is not possible to DESTROY stateful DB key ID, if the key is used by the ACL action.</p>
+<p>Note: It is not possible to DESTROY stateful DB key ID when: 1) The key is used by the ACL action. 2) Any partition contains entries belong to the given key.</p>
 <p>Supported devices: Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -739,6 +743,8 @@ SX_STATUS_MODULE_UNINITIALIZED if stateful DB module was not initialized </dd></
 <dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
 <dd>
 SX_STATUS_PARAM_NULL or SX_STATUS_PARAM_ERROR if input parameter is invalid </dd>
+<dd>
+SX_STATUS_DB_NOT_EMPTY if any partition contains stateful DB key entries </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if stateful DB key is not found in the database </dd>
 <dd>
@@ -808,6 +814,85 @@ SX_STATUS_INVALID_HANDLE for invalid handle error </dd></dl>
 
 </div>
 </div>
+<a id="af000045c93498ed3e8830173f56aba94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af000045c93498ed3e8830173f56aba94">&#9670;&nbsp;</a></span>sx_api_stateful_db_key_iter_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_stateful_db_key_iter_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_stateful_db_key_id_t&#160;</td>
+          <td class="paramname"><em>key_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_stateful_db_key_filter_t *&#160;</td>
+          <td class="paramname"><em>filter_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_stateful_db_key_id_t *&#160;</td>
+          <td class="paramname"><em>key_id_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>key_id_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API retrieves a list of one or more stateful DB key ID. The following use case scenarios apply with different input parameters. X stands for don't-care.</p>
+<p>1) cmd = SX_ACCESS_CMD_GET, key_id = X, key_id_list_p = X, key_id_cnt_p = 0: In this case, the API will return the total number of stateful DB key ID that were set.</p>
+<p>2) cmd = SX_ACCESS_CMD_GET, key_id = X, key_id_list_p = valid, key_id_cnt_p &gt; 0: In this case, the API will check if the specified key_id exists. If it does, the key_id will be returned in the key_id_list_p along with a key_id_cnt_p of 1. If key_id does not exist, an empty list will be returned with key_id_cnt_p = 0. A key_id_cnt_p &gt; 1 will be treated as a key_id_cnt_p of 1. In this case, key_id_list_p pointer must be valid.</p>
+<p>3) cmd = SX_ACCESS_CMD_GET_FIRST, key_id = X, key_id_list_p = valid, key_id_cnt_p = X: In this case, the API will return the first key_id_cnt_p stateful DB key ID starting from the head of the database. The total number of elements fetched will not exceed the value provided in key_id_cnt_p and will be returned to that pointer. The input key_id is ignored in this case. For key_id_cnt_p = 0 API will return success and an empty list. In this case, key_id_list_p pointer must be valid.</p>
+<p>4) cmd = SX_ACCESS_CMD_GETNEXT, key_id = X, key_id_list_p = valid, key_id_cnt_p = X: In this case, the API will return the next set of stateful DB key IDs starting from the next valid stateful DB key ID that comes after the specified key_id. The total number of elements fetched will not exceed the value provided in key_id_cnt_p and will be returned to that pointer.</p>
+<p>Note: For key_id_cnt_p = 0 API will return success and an empty list. If no valid next stateful DB key ID exists in the database, an empty list will be returned. In this case, key_id_list_p pointer must be valid.</p>
+<p>Supported devices: Spectrum4.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_FIRST/GET_NEXT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">key_id</td><td>- Stateful DB key ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- Specify a filter parameter (not supported yet) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">key_id_list_p</td><td>- Return list of key IDs </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">key_id_cnt_p</td><td>- [in] Number of key ID to get [out] Number of key IDs returned</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if configuration is not supported by the platform </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
+
+</div>
+</div>
 <a id="ac49552cd1e64cf03a4766da180e11140"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac49552cd1e64cf03a4766da180e11140">&#9670;&nbsp;</a></span>sx_api_stateful_db_partition_set()</h2>
 
@@ -846,13 +931,13 @@ SX_STATUS_INVALID_HANDLE for invalid handle error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API configures partition maximum size and warning threshold of a partition in stateful DB.</p>
-<p>Partition size is allocated with KVD line units. In order to allocate partition with N entries, use the maximum size of N*key_size. Key_size is the value return by sx_api_stateful_db_key_set API. Max partition occupancy might exceed configured maximum threshold by rm_resource_global.stateful_db_partition_max_exceed_kvd. Crossing maximum or warning thresholds will trigger SX_TRAP_ID_STATEFUL_DB_PARTITION_THRESHOLD_CROSSED event. It is possible to register to receive this event, which informs of the current occupancy and the threshold crossed. Crossing the maximum threshold results SX_STATEFUL_DB_STATUS_OVERFLOW_E failure, which triggers the execution of configured action set by sx_api_stateful_db_failure_handler_set API.</p>
-<p>Note: Changing partition configuration can be done only by destroying it and then creating it with a new configuration. Partition size is accounted in the system KVD.</p>
+<p>Partition size is allocated with KVD line units. In order to allocate partition with N entries, use the maximum size of N*key_size. Key_size is the value return by sx_api_stateful_db_key_set API. Max partition occupancy might exceed configured maximum threshold by rm_resource_global.stateful_db_partition_max_exceed_kvd. Crossing maximum or warning thresholds will trigger SX_TRAP_ID_STATEFUL_DB_PARTITION_THRESHOLD_CROSSED event. It is possible to register to receive this event, which informs of the current occupancy and the threshold crossed. Crossing the maximum threshold results SX_STATEFUL_DB_STATUS_OVERFLOW_E failure, which triggers the execution of configured action set by sx_api_stateful_db_failure_handler_set API. Edit the partition maximum and warning thresholds is allowed when the partition is not active. In this case, the new warning threshold needs to be higher than the current partition occupancy.</p>
+<p>Note: Partition size accounted in the system KVD</p>
 <p>Supported devices: Spectrum4</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/DESTROY </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/EDIT/DESTROY </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">partition_id</td><td>- Partition ID </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">partition_cfg_p</td><td>- Partition configuration</td></tr>
   </table>
@@ -933,6 +1018,85 @@ SX_STATUS_CMD_UNSUPPORTED if applied command is unsupported </dd>
 SX_STATUS_INVALID_HANDLE for invalid handle error </dd>
 <dd>
 SX_STATUS_RESOURCE_IN_USE if trying to destroy partition while in use </dd></dl>
+
+</div>
+</div>
+<a id="a4840d150127c12084ebd6aeeec20bd86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4840d150127c12084ebd6aeeec20bd86">&#9670;&nbsp;</a></span>sx_api_stateful_db_partition_iter_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_stateful_db_partition_iter_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_stateful_db_partition_id_e&#160;</td>
+          <td class="paramname"><em>partition_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_stateful_db_partition_filter_t *&#160;</td>
+          <td class="paramname"><em>filter_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_stateful_db_partition_id_e *&#160;</td>
+          <td class="paramname"><em>partition_id_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>partition_id_cnt_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API retrieves a list of one or more partition ID. The following use case scenarios apply with different input parameters. X stands for don't-care.</p>
+<p>1) cmd = SX_ACCESS_CMD_GET, partition_id = X, partition_id_list_p = X, partition_id_cnt_p = 0: In this case, the API will return the total number of partition ID that were set.</p>
+<p>2) cmd = SX_ACCESS_CMD_GET, partition_id = X, partition_id_list_p = valid, partition_id_cnt_p &gt; 0: In this case, the API will check if the specified partition_id exists. If it does, the partition_id will be returned in the partition_id_list_p along with a partition_id_cnt_p of 1. If partition_id does not exist, an empty list will be returned with partition_id_cnt_p = 0. A partition_id_cnt_p &gt; 1 will be treated as a partition_id_cnt_p of 1. In this case, partition_id_list_p pointer must be valid.</p>
+<p>3) cmd = SX_ACCESS_CMD_GET_FIRST, partition_id = X, partition_id_list_p = valid, partition_id_cnt_p = X: In this case, the API will return the first partition_id_cnt_p partition ID starting from the head of the database. The total number of elements fetched will not exceed the value provided in partition_id_cnt_p and will be returned to that pointer. The input partition_id is ignored in this case. For partition_id_cnt_p = 0 API will return success and an empty list. In this case, partition_id_list_p pointer must be valid.</p>
+<p>4) cmd = SX_ACCESS_CMD_GETNEXT, partition_id = X, partition_id_list_p = valid, partition_id_cnt_p = X: In this case, the API will return the next set of partition IDs starting from the next valid partition ID that comes after the specified partition_id. The total number of elements fetched will not exceed the value provided in partition_id_cnt_p and will be returned to that pointer.</p>
+<p>Note: For partition_id_cnt_p = 0 API will return success and an empty list. If no valid next partition ID exists in the database, an empty list will be returned. In this case, partition_id_list_p pointer must be valid.</p>
+<p>Supported devices: Spectrum4.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET/GET_FIRST/GET_NEXT </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">partition_id</td><td>- Partition ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filter_p</td><td>- Specify a filter parameter (not supported yet) </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">partition_id_list_p</td><td>- Return list of partition IDs </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">partition_id_cnt_p</td><td>- [in] Number of partitions ID to get [out] Number of partition IDs returned</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_ERROR for a general error </dd>
+<dd>
+SX_STATUS_UNSUPPORTED if configuration is not supported by the platform </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd></dl>
 
 </div>
 </div>
@@ -1071,7 +1235,7 @@ SX_STATUS_INVALID_HANDLE for invalid handle </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 26 2023 17:30:25 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 5 2023 19:57:15 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

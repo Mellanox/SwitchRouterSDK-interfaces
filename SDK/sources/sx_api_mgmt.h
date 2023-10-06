@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -24,6 +24,7 @@
 
 /**
  * This API sets the log verbosity level of SX MGMT MODULE.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                   - SX-API handle
  * @param[in] verbosity_target         - set verbosity of : API / MODULE / BOTH
@@ -41,6 +42,7 @@ sx_status_t sx_mgmt_log_verbosity_level_set(const sx_api_handle_t           hand
 
 /**
  * This API gets the log verbosity level of SX MGMT MODULE.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]  handle                   - SX-API handle
  * @param[in]  verbosity_target         - get verbosity of : API / MODULE / BOTH
@@ -61,6 +63,9 @@ sx_status_t sx_mgmt_log_verbosity_level_get(const sx_api_handle_t           hand
  * Note - Pre-allocated memory needs to be provided for the slot info list
  * so that the SDK can fill in the details. When memory for slot id list or slot info list
  * is not allocated, SDK will return the number of slots in system.
+ * This API is applicable for modular systems with slots for line-cards. When invoked on Non-Modular
+ * system the API will return SX_STATUS_PARAM_ERROR.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]  handle            - SX-API handle.
  * @param[in]  slot_id_list_p    - list of slot Ids.
@@ -85,6 +90,9 @@ sx_status_t sx_mgmt_slot_info_get(const sx_api_handle_t handle,
  * If RESET is executed on a non initialized slot, then list of ports that underwent mapping changes will be empty.
  * APPLY operation is an asynchronous operation. Once the INI APPLY is finished, BCTOE trap id would be sent with
  * the current state(valid/non-valid) of INI and the INI operational status.
+ * This API is applicable for modular systems with slots for line-cards. When invoked on Non-Modular
+ * system the API will return SX_STATUS_PARAM_ERROR.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]   handle              - SX-API handle
  * @param[in]   slot_id             - slot ID
@@ -105,7 +113,10 @@ sx_status_t sx_mgmt_slot_ini_operation_set(const sx_api_handle_t                
 
 
 /**
- *  This API transfers the initialization config data for a given slot.
+ * This API transfers the initialization config data for a given slot.
+ * This API is applicable for modular systems with slots for line-cards. When invoked on Non-Modular
+ * system the API will return SX_STATUS_PARAM_ERROR.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                     - SX-API handle
  * @param[in] slot_id                    - slot ID
@@ -130,6 +141,9 @@ sx_status_t sx_mgmt_slot_ini_data_set(const sx_api_handle_t               handle
  * Note - Pre-allocated memory needs to be provided for slot state info list
  * for the SDK to fill in the details. When memory for slot id list or slot state info list
  * is not allocated, SDK will return the number of slots in system.
+ * This API is applicable for modular systems with slots for line-cards. When invoked on Non-Modular
+ * system the API will return SX_STATUS_PARAM_ERROR.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]  handle              - SX-API handle
  * @param[in]  slot_id_list_p     - list of slot Ids.
@@ -151,6 +165,9 @@ sx_status_t sx_mgmt_slot_state_info_get(const sx_api_handle_t      handle,
 
 /**
  * This API sets the slot control information based on slot ID.
+ * This API is applicable for modular systems with slots for line-cards. When invoked on Non-Modular
+ * system the API will return SX_STATUS_PARAM_ERROR.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                    - SX-API handle
  * @param[in] slot_id                   - slot ID
@@ -169,6 +186,7 @@ sx_status_t sx_mgmt_slot_control_set(const sx_api_handle_t              handle,
 
 /**
  * This API retrieves the possible module split information based on slot ID & module ID.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                        - SX-API handle
  * @param[in] module_id_info_p              - module slot identifier
@@ -191,6 +209,8 @@ sx_status_t sx_mgmt_phy_module_split_get(const sx_api_handle_t                  
  * This API retrieves the module information based on the slot ID & module ID.
  * Note - Pre-allocated memory needs to be provided for module_info_list_p with module_list_size entities
  * for SDK to fill in the details.
+ * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                        - SX-API handle
  * @param[in] module_id_info_list_p         - list of module slot identifiers
@@ -202,6 +222,7 @@ sx_status_t sx_mgmt_phy_module_split_get(const sx_api_handle_t                  
  * @return SX_STATUS_PARAM_ERROR if any of the slot, module parameter is invalid.
  * @return SX_STATUS_PARAM_NULL if any input parameter is NULL.
  * @return SX_STATUS_ERROR if split information retrieval fails.
+ * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible.
  */
 sx_status_t sx_mgmt_phy_module_info_get(const sx_api_handle_t           handle,
                                         const sx_mgmt_module_id_info_t *module_id_info_list_p,
@@ -212,6 +233,7 @@ sx_status_t sx_mgmt_phy_module_info_get(const sx_api_handle_t           handle,
  * This API retrieves the slot, module and label port information for a given logical port.
  * Note - Pre-allocated memory needs to be provided for port_info_list_p with list_size entities
  * for SDK to fill in the details.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                - SX-API handle
  * @param[in] log_port_list_p       - list of logical port ID
@@ -232,6 +254,7 @@ sx_status_t sx_mgmt_port_info_get(const sx_api_handle_t   handle,
 
 /**
  * This API retrieves information regarding the system components.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                - SX-API handle
  * @param[out] system_info_p        - system information.
@@ -250,6 +273,9 @@ sx_status_t sx_mgmt_system_info_get(const sx_api_handle_t       handle,
  * This API set the temperature events configuration
  * based on the slot ID and sensor ID.
  * Note: list of sensor IDs can be obtained by using sx_mgmt_slot_info_get API.
+ * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E,
+ *   this API is disabled for module sensor IDs.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]    handle                          - SX-API handle.
  * @param[in]    cmd                             - SET/UNSET.
@@ -263,6 +289,7 @@ sx_status_t sx_mgmt_system_info_get(const sx_api_handle_t       handle,
  * @return SX_STATUS_PARAM_ERROR if the input parameter(any slot ID of sensor ID in the list) is invalid.
  * @return SX_STATUS_PARAM_NULL if any input parameter is NULL.
  * @return SX_STATUS_ERROR if the slot attribute retrieval fails.
+ * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible for sensor ID.
  */
 sx_status_t sx_mgmt_temp_sensor_set(const sx_api_handle_t handle,
                                     const sx_access_cmd_t cmd,
@@ -278,6 +305,9 @@ sx_status_t sx_mgmt_temp_sensor_set(const sx_api_handle_t handle,
  * based on the slot ID and sensor ID.
  * READ_CLEAR command will read and clear max_temp.
  * Note: list of sensor IDs can be obtained by using sx_mgmt_slot_info_get API.
+ * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E,
+ *   this API is disabled for module sensor IDs.
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in]    handle                 - SX-API handle.
  * @param[in]    cmd                    - READ/READ_CLEAR.
@@ -291,6 +321,7 @@ sx_status_t sx_mgmt_temp_sensor_set(const sx_api_handle_t handle,
  * @return SX_STATUS_PARAM_ERROR if the input parameter(any slot ID or sensor ID in the list) is invalid.
  * @return SX_STATUS_PARAM_NULL if any input parameter is NULL.
  * @return SX_STATUS_ERROR if the slot attribute retrieval fails.
+ * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible for sensor ID.
  */
 sx_status_t sx_mgmt_temp_sensor_get(const sx_api_handle_t       handle,
                                     const sx_access_cmd_t       cmd,
@@ -301,20 +332,23 @@ sx_status_t sx_mgmt_temp_sensor_get(const sx_api_handle_t       handle,
 
 
 /**
- *  This API returns Physical Medium Depended (PMD) types which are enabled by user and
- *  all the PMD types which are supported by module
- *  Supported devices: Spectrum2, Spectrum3.
+ * This API returns Physical Medium Depended (PMD) types which are enabled by user and
+ * all the PMD types which are supported by module
+ * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.
  *
- * @param[in] handle   - SX-API handle
- * @param[in] module_id_info_p - module ID info
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ *
+ * @param[in] handle             - SX-API handle
+ * @param[in] module_id_info_p   - module ID info
  * @param[out] capab_port_rate_p - supported by module rate values
- * @param[out] admin_types_p   - PMD types which are enabled by user
- * @param[out] capab_types_p   - all PMD types which are supported by module
+ * @param[out] admin_types_p     - PMD types which are enabled by user
+ * @param[out] capab_types_p     - all PMD types which are supported by module
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
  * @return SX_STATUS_PARAM_NULL if a parameter is NULL
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible
  */
 sx_status_t sx_mgmt_phy_module_capability_get(const sx_api_handle_t                 handle,
                                               const sx_mgmt_module_id_info_t       *module_id_info_p,
@@ -324,10 +358,13 @@ sx_status_t sx_mgmt_phy_module_capability_get(const sx_api_handle_t             
 
 
 /**
- *  This API sets the Physical Medium Depended (PMD) type.
- *  By default all types are enabled, hence this API allows user to
- *  limit the set of supported module types.
- *  Supported devices: Spectrum2, Spectrum3.
+ * This API sets the Physical Medium Depended (PMD) type.
+ * By default all types are enabled, hence this API allows user to
+ * limit the set of supported module types.
+ *
+ * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.
+ *
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] module_id_info_p - module ID info
@@ -337,14 +374,17 @@ sx_status_t sx_mgmt_phy_module_capability_get(const sx_api_handle_t             
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
  * @return SX_STATUS_PARAM_NULL if a parameter is NULL
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible
  */
 sx_status_t sx_mgmt_phy_module_admin_type_set(const sx_api_handle_t                       handle,
                                               const sx_mgmt_module_id_info_t             *module_id_info_p,
                                               const sx_port_phy_module_type_capability_t *types_p);
 
 /**
- *  This API gets the operational Physical Medium Dependent (PMD) type.
- *  Supported devices: Spectrum2, Spectrum3.
+ * This API gets the operational Physical Medium Dependent (PMD) type.
+ * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.
+ *
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle             - SX-API handle
  * @param[in] module_id_info_p   - module ID info
@@ -354,6 +394,7 @@ sx_status_t sx_mgmt_phy_module_admin_type_set(const sx_api_handle_t             
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
  * @return SX_STATUS_PARAM_NULL if a parameter is NULL
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
+ * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible
  */
 sx_status_t sx_mgmt_phy_module_oper_type_get(const sx_api_handle_t           handle,
                                              const sx_mgmt_module_id_info_t *module_id_info_p,
@@ -362,7 +403,7 @@ sx_status_t sx_mgmt_phy_module_oper_type_get(const sx_api_handle_t           han
 
 /**
  *  This API sets the power mode attributes of a module
- *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *  Supported commands: SX_ACCESS_CMD_SET
  *
  *  Note - By default, modules are initialized in low power mode and the module
@@ -375,11 +416,12 @@ sx_status_t sx_mgmt_phy_module_oper_type_get(const sx_api_handle_t           han
  *  All ports associated with the module should be admin disabled before changing power
  *  attributes.
  *  This API does not support changing the power attributes of backplane module.
+ *  Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.
  *
- * @param[in] handle    - SX-API handle
- * @param[in] cmd        - command.
- * param[in] module_id_info_p - module ID Information
- * @param[in] pwr_attr_p   - power attribute
+ * @param[in] handle           - SX-API handle
+ * @param[in] cmd              - command.
+ * @param[in] module_id_info_p - module ID Information
+ * @param[in] pwr_attr_p       - power attribute
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received.
@@ -387,6 +429,7 @@ sx_status_t sx_mgmt_phy_module_oper_type_get(const sx_api_handle_t           han
  * @return SX_STATUS_ERROR if the power attribute setting fails.
  * @return SX_STATUS_PARAM_NULL if a module info parameter is NULL.
  * @return SX_STATUS_CMD_UNSUPPORTED if cmd is not SET.
+ * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible.
  */
 sx_status_t sx_mgmt_phy_module_pwr_attr_set(const sx_api_handle_t             handle,
                                             const sx_access_cmd_t             cmd,
@@ -396,20 +439,22 @@ sx_status_t sx_mgmt_phy_module_pwr_attr_set(const sx_api_handle_t             ha
 
 /**
  *  This API gets the module power attributes.
- *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  *  Note - When module is not plugged in, this API returns the operational power mode and admin power mode
  *  as SX_MGMT_PHY_MOD_PWR_MODE_INVALID_E.
+ *  Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.
  *
- * @param[in] handle    - SX-API handle
+ * @param[in] handle            - SX-API handle
  * @param[in] module_id_info_p  - module info
- * @param[in/out] pwr_attr_p - power_attr_type (in) and pwr_mode_attr as (out).
+ * @param[in/out] pwr_attr_p    - power_attr_type (in) and pwr_mode_attr as (out).
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received.
  * @return SX_STATUS_PARAM_NULL if a parameter is NULL.
  * @return SX_STATUS_ERROR if the power attribute retrieval fails.
  * @return SX_STATUS_PARAM_ERROR if a module parameter is invalid.
+ * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible.
  */
 sx_status_t sx_mgmt_phy_module_pwr_attr_get(const sx_api_handle_t           handle,
                                             const sx_mgmt_module_id_info_t *module_id_info_p,
@@ -418,14 +463,15 @@ sx_status_t sx_mgmt_phy_module_pwr_attr_get(const sx_api_handle_t           hand
 /**
  *  This API resets the phy module.
  *  Resetting the module might result in link flaps.
- *  Supported devices: Spectrum, Spectrum2, Spectrum3.
+ *  Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  *  Note - PMAOS events would be generated during reset functionality.
  *  Module reset can only be executed on plugged and enabled modules. Modules
  *  are enabled by default or internally enabled by SDK when associated port admin
  *  is enabled.
+ *  Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.
  *
- * @param[in] handle    - SX-API handle
+ * @param[in] handle           - SX-API handle
  * @param[in] module_id_info_p - module ID Information
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
@@ -433,6 +479,7 @@ sx_status_t sx_mgmt_phy_module_pwr_attr_get(const sx_api_handle_t           hand
  * @return SX_STATUS_ERROR if reset cannot be executed.
  * @return SX_STATUS_PARAM_ERROR if a module info parameter is invalid.
  * @return SX_STATUS_PARAM_NULL if a module info parameter is NULL.
+ * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible.
  */
 sx_status_t sx_mgmt_phy_module_reset(const sx_api_handle_t           handle,
                                      const sx_mgmt_module_id_info_t *module_id_info_p);

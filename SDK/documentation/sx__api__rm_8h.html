@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.4318</span>
+   &#160;<span id="projectnumber">4.6.2034</span>
    </div>
   </td>
  </tr>
@@ -364,7 +364,7 @@ SX_STATUS_PARAM_ERROR if the command is not supported/thresholds are invalid </d
       </table>
 </div><div class="memdoc">
 <p>This API allows to configure the number of times an entry should be replicated in the KVD Central/KVD Linear Database. This replication provides an increase of the data access bandwidth and general performance of the database, especially in cases when multiple requests want to get access to the same data entry.</p>
-<p>Note: Configuration is allowed at system init before any entries are added to the KVD. Note: Not all entry types support duplication.</p>
+<p>Note: Configuration is allowed at system init before any entries are added to the KVD. Note: Not all entry types support duplication. Note: RM_SDK_TABLE_TYPE_FIB_IPV6_UC_E, RM_SDK_TABLE_TYPE_FIB_IPV6_SHORT_UC_E and RM_SDK_TABLE_TYPE_FIB_IPV6_LONG_UC_E have the same replication settings. The configuration applied to one type will be automatically applied to the other two types as well.</p>
 <p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -795,7 +795,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Sep 26 2023 17:30:25 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 5 2023 19:57:15 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
