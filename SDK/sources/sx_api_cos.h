@@ -1238,6 +1238,7 @@ sx_status_t sx_api_cos_redecn_profile_get(const sx_api_handle_t               ha
  * This API enables/disables RED, ECN and ECE for traffic classes.
  *
  * Note: This API supports port profile.
+ * Note: This API does not support LAG members.
  * Note: In case the port is in MC aware mode, valid values of traffic class id are [0-7].
  * Note: In case the port is MC unaware, valid values are [0-15].
  * Note: Enabling WRED or ECE are not allowed, while rate-based ECN is enabled and queue-based ECN is disabled.
@@ -1267,6 +1268,7 @@ sx_status_t sx_api_cos_redecn_tc_enable_set(const sx_api_handle_t               
  * This API gets RED, ECN and ECE enabled parameters of a traffic class.
  *
  * Note: This API supports port profile.
+ *       This API does not support LAG members.
  *       In case the port is in MC aware mode, valid values of traffic class id are [0-7].
  *       In case the port is MC unaware, valid values are [0-15].
  *
@@ -1294,6 +1296,7 @@ sx_status_t sx_api_cos_redecn_tc_enable_get(const sx_api_handle_t          handl
  * UNBIND unbinds a port+TC+flow from a profile.
  *
  * Note: This API supports port profile.
+ *       This API does not support LAG member.
  *       In case the port is in MC aware mode, valid values of traffic class id are [0-7].
  *       In case the port is MC unaware, valid values are [0-15].
  *
@@ -1325,6 +1328,7 @@ sx_status_t sx_api_cos_redecn_profile_tc_bind_set(const sx_api_handle_t         
  * This API retrieves the binding of RED/ECN/ECE profiles configuration for a given egress port and traffic class.
  *
  * Note: This API supports port profile.
+ *       This API does not support LAG member.
  *       In case the port is in MC aware mode, valid values of traffic class id are [0-7].
  *       In case the port is MC unaware, valid values are [0-15].
  *

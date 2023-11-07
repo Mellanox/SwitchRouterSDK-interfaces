@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.6.2034</span>
+   &#160;<span id="projectnumber">4.6.2104</span>
    </div>
   </td>
  </tr>
@@ -3366,7 +3366,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API enables/disables RED, ECN and ECE for traffic classes.</p>
-<p>Note: This API supports port profile. Note: In case the port is in MC aware mode, valid values of traffic class id are [0-7]. Note: In case the port is MC unaware, valid values are [0-15]. Note: Enabling WRED or ECE are not allowed, while rate-based ECN is enabled and queue-based ECN is disabled. Note: Disabling queue-based ECN is not allowed, while rate-based ECN is enabled and WRED or ECE are enabled.</p>
+<p>Note: This API supports port profile. Note: This API does not support LAG members. Note: In case the port is in MC aware mode, valid values of traffic class id are [0-7]. Note: In case the port is MC unaware, valid values are [0-15]. Note: Enabling WRED or ECE are not allowed, while rate-based ECN is enabled and queue-based ECN is disabled. Note: Disabling queue-based ECN is not allowed, while rate-based ECN is enabled and WRED or ECE are enabled.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3426,7 +3426,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets RED, ECN and ECE enabled parameters of a traffic class.</p>
-<p>Note: This API supports port profile. In case the port is in MC aware mode, valid values of traffic class id are [0-7]. In case the port is MC unaware, valid values are [0-15].</p>
+<p>Note: This API supports port profile. This API does not support LAG members. In case the port is in MC aware mode, valid values of traffic class id are [0-7]. In case the port is MC unaware, valid values are [0-15].</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3502,7 +3502,7 @@ SX_STATUS_ERROR General error </dd></dl>
 </div><div class="memdoc">
 <p>This API binds RED, ECN and ECE profiles to the traffic class and traffic type (TCP/non-TCP, color).</p>
 <p>BIND binds a port+TC+flow to a profile. UNBIND unbinds a port+TC+flow from a profile.</p>
-<p>Note: This API supports port profile. In case the port is in MC aware mode, valid values of traffic class id are [0-7]. In case the port is MC unaware, valid values are [0-15].</p>
+<p>Note: This API supports port profile. This API does not support LAG member. In case the port is in MC aware mode, valid values of traffic class id are [0-7]. In case the port is MC unaware, valid values are [0-15].</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -3570,7 +3570,7 @@ SX_STATUS_ERROR General error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API retrieves the binding of RED/ECN/ECE profiles configuration for a given egress port and traffic class.</p>
-<p>Note: This API supports port profile. In case the port is in MC aware mode, valid values of traffic class id are [0-7]. In case the port is MC unaware, valid values are [0-15].</p>
+<p>Note: This API supports port profile. This API does not support LAG member. In case the port is in MC aware mode, valid values of traffic class id are [0-7]. In case the port is MC unaware, valid values are [0-15].</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -4804,7 +4804,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Oct 5 2023 19:57:15 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 6 2023 22:50:32 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
