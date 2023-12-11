@@ -64,6 +64,9 @@ sx_status_t sx_api_flow_counter_log_verbosity_level_get(const sx_api_handle_t   
  *  flow_counter_id is returned upon successful creation. To destroy a flow counter, the flow counter must not be bound
  *  to an ACL and the flow_counter_id should be provided.
  *
+ *  Note: Counter of type SX_FLOW_COUNTER_TYPE_ESTIMATOR isn't supported by this API.
+ *        Please use bulk counters APIs to create/read counter of type SX_FLOW_COUNTER_TYPE_ESTIMATOR.
+ *
  *  Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle           - SX-API handle

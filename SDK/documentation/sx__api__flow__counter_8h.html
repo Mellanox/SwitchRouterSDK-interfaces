@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.6.2102</span>
+   &#160;<span id="projectnumber">4.6.2134</span>
    </div>
   </td>
  </tr>
@@ -264,6 +264,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>This API is used to create packets/bytes counter. For creation, use CREATE and supply counter_type. flow_counter_id is returned upon successful creation. To destroy a flow counter, the flow counter must not be bound to an ACL and the flow_counter_id should be provided.</p>
+<p>Note: Counter of type SX_FLOW_COUNTER_TYPE_ESTIMATOR isn't supported by this API. Please use bulk counters APIs to create/read counter of type SX_FLOW_COUNTER_TYPE_ESTIMATOR.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -851,7 +852,7 @@ SX_STATUS_DB_NOT_INITIALIZED if internal profile database is not initialized </d
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 5 2023 21:00:18 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Dec 6 2023 17:32:11 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>
