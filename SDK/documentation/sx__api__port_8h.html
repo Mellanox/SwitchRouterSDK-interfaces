@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.6.2142</span>
+   &#160;<span id="projectnumber">4.6.3028</span>
    </div>
   </td>
  </tr>
@@ -325,6 +325,16 @@ Functions</h2></td></tr>
 <tr class="separator:a8a17c4812c1656d47751e4fc997a3804"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15d252656b3fe1eaec0b05225e605d18"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a15d252656b3fe1eaec0b05225e605d18">sx_api_port_tx_signal_oper_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_tx_signal_oper_t *tx_signal_oper_p)</td></tr>
 <tr class="separator:a15d252656b3fe1eaec0b05225e605d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69fd48a5555983869d5001892e910ee8"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a69fd48a5555983869d5001892e910ee8">sx_api_port_ext_params_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_ext_port_params_t *extended_params_p)</td></tr>
+<tr class="separator:a69fd48a5555983869d5001892e910ee8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1cb492f0fa78d8bda99ba8406e3c53b7"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a1cb492f0fa78d8bda99ba8406e3c53b7">sx_api_port_ext_params_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t log_port, sx_port_ext_port_params_t *extended_params_p)</td></tr>
+<tr class="separator:a1cb492f0fa78d8bda99ba8406e3c53b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd7fa82e72fe2c1d637bee86db5abc0f"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#abd7fa82e72fe2c1d637bee86db5abc0f">sx_api_port_ext_params_bulk_set</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t *log_port_list_p, const sx_port_ext_port_params_t *extended_params_list_p, const uint32_t port_cnt)</td></tr>
+<tr class="separator:abd7fa82e72fe2c1d637bee86db5abc0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2363d8826532f4c949c6ce42d0226118"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a2363d8826532f4c949c6ce42d0226118">sx_api_port_ext_params_bulk_get</a> (const sx_api_handle_t handle, const sx_access_cmd_t cmd, const sx_port_log_id_t *log_port_list_p, sx_port_ext_port_params_t *extended_params_list_p, const uint32_t port_cnt)</td></tr>
+<tr class="separator:a2363d8826532f4c949c6ce42d0226118"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33da823469ecb11ed38816d75d98ccc1"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__port_8h.html#a33da823469ecb11ed38816d75d98ccc1">sx_api_port_ext_capability_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_port_ext_capability_t *capability_p)</td></tr>
+<tr class="separator:a33da823469ecb11ed38816d75d98ccc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ac3457a41837c6780bbf94b56dd2a0cd4"></a>
@@ -5858,7 +5868,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the Physical Medium Depended (PMD) port type. By default, all types are enabled. As such, this API allows to reduce the set of allowed port types.</p>
 <dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000005">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_admin_type_set in its place.</dd></dl>
-<p>Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.</p>
+<p>Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E, this API is disabled.</p>
 <p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -5917,7 +5927,7 @@ SX_STATUS_CMD_UNPERMITTED if module support type is incompatible </dd></dl>
 </div><div class="memdoc">
 <p>This API gets the operational Physical Medium Dependent port type.</p>
 <dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000006">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_oper_type_get in its place.</dd></dl>
-<p>Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.</p>
+<p>Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E, this API is disabled.</p>
 <p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -5988,7 +5998,7 @@ SX_STATUS_CMD_UNPERMITTED if module support type is incompatible </dd></dl>
 </div><div class="memdoc">
 <p>This API gets the electrical interface types which are supported by module.</p>
 <dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000007">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_capability_get in its place.</dd></dl>
-<p>Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.</p>
+<p>Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E, this API is disabled.</p>
 <p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -6228,7 +6238,7 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
 </div><div class="memdoc">
 <p>This API sets the power Mode of a module. This API internally disables and then enables the module with desired power mode setting. This disable and enable will result in additional PMAOS events.</p>
 <dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000008">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_set in its place.</dd></dl>
-<p>Note: By default, modules are initialized in low power mode and the module power mode is set as per EEPROM data in the initialization process. SX_MGT_PHY_MOD_PWR_MODE_AUTO_E mode is used to reset power mode to default value. Changing module power mode to SX_MGT_PHY_MOD_PWR_MODE_HIGH_E is not allowed. Note: This API supports only power attribute SX_MGMT_PHY_MOD_PWR_ATTR_PWR_MODE_E. Note: This API does not support changing the power attributes of backplane module. Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.</p>
+<p>Note: By default, modules are initialized in low power mode and the module power mode is set as per EEPROM data in the initialization process. SX_MGT_PHY_MOD_PWR_MODE_AUTO_E mode is used to reset power mode to default value. Changing module power mode to SX_MGT_PHY_MOD_PWR_MODE_HIGH_E is not allowed. Note: This API supports only power attribute SX_MGMT_PHY_MOD_PWR_ATTR_PWR_MODE_E. Note: This API does not support changing the power attributes of backplane module. Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E, this API is disabled.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -6285,7 +6295,7 @@ SX_STATUS_CMD_UNPERMITTED if module support type is incompatible </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the module power status.</p>
-<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000009">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_get in its place. Note: This API returns the operational power mode and admin power mode as SX_MGMT_PHY_MOD_PWR_MODE_INVALID_E when the module is not plugged in. Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000009">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_get in its place. Note: This API returns the operational power mode and admin power mode as SX_MGMT_PHY_MOD_PWR_MODE_INVALID_E when the module is not plugged in. Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E, this API is disabled.</dd></dl>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -6336,7 +6346,7 @@ SX_STATUS_CMD_UNPERMITTED if module support type is incompatible </dd></dl>
 </div><div class="memdoc">
 <p>This API resets the phy module.</p>
 <dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000010">Deprecated:</a></b></dt><dd>This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_reset in its place.</dd></dl>
-<p>Note: Resetting the module might result in link flaps. Note: PMAOS events are generated during reset functionality. Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.</p>
+<p>Note: Resetting the module might result in link flaps. Note: PMAOS events are generated during reset functionality. Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E, this API is disabled.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -6462,7 +6472,8 @@ SX_STATUS_ERROR if the port mapping attribute retrieval failed. </dd></dl>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- CREATE/DESTROY </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- Port profile params. Ignored and can be NULL for cmd = DESTROY @params[inout] port_profile_id - Port profile ID</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- Port profile params. Ignored and can be NULL for cmd = DESTROY </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">port_profile_id</td><td>- Port profile ID</td></tr>
   </table>
   </dd>
 </dl>
@@ -6512,7 +6523,8 @@ SX_STATUS_NO_RESOURCES If all port_profile ids are already used </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">port_profile_id</td><td>- Port profile ID @params[in] params_p - Port profile and list of ports to apply it</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_profile_id</td><td>- Port profile ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- Port profile and list of ports to apply it</td></tr>
   </table>
   </dd>
 </dl>
@@ -6675,7 +6687,13 @@ SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit </dd>
 <dd>
 SX_STATUS_COMM_ERROR if client communication fails </dd>
 <dd>
-SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
@@ -7061,7 +7079,8 @@ SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the port SerDes lane transmit parameters.</p>
-<p>Supported devices: Spectrum3.</p>
+<p>Note: This API is enabled when module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E.</p>
+<p>Supported devices: Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -7082,6 +7101,8 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 SX_STATUS_PARAM_NULL if media_setting_p is NULL </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED if module support type is incompatible </dd>
 <dd>
 SX_STATUS_ERROR general error </dd></dl>
 
@@ -7125,7 +7146,8 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the port SerDes lane transmit parameters.</p>
-<p>Supported devices: Spectrum3.</p>
+<p>Note: This API is enabled when module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E.</p>
+<p>Supported devices: Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -7146,6 +7168,8 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 SX_STATUS_PARAM_NULL if media_setting_p is NULL </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED if module support type is incompatible </dd>
 <dd>
 SX_STATUS_ERROR general error </dd></dl>
 
@@ -7195,7 +7219,8 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets SerDes lane transmit parameters for port list.</p>
-<p>Supported devices: Spectrum3.</p>
+<p>Note: This API is enabled when module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E.</p>
+<p>Supported devices: Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -7217,6 +7242,8 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED if module support type is incompatible </dd>
 <dd>
 SX_STATUS_ERROR general error </dd></dl>
 
@@ -7266,7 +7293,8 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets SerDes lane transmit parameters for port list.</p>
-<p>Supported devices: Spectrum3.</p>
+<p>Note: This API is enabled when module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E.</p>
+<p>Supported devices: Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -7288,6 +7316,8 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_CMD_UNPERMITTED if module support type is incompatible </dd>
 <dd>
 SX_STATUS_ERROR general error </dd></dl>
 
@@ -7331,8 +7361,8 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets the port TX signal attributes. By default, TX signal is not allowed. To enable transmission, both TX signal needs to be allowed and port admin state needs to be UP. When TX is ready, trap ID SX_TRAP_ID_PORT_TX_READY will be raised. To get the port TX ready state, use sx_api_port_state_ext_get API. This API is effective only the port is connected to a SW controlled module.</p>
-<p>Note: This API is enabled when module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E.</p>
-<p>Supported devices: Spectrum3.</p>
+<p>Note: This API is enabled when module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E.</p>
+<p>Supported devices: Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -7398,8 +7428,8 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API gets the port TX signal attributes configured.</p>
-<p>Note: This API is enabled when module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E.</p>
-<p>Supported devices: Spectrum3.</p>
+<p>Note: This API is enabled when module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E.</p>
+<p>Supported devices: Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -7466,8 +7496,8 @@ SX_STATUS_ERROR general error </dd></dl>
 </div><div class="memdoc">
 <p>This API gets the port TX signal operational state.</p>
 <p>API sx_api_port_tx_signal_set is effective only when the port is connected to a SW controlled module. Therefore, operational state may be different from the configured state when the port is connected to a FW controlled module.</p>
-<p>Note: This API is enabled when module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E.</p>
-<p>Supported devices: Spectrum3.</p>
+<p>Note: This API is enabled when module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E.</p>
+<p>Supported devices: Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -7495,11 +7525,354 @@ SX_STATUS_ERROR general error </dd></dl>
 
 </div>
 </div>
+<a id="a69fd48a5555983869d5001892e910ee8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69fd48a5555983869d5001892e910ee8">&#9670;&nbsp;</a></span>sx_api_port_ext_params_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_ext_params_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_ext_port_params_t *&#160;</td>
+          <td class="paramname"><em>extended_params_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API sets the port extended parameters. UNSET sets default value (which equals to SX_PORT_EXT_PORT_LANE_PRECODING_INVALID_E).</p>
+<p>Note:</p><ul>
+<li>When changing precoding settings in extended parameters, the new setting will only apply after port admin state toggling (down-up).</li>
+<li>Due to current FW limits, per-lane setting would set all lanes together, i.e., each lane setting will override all lanes' previous settings.</li>
+</ul>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET, UNSET - go to default values </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical Port ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">extended_params_p</td><td>- Port extended parameters</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_COMM_ERROR if client communication fails </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if extended_params_p is NULL </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a id="a1cb492f0fa78d8bda99ba8406e3c53b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cb492f0fa78d8bda99ba8406e3c53b7">&#9670;&nbsp;</a></span>sx_api_port_ext_params_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_ext_params_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_ext_port_params_t *&#160;</td>
+          <td class="paramname"><em>extended_params_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API gets the port extended parameters.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical Port ID </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">extended_params_p</td><td>- Port extended parameters.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_COMM_ERROR if client communication fails </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if extended_params_p is NULL </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a id="abd7fa82e72fe2c1d637bee86db5abc0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd7fa82e72fe2c1d637bee86db5abc0f">&#9670;&nbsp;</a></span>sx_api_port_ext_params_bulk_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_ext_params_bulk_set </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t *&#160;</td>
+          <td class="paramname"><em>log_port_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_ext_port_params_t *&#160;</td>
+          <td class="paramname"><em>extended_params_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>port_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API sets port extended parameters for port list.</p>
+<p>Note:</p><ul>
+<li>When changing precoding settings in extended parameters, the new setting will only apply after port admin state toggling (down-up).</li>
+<li>Due to current FW limits, per-lane setting would set all lanes together, i.e., each lane setting will override all lanes' previous settings.</li>
+</ul>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- SET, UNSET - go to default values </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port_list_p</td><td>- List of logical ports </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">extended_params_list_p</td><td>- Port extended parameters </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_cnt</td><td>- Number of logical ports</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_COMM_ERROR if client communication fails </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a id="a2363d8826532f4c949c6ce42d0226118"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2363d8826532f4c949c6ce42d0226118">&#9670;&nbsp;</a></span>sx_api_port_ext_params_bulk_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_ext_params_bulk_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_access_cmd_t&#160;</td>
+          <td class="paramname"><em>cmd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t *&#160;</td>
+          <td class="paramname"><em>log_port_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_ext_port_params_t *&#160;</td>
+          <td class="paramname"><em>extended_params_list_p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t&#160;</td>
+          <td class="paramname"><em>port_cnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API gets port extended parameters for port list.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">cmd</td><td>- GET </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port_list_p</td><td>- List of logical ports </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">extended_params_list_p</td><td>- Port extended parameters. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">port_cnt</td><td>- Number of logical ports</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_COMM_ERROR if client communication fails </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_CMD_UNSUPPORTED if command is not supported </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
+<a id="a33da823469ecb11ed38816d75d98ccc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33da823469ecb11ed38816d75d98ccc1">&#9670;&nbsp;</a></span>sx_api_port_ext_capability_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">sx_status_t sx_api_port_ext_capability_get </td>
+          <td>(</td>
+          <td class="paramtype">const sx_api_handle_t&#160;</td>
+          <td class="paramname"><em>handle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sx_port_log_id_t&#160;</td>
+          <td class="paramname"><em>log_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sx_port_ext_capability_t *&#160;</td>
+          <td class="paramname"><em>capability_p</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This API gets the port extended capability parameters.</p>
+<p>Supported devices: Spectrum2, Spectrum3, Spectrum4.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical Port ID </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">capability_p</td><td>- Port extended parameters.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
+<dd>
+SX_STATUS_COMM_ERROR if client communication fails </dd>
+<dd>
+SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
+<dd>
+SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
+<dd>
+SX_STATUS_PARAM_NULL if a parameter is NULL </dd>
+<dd>
+SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB </dd>
+<dd>
+SX_STATUS_ERROR general error </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 13 2023 07:48:21 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jan 17 2024 06:36:32 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

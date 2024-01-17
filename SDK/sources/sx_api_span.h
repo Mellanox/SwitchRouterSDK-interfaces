@@ -600,6 +600,10 @@ sx_status_t sx_api_span_mirror_tables_get(const sx_api_handle_t handle,
  * DELETE removes Drop Reasons from existing configuration.
  * DELETE_ALL removes all Drop Reasons from existing configuration.
  *
+ * Note: When configuring drop mirroring, SDK will implicitly configure the relevant non-extended discard trap.
+ *       Therefore, any subsequent user configuration of extended discard traps will be rejected by SDK.
+ *       If a relevant extended discard trap is already configured, this API will fail and return an error.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle - SX-API handle

@@ -85,16 +85,18 @@ sx_status_t sx_api_dbg_generate_dump(const sx_api_handle_t handle,
 
 /**
  * This API generates debug dump extra information for modules monitored by the SDK
- * If a path is not provided, dump will be found in path /var/log.
+ * If a path is not provided, dump will be found in path {sx_core_api_init_params.sdk_sys_info_params.sdk_sys_info_path}.
  *
  * Supported dumps:
- * Name            Mandatory/Optional    File-Name(s)                    Description
+ * Name            Mandatory/Optional    File-Name(s)                          Description
  * -------------------------------------------------------------------------------------------------------------
- * CR-Space        Mandatory             'sdk_dump_ext_cr_*.udmp'         Device's configuration-space dump
- * Driver          Mandatory             'sdk_dump_ext_driver_dump_*.txt'             Driver-internals dump
- * iRISC core      Optional              'sdk_dump_ext_ir_core_dump_*.core'           FW core dump
- * FW-Trace        Optional              'sdk_dump_ext_fw_trace_dump_*.txt'           FW internal log
- * AMBER           Optional              'sdk_dump_ext_amber_dump_*.hex'              PHY layer information
+ * CR-Space        Mandatory             'sdk_dump_ext_cr_*.udmp'              Device's configuration-space dump
+ * CR-Space-Meta   Mandatory             'sdk_dump_ext_meta_*'                 Device's configuration-space metadata
+ * Driver          Mandatory             'sdk_dump_ext_driver_dump_*.txt'      Driver-internals dump
+ * DPT             Mandatory             'sdk_dump_ext_dpt_dump_*.txt'         DPT dump
+ * iRISC core      Optional              'sdk_dump_ext_ir_core_dump_*.core'    FW core dump
+ * FW-Trace        Optional              'sdk_dump_ext_fw_trace_dump_*.txt'    FW internal log
+ * AMBER           Optional              'sdk_dump_ext_amber_dump_*.hex'       PHY layer information
  *
  * Supported devices:  Spectrum, Spectrum2, Spectrum3, Spectrum4, Quantum, Quantum2
  *
@@ -116,8 +118,8 @@ sx_status_t sx_api_dbg_generate_dump_extra(const sx_api_handle_t      handle,
  * This API generates debug dump of selected SDK modules, SX-core, and driver.
  * It also allows setting parameters to determine how the debug dump will be collected.
  *
- * Note: In case dump to plain text format and path is empty, SDK will use the default dump-file path '/var/log/sdkdump'.
- * In case dump to JSON format and path is empty, SDK will use the default dump-file path '/var/log/sdkdump.json'.
+ * Note: In case dump to plain text format and path is empty, SDK will use default path to be whatever is set on SDK Init (sx_api_sx_sdk_init.sdk_sys_info_params.sdk_sys_info_path)
+ * In case dump to JSON format and path is empty, SDK will use default path to be whatever is set on SDK Init (sx_api_sx_sdk_init.sdk_sys_info_params.sdk_sys_info_path)
  * Hardware-Configuration fetch levels:
  *   - Basic: SDK will dump the basic hardware configuration data (e.g., flow/port counters, shared-buffers status). This
  *       is the default action and may be used in most cases.
@@ -262,33 +264,11 @@ sx_status_t sx_api_dbg_fatal_failure_detection_get(const sx_api_handle_t        
                                                    boolean_t                     *is_enable_p,
                                                    sx_dbg_health_sample_params_t *health_sample_params_p);
 
-
-/**
- * Generate dump file name with correct time.
- *
- * Supported devices:  Spectrum, Spectrum2, Spectrum3, Quantum, Quantum2
- *
- * @param[in] path              - Where to locate the dump file
- * @param[in] dev_id            - Device id
- * @param[in] dump_type_str     - The Dump file type
- * @param[out] dump_full_name   - Dump file name
- *
- * @return SX_STATUS_SUCCESS                Operation completed successfully
- * @return SX_STATUS_PARAM_ERROR            Any input parameters is invalid
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE    Path string length is greater than sx_dbg_policy_e
- * @return SX_STATUS_ERROR                  General error
- */
-sx_status_t generate_dump_file_name(const char       *path,
-                                    const sx_dev_id_t dev_id,
-                                    const char       *dump_prefix,
-                                    const char       *dump_suffix,
-                                    char             *dump_name);
-
 /**
  * This API configures API logger parameters.
  * To change parameters of active API logger, the user must first disable it and then enable it again with new parameters.
- *
  * Disabled mode is not supported by this API. The API can disable the API logger using the DISABLE command.
+ *
  * Linear mode writes logs to one file. The writing can be stopped manually or when out of free space.
  *
  * Cyclic mode writes logs in cycle. When a log file reaches max file size, SDK will start to write the next log file.
@@ -300,12 +280,16 @@ sx_status_t generate_dump_file_name(const char       *path,
  * While SDK tries to keep unique names for log files using unique suffixes, at the given moment in time there can be up to
  * sx_dbg_api_logger_params_t.cyclic_params.log_file_num log files on a disk.
  * In cyclic mode, during start sdk will delete all other api logs except the latest log_file_num logs.
+ *
+ * To reduce pcap size and better performance, suggested value:
+ *   filter_mode use SX_DBG_API_LOGGER_FILTER_EXCLUDE_APIS_MODE, filter_file_path use /usr/bin/sx_def_filter, write_interval use 1000 ms.
+ *
  * Example:
- * sx_dbg_api_logger_params_t.cyclic_params.max_log_size = 5242880; / 5 Mb /
+ * sx_dbg_api_logger_params_t.cyclic_params.max_log_size = 300*1024*1024; / 300Mb /
  * sx_dbg_api_logger_params_t.cyclic_params.log_file_num = 3;
- * sx_dbg_api_logger_params_t.log_file_path[0] = '/tmp/sx_sdk.pcap';
- * SDK starts with the file /tmp/sx_sdk_0.pcap. Once it has the size of 5 Mb, SDK will start using the name /tmp/sx_sdk_1.pcap, then
- * /tmp/sx_sdk_2.pcap. Once /tmp/sx_sdk_2.pcap has the size of 5 Mb, SDK will start writing to /tmp/sx_sdk_1.pcap(not sx_sdk_0.pcap)
+ * sx_dbg_api_logger_params_t.log_file_path = '/var/log/sdk_dbg'; //only path, sdk will append file name 'sx_sdk', timestamp, index and '.pcap'
+ * SDK starts with the file /var/log/sdk_dbg/sx_sdk_0.pcap. Once it has the size of 300 Mb, SDK will start using the name sx_sdk_1.pcap, then
+ * sx_sdk_2.pcap. Once sx_sdk_2.pcap has the size of 300Mb, SDK will start writing to sx_sdk_1.pcap(not sx_sdk_0.pcap)
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *

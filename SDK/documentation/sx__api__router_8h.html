@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.6.2142</span>
+   &#160;<span id="projectnumber">4.6.3028</span>
    </div>
   </td>
  </tr>
@@ -3501,7 +3501,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API binds/unbinds a set of flow counters to a list of next hops for a given container. In case of INVALID_NEXT_HOP_OFFSET counter will be bound to all next hops in given ECMP container.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Not supported ECMPs: SX_ECMP_CONTAINER_TYPE_NVE_FLOOD, SX_ECMP_CONTAINER_TYPE_NVE_MC. Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -3577,7 +3577,7 @@ SX_STATUS_ERROR general error </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API binds/unbinds a flow counter to a list of indices in a container active set. This API should be used for containers that are not static or preserved order containers.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
+<p>Not supported ECMPs container type: SX_ECMP_CONTAINER_TYPE_NVE_FLOOD, SX_ECMP_CONTAINER_TYPE_NVE_MC,SX_ECMP_CONTAINER_TYPE_MPLS, Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -4745,7 +4745,7 @@ SX_STATUS_ERROR general error </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Dec 13 2023 07:48:21 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jan 17 2024 06:36:32 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

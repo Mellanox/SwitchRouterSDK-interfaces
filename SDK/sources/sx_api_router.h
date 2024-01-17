@@ -1408,6 +1408,7 @@ sx_status_t sx_api_router_operational_ecmp_get(const sx_api_handle_t handle,
  * This API binds/unbinds a set of flow counters to a list of next hops for a given container.
  * In case of INVALID_NEXT_HOP_OFFSET counter will be bound to all next hops in given ECMP container.
  *
+ * Not supported ECMPs: SX_ECMP_CONTAINER_TYPE_NVE_FLOOD, SX_ECMP_CONTAINER_TYPE_NVE_MC.
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle
@@ -1436,6 +1437,7 @@ sx_status_t sx_api_router_ecmp_counter_bind_set(const sx_api_handle_t       hand
  * This API binds/unbinds a flow counter to a list of indices in a container active set.
  * This API should be used for containers that are not static or preserved order containers.
  *
+ * Not supported ECMPs container type: SX_ECMP_CONTAINER_TYPE_NVE_FLOOD, SX_ECMP_CONTAINER_TYPE_NVE_MC,SX_ECMP_CONTAINER_TYPE_MPLS,
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle
