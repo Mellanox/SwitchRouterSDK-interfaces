@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.6.3028</span>
+   &#160;<span id="projectnumber">4.5.4414</span>
    </div>
   </td>
  </tr>
@@ -111,10 +111,6 @@ Functions</h2></td></tr>
 <tr class="separator:ab857d0b13c92a60d5fda70968dea10a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa9ec694a73851f1b7e480e649889a26b"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__vlan_8h.html#aa9ec694a73851f1b7e480e649889a26b">sx_api_vlan_port_qinq_mode_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_qinq_mode_t *qinq_mode_p)</td></tr>
 <tr class="separator:aa9ec694a73851f1b7e480e649889a26b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae8454a7bd560274ad52782341262a7d4"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__vlan_8h.html#ae8454a7bd560274ad52782341262a7d4">sx_api_vlan_port_tag_mode_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_vlan_tag_mode_params_t *params_p)</td></tr>
-<tr class="separator:ae8454a7bd560274ad52782341262a7d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4956e694d98355fb463acdfbf6beeaa9"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__vlan_8h.html#a4956e694d98355fb463acdfbf6beeaa9">sx_api_vlan_port_tag_mode_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_vlan_tag_mode_params_t *params_p)</td></tr>
-<tr class="separator:a4956e694d98355fb463acdfbf6beeaa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcf72663a766f5e766964fd9a58c07e2"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__vlan_8h.html#abcf72663a766f5e766964fd9a58c07e2">sx_api_vlan_port_qinq_outer_prio_mode_set</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, const sx_qinq_outer_prio_mode_t prio_mode)</td></tr>
 <tr class="separator:abcf72663a766f5e766964fd9a58c07e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fd81c9708a52702cd91fcd0c5028882"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__vlan_8h.html#a5fd81c9708a52702cd91fcd0c5028882">sx_api_vlan_port_qinq_outer_prio_mode_get</a> (const sx_api_handle_t handle, const sx_port_log_id_t log_port, sx_qinq_outer_prio_mode_t *prio_mode_p)</td></tr>
@@ -514,7 +510,7 @@ SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
 SX_STATUS_NO_MEMORY if problems with memory allocation occur </dd>
 <dd>
-SX_STATUS_NO_RESOURCES if the pool cannot provide object or execution of API for port profile reached end of memory </dd>
+SX_STATUS_NO_RESOURCES if the pool cannot provide object </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -625,7 +621,7 @@ SX_STATUS_CMD_UNSUPPORTED if unsupported access command is requested </dd>
 <dd>
 SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database </dd>
 <dd>
-SX_STATUS_NO_MEMORY if problems with memory allocation occur or execution of API for port profile reached end of memory </dd>
+SX_STATUS_NO_MEMORY if problems with memory allocation occur </dd>
 <dd>
 SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
@@ -742,12 +738,7 @@ SX_STATUS_CMD_UNSUPPORTED if 802.1D mode is enabled </dd></dl>
 <dd>
 SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 <dd>
-SX_STATUS_ERROR for a general error<ul>
-<li></li>
-</ul>
-</dd>
-<dd>
-SX_STATUS_NO_RESOURCES if execution of API for port profile reached end of memory </dd></dl>
+SX_STATUS_ERROR for a general error </dd></dl>
 
 </div>
 </div>
@@ -853,12 +844,7 @@ SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database </dd>
 <dd>
 SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
-SX_STATUS_ERROR for a general error<ul>
-<li></li>
-</ul>
-</dd>
-<dd>
-SX_STATUS_NO_RESOURCES if execution of API for port profile reached end of memory </dd></dl>
+SX_STATUS_ERROR for a general error </dd></dl>
 
 </div>
 </div>
@@ -1068,7 +1054,6 @@ SX_STATUS_PARAM_NULL if parameter is NULL </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>This API sets Q-in-Q mode of port.</p>
-<p>By default, when a new VLAN tag is pushed, the Ethertype is taken from the ingress port. On Spectrum2 and on, SDK allows selecting the port (ingress or egress) that is used to determine the packet's EtherType. If the packet's EtherType should be set according to the egress port, please, use the API sx_api_vlan_port_tag_mode_set instead.</p>
 <p>Note: This function is only valid when in 802.1Q bridge mode.</p>
 <p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -1093,9 +1078,7 @@ SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd>
 <dd>
-SX_STATUS_CMD_UNSUPPORTED if 802.1D mode is enabled </dd>
-<dd>
-SX_STATUS_NO_RESOURCES if execution of API for port profile reached end of memory </dd></dl>
+SX_STATUS_CMD_UNSUPPORTED if 802.1D mode is enabled </dd></dl>
 
 </div>
 </div>
@@ -1150,127 +1133,6 @@ SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
 SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if 802.1D mode is enabled </dd>
-<dd>
-SX_STATUS_ERROR for a general error </dd></dl>
-
-</div>
-</div>
-<a id="ae8454a7bd560274ad52782341262a7d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8454a7bd560274ad52782341262a7d4">&#9670;&nbsp;</a></span>sx_api_vlan_port_tag_mode_set()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_vlan_port_tag_mode_set </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_port_log_id_t&#160;</td>
-          <td class="paramname"><em>log_port</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_vlan_tag_mode_params_t *&#160;</td>
-          <td class="paramname"><em>params_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API sets the VLAN tag mode of port.</p>
-<p>By default, when a new VLAN tag is pushed, the Ethertype is taken from the ingress port. On Spectrum2 and on, SDK allows selecting the port (ingress or egress) that is used to determine the packet's EtherType. A VLAN tag is pushed:</p><ol type="1">
-<li>at ingress for untagged packets, packets that are classified as untagged or if the ingress port is in the QinQ tag mode;</li>
-<li>after routing, the HW builds a new L2 header, and if, according to the configuration of the egress port, a packet should go out with a VLAN tag, the Ethertype will be taken from the egress port;</li>
-<li>after L2 tunnel decapsulation.</li>
-</ol>
-<p>Note:</p><ol type="1">
-<li>This API extends and replaces the API sx_api_vlan_port_qinq_mode_set.</li>
-<li>This API accepts network ports, LAGs, and tunnel ports. This API does not support virtual ports and the CPU port.</li>
-</ol>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">params_p</td><td>- Parameters of the VLAN tag mode</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
-<dd>
-SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database </dd>
-<dd>
-SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
-<dd>
-SX_STATUS_ERROR for a general error </dd>
-<dd>
-SX_STATUS_NO_RESOURCES if execution of API for port profile reached end of memory </dd></dl>
-
-</div>
-</div>
-<a id="a4956e694d98355fb463acdfbf6beeaa9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4956e694d98355fb463acdfbf6beeaa9">&#9670;&nbsp;</a></span>sx_api_vlan_port_tag_mode_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_vlan_port_tag_mode_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const sx_port_log_id_t&#160;</td>
-          <td class="paramname"><em>log_port</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_vlan_tag_mode_params_t *&#160;</td>
-          <td class="paramname"><em>params_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API retrieves the VLAN tag mode of port.</p>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">log_port</td><td>- Logical port ID </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">params_p</td><td>- Retrieved mode</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_INVALID_HANDLE if a NULL handle is received </dd>
-<dd>
-SX_STATUS_PARAM_ERROR if an input parameter is invalid </dd>
-<dd>
-SX_STATUS_ENTRY_NOT_FOUND if a requested element is not found in database </dd>
 <dd>
 SX_STATUS_ERROR for a general error </dd></dl>
 
@@ -1332,9 +1194,7 @@ SX_STATUS_SXD_RETURNED_NON_ZERO if SxD driver function fails </dd>
 <dd>
 SX_STATUS_CMD_UNSUPPORTED if 802.1D mode is enabled </dd>
 <dd>
-SX_STATUS_ERROR for a general error </dd>
-<dd>
-SX_STATUS_NO_RESOURCES if execution of API for port profile reached end of memory </dd></dl>
+SX_STATUS_ERROR for a general error </dd></dl>
 
 </div>
 </div>
@@ -1615,7 +1475,7 @@ SX_STATUS_ENTRY_NOT_FOUND if VLAN does not exist </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 17 2024 06:36:32 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 22 2024 17:03:05 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

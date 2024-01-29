@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -69,7 +69,7 @@ sx_status_t sx_api_bulk_counter_log_verbosity_level_get(const sx_api_handle_t   
  *   4. A user cookie can be provided in buffer_p, so it can be used later to identify the event. So that the bulk counter
  *      done event can be registered and received in different process from the process where bulk counter buffer was created.
  *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4
+ * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *
  * @param[in] handle      -  SX-API handle
  * @param[in] cmd         -  CREATE to allocate buffer
@@ -79,7 +79,6 @@ sx_status_t sx_api_bulk_counter_log_verbosity_level_get(const sx_api_handle_t   
  *                                              list of TC IDs, list of priority groups.
  *                           For flow counters: range of flow counter IDs.
  *                           For elephant detected flows: a list of logical port IDs.
- *                           For stateful DB: number of stateful entries, partition ID and filtering options.
  *                           When cmd is DESTROY, key is ignored and can be NULL.
  * @param[in,out] buffer_p - On CREATE, returned allocated buffer to be used by other APIs.
  *                           On DESTROY, the buffer to deallocate.
@@ -103,9 +102,6 @@ sx_status_t sx_api_bulk_counter_buffer_set(const sx_api_handle_t            hand
  *
  * READ reads a set of counters.
  * READ_CLEAR reads and clears a set of counters. Not supported for shared buffer type snapshot counter.
- * CLEAR      clears a set of counters (supported only for SX_BULK_CNTR_KEY_TYPE_STATEFUL_DB_E).
- * READ_NEXT  reads next set of counters (supported only for SX_BULK_CNTR_KEY_TYPE_STATEFUL_DB_E).
- * READ_CLEAR_NEXT  reads and clears next set of counters (supported only for SX_BULK_CNTR_KEY_TYPE_STATEFUL_DB_E).
  * READ_FLUSH flushes and reads a set of counters (supported only for SX_BULK_CNTR_KEY_TYPE_FLOW_E).
  * READ_CLEAR_FLUSH flushes, reads, and clears a set of counters (supported only for SX_BULK_CNTR_KEY_TYPE_FLOW_E).
  * DISABLE cancels an active operation.
@@ -116,11 +112,6 @@ sx_status_t sx_api_bulk_counter_buffer_set(const sx_api_handle_t            hand
  *  should be used. Until SX_BULK_READ_DONE event is received, buffer cannot be used with API sx_api_bulk_counter_transaction_get().
  *  And to identify the event is what's expected by user, user should compare the buffer id in event info with the one in buffer_p,
  *  cookie should be compared too if user provided it in API sx_api_bulk_counter_buffer_set().
- * Note: for stateful DB buffer type, SX_BULK_READ_DONE event with status BUSY indicates that number of requested entries is less than actual occupancy.
- *  User can read next set of counters using READ_NEXT access command.
- *  User can read and clear next set of counters using READ_CLEAR_NEXT access command.
- *  READ / READ_CLEAR commands read entries from partition beginning.
- *  CLEAR commands clear activity for all entries, regardless of entries_num_max.
  * Note: When initiating LAG port bulk-counter-read, its members are determined on operation initiation.
  *  Any change to the LAG port or to its members during the operation will not be reflected when reading the LAG counters
  *  upon operation completion.
@@ -134,11 +125,11 @@ sx_status_t sx_api_bulk_counter_buffer_set(const sx_api_handle_t            hand
  *           c. The refresh transaction (consumed by calling sx_api_bulk_counter_refresh_set) and any of the bulk counter types.
  *           d. 2 x SX_BULK_CNTR_KEY_TYPE_FLOW_E only if one of transactions is started for
  *              accumulated (SX_FLOW_COUNTER_TYPE_ACCUMULATED) counters and the second one for any other type of flow counters.
+ *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle      - SX-API handle
  * @param[in] cmd         - READ/READ_CLEAR/READ_FLUSH/READ_CLEAR_FLUSH/DISABLE
- *                           Only READ/READ_CLEAR for flow estimator counters
  * @param[in] buffer_p    - Valid buffer which was allocated by sx_api_bulk_buffer_set().
  *
  * @return SX_STATUS_SUCCESS             Operation completed successfully
@@ -163,7 +154,6 @@ sx_status_t sx_api_bulk_counter_transaction_set(const sx_api_handle_t        han
  *                                                priority-group (optional)
  *                              For flow counter: Counter ID
  *                              For elephant detected flows: Logical port ID, flow ID (optional).
- *                              For stateful DB: Entry index to read
  * @param[in] buffer_p        - Valid buffer which was allocated by API sx_api_bulk_buffer_set()
  * @param[out] counter_data_p - Requested counter data
  *

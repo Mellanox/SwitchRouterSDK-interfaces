@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -83,25 +83,31 @@ sx_status_t sx_api_dbg_log_verbosity_level_get(const sx_api_handle_t           h
 sx_status_t sx_api_dbg_generate_dump(const sx_api_handle_t handle,
                                      const char           *dump_file_path);
 
+
 /**
- * This API generates debug dump extra information for modules monitored by the SDK
- * If a path is not provided, dump will be found in path {sx_core_api_init_params.sdk_sys_info_params.sdk_sys_info_path}.
+ * This API should be used only for debug purposes. It is used to access internal commands for the ATcam (SPACE) module.
  *
- * Supported dumps:
- * Name            Mandatory/Optional    File-Name(s)                          Description
- * -------------------------------------------------------------------------------------------------------------
- * CR-Space        Mandatory             'sdk_dump_ext_cr_*.udmp'              Device's configuration-space dump
- * CR-Space-Meta   Mandatory             'sdk_dump_ext_meta_*'                 Device's configuration-space metadata
- * Driver          Mandatory             'sdk_dump_ext_driver_dump_*.txt'      Driver-internals dump
- * DPT             Mandatory             'sdk_dump_ext_dpt_dump_*.txt'         DPT dump
- * iRISC core      Optional              'sdk_dump_ext_ir_core_dump_*.core'    FW core dump
- * FW-Trace        Optional              'sdk_dump_ext_fw_trace_dump_*.txt'    FW internal log
- * AMBER           Optional              'sdk_dump_ext_amber_dump_*.hex'       PHY layer information
+ * Supported devices: Spectrum2, Spectrum3.
  *
- * Supported devices:  Spectrum, Spectrum2, Spectrum3, Spectrum4, Quantum, Quantum2
+ * @param[in] handle                    - SX-API handle
+ * @param[in] sx_dbg_atcam_cmd_info_t   - Supported atcam module to execute directly
  *
- * @param[in] handle       - SX-API handle
- * @param[in] dbg_params_p - Parameters of debug dump extraction
+ * @return SX_STATUS_SUCCESS              Operation completed successfully
+ * @return SX_STATUS_PARAM_ERROR          Any input parameters is invalid
+ * @return SX_STATUS_ERROR                General error
+ */
+sx_status_t sx_api_dbg_atcam(const sx_api_handle_t handle, sx_dbg_atcam_cmd_info_t* cmd_p);
+
+/**
+ * This API generates debug dump extra info for modules monitored by the SDK.
+ * The file name is of the following format "sdkdump_ext_cr_<DEVICE_ID> - <timestamp>.udmp".
+ * If a path is not provided, dump will be found in path /var/log.
+ * Clear from the path any files with suffix "udmp.*.tmp" before rebooting after information collection.
+ *
+ * Supported devices:  Spectrum, Spectrum2, Spectrum3, Quantum, Quantum2
+ *
+ * @param[in] handle                         - SX-API handle
+ * @param[in] sx_dbg_extra_info_t dbg_params - Parameters of debug dump extraction
  *
  * @return SX_STATUS_SUCCESS              Operation completed successfully
  * @return SX_STATUS_PARAM_ERROR          Any input parameters is invalid
@@ -110,16 +116,17 @@ sx_status_t sx_api_dbg_generate_dump(const sx_api_handle_t handle,
  * @return SX_STATUS_TIMEOUT              Timeout in synchronous mode (if the call was asynchronous, this RC will be in the completion event)
  * @return SX_STATUS_ERROR                General error
  */
+
 sx_status_t sx_api_dbg_generate_dump_extra(const sx_api_handle_t      handle,
-                                           const sx_dbg_extra_info_t *dbg_params_p);
+                                           const sx_dbg_extra_info_t *dbg_params);
 
 
 /**
  * This API generates debug dump of selected SDK modules, SX-core, and driver.
  * It also allows setting parameters to determine how the debug dump will be collected.
  *
- * Note: In case dump to plain text format and path is empty, SDK will use default path to be whatever is set on SDK Init (sx_api_sx_sdk_init.sdk_sys_info_params.sdk_sys_info_path)
- * In case dump to JSON format and path is empty, SDK will use default path to be whatever is set on SDK Init (sx_api_sx_sdk_init.sdk_sys_info_params.sdk_sys_info_path)
+ * Note: In case dump to plain text format and path is empty, SDK will use the default dump-file path '/var/log/sdkdump'.
+ * In case dump to JSON format and path is empty, SDK will use the default dump-file path '/var/log/sdkdump.json'.
  * Hardware-Configuration fetch levels:
  *   - Basic: SDK will dump the basic hardware configuration data (e.g., flow/port counters, shared-buffers status). This
  *       is the default action and may be used in most cases.
@@ -211,8 +218,11 @@ sx_status_t sx_api_fw_dbg_test(const sx_api_handle_t handle, const sx_dbg_test_p
  * with HW, so if issue was found health event will be sent,
  * in parallel the mechanism inform via SysFs ("kernel_health") on the liveness of the system.
  *
- * IMPORTANT: this API and sx_api_fw_dbg_control_set() API are mutually exclusive! Only one can be used
- * in a single SDK life cycle.
+ * Important: User still need to use sx_api_fw_dbg_control_set() API to detect some H
+ * W/FW fatal issues that not monitor via this api
+ * (mainly issues that triggered via "MFDE" PRM register configuration).
+ *
+ * IB director systems should not use this API, they should use sx_api_fw_dbg_control_set() API only!
  *
  * ENABLE trigger the health checks - it's not allowed to enable it during ISSU, during SDK
  * Initialization or during SDK shutdown in such case SDK will postpone automatically
@@ -263,33 +273,34 @@ sx_status_t sx_api_dbg_fatal_failure_detection_set(const sx_api_handle_t        
 sx_status_t sx_api_dbg_fatal_failure_detection_get(const sx_api_handle_t          handle,
                                                    boolean_t                     *is_enable_p,
                                                    sx_dbg_health_sample_params_t *health_sample_params_p);
-
 /**
  * This API configures API logger parameters.
  * To change parameters of active API logger, the user must first disable it and then enable it again with new parameters.
+ *
  * Disabled mode is not supported by this API. The API can disable the API logger using the DISABLE command.
+ * Disabled mode can be returned by sx_api_dbg_api_logger_get if the API logger is inactive.
  *
  * Linear mode writes logs to one file. The writing can be stopped manually or when out of free space.
  *
- * Cyclic mode writes logs in cycle. When a log file reaches max file size, SDK will start to write the next log file.
- * When a number of log files reaches sx_dbg_api_logger_params_t.cyclic_params.log_file_num, SDK overwrites the 2nd log file.
- * The 1st log file will never be overwritten.
- * The name of the file in cyclic mode is built using the following scheme: path/file_name_timestamp_N.pcap
- * where N = [0, log_file_num-1].
- * When the file with N=(log_file_num-1) is finished, the next one will use N=1.
- * While SDK tries to keep unique names for log files using unique suffixes, at the given moment in time there can be up to
+ * Cyclic mode writes logs in cycle. When a log file reaches max file size, SDK generates an SX_TRAP_ID_API_LOGGER_EVENT
+ * event with the path to the filled log file and starts to write a next log file.
+ * When a number of log files reaches sx_dbg_api_logger_params_t.cyclic_params.log_file_num, SDK overwrites the oldest log file.
+ * The name of the file in cyclic mode is built using the following scheme: path/file_name_N.pcap
+ * where N = [0, SX_DBG_API_LOG_UNIQUE_SUFFIXES_NUM-1].
+ * When the file with N=(SX_DBG_API_LOG_UNIQUE_SUFFIXES_NUM-1) is finished, the next one will use N=0.
+ * While SDK tries to keep unique names for log files using unique suffixes, at the given moment of time there can be up to
  * sx_dbg_api_logger_params_t.cyclic_params.log_file_num log files on a disk.
- * In cyclic mode, during start sdk will delete all other api logs except the latest log_file_num logs.
- *
- * To reduce pcap size and better performance, suggested value:
- *   filter_mode use SX_DBG_API_LOGGER_FILTER_EXCLUDE_APIS_MODE, filter_file_path use /usr/bin/sx_def_filter, write_interval use 1000 ms.
  *
  * Example:
- * sx_dbg_api_logger_params_t.cyclic_params.max_log_size = 300*1024*1024; / 300Mb /
+ * sx_dbg_api_logger_params_t.cyclic_params.max_log_size = 5242880; / 5 Mb /
  * sx_dbg_api_logger_params_t.cyclic_params.log_file_num = 3;
- * sx_dbg_api_logger_params_t.log_file_path = '/var/log/sdk_dbg'; //only path, sdk will append file name 'sx_sdk', timestamp, index and '.pcap'
- * SDK starts with the file /var/log/sdk_dbg/sx_sdk_0.pcap. Once it has the size of 300 Mb, SDK will start using the name sx_sdk_1.pcap, then
- * sx_sdk_2.pcap. Once sx_sdk_2.pcap has the size of 300Mb, SDK will start writing to sx_sdk_1.pcap(not sx_sdk_0.pcap)
+ * sx_dbg_api_logger_params_t.log_file_path[0] = '\0'; / log_file_path is empty, so the default path is used /
+ * SDK starts with the file /tmp/sx_sdk_0.pcap. Once it has the size of 5 Mb, SDK will generate an
+ * SX_TRAP_ID_API_LOGGER_EVENT event with the path /tmp/sx_sdk_0.pcap and it will start the second out of 3 files
+ * using the name /tmp/sx_sdk_1.pcap. Once the second file has the size of 5 Mb, SDK will generate another event and
+ * start the third file using the name /tmp/sx_sdk_2.pcap. And once the third file has the size of 5 Mb, SDK will generate
+ * another event again and it will rewrite the content of the first file and change the name from /tmp/sx_sdk_0.pcap to
+ * /tmp/sx_sdk_3.pcap, and continue to work in this manner.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3.
  *

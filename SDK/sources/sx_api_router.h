@@ -275,7 +275,8 @@ sx_status_t sx_api_router_vrid_iter_get(const sx_api_handle_t   handle,
  *
  * EDIT edits router interfaces. The only applicable RIF type that can be edited in ifc_p is SX_L2_INTERFACE_TYPE_PORT_VLAN
  *   and the only field that can be edited for the RIF type is the VLAN field.
- *   In ifc_attr_p qos_mode shall not be edited.  urpf_config can only be edited when the RIF is disabled.
+ *   The only applicable fields in ifc_attr_p are mtu, multicast_ttl_threshold, loopback_enable and mac_addr. Other fields shall
+ *   not  be edited.
  * DELETE/DELETE_ALL deletes all MACs assigned to a specific interface/interfaces. This includes MACs configured by
  *   sx_api_router_interface_mac_set().
  *
@@ -738,8 +739,7 @@ sx_status_t sx_api_router_uc_route_counter_bind_get(const sx_api_handle_t handle
                                                     sx_flow_counter_id_t *counter_id_p);
 
 /**
- * This API creates/destroys a router interface counter.
- * The router interface counter should be bound later to a router interface.
+ * This API creates/destroys a router counter. A router counter should be bound later to a router interface.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -758,8 +758,7 @@ sx_status_t sx_api_router_counter_set(const sx_api_handle_t   handle,
                                       sx_router_counter_id_t *counter_p);
 
 /**
- * This API creates/destroys a router interface counter by given type.
- * The router interface counter should be bound later to a router interface.
+ * This API creates/destroys a router counter by given type. A router counter should be bound later to a router interface.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -802,7 +801,7 @@ sx_status_t sx_api_router_interface_counter_bind_set(const sx_api_handle_t      
                                                      const sx_router_interface_t  rif);
 
 /**
- * This API returns the Router Interface that a Router interface Counter is bound to.
+ * This API gets a router counter bind of a router interface.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -822,7 +821,7 @@ sx_status_t sx_api_router_interface_counter_bind_get(const sx_api_handle_t      
                                                      sx_router_interface_t       *rif_p);
 
 /**
- * This API gets a router interface counter's values.
+ * This API gets a router counter.
  *
  * READ_CLEAR returns and clears the counters.
  *
@@ -846,7 +845,7 @@ sx_status_t sx_api_router_counter_get(const sx_api_handle_t        handle,
                                       sx_router_counter_set_t     *counter_set_p);
 
 /**
- * This API gets a router interface counter data by given type.
+ * This API gets a router counter by given type.
  *
  * READ_CLEAR returns and clears the counters.
  *
@@ -869,26 +868,7 @@ sx_status_t sx_api_router_counter_extended_get(const sx_api_handle_t            
                                                const sx_router_counter_id_t      counter_id,
                                                sx_router_counter_set_extended_t *counter_data_p);
 /**
- * This API gets a router interface counter's attributes.
- * Note: This API only works for RIF Counters and not for Flow Counters
- * (bound to ECMP containers or UC/MC routes)
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
- *
- * @param[in] handle - SX-API handle
- * @param[in] counter - Router counter ID
- * @param[out] counter_attr_p - Router counter attributes
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_NULL if parameter is NULL
- * @return SX_STATUS_ENTRY_NOT_FOUND if counter does not exist
- * @return SX_STATUS_ERROR general internal error
- */
-sx_status_t sx_api_router_counter_attr_get(const sx_api_handle_t           handle,
-                                           const sx_router_counter_id_t    counter,
-                                           sx_router_counter_attributes_t *counter_attr_p);
-/**
- * This API clears the values of all or a specified router interface counter.
+ * This API clears router counter set of a router counter.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -906,30 +886,6 @@ sx_status_t sx_api_router_counter_attr_get(const sx_api_handle_t           handl
 sx_status_t sx_api_router_counter_clear_set(const sx_api_handle_t        handle,
                                             const sx_router_counter_id_t counter,
                                             const boolean_t              all);
-
-/**
- * This API returns the router interface counter id bound to a RIF and the counter's values
- * If no counter is bound to the specified RIF, this API shall return SX_STATUS_SUCCESS,
- * and set *counter_id_p to SX_ROUTER_COUNTER_ID_INVALID.
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
- *
- * @param[in] handle - SX-API handle
- * @param[in] cmd - READ/READ_CLEAR
- * @param[in] rif - Router Interface ID
- * @param[out] counter_id_p - Router counter ID
- * @param[out] counter_data_p - Router counter data values
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_CMD_UNSUPPORTED if access command is not supported
- * @return SX_STATUS_PARAM_NULL if parameter is NULL
- * @return SX_STATUS_ERROR general error
- */
-sx_status_t sx_api_router_interface_counter_ext_get(const sx_api_handle_t             handle,
-                                                    const sx_access_cmd_t             cmd,
-                                                    const sx_router_interface_t       rif,
-                                                    sx_router_counter_id_t           *counter_id_p,
-                                                    sx_router_counter_set_extended_t *counter_data_p);
 
 /**
  * This API adds/modifies/deletes a multicast route from the MC routing table.
@@ -1263,16 +1219,19 @@ sx_status_t sx_api_router_cos_dscp_to_prio_get(const sx_api_handle_t    handle,
  *        - Next hop #B with weight of 2
  *      In the hardware, this ECMP container will have three next hops with total weight of four: nh #A, nh #B, nh #A.
  *   5. On Spectrum-2 and above these ECMP containers can contain flex tunnels along with nve tunnels.
+ *      If an ECMP contains a flex tunnel it cannot be used as the destination of a FDB entry.
  *
  * Note only ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E allows to write unresolved next hops to hardware. The unresolved next hop action will be SX_ROUTER_ACTION_DROP.
  * For ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E, the next hop list size is set according to next_hop_cnt_p value and not by the group_size configured in sx_api_router_ecmp_attributes_set.
  * ECMP type SX_ECMP_TYPE_PRESERVED_ORDER_E supports only container type SX_ECMP_CONTAINER_TYPE_IP and next-hop type SX_NEXT_HOP_TYPE_IP.
  *
- * Note: Next hop flow counter will be ignored for SX_ECMP_TYPE_ADAPTIVE_E container type.
- *       User can use UC route counters or sx_api_ar_counters_get API for counting.
+ * Note - Next hop flow counter will be ignored for SX_ECMP_TYPE_ADAPTIVE_E container type.
+ *        User can use UC route counters or sx_api_ar_counters_get API for counting.
  *
- * Note: Next hop trap action will be ignored for SX_ECMP_TYPE_ADAPTIVE_E container type.
- *       User can use ACL AR actions instead.
+ * Note - Next hop trap action will be ignored for SX_ECMP_TYPE_ADAPTIVE_E container type.
+ *        User can use ACL AR actions instead.
+ *
+ * Note - The maximum number AR ECMP containers is AR_ECMP_CONTAINERS_MAX.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -1297,18 +1256,16 @@ sx_status_t sx_api_router_ecmp_set(const sx_api_handle_t handle,
                                    uint32_t             *next_hop_cnt_p);
 
 /**
- * This API retrieves the next hops list in the ECMP container, as defined by the user.
+ * This API retrieves an ECMP container content, as defined by the user.
  *
- * Note: This API returns next hops for a given ECMP ID even if this ECMP is redirected.
- *
- * Note: If next_hop_cnt_p == 0 the API will return only the the next hops list size, and next_hop_list_p will be ignored.
+ * Note:This API returns next hops for a given ECMP ID even if this ECMP is redirected.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle             - SX-API handle
  * @param[in] ecmp_id            - ID of an ECMP container
  * @param[out] next_hop_list_p   - List of next hops
- * @param[in,out] next_hop_cnt_p - Amount of next hops
+ * @param[out] next_hop_cnt_p    - Amount of next hops
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if parameter is NULL or exceeds range
@@ -1405,10 +1362,9 @@ sx_status_t sx_api_router_operational_ecmp_get(const sx_api_handle_t handle,
 
 
 /**
- * This API binds/unbinds a set of flow counters to a list of next hops for a given container.
+ * This API binds/unbinds a router counter to a list of next hops for a given container.
  * In case of INVALID_NEXT_HOP_OFFSET counter will be bound to all next hops in given ECMP container.
  *
- * Not supported ECMPs: SX_ECMP_CONTAINER_TYPE_NVE_FLOOD, SX_ECMP_CONTAINER_TYPE_NVE_MC.
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle
@@ -1434,10 +1390,9 @@ sx_status_t sx_api_router_ecmp_counter_bind_set(const sx_api_handle_t       hand
                                                 const uint32_t              elements_cnt);
 
 /**
- * This API binds/unbinds a flow counter to a list of indices in a container active set.
+ * This API binds/unbinds a router counter to a list of indices in a container active set.
  * This API should be used for containers that are not static or preserved order containers.
  *
- * Not supported ECMPs container type: SX_ECMP_CONTAINER_TYPE_NVE_FLOOD, SX_ECMP_CONTAINER_TYPE_NVE_MC,SX_ECMP_CONTAINER_TYPE_MPLS,
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle
@@ -1489,8 +1444,6 @@ sx_status_t sx_api_router_neigh_activity_notify(const sx_api_handle_t           
  * Note - ECMP type "SX_ECMP_TYPE_PRESERVED_ORDER_E" supports only container type SX_ECMP_CONTAINER_TYPE_IP.
  *
  * Note - On Adaptive routing configuration the user can only change from ECMP SX_ECMP_TYPE_STATIC_E to SX_ECMP_TYPE_ADAPTIVE_E type.
- *
- * Note - ECMP of type "SX_ECMP_TYPE_ADAPTIVE_E" can not be changed to other type.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -1876,63 +1829,4 @@ sx_status_t sx_api_router_nat_get(const sx_api_handle_t handle,
                                   const sx_nat_id_t     nat_id,
                                   sx_router_nat_cfg_t * nat_cfg_p);
 
-/**
- * This API configures the LPM tree optimization parameters.
- * By default no optimization is enabled - TREE_OPTIMIZE_TYPE_NONE.
- * The optimization algorithm of the tree can be triggered internally by setting the optimization mode to TREE_OPTIMIZE_MODE_AUTO ,
- * or manually by using TREE_OPTIMIZE_MODE_MANUAL and calling sx_api_router_lpm_tree_optimize_trigger() API for triggering the optimization.
- * Dynamic algorithms (i.e., optimal search) requires enabling statistics at sx_api_router_init().
- * Supported devices: Spectrum1-4.
- *
- * @param[in]  handle            - SX-API handle
- * @param[in]  cmd               - SET
- * @param[in]  tree_params_p     - Pointer to the tree parameters characterizing the trees to be optimized
- * @param[in]  opt_data_p        - Pointer to the optimization algorithm's configuration data
- *
- * @return SX_STATUS_SUCCESS       if operation completes successfully
- * @return SX_STATUS_NO_RESOURCES  if there is no resources to execute the optimization
- * @return SX_STATUS_ERROR         general error
- *   */
-sx_status_t sx_api_router_lpm_tree_optimize_set(const sx_api_handle_t             handle,
-                                                const sx_access_cmd_t             cmd,
-                                                sx_router_tree_optimize_params_t *tree_params_p,
-                                                sx_router_tree_optimize_data_t   *opt_data_p);
-
-/**
- * This API triggers the optimization of the LPM tree at instance.
- * Optimization parameters are previously configured by sx_api_router_lpm_tree_optimize_set.
- * Optimization mode must be TREE_OPTIMIZE_MODE_MANUAL in order to allow manual execution.
- * For optimization statistics history clearing, use CLEAR command. Statistics are also cleared
- * after executing the optimization.
- *
- * Supported devices: Spectrum1-4.
- *
- * @param[in]  handle            - SX-API handle
- * @param[in]  tree_params       - Pointer to the tree parameters characterizing the trees to be optimized
- * @param[in]  cmd               - SET/CLEAR
- *
- * @return SX_STATUS_SUCCESS      if operation completes successfully
- * @return SX_STATUS_ERROR        general error
- */
-sx_status_t sx_api_router_lpm_tree_optimize_trigger(const sx_api_handle_t             handle,
-                                                    const sx_access_cmd_t             cmd,
-                                                    sx_router_tree_optimize_params_t *tree_params_p);
-/**
- * This API returns the balance factor for the matching default tree based on tree parameters.
- * The balance factor ranges between (0-100) and presents the percentage of the tree balance.
- * (0 is fully un-balanced / 100 - fully balanced)
- * The balance factor is calculated according to the balance type configured in sx_api_router_lpm_tree_optimize_set.
- *
- * Supported devices: Spectrum1-4.
- *
- * @param[in]  handle            - SX-API handle
- * @param[in]  tree_params_p     - Pointer to the tree parameters characterizing the trees to be optimized
- * @param[out] balance_params_p  - Pointer to tree balance data
- *
- * @return SX_STATUS_SUCCESS      if operation completes successfully
- * @return SX_STATUS_ERROR        general error
- */
-sx_status_t sx_api_router_lpm_tree_balance_factor_get(const sx_api_handle_t                 handle,
-                                                      sx_router_tree_optimize_params_t     *tree_params_p,
-                                                      sx_router_tree_balance_factor_data_t *balance_data_p);
 #endif /* __SX_API_ROUTER_H__ */

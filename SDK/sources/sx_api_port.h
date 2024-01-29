@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -251,7 +251,6 @@ sx_status_t sx_api_port_swid_list_get(const sx_api_handle_t handle,
  * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
  * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if SWID is out of range
- * @return SX_STATUS_NO_RESOURCES if execution of API for port profile reached end of memory
  */
 sx_status_t sx_api_port_swid_bind_set(const sx_api_handle_t  handle,
                                       const sx_port_log_id_t log_port,
@@ -297,31 +296,6 @@ sx_status_t sx_api_port_swid_port_list_get(const sx_api_handle_t handle,
                                            const sx_swid_t       swid,
                                            sx_port_log_id_t     *log_port_list_p,
                                            uint32_t             *port_cnt_p);
-
-/**
- * This API retrieves the port's VLAN membership list (ID, membership state & pass state).
- * If optional output buffer "port_vlan_list_p" is NULL,
- * this API retrieves the number of VLANs the port is member of in "vlan_cnt_p" parameter.
- * Otherwise, returns an array "port_vlan_list_p" of size "vlan_cnt_p" with the port's VLAN membership list.
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
- *
- * @param[in] handle            - SX-API handle
- * @param[in] swid              - Switch ID
- * @param[in] log_port_id       - Logical port number
- * @param[out] port_vlan_list_p - Array of port's VLAN membership list
- * @param[in,out] vlan_cnt_p    - [in] array's length/[out] number of VLANs the port is member of
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_NULL if "vlan_cnt_p" parameter is NULL
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE if "vlan_cnt_p" is 0 or cmd_size exceeds MAX_CMD_SIZE
- * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- */
-sx_status_t sx_api_port_vlans_get(const sx_api_handle_t  handle,
-                                  const sx_swid_t        swid,
-                                  const sx_port_log_id_t log_port_id,
-                                  sx_port_vlans_t       *port_vlan_list_p,
-                                  uint16_t              *vlan_cnt_p);
 
 /**
  * This API sets the port's stacking mode in the SDK.
@@ -373,7 +347,6 @@ sx_status_t sx_api_port_mode_get(const sx_api_handle_t  handle,
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_MESSAGE_SIZE_ZERO if message size is zero
  * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
- * @return SX_STATUS_NO_RESOURCES if execution of API for port profile reached end of memory
  */
 sx_status_t sx_api_port_mtu_set(const sx_api_handle_t  handle,
                                 const sx_port_log_id_t log_port,
@@ -423,7 +396,6 @@ sx_status_t sx_api_port_mtu_get(const sx_api_handle_t  handle,
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
  * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- * @return SX_STATUS_NO_RESOURCES if execution of API for port profile reached end of memory
  */
 sx_status_t sx_api_port_ingress_truncation_set(const sx_api_handle_t       handle,
                                                const sx_access_cmd_t       cmd,
@@ -477,7 +449,6 @@ sx_status_t sx_api_port_ingress_truncation_get(const sx_api_handle_t  handle,
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
  * @return SX_STATUS_PARAM_NULL if a parameter is NULL
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
- * @return SX_STATUS_NO_RESOURCES if execution of API for port profile reached end of memory
  */
 sx_status_t sx_api_port_speed_admin_set(const sx_api_handle_t             handle,
                                         const sx_port_log_id_t            log_port,
@@ -609,7 +580,6 @@ sx_status_t sx_api_port_phys_addr_set(const sx_api_handle_t  handle,
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
  * @return SX_STATUS_PARAM_NULL if a parameter is NULL
- * @return SX_STATUS_NO_RESOURCES if execution of API for port profile reached end of memory
  */
 sx_status_t sx_api_port_phys_loopback_set(const sx_api_handle_t         handle,
                                           const sx_port_log_id_t        log_port,
@@ -653,7 +623,6 @@ sx_status_t sx_api_port_phys_loopback_get(const sx_api_handle_t    handle,
  * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
  * @return SX_STATUS_COMM_ERROR if client communication fails
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
- * @return SX_STATUS_NO_RESOURCES if execution of API for port profile reached end of memory
  */
 sx_status_t sx_api_port_state_set(const sx_api_handle_t       handle,
                                   const sx_port_log_id_t      log_port,
@@ -702,7 +671,6 @@ sx_status_t sx_api_port_state_get(const sx_api_handle_t   handle,
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range
  * @return SX_STATUS_ERROR general error
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
- * @return SX_STATUS_NO_RESOURCES if execution of API for port profile reached end of memory
  */
 sx_status_t sx_api_port_global_fc_enable_set(const sx_api_handle_t          handle,
                                              const sx_port_log_id_t         log_port,
@@ -748,7 +716,6 @@ sx_status_t sx_api_port_global_fc_enable_get(const sx_api_handle_t     handle,
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range
  * @return SX_STATUS_ERROR general error
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
- * @return SX_STATUS_NO_RESOURCES if execution of API for port profile reached end of memory
  */
 sx_status_t sx_api_port_pfc_enable_set(const sx_api_handle_t          handle,
                                        const sx_port_log_id_t         log_port,
@@ -1146,7 +1113,6 @@ sx_status_t sx_api_port_counter_phy_layer_internal_link_get(const sx_api_handle_
  * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
  * @return SX_STATUS_COMM_ERROR if client communication fails
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
- * @return SX_STATUS_NO_RESOURCES if execution of API for port profile reached end of memory
  */
 sx_status_t sx_api_port_init_set(const sx_api_handle_t  handle,
                                  const sx_port_log_id_t log_port);
@@ -1262,8 +1228,7 @@ sx_status_t sx_api_port_storm_control_counters_get(const sx_api_handle_t        
  * @param[in] handle              - SX-API handle
  * @param[in] cmd                 - Access command (ADD/DELETE/EDIT)
  * @param[in] log_port            - Logical Port ID
- * @param[in, out] sflow_params_p - sFlow related configuration params (Deviation>0; ignored when CMD=DESTROY).
- *                                  The two fields "deviation" and "packet_types" are only for SwitchX.
+ * @param[in, out] sflow_params_p - sFlow related configuration params (Deviation>0; ignored when CMD=DESTROY)
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameters exceeds its range
@@ -1274,7 +1239,6 @@ sx_status_t sx_api_port_storm_control_counters_get(const sx_api_handle_t        
  * @return SX_STATUS_ENTRY_ALREADY_EXISTS if sflow is requested for add on port already configured with sflow
  * @return SX_STATUS_NO_MEMORY if there is no free memory
  * @return SX_STATUS_ERROR for a general error
- * @return SX_STATUS_NO_RESOURCES if execution of API for port profile reached end of memory
  */
 sx_status_t sx_api_port_sflow_set(const sx_api_handle_t   handle,
                                   const sx_access_cmd_t   cmd,
@@ -1289,8 +1253,7 @@ sx_status_t sx_api_port_sflow_set(const sx_api_handle_t   handle,
  *
  * @param[in] handle          - SX-API handle
  * @param[in] log_port        - Logical Port ID
- * @param[out] sflow_params_p - sFlow related configuration parameters. The two fields "deviation" and
- *                              "packet_types" are only for SwitchX.
+ * @param[out] sflow_params_p - sFlow related configuration parameters
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
@@ -1347,7 +1310,6 @@ sx_status_t sx_api_port_sflow_statistics_get(const sx_api_handle_t       handle,
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
  * @return SX_STATUS_ERROR for a general error
- * @return SX_STATUS_NO_RESOURCES if execution of API for port profile reached end of memory
  */
 sx_status_t sx_api_port_loopback_filter_set(const sx_api_handle_t                handle,
                                             const sx_port_log_id_t               log_port,
@@ -1758,7 +1720,6 @@ sx_status_t sx_api_port_discard_reason_get(const sx_api_handle_t     handle,
  * @return SX_STATUS_PARAM_EXCEEDS_RANGE if a parameter exceeds its range
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
- * @return SX_STATUS_NO_RESOURCES if execution of API for port profile reached end of memory
  */
 sx_status_t sx_api_port_forwarding_mode_set(const sx_api_handle_t           handle,
                                             const sx_port_log_id_t          log_port,
@@ -1791,8 +1752,6 @@ sx_status_t sx_api_port_forwarding_mode_get(const sx_api_handle_t      handle,
  *
  * @param[in] handle            - SX-API handle
  * @param[in] parsing_depth     - Parsing depth in bytes
- * \deprecated This API is deprecated and will be removed in the future.
- * Please use sx_api_port_parser_attr_set in its place.
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
@@ -1808,8 +1767,6 @@ sx_status_t sx_api_port_parsing_depth_set(const sx_api_handle_t handle,
  *
  * @param[in] handle           - SX-API handle
  * @param[out] parsing_depth_p - Return parsing depth in bytes
- * \deprecated This API is deprecated and will be removed in the future.
- * Please use sx_api_port_parser_attr_set in its place.
  *
  * @return SX_STATUS_SUCCESS if operation completes successfully
  * @return SX_STATUS_PARAM_NULL if a parameter is NULL
@@ -2044,7 +2001,7 @@ sx_status_t sx_api_port_sll_get(const sx_api_handle_t handle,
  * @return SX_STATUS_PARAM_ERROR if any input parameter is invalid
  * @return SX_STATUS_ERROR if unexpected behavior occurs
  * @return SX_STATUS_INVALID_HANDLE if handle is invalid
- * @return SX_STATUS_NO_RESOURCES if execution of API for port profile reached end of memory
+ *
  */
 sx_status_t sx_api_port_hll_set(const sx_api_handle_t  handle,
                                 const sx_port_log_id_t log_port,
@@ -2057,8 +2014,6 @@ sx_status_t sx_api_port_hll_set(const sx_api_handle_t  handle,
  * HLL is a mechanism that discards packets that are awaiting transmission at the head of a scheduling group queue.
  * The max duration that a packet can wait in the queue is configurable. After a certain number of packets are discarded.
  * This scheduling group may enter the STALL state if enabled.
- *
- * Note: Port profile is not supported.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -2178,7 +2133,6 @@ sx_status_t sx_api_port_ptp_params_get(const sx_api_handle_t  handle,
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
  * @return SX_STATUS_PARAM_NULL if a parameter is NULL
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
- * @return SX_STATUS_NO_RESOURCES if execution of API for port profile reached end of memory
  */
 sx_status_t sx_api_port_rate_set(const sx_api_handle_t         handle,
                                  const sx_port_log_id_t        log_port,
@@ -2232,13 +2186,10 @@ sx_status_t sx_api_port_rate_capability_get(const sx_api_handle_t              h
  * This API sets the Physical Medium Depended (PMD) port type.
  * By default, all types are enabled. As such, this API allows to reduce the set of allowed port types.
  *
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ *
  * \deprecated This API is deprecated and will be removed in the future.
  * Please use sx_mgmt_phy_module_admin_type_set in its place.
- *
- * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E,
- * this API is disabled.
- *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle    - SX-API handle
  * @param[in] module_id - Module ID
@@ -2250,7 +2201,6 @@ sx_status_t sx_api_port_rate_capability_get(const sx_api_handle_t              h
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
  * @return SX_STATUS_PARAM_NULL if a parameter is NULL
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
- * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible
  */
 sx_status_t sx_api_port_phy_module_type_set(const sx_api_handle_t                    handle,
                                             const sx_port_mod_id_t                   module_id,
@@ -2258,13 +2208,10 @@ sx_status_t sx_api_port_phy_module_type_set(const sx_api_handle_t               
 /**
  * This API gets the operational Physical Medium Dependent port type.
  *
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ *
  * \deprecated This API is deprecated and will be removed in the future.
  * Please use sx_mgmt_phy_module_oper_type_get in its place.
- *
- * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E,
- * this API is disabled.
- *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle       - SX-API handle
  * @param[in] module_id    - Module ID
@@ -2276,7 +2223,6 @@ sx_status_t sx_api_port_phy_module_type_set(const sx_api_handle_t               
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
  * @return SX_STATUS_PARAM_NULL if a parameter is NULL
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
- * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible
  */
 sx_status_t sx_api_port_phy_module_type_get(const sx_api_handle_t      handle,
                                             const sx_port_mod_id_t     module_id,
@@ -2287,9 +2233,6 @@ sx_status_t sx_api_port_phy_module_type_get(const sx_api_handle_t      handle,
  *
  * \deprecated This API is deprecated and will be removed in the future.
  * Please use sx_mgmt_phy_module_capability_get in its place.
- *
- * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E,
- * this API is disabled.
  *
  * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
@@ -2305,7 +2248,6 @@ sx_status_t sx_api_port_phy_module_type_get(const sx_api_handle_t      handle,
  * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
  * @return SX_STATUS_PARAM_NULL if a parameter is NULL
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
- * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible
  */
 sx_status_t sx_api_port_phy_module_capability_get(const sx_api_handle_t              handle,
                                                   const sx_port_mod_id_t             module_id,
@@ -2394,8 +2336,6 @@ sx_status_t sx_api_port_user_memory_get(const sx_api_handle_t         handle,
  * Changing module power mode to SX_MGT_PHY_MOD_PWR_MODE_HIGH_E is not allowed.
  * Note: This API supports only power attribute SX_MGMT_PHY_MOD_PWR_ATTR_PWR_MODE_E.
  * Note: This API does not support changing the power attributes of backplane module.
- * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E,
- * this API is disabled.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -2409,7 +2349,6 @@ sx_status_t sx_api_port_user_memory_get(const sx_api_handle_t         handle,
  * @return SX_STATUS_PARAM_ERROR if a module parameter is invalid or module type is backplane
  * @return SX_STATUS_ERROR if the power attribute setting fails
  * @return SX_STATUS_CMD_UNSUPPORTED if command is not SET
- * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible
  */
 sx_status_t sx_mgmt_phy_mod_pwr_attr_set(const sx_api_handle_t             handle,
                                          const sx_access_cmd_t             cmd,
@@ -2422,8 +2361,6 @@ sx_status_t sx_mgmt_phy_mod_pwr_attr_set(const sx_api_handle_t             handl
  * \deprecated This API is deprecated and will be removed in the future. Please use sx_mgmt_phy_module_pwr_attr_get in its place.
  * Note: This API returns the operational power mode and admin power mode as SX_MGMT_PHY_MOD_PWR_MODE_INVALID_E
  *   when the module is not plugged in.
- * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E,
- *   this API is disabled.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -2436,7 +2373,6 @@ sx_status_t sx_mgmt_phy_mod_pwr_attr_set(const sx_api_handle_t             handl
  * @return SX_STATUS_PARAM_NULL if a parameter is NULL
  * @return SX_STATUS_ERROR if the power attribute retrieval fails
  * @return SX_STATUS_PARAM_ERROR if a module parameter is invalid
- * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible
  */
 sx_status_t sx_mgmt_phy_mod_pwr_attr_get(const sx_api_handle_t       handle,
                                          const sx_port_mod_id_t      module_id,
@@ -2449,8 +2385,6 @@ sx_status_t sx_mgmt_phy_mod_pwr_attr_get(const sx_api_handle_t       handle,
  *
  * Note: Resetting the module might result in link flaps.
  * Note: PMAOS events are generated during reset functionality.
- * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E,
- * this API is disabled.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -2461,7 +2395,6 @@ sx_status_t sx_mgmt_phy_mod_pwr_attr_get(const sx_api_handle_t       handle,
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
  * @return SX_STATUS_ERROR if reset cannot be executed
  * @return SX_STATUS_PARAM_ERROR if a module parameter is invalid
- * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible
  */
 
 sx_status_t sx_mgmt_phy_mod_reset(const sx_api_handle_t  handle,
@@ -2503,7 +2436,7 @@ sx_status_t sx_api_port_device_mapping_get(const sx_api_handle_t handle,
  * @param[in] handle              - SX-API handle.
  * @param[in] cmd                 - CREATE/DESTROY
  * @param[in] params_p              - Port profile params. Ignored and can be NULL for cmd = DESTROY
- * @param[in,out] port_profile_id - Port profile ID
+ * @params[inout] port_profile_id - Port profile ID
  *
  * @return SX_STATUS_SUCCESS            If operation completes successfully
  * @return SX_STATUS_PARAM_ERROR        If any input parameters is invalid
@@ -2525,7 +2458,7 @@ sx_status_t sx_api_port_profile_set(const sx_api_handle_t           handle,
  *
  * @param[in] handle                - SX-API handle.
  * @param[in] port_profile_id       - Port profile ID
- * @param[in] params_p             - Port profile and list of ports to apply it
+ * @params[in] params_p             - Port profile and list of ports to apply it
  *
  * @return SX_STATUS_SUCCESS     If operation completes successfully
  * @return SX_STATUS_PARAM_ERROR If any input parameters is invalid
@@ -2587,9 +2520,6 @@ sx_status_t sx_api_port_remote_capability_get(const sx_api_handle_t             
  * @return SX_STATUS_MESSAGE_SIZE_EXCEEDS_LIMIT if message size exceeds limit
  * @return SX_STATUS_COMM_ERROR if client communication fails
  * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
- * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
- * @return SX_STATUS_PARAM_ERROR     if an input parameter is invalid
- * @return SX_STATUS_ERROR           general error
  */
 sx_status_t sx_api_port_state_ext_get(const sx_api_handle_t     handle,
                                       const sx_port_log_id_t    log_port,
@@ -2620,451 +2550,5 @@ sx_status_t sx_api_port_group_get(const sx_api_handle_t handle,
                                   sx_port_group_cfg_t  *port_group_cfg_list_p,
                                   uint32_t             *port_group_cfg_cnt_p,
                                   sx_port_group_attr_t *group_attr_p);
-
-/**
- * This API allows the user to set a delay to the port state change notification events for a port. The delay timer can be set in 10 ms granularity.
- * The delay timer range starts from SX_PORT_STATE_EVENT_DELAY_MIN (0) to SX_PORT_STATE_EVENT_DELAY_MAX.
- * A state change notification will be sent only after the port remains in the new state for greater than the delay time.
- * Only logical ports of types SX_PORT_TYPE_NETWORK and SX_PORT_TYPE_PROFILE are supported.
- * The delay timer's default value is set to SX_PORT_STATE_EVENT_DELAY_DEFAULT.
- * UNSET sets the timer's value back to SX_PORT_STATE_EVENT_DELAY_DEFAULT.
- *
- * Note: This API supports port profile.
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
- *
- * @param[in]   handle                - SX-API handle
- * @param[in]   cmd                   - SET/UNSET
- * @param[in]   log_port              - Logical Port ID
- * @param[in]   port_state_delay_p    - Link state change requested event delay
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_COMM_ERROR if client communication fails
- * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
- * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- * @return SX_STATUS_PARAM_NULL if a parameter is NULL
- * @return SX_STATUS_PARAM_EXCEEDS_RANGE if timeouts are out of range
- * @return SX_STATUS_CMD_UNSUPPORTED if access command is not supported.
- * @return SX_STATUS_ERROR general error.
- */
-sx_status_t sx_api_port_state_event_delay_set(const sx_api_handle_t        handle,
-                                              const sx_access_cmd_t        cmd,
-                                              const sx_port_log_id_t       log_port,
-                                              const sx_port_state_delay_t *port_state_delay_p);
-
-/**
- * This API retrieves the port state change notification delay time for a given port.
- * Only logical ports of types SX_PORT_TYPE_NETWORK and SX_PORT_TYPE_PROFILE are supported.
- *
- * Note: This API supports port profile.
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
- *
- * @param[in]   handle                - SX-API handle
- * @param[in]   log_port              - Logical Port ID
- * @param[out]  port_state_delay_p    - Port state delay
- *
- * @return SX_STATUS_SUCCESS if the operation completes successfully
- * @return SX_STATUS_COMM_ERROR if client communication fails
- * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
- * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- * @return SX_STATUS_PARAM_NULL if a parameter is NULL
- * @return SX_STATUS_ENTRY_NOT_FOUND if the requested element is not found in the DB
- * @return SX_STATUS_ERROR general error.
- */
-sx_status_t sx_api_port_state_event_delay_get(const sx_api_handle_t  handle,
-                                              const sx_port_log_id_t log_port,
-                                              sx_port_state_delay_t *port_state_delay_p);
-
-/**
- * This API retrieves the port state event delay counters.
- * The following options are available:
- * 1. Read the port state event delay counters (using SX_ACCESS_CMD_READ).
- * 2. Read and clear the port state event delay counters (using SX_ACCESS_CMD_READ_CLEAR).
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
- *
- * @param[in]   handle              - SX-API handle
- * @param[in]   cmd                 - READ/READ_CLEAR
- * @param[in]   log_port            - Logical Port ID
- * @param[out]  cntr_delay_state_p  - Port state event delay counters entry
- *
- * @return sx_status_t :
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_COMM_ERROR if client communication fails
- * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received
- * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- * @return SX_STATUS_PARAM_NULL if a parameter is NULL
- * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
- * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
- * @return SX_STATUS_ERROR general error.
- */
-sx_status_t sx_api_port_state_event_delay_counter_get(const sx_api_handle_t                 handle,
-                                                      const sx_access_cmd_t                 cmd,
-                                                      const sx_port_log_id_t                log_port,
-                                                      sx_port_state_event_delay_counters_t *cntr_delay_state_p);
-
-/**
- *  This API sets the ASIC Parser Attributes.
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
- *
- * @param[in] handle          - SX-API handle
- * @param[in] parser_attr_p     - Parser attributes
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received*/
-sx_status_t sx_api_port_parser_attr_set(const sx_api_handle_t         handle,
-                                        const sx_parser_attributes_t *parser_attr_p);
-
-/**
- * This API gets the attributes of the ASIC Parser.
- *
- * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
- *
- * @param[in] handle            - SX-API handle
- * @param[out] parser_attr_p    - Parser attributes
- *
- * @return SX_STATUS_SUCCESS if operation completes successfully
- * @return SX_STATUS_PARAM_ERROR if an input parameter is invalid
- * @return SX_STATUS_INVALID_HANDLE if a NULL handle is received*/
-sx_status_t sx_api_port_parser_attr_get(const sx_api_handle_t   handle,
-                                        sx_parser_attributes_t *parser_attr_p);
-
-/**
- * This API sets the port SerDes lane transmit parameters.
- *
- * Note: This API is enabled when module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or
- * SX_MGMT_MODULE_SUPPORT_STANDALONE_E.
- *
- * Supported devices: Spectrum3, Spectrum4.
- *
- * @param[in] handle          - SX-API handle
- * @param[in] cmd             - SET
- * @param[in] log_port        - Logical Port ID
- * @param[in] media_setting_p - Lanes list and port media settings
- *
- * @return SX_STATUS_SUCCESS         if operation completes successfully
- * @return SX_STATUS_COMM_ERROR      if client communication fails
- * @return SX_STATUS_INVALID_HANDLE  if a NULL handle is received
- * @return SX_STATUS_PARAM_ERROR     if an input parameter is invalid
- * @return SX_STATUS_PARAM_NULL      if media_setting_p is NULL
- * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
- * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible
- * @return SX_STATUS_ERROR           general error
- */
-sx_status_t sx_api_port_media_settings_set(const sx_api_handle_t     handle,
-                                           const sx_access_cmd_t     cmd,
-                                           const sx_port_log_id_t    log_port,
-                                           sx_port_media_settings_t *media_settings_p);
-
-/**
- * This API gets the port SerDes lane transmit parameters.
- *
- * Note: This API is enabled when module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or
- * SX_MGMT_MODULE_SUPPORT_STANDALONE_E.
- *
- * Supported devices: Spectrum3, Spectrum4.
- *
- * @param[in] handle              - SX-API handle
- * @param[in] cmd                 - GET
- * @param[in] log_port            - Logical Port ID
- * @param[in,out] media_setting_p - [in] Lane list, [out] Port media settings per lane.
- *
- * @return SX_STATUS_SUCCESS         if operation completes successfully
- * @return SX_STATUS_COMM_ERROR      if client communication fails
- * @return SX_STATUS_INVALID_HANDLE  if a NULL handle is received
- * @return SX_STATUS_PARAM_ERROR     if an input parameter is invalid
- * @return SX_STATUS_PARAM_NULL      if media_setting_p is NULL
- * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
- * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible
- * @return SX_STATUS_ERROR           general error
- */
-sx_status_t sx_api_port_media_settings_get(const sx_api_handle_t     handle,
-                                           const sx_access_cmd_t     cmd,
-                                           const sx_port_log_id_t    log_port,
-                                           sx_port_media_settings_t *media_settings_p);
-
-/**
- * This API sets SerDes lane transmit parameters for port list.
- *
- * Note: This API is enabled when module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or
- * SX_MGMT_MODULE_SUPPORT_STANDALONE_E.
- *
- * Supported devices: Spectrum3, Spectrum4.
- *
- * @param[in] handle                - SX-API handle
- * @param[in] cmd                   - SET
- * @param[in] log_port_list_p       - List of logical ports
- * @param[in] media_settings_list_p - Lanes list and port media settings
- * @param[in] port_cnt              - Number of logical ports
- *
- * @return SX_STATUS_SUCCESS         if operation completes successfully
- * @return SX_STATUS_COMM_ERROR      if client communication fails
- * @return SX_STATUS_INVALID_HANDLE  if a NULL handle is received
- * @return SX_STATUS_PARAM_ERROR     if an input parameter is invalid
- * @return SX_STATUS_PARAM_NULL      if a parameter is NULL
- * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
- * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible
- * @return SX_STATUS_ERROR           general error
- */
-sx_status_t sx_api_port_media_settings_bulk_set(const sx_api_handle_t     handle,
-                                                const sx_access_cmd_t     cmd,
-                                                const sx_port_log_id_t   *log_port_list_p,
-                                                sx_port_media_settings_t *media_settings_list_p,
-                                                const uint32_t            port_cnt);
-
-/**
- * This API gets SerDes lane transmit parameters for port list.
- *
- * Note: This API is enabled when module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or
- * SX_MGMT_MODULE_SUPPORT_STANDALONE_E.
- *
- * Supported devices: Spectrum3, Spectrum4.
- *
- * @param[in] handle                    - SX-API handle
- * @param[in] cmd                       - GET
- * @param[in] log_port_list_p           - List of logical ports
- * @param[in,out] media_settings_list_p - [in] Lane list, [out] Port media settings per lane.
- * @param[in] port_cnt                  - Number of logical ports
- *
- * @return SX_STATUS_SUCCESS         if operation completes successfully
- * @return SX_STATUS_COMM_ERROR      if client communication fails
- * @return SX_STATUS_INVALID_HANDLE  if a NULL handle is received
- * @return SX_STATUS_PARAM_ERROR     if an input parameter is invalid
- * @return SX_STATUS_PARAM_NULL      if a parameter is NULL
- * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
- * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible
- * @return SX_STATUS_ERROR           general error
- */
-sx_status_t sx_api_port_media_settings_bulk_get(const sx_api_handle_t     handle,
-                                                const sx_access_cmd_t     cmd,
-                                                const sx_port_log_id_t   *log_port_list_p,
-                                                sx_port_media_settings_t *media_settings_list_p,
-                                                const uint32_t            port_cnt);
-
-/**
- * This API sets the port TX signal attributes.
- * By default, TX signal is not allowed.
- * To enable transmission, both TX signal needs to be allowed and port admin state needs to be UP.
- * When TX is ready, trap ID SX_TRAP_ID_PORT_TX_READY will be raised.
- * To get the port TX ready state, use sx_api_port_state_ext_get API.
- * This API is effective only the port is connected to a SW controlled module.
- *
- * Note: This API is enabled when module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or
- * SX_MGMT_MODULE_SUPPORT_STANDALONE_E.
- *
- * Supported devices: Spectrum3, Spectrum4.
- *
- * @param[in] handle      - SX-API handle
- * @param[in] cmd         - SET/UNSET
- * @param[in] log_port    - Logical Port ID
- * @param[in] tx_signal_p - TX signal attributes
- *
- * @return SX_STATUS_SUCCESS         if operation completes successfully
- * @return SX_STATUS_COMM_ERROR      if client communication fails
- * @return SX_STATUS_INVALID_HANDLE  if a NULL handle is received
- * @return SX_STATUS_PARAM_ERROR     if an input parameter is invalid
- * @return SX_STATUS_PARAM_NULL      if tx_signal_p is NULL
- * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
- * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible
- * @return SX_STATUS_ERROR           general error
- */
-sx_status_t sx_api_port_tx_signal_set(const sx_api_handle_t  handle,
-                                      const sx_access_cmd_t  cmd,
-                                      const sx_port_log_id_t log_port,
-                                      sx_port_tx_signal_t   *tx_signal_p);
-
-/**
- * This API gets the port TX signal attributes configured.
- *
- * Note: This API is enabled when module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or
- * SX_MGMT_MODULE_SUPPORT_STANDALONE_E.
- *
- * Supported devices: Spectrum3, Spectrum4.
- *
- * @param[in]  handle      - SX-API handle
- * @param[in]  cmd         - GET
- * @param[in]  log_port    - Logical Port ID
- * @param[out] tx_signal_p - TX signal attributes
- *
- * @return SX_STATUS_SUCCESS         if operation completes successfully
- * @return SX_STATUS_COMM_ERROR      if client communication fails
- * @return SX_STATUS_INVALID_HANDLE  if a NULL handle is received
- * @return SX_STATUS_PARAM_ERROR     if an input parameter is invalid
- * @return SX_STATUS_PARAM_NULL      if tx_signal_p is NULL
- * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
- * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible
- * @return SX_STATUS_ERROR           general error
- */
-sx_status_t sx_api_port_tx_signal_attr_get(const sx_api_handle_t  handle,
-                                           const sx_access_cmd_t  cmd,
-                                           const sx_port_log_id_t log_port,
-                                           sx_port_tx_signal_t   *tx_signal_p);
-
-/**
- * This API gets the port TX signal operational state.
- *
- * API sx_api_port_tx_signal_set is effective only when the port is connected
- * to a SW controlled module. Therefore, operational state may be different from
- * the configured state when the port is connected to a FW controlled module.
- *
- * Note: This API is enabled when module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or
- * SX_MGMT_MODULE_SUPPORT_STANDALONE_E.
- *
- * Supported devices: Spectrum3, Spectrum4.
- *
- * @param[in]  handle           - SX-API handle
- * @param[in]  cmd              - GET
- * @param[in]  log_port         - Logical Port ID
- * @param[out] tx_signal_oper_p - TX signal operation state
- *
- * @return SX_STATUS_SUCCESS         if operation completes successfully
- * @return SX_STATUS_COMM_ERROR      if client communication fails
- * @return SX_STATUS_INVALID_HANDLE  if a NULL handle is received
- * @return SX_STATUS_PARAM_ERROR     if an input parameter is invalid
- * @return SX_STATUS_PARAM_NULL      if tx_signal_oper_p is NULL
- * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
- * @return SX_STATUS_CMD_UNPERMITTED if module support type is incompatible
- * @return SX_STATUS_ERROR           general error
- */
-sx_status_t sx_api_port_tx_signal_oper_get(const sx_api_handle_t     handle,
-                                           const sx_access_cmd_t     cmd,
-                                           const sx_port_log_id_t    log_port,
-                                           sx_port_tx_signal_oper_t *tx_signal_oper_p);
-
-/**
- * This API sets the port extended parameters.
- * UNSET sets default value (which equals to SX_PORT_EXT_PORT_LANE_PRECODING_INVALID_E).
- *
- * Note:
- *   - When changing precoding settings in extended parameters, the new setting will only apply
- *     after port admin state toggling (down-up).
- *   - Due to current FW limits, per-lane setting would set all lanes together, i.e., each lane
- *     setting will override all lanes' previous settings.
- *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
- *
- * @param[in] handle               - SX-API handle
- * @param[in] cmd                  - SET, UNSET - go to default values
- * @param[in] log_port             - Logical Port ID
- * @param[in] extended_params_p    - Port extended parameters
- *
- * @return SX_STATUS_SUCCESS         if operation completes successfully
- * @return SX_STATUS_COMM_ERROR      if client communication fails
- * @return SX_STATUS_INVALID_HANDLE  if a NULL handle is received
- * @return SX_STATUS_PARAM_ERROR     if an input parameter is invalid
- * @return SX_STATUS_PARAM_NULL      if extended_params_p is NULL
- * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
- * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
- * @return SX_STATUS_ERROR           general error
- */
-sx_status_t sx_api_port_ext_params_set(const sx_api_handle_t      handle,
-                                       const sx_access_cmd_t      cmd,
-                                       const sx_port_log_id_t     log_port,
-                                       sx_port_ext_port_params_t *extended_params_p);
-
-/**
- * This API gets the port extended parameters.
- *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
- *
- * @param[in] handle              - SX-API handle
- * @param[in] cmd                 - GET
- * @param[in] log_port            - Logical Port ID
- * @param[in,out] extended_params_p - Port extended parameters.
- *
- * @return SX_STATUS_SUCCESS         if operation completes successfully
- * @return SX_STATUS_COMM_ERROR      if client communication fails
- * @return SX_STATUS_INVALID_HANDLE  if a NULL handle is received
- * @return SX_STATUS_PARAM_ERROR     if an input parameter is invalid
- * @return SX_STATUS_PARAM_NULL      if extended_params_p is NULL
- * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
- * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
- * @return SX_STATUS_ERROR           general error
- */
-sx_status_t sx_api_port_ext_params_get(const sx_api_handle_t      handle,
-                                       const sx_access_cmd_t      cmd,
-                                       const sx_port_log_id_t     log_port,
-                                       sx_port_ext_port_params_t *extended_params_p);
-
-/**
- * This API sets port extended parameters for port list.
- *
- * Note:
- *   - When changing precoding settings in extended parameters, the new setting will only apply
- *     after port admin state toggling (down-up).
- *   - Due to current FW limits, per-lane setting would set all lanes together, i.e., each lane
- *     setting will override all lanes' previous settings.
- *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
- *
- * @param[in] handle                 - SX-API handle
- * @param[in] cmd                    - SET, UNSET - go to default values
- * @param[in] log_port_list_p        - List of logical ports
- * @param[in] extended_params_list_p - Port extended parameters
- * @param[in] port_cnt               - Number of logical ports
- *
- * @return SX_STATUS_SUCCESS         if operation completes successfully
- * @return SX_STATUS_COMM_ERROR      if client communication fails
- * @return SX_STATUS_INVALID_HANDLE  if a NULL handle is received
- * @return SX_STATUS_PARAM_ERROR     if an input parameter is invalid
- * @return SX_STATUS_PARAM_NULL      if a parameter is NULL
- * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
- * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
- * @return SX_STATUS_ERROR           general error
- */
-sx_status_t sx_api_port_ext_params_bulk_set(const sx_api_handle_t            handle,
-                                            const sx_access_cmd_t            cmd,
-                                            const sx_port_log_id_t          *log_port_list_p,
-                                            const sx_port_ext_port_params_t *extended_params_list_p,
-                                            const uint32_t                   port_cnt);
-
-/**
- * This API gets port extended parameters for port list.
- *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
- *
- * @param[in] handle                     - SX-API handle
- * @param[in] cmd                        - GET
- * @param[in] log_port_list_p            - List of logical ports
- * @param[in,out] extended_params_list_p - Port extended parameters.
- * @param[in] port_cnt                   - Number of logical ports
- *
- * @return SX_STATUS_SUCCESS         if operation completes successfully
- * @return SX_STATUS_COMM_ERROR      if client communication fails
- * @return SX_STATUS_INVALID_HANDLE  if a NULL handle is received
- * @return SX_STATUS_PARAM_ERROR     if an input parameter is invalid
- * @return SX_STATUS_PARAM_NULL      if a parameter is NULL
- * @return SX_STATUS_CMD_UNSUPPORTED if command is not supported
- * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
- * @return SX_STATUS_ERROR           general error
- */
-sx_status_t sx_api_port_ext_params_bulk_get(const sx_api_handle_t      handle,
-                                            const sx_access_cmd_t      cmd,
-                                            const sx_port_log_id_t    *log_port_list_p,
-                                            sx_port_ext_port_params_t *extended_params_list_p,
-                                            const uint32_t             port_cnt);
-/**
- * This API gets the port extended capability parameters.
- *
- * Supported devices: Spectrum2, Spectrum3, Spectrum4.
- *
- * @param[in] handle              - SX-API handle
- * @param[in] log_port            - Logical Port ID
- * @param[in,out] capability_p    - Port extended parameters.
- *
- * @return SX_STATUS_SUCCESS         if operation completes successfully
- * @return SX_STATUS_COMM_ERROR      if client communication fails
- * @return SX_STATUS_INVALID_HANDLE  if a NULL handle is received
- * @return SX_STATUS_PARAM_ERROR     if an input parameter is invalid
- * @return SX_STATUS_PARAM_NULL      if a parameter is NULL
- * @return SX_STATUS_ENTRY_NOT_FOUND if requested element is not found in the DB
- * @return SX_STATUS_ERROR           general error
- */
-sx_status_t sx_api_port_ext_capability_get(const sx_api_handle_t     handle,
-                                           const sx_port_log_id_t    log_port,
-                                           sx_port_ext_capability_t *capability_p);
 
 #endif /* __SX_API_PORT_H__ */

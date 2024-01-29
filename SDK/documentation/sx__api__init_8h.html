@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.6.3028</span>
+   &#160;<span id="projectnumber">4.5.4414</span>
    </div>
   </td>
  </tr>
@@ -89,8 +89,6 @@ Functions</h2></td></tr>
 <tr class="separator:ad24aa2758233109563402d1697253858"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade0336ce78fe95177dd005311e9765a8"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__init_8h.html#ade0336ce78fe95177dd005311e9765a8">sx_api_close</a> (sx_api_handle_t *handle)</td></tr>
 <tr class="separator:ade0336ce78fe95177dd005311e9765a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad38992e5ec643b1317443c7b2a9a2d72"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__init_8h.html#ad38992e5ec643b1317443c7b2a9a2d72">sx_api_device_hw_info_get</a> (const sx_api_handle_t handle, sx_device_hw_info_t *dev_hw_info_p)</td></tr>
-<tr class="separator:ad38992e5ec643b1317443c7b2a9a2d72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a520555e24b03155144e7f49a57ee6757"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__init_8h.html#a520555e24b03155144e7f49a57ee6757">sx_api_sdk_init_set</a> (const sx_api_handle_t handle, const sx_api_sx_sdk_init_t *sdk_init_params_p)</td></tr>
 <tr class="separator:a520555e24b03155144e7f49a57ee6757"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a200d512531bca70ed63b883e413d7cc5"><td class="memItemLeft" align="right" valign="top">sx_status_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sx__api__init_8h.html#a200d512531bca70ed63b883e413d7cc5">sx_api_sdk_init_params_get</a> (const sx_api_handle_t handle, sx_api_sx_sdk_init_t *sdk_init_params_p)</td></tr>
@@ -376,59 +374,6 @@ SX_STATUS_COMM_ERROR if client communication channel failed </dd></dl>
 
 </div>
 </div>
-<a id="ad38992e5ec643b1317443c7b2a9a2d72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad38992e5ec643b1317443c7b2a9a2d72">&#9670;&nbsp;</a></span>sx_api_device_hw_info_get()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sx_status_t sx_api_device_hw_info_get </td>
-          <td>(</td>
-          <td class="paramtype">const sx_api_handle_t&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">sx_device_hw_info_t *&#160;</td>
-          <td class="paramname"><em>dev_hw_info_p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This API gets device HW information.</p>
-<p>Notes:</p><ul>
-<li>In initialization flow, this API must be called prior to <a class="el" href="sx__api__init_8h.html#a520555e24b03155144e7f49a57ee6757">sx_api_sdk_init_set()</a> or any access to the FW.</li>
-<li>Returned chip-type is an aggregation of chip-type and revision. E.g.: SX_CHIP_TYPE_SPECTRUM for Spectrum-1 revision A0 and SX_CHIP_TYPE_SPECTRUM_A1 for Spectrum-1 revision A1.</li>
-<li>On status SX_STATUS_FW_INIT_FAILURE or SX_STATUS_DEVICE_UNRECOVERABLE the returned chip-type is valid.</li>
-</ul>
-<p>Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">dev_hw_info_p</td><td>- Device HW information</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>sx_status_t: </dd>
-<dd>
-SX_STATUS_SUCCESS if operation completes successfully </dd>
-<dd>
-SX_STATUS_INVALID_HANDLE if handle is invalid </dd>
-<dd>
-SX_STATUS_PARAM_NULL if parameter is NULL </dd>
-<dd>
-SX_STATUS_FW_INIT_FAILURE if secure firmware boot failure occurs. Need to actively start recovery flow process (conducting regular initialization will not address the issue). Contact NVIDIA Support for instructions. </dd>
-<dd>
-SX_STATUS_DEVICE_UNRECOVERABLE if device is in an unrecoverable state. Contact NVIDIA Support to discuss further options. </dd></dl>
-
-</div>
-</div>
 <a id="a520555e24b03155144e7f49a57ee6757"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a520555e24b03155144e7f49a57ee6757">&#9670;&nbsp;</a></span>sx_api_sdk_init_set()</h2>
 
@@ -471,11 +416,7 @@ SX_STATUS_INVALID_HANDLE if handle is invalid </dd>
 <dd>
 SX_STATUS_COMM_ERROR if there is a communication error in channel message send/receive </dd>
 <dd>
-SX_STATUS_PARAM_ERROR if no SWID was defined </dd>
-<dd>
-SX_STATUS_FW_INIT_FAILURE if secure firmware boot failure occurs. Need to actively start recovery flow process (conducting regular initialization will not address the issue). Contact NVIDIA Support for instructions. </dd>
-<dd>
-SX_STATUS_DEVICE_UNRECOVERABLE if device is in an unrecoverable state. Contact NVIDIA Support to discuss further options. </dd></dl>
+SX_STATUS_PARAM_ERROR if no SWID was defined </dd></dl>
 
 </div>
 </div>
@@ -670,7 +611,7 @@ SX_STATUS_ERROR if a general error occurs </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 17 2024 06:36:32 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 22 2024 17:03:04 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

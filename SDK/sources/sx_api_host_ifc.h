@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -108,9 +108,6 @@ sx_status_t sx_api_host_ifc_close(const sx_api_handle_t handle,
  *
  * Note: When using edit, changing a monitor trap group (attribute is_monitor equals 1) to a regular trap group and vice versa
  *   is not allowed.
- *
- * Note: This API doesn't support TAC capable Trap Groups.
- *       TAC capable Trap Groups are supported by sx_api_host_ifc_trap_group_ext_set only.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -277,17 +274,6 @@ sx_status_t sx_api_host_ifc_trap_group_iter_get(const sx_api_handle_t         ha
  *   trap_action field is ignored. Instead, the action should be configured in each module.
  * Note: Use SX_ACCESS_CMD_UNSET to set the trap ID to its default action according to the documentation.
  *   In this case, trap_attr_p->attr.trap_id_attr.trap_action is reserved. The trap ID will not attached to trap group.
- * Note:
- * The following limitations are valid for TAC capable trap groups :
- * - Trap ID can be assigned to TAC capable trap group only if this trap group is configured with SPAN session ID (sx_api_tele_tac_set() API)
- * - Events can't be assigned to TAC capable trap group
- * - SX_TRAP_ID_MIRROR_AGENT_X can't be assigned to TAC capable trap groups if EGRESS, EGRESS_ECN or EGRESS_HIGH_LATENCY
- *   triggers are mirrored by corresponding mirror session.
- *
- * sx_api_host_ifc_trap_id_ext_set() support binding Trap ID to one regular and one special (monitor or TAC) trap groups in the same time.
- * The following limitations are valid when user bind a trap to regular and TAC trap groups :
- * - In this case SDK supports double registration but doesn't support packet duplication
- *   This means that SDK will accept this configuration but the packets will arrive to regular trap group only
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
