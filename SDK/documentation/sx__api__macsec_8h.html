@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">NVIDIA Ethernet Switch SDK API Guide
-   &#160;<span id="projectnumber">4.5.4414</span>
+   &#160;<span id="projectnumber">4.6.2202</span>
    </div>
   </td>
  </tr>
@@ -384,7 +384,7 @@ SX_STATUS_ERROR in case of general error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API enables MACsec on a logical port. Supported devices: Spectrum2, Spectrum3, Spectrum4 Note - Spectrum2 and Spectrum3 requires additional MACSec capable gearbox to support MACsec functionality.</p>
+<p>This API enables MACsec on a logical port. Supported devices: Spectrum2, Spectrum3, Spectrum4 Note - Spectrum2 and Spectrum3 requires additional MACSec capable gearbox to support MACsec functionality. Spectrum4 based switches with Abir gearbox allows MACsec functionality only on ports with speed 400G or on two split ports each with speed 200G.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -488,7 +488,7 @@ SX_STATUS_RESOURCE_IN_USE if there are flows associated to the port. </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API retrieves MACsec capability of a logical port. Supported devices: Spectrum2, Spectrum3, Spectrum4. Note - Spectrum2 and Spectrum3 requires additional MACSec capable gearbox to support MACsec functionality.</p>
+<p>This API retrieves MACsec capability of a logical port. Supported devices: Spectrum2, Spectrum3, Spectrum4. Note - Spectrum2 and Spectrum3 requires additional MACSec capable gearbox to support MACsec functionality. Spectrum4 based switches with Abir gearbox allows MACsec functionality only on ports with speed 400G or on two split ports each with speed 200G.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1224,7 +1224,7 @@ SX_STATUS_ERROR: General error </dd></dl>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>This API configures MACSEC events operation. Events configured with Trap operation will be reported as part of SX_TRAP_ID_UTFD event. Supported devices: Spectrum4, systems with MACSEC capable gearbox</p>
+<p>This API configures MACSEC events operation. Events configured with Trap operation will be reported as part of SX_TRAP_ID_UTFD event. Events mentioned below have restrictions with respect to the events that they support - SX_MACSEC_EVENT_INGRESS_MTU_E - supports only DISCARD SX_MACSEC_EVENT_ENCRYPT_ERROR_E - supports DISCARD and TRAP_DISCARD Supported devices: Spectrum4, systems with MACSEC capable gearbox</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">handle</td><td>- SX-API handle </td></tr>
@@ -1435,7 +1435,7 @@ SX_STATUS_INVALID_HANDLE if called Invalid Handle </dd></dl>
 <!-- HTML footer for doxygen 1.8.16-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 22 2024 17:03:04 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 29 2024 20:27:05 for NVIDIA Ethernet Switch SDK API Guide by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.16
 </small></address>

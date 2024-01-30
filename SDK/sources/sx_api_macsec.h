@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -110,6 +110,8 @@ sx_status_t sx_api_macsec_init_params_get(const sx_api_handle_t handle, sx_macse
  * This API enables MACsec on a logical port.
  * Supported devices: Spectrum2, Spectrum3, Spectrum4
  * Note - Spectrum2 and Spectrum3 requires additional MACSec capable gearbox to support MACsec functionality.
+ * Spectrum4 based switches with Abir gearbox allows MACsec functionality only on ports with speed 400G or on
+ * two split ports each with speed 200G.
  *
  * @param[in] handle - SX-API handle
  * @param[in] log_port - Logical Port ID
@@ -152,6 +154,8 @@ sx_status_t sx_api_macsec_port_deinit(const sx_api_handle_t handle, const sx_por
  * This API retrieves MACsec capability of a logical port.
  * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  * Note - Spectrum2 and Spectrum3 requires additional MACSec capable gearbox to support MACsec functionality.
+ * Spectrum4 based switches with Abir gearbox allows MACsec functionality only on ports with speed 400G or on
+ * two split ports each with speed 200G.
  *
  * @param[in] handle - SX-API handle
  * @param[in] log_port - Logical Port ID
@@ -432,6 +436,9 @@ sx_status_t sx_api_macsec_counters_get(const sx_api_handle_t          handle,
 /**
  * This API configures MACSEC events operation.
  * Events configured with Trap operation will be reported as part of SX_TRAP_ID_UTFD event.
+ * Events mentioned below have restrictions with respect to the events that they support -
+ * SX_MACSEC_EVENT_INGRESS_MTU_E - supports only DISCARD
+ * SX_MACSEC_EVENT_ENCRYPT_ERROR_E - supports DISCARD and TRAP_DISCARD
  * Supported devices: Spectrum4, systems with MACSEC capable gearbox
  *
  * @param[in] handle - SX-API handle

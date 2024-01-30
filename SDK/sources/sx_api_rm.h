@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -121,6 +121,9 @@ sx_status_t sx_api_rm_hw_table_thresholds_get(const sx_api_handle_t        handl
  *
  * Note: Configuration is allowed at system init before any entries are added to the KVD.
  * Note: Not all entry types support duplication.
+ * Note: RM_SDK_TABLE_TYPE_FIB_IPV6_UC_E, RM_SDK_TABLE_TYPE_FIB_IPV6_SHORT_UC_E and RM_SDK_TABLE_TYPE_FIB_IPV6_LONG_UC_E
+ *       have the same replication settings. The configuration applied to one type will be automatically applied to the
+ *       other two types as well.
  *
  * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *

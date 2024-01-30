@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014-2022 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
+ * Copyright (C) 2014-2023 NVIDIA CORPORATION & AFFILIATES, Ltd. ALL RIGHTS RESERVED.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -538,7 +538,7 @@ sx_status_t sx_api_acl_policy_based_switching_iter_get(const sx_api_handle_t    
                                                        sx_acl_pbs_id_t           *pbs_id_list_p,
                                                        uint32_t                  *pbs_id_cnt_p);
 
-/***
+/**
  * This API adds/edits/deletes a Layer 4 port range comparison set (up to SX_ACL_MAX_PORT_RANGES).
  *
  * ADD command is used to create a new range ID from the supplied port range.
@@ -629,13 +629,15 @@ sx_status_t sx_api_acl_l4_port_range_iter_get(const sx_api_handle_t             
 
 /**
  * This API adds/edits/deletes a range comparison set (up to SX_ACL_MAX_PORT_RANGES).
- * Supported range comparisons: L4 Port, IP length, TTL, Custom Bytes, and UTC.
+ * Supported range comparisons: L4 Port, IP length, TTL, Custom Bytes, UTC, PORT_USER_MEM, and PRBS.
+ * Supported match types: RANGE and EXACT MATCH.
  *
  * ADD command is used to write given range into a group and have their IDs returned.
  * EDIT command is used to set the given range into a given range ID.
  * DELETE command is used to clear the configuration of a given range ID.
  *
- * Note: SX_ACL_PORT_RANGE_IP_HEADER_BOTH option for IP header type is not supported on Spectrum2 and Spectrum3 systems.
+ * Note: SX_ACL_PORT_RANGE_IP_HEADER_BOTH_E option for IP header type is not supported on Spectrum2 and Spectrum3 systems.
+ * Note: SX_ACL_RANGE_MATCH_TYPE_EXACT_E match type is only supported on Spectrum4 and above
  * Note: At a given time, no more than 2 Custom Bytes ranges can be used.
  *
  * Supported devices: Spectrum2, Spectrum3, Spectrum4.
@@ -687,6 +689,7 @@ sx_status_t sx_api_acl_range_get(const sx_api_handle_t        handle,
  * This API is used for getting and/or clearing the activity of a specific rule.
  *
  * Note: If the region is not bound, activity_p is invalid.
+ * Note: [Spectrum2 and above] SX_ACL_DEFAULT_ACTION_OFFSET can be used to retrieve the information about the default action.
  *
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -1109,6 +1112,7 @@ sx_status_t sx_api_acl_flex_rules_set(const sx_api_handle_t          handle,
  * items. Upon API return, these parameters will contain actual number of items. The offset list should contain offsets of
  * valid rules only.
  *
+ * Note: [Spectrum2 and above] SX_ACL_DEFAULT_ACTION_OFFSET can be used to retrieve the information about the default action.
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                - SX-API handle
@@ -1472,6 +1476,8 @@ sx_status_t sx_api_acl_flex_rules_priority_set(const sx_api_handle_t            
  * If entry_cnt in trap event is 0, means it's the end of this notification procedure.
  * If DDD is enabled, region id filtering is not allowed. In this case,
  * will return SX_STATUS_PARAM_ERROR if filter_by_region_id is valid in activity_attr_p.
+ * Note: The default ACL action isn't supported when filtering by region id.
+ *
  * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle            - SX-API handle
@@ -1486,5 +1492,232 @@ sx_status_t sx_api_acl_flex_rules_priority_set(const sx_api_handle_t            
 sx_status_t sx_api_acl_activity_notify(const sx_api_handle_t                     handle,
                                        const sx_access_cmd_t                     cmd,
                                        const sx_flex_acl_activity_notify_attr_t *activity_attr_p);
+
+/**
+ * This API creates/destroys a rule intended to be used by the Rule Based Binding (RBB) mechanism.
+ * Note: Destroying a rule used in binding will implicitly unbind it first.
+ *
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ *
+ * @param[in] handle           - SX-API handle
+ * @param[in] cmd              - CREATE/DESTROY
+ * @param[in] rules_id_list_p  - Pointer to RBB rules to create/destroy
+ * @param[in] rules_id_cnt     - Number of RBB rules to create/destroy
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if the pointer to the list is NULL
+ * @return SX_STATUS_CMD_UNSUPPORTED if the command is not supported
+ * @return SX_STATUS_ERROR general error
+ */
+
+sx_status_t sx_api_acl_rbb_rules_set(const sx_api_handle_t       handle,
+                                     const sx_access_cmd_t       cmd,
+                                     const sx_acl_rbb_rule_id_t *rules_id_list_p,
+                                     const uint32_t              rules_id_cnt);
+
+/**
+ * This API adds/deletes a list of logical ports to a Rule Based Binding (RBB) group.
+ * The group can be used as part of the RBB classifier to specify the ports to apply the rule on.
+ * Only network ports are supported (LAG is not supported).
+ * Only the egress port RBB direction can utilize port groups.
+ *
+ * A port can belong to one group only.
+ *
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ *
+ * @param[in] handle                - SX-API handle
+ * @param[in] cmd                   - ADD/DELETE
+ * @param[in] rbb_ports_group_cfg_p - Pointer to the configuration to set, for which:
+ *            [in] direction        - RBB direction for the group (currently only EGRESS is supported)
+ *            [in] port_group       - The port group to add/remove the ports to/from
+ *            [in] port_list_p      - The logical ports to add/remove to/from the group
+ *            [in] port_list_cnt    - The logical port count in the list
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if the pointer to the list is NULL
+ * @return SX_STATUS_CMD_UNSUPPORTED if the command is not supported
+ * @return SX_STATUS_ERROR general error
+ */
+
+sx_status_t sx_api_acl_rbb_ports_group_set(const sx_api_handle_t               handle,
+                                           const sx_access_cmd_t               cmd,
+                                           const sx_acl_rbb_ports_group_cfg_t *rbb_ports_group_cfg_p);
+
+/**
+ * This API retrieves the list of logical ports from a Rule Based Binding (RBB) group.
+ *
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ *
+ * @param[in] handle                       - SX-API handle
+ * @param[in] cmd                          - GET
+ * @param[in,out] rbb_ports_group_cfg_p    - Pointer to the configuration to get, for which:
+ *                [in] direction           - RBB direction for the group (currently only EGRESS is supported)
+ *                [in] port_group          - The port group to retrieve
+ *                [out] port_list_p        - Pointer to the ports to retrieve. If NULL, the total number of ports in the group is returned in port_list_cnt_p.
+ *                [in,out] port_list_cnt   - IN: The list length. If zero, the total number of ports in the group is returned.
+ *                                           OUT: The actual number of ports retrieved.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if the pointer to the list count is NULL
+ * @return SX_STATUS_CMD_UNSUPPORTED if the command is not supported
+ * @return SX_STATUS_ERROR general error
+ */
+
+sx_status_t sx_api_acl_rbb_ports_group_get(const sx_api_handle_t         handle,
+                                           const sx_access_cmd_t         cmd,
+                                           sx_acl_rbb_ports_group_cfg_t *rbb_ports_group_cfg_p);
+
+/**
+ * This API adds/deletes a list of RIFs to a Rule Based Binding (RBB) group.
+ * The group can be used as part of the RBB classifier to specify the RIFs to apply the rule on.
+ * The ingress RIF and egress RIF RBB directions can be used.
+ * A RIF can belong to one group per direction only.
+ *
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ *
+ * @param[in] handle               - SX-API handle
+ * @param[in] cmd                  - ADD/DELETE
+ * @param[in] rbb_rifs_group_cfg_p - Pointer to the configuration to set, for which:
+ *            [in] direction       - RBB direction for the group RIF_INGRESS/RIF_EGRESS
+ *            [in] rif_group       - The rif group to add/remove the rifs to/from
+ *            [in] rif_list_p      - The rifs to add/remove to/from the group
+ *            [in] rif_list_cnt    - The rif count in the list
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if the pointer to the list is NULL
+ * @return SX_STATUS_CMD_UNSUPPORTED if the command is not supported
+ * @return SX_STATUS_ERROR general error
+ */
+
+sx_status_t sx_api_acl_rbb_rifs_group_set(const sx_api_handle_t              handle,
+                                          const sx_access_cmd_t              cmd,
+                                          const sx_acl_rbb_rifs_group_cfg_t *rbb_rifs_group_cfg_p);
+
+/**
+ * This API retrieves the list of rifs from a Rule Based Binding (RBB) group.
+ *
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ *
+ * @param[in] handle                      - SX-API handle
+ * @param[in] cmd                         - GET
+ * @param[in,out] rbb_rifs_group_cfg_p    - Pointer to the configuration to get, for which:
+ *                 [in] direction          - RBB direction for the group
+ *                 [in] rif_group          - The rif group to retrieve
+ *                 [out] rif_list_p        - Pointer to the rifs to retrieved. If NULL, the total number of rifs in the group is returned in rif_list_cnt_p.
+ *                 [in,out] rif_list_cnt   - IN: The list length. If zero, the total number of ports in the group is returned.
+ *                                          OUT: The actual number of ports retrieved.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if the pointer to the list count is NULL
+ * @return SX_STATUS_CMD_UNSUPPORTED if the command is not supported
+ * @return SX_STATUS_ERROR general error
+ */
+
+sx_status_t sx_api_acl_rbb_rifs_group_get(const sx_api_handle_t        handle,
+                                          const sx_access_cmd_t        cmd,
+                                          sx_acl_rbb_rifs_group_cfg_t *rbb_rifs_group_cfg_p);
+
+/**
+ * This API binds/unbinds an ACL group using a rule via the Rule Based Binding (RBB) mechanism.
+ * A classifier is used to specify which kind of traffic the rule and its binding applies to.
+ * NOTE: It's possible to bind a rule again with different classifier and group without unbinding it first.
+ *
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ *
+ * @param[in] handle            - SX-API handle
+ * @param[in] cmd               - BIND/UNBIND
+ * @param[in] rules_id          - The RBB rule to apply the classifier
+ * @param[in] classifier_attr_p - The classifier attributes to be used
+ * @param[in] group_id          - The ACL group id to bind/unbind to the rule
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if the pointer to the classifier is null
+ * @return SX_STATUS_CMD_UNSUPPORTED if the command is not supported
+ * @return SX_STATUS_ERROR general error
+ */
+
+sx_status_t sx_api_acl_rbb_bind_set(const sx_api_handle_t               handle,
+                                    const sx_access_cmd_t               cmd,
+                                    const sx_acl_rbb_rule_id_t          rule_id,
+                                    const sx_acl_rbb_classifier_attr_t *classifier_attr_p,
+                                    const sx_acl_id_t                   group_id);
+
+/**
+ * This API returns the ACL group and classifier attributes of Rule Based Binding (RBB) rule.
+ *
+ * Supported devices: Spectrum2, Spectrum3, Spectrum4.
+ *
+ * @param[in] handle             - SX-API handle
+ * @param[in] cmd                - GET
+ * @param[in] rules_id           - The RBB rule to get
+ * @param[out] classifier_attr_p - The classifier attributes used by the rule
+ * @param[out] group_id          - The ACL group id the rule binds to. The group's direction must match rule's direction.
+ *
+ * @return SX_STATUS_SUCCESS if operation completes successfully
+ * @return SX_STATUS_PARAM_ERROR if parameter is invalid
+ * @return SX_STATUS_PARAM_NULL if the pointer to the classifier or group id is NULL
+ * @return SX_STATUS_CMD_UNSUPPORTED if the command is not supported
+ * @return SX_STATUS_ERROR general error
+ */
+
+sx_status_t sx_api_acl_rbb_bind_get(const sx_api_handle_t         handle,
+                                    const sx_access_cmd_t         cmd,
+                                    const sx_acl_rbb_rule_id_t    rule_id,
+                                    sx_acl_rbb_classifier_attr_t *classifier_attr_p,
+                                    sx_acl_id_t                  *group_id_p);
+
+
+/**
+ * This API is used to set the actions to be performed when no rules are matched in a region.
+ *
+ * If the user does not explicitly set a default action(s) for a region a NOP (no operation) action will be used.
+ * Using the UNSET command will also revert the default action of the region to NOP.
+ * Setting the default action is only possible after the region is associated with an ACL.
+ * The default ACL action of the region is reverted to NOP when the associated ACL is removed/unbound.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ *
+ * @param[in] handle               - SX-API handle
+ * @param[in] cmd                  - SET/UNSET
+ * @param[in] region_id            - ACL region ID
+ * @param[in] default_action_cfg_p - Pointer to the list of actions to be performed.
+ *
+ * @return SX_STATUS_SUCCESS                                       Operation completed successfully
+ * @return SX_STATUS_PARAM_NULL                                    If the pointer to the default action config is NULL
+ * @return SX_STATUS_ENTRY_NOT_FOUND                               Region does not exist
+ * @return SX_STATUS_PARAM_ERROR or SX_STATUS_PARAM_EXCEEDS_RANGE  Actions' parameters are invalid
+ */
+sx_status_t sx_api_acl_flex_default_action_set(const sx_api_handle_t              handle,
+                                               const sx_access_cmd_t              cmd,
+                                               const sx_acl_region_id_t           region_id,
+                                               const sx_acl_default_action_cfg_t *default_action_cfg_p);
+
+/**
+ * This API returns the default actions to be performed when no rules are matched in a region.
+ *
+ * If no default action was set for the specified region the returned action count will be zero.
+ *
+ * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
+ *
+ * @param[in] handle               - SX-API handle
+ * @param[in] cmd                  - GET
+ * @param[in] region_id            - ACL region ID
+ * @param[in] default_action_cfg_p - Pointer to the list of actions to be filled.
+ *
+ * @return SX_STATUS_SUCCESS                                       Operation completed successfully
+ * @return SX_STATUS_PARAM_NULL                                    If the pointer to the default action config is NULL
+ * @return SX_STATUS_ENTRY_NOT_FOUND                               Region does not exist
+ * @return SX_STATUS_ERROR                                         General error
+ */
+sx_status_t sx_api_acl_flex_default_action_get(const sx_api_handle_t        handle,
+                                               const sx_access_cmd_t        cmd,
+                                               const sx_acl_region_id_t     region_id,
+                                               sx_acl_default_action_cfg_t *default_action_cfg_p);
 
 #endif /* ifndef __SX_API_ACL_H__ */
