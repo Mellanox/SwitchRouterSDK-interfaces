@@ -209,7 +209,8 @@ sx_status_t sx_mgmt_phy_module_split_get(const sx_api_handle_t                  
  * This API retrieves the module information based on the slot ID & module ID.
  * Note - Pre-allocated memory needs to be provided for module_info_list_p with module_list_size entities
  * for SDK to fill in the details.
- * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.
+ * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E,
+ * this API is disabled.
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
  * @param[in] handle                        - SX-API handle
@@ -273,7 +274,7 @@ sx_status_t sx_mgmt_system_info_get(const sx_api_handle_t       handle,
  * This API set the temperature events configuration
  * based on the slot ID and sensor ID.
  * Note: list of sensor IDs can be obtained by using sx_mgmt_slot_info_get API.
- * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E,
+ * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E,
  *   this API is disabled for module sensor IDs.
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -305,7 +306,7 @@ sx_status_t sx_mgmt_temp_sensor_set(const sx_api_handle_t handle,
  * based on the slot ID and sensor ID.
  * READ_CLEAR command will read and clear max_temp.
  * Note: list of sensor IDs can be obtained by using sx_mgmt_slot_info_get API.
- * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E,
+ * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E,
  *   this API is disabled for module sensor IDs.
  * Supported devices: Spectrum, Spectrum2, Spectrum3, Spectrum4.
  *
@@ -334,7 +335,8 @@ sx_status_t sx_mgmt_temp_sensor_get(const sx_api_handle_t       handle,
 /**
  * This API returns Physical Medium Depended (PMD) types which are enabled by user and
  * all the PMD types which are supported by module
- * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.
+ * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E,
+ * this API is disabled.
  *
  * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
@@ -362,7 +364,8 @@ sx_status_t sx_mgmt_phy_module_capability_get(const sx_api_handle_t             
  * By default all types are enabled, hence this API allows user to
  * limit the set of supported module types.
  *
- * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.
+ * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E,
+ * this API is disabled.
  *
  * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
@@ -382,7 +385,8 @@ sx_status_t sx_mgmt_phy_module_admin_type_set(const sx_api_handle_t             
 
 /**
  * This API gets the operational Physical Medium Dependent (PMD) type.
- * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.
+ * Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E,
+ * this API is disabled.
  *
  * Supported devices: Spectrum2, Spectrum3, Spectrum4.
  *
@@ -416,7 +420,8 @@ sx_status_t sx_mgmt_phy_module_oper_type_get(const sx_api_handle_t           han
  *  All ports associated with the module should be admin disabled before changing power
  *  attributes.
  *  This API does not support changing the power attributes of backplane module.
- *  Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.
+ *  Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E,
+ *  this API is disabled.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] cmd              - command.
@@ -443,7 +448,8 @@ sx_status_t sx_mgmt_phy_module_pwr_attr_set(const sx_api_handle_t             ha
  *
  *  Note - When module is not plugged in, this API returns the operational power mode and admin power mode
  *  as SX_MGMT_PHY_MOD_PWR_MODE_INVALID_E.
- *  Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.
+ *  Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E,
+ *  this API is disabled.
  *
  * @param[in] handle            - SX-API handle
  * @param[in] module_id_info_p  - module info
@@ -469,7 +475,8 @@ sx_status_t sx_mgmt_phy_module_pwr_attr_get(const sx_api_handle_t           hand
  *  Module reset can only be executed on plugged and enabled modules. Modules
  *  are enabled by default or internally enabled by SDK when associated port admin
  *  is enabled.
- *  Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E, this API is disabled.
+ *  Note: When module support type is SX_MGMT_MODULE_SUPPORT_INDEPENDENT_E or SX_MGMT_MODULE_SUPPORT_STANDALONE_E,
+ *  this API is disabled.
  *
  * @param[in] handle           - SX-API handle
  * @param[in] module_id_info_p - module ID Information
